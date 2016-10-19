@@ -1,36 +1,22 @@
 //
-//  AppDelegate.m
+//  PS_Core.mm
 //  PedalStack
 //
 //  Created by Lipstick on 10/10/16.
 //  Copyright (c) 2016 Deepak Chennakkadan. All rights reserved.
 //
 
-#import "AppDelegate.h"
-#import <AudioUnit/AudioUnitParameters.h>
-#import <AudioUnit/AudioUnitProperties.h>
+#import "PS_Core.h"
 
-
-#include <iostream>
-
-#define L_HZ 440
-#define R_HZ 1760
-#define BPM 120
-
-@interface AppDelegate ()
+@interface PS_Core ()
 
 @end
 
-@implementation AppDelegate
+@implementation PS_Core
 
-- (void)awakeFromNib
+- (void) awakeFromNib
 {
     [self initializeGraph];
-}
-
-
-- (IBAction)test:(id)sender
-{
 }
 
 - (void) initializeGraph
@@ -76,7 +62,6 @@
     renderObj.inputProc = &renderInput;
     //renderObj.inputProcRefCon = &modules;
     
-    
     result = AudioUnitSetProperty(output,
                                   kAudioUnitProperty_SetRenderCallback,
                                   kAudioUnitScope_Input,
@@ -116,8 +101,8 @@ OSStatus renderInput(void *inRefCon,
                      AudioBufferList *ioData)
 {
     
-    /*
-     float *outA = (float*)ioData->mBuffers[0].mData;
+    
+    float *outA = (float*)ioData->mBuffers[0].mData;
     float *outB = (float*)ioData->mBuffers[1].mData;
     
     for(unsigned i = 0; i < inNumberFrames; i++)
@@ -126,7 +111,7 @@ OSStatus renderInput(void *inRefCon,
         outA[i] = tone;
         outB[i] = tone;
     }
-    */
+    
     
     
     return noErr;

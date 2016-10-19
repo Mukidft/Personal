@@ -1,28 +1,22 @@
 //
-//  AppDelegate.h
+//  PS_Core.h
 //  PedalStack
 //
 //  Created by Lipstick on 10/10/16.
 //  Copyright (c) 2016 Deepak Chennakkadan. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
-#import <CoreAudio/CoreAudio.h>
-#import <AudioToolbox/AudioToolbox.h>
+#include "PS_Headers.h"
 
-
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface PS_Core : NSObject <NSApplicationDelegate>
 {
     AUGraph mGraph;
     AudioUnit output;
     AudioComponentDescription mCompDesc;
     AudioStreamBasicDescription mStreamDesc;
-    
-    IBOutlet NSWindow *window;
-    IBOutlet NSButton* button;
 }
 
-- (IBAction)test:(id)sender;
+- (void) initializeGraph;
 
 @end
 

@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE0F5B6B1DAC22B800B77B6E /* UIManager.mm  in Sources */ = {isa = PBXBuildFile; fileRef = CE0F5B6A1DAC22B800B77B6E /* UIManager.mm  */; };
-		CE87269E1DAC1C2400D43377 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE87269D1DAC1C2400D43377 /* AppDelegate.mm */; };
 		CE8726A01DAC1C2400D43377 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE87269F1DAC1C2400D43377 /* main.m */; };
 		CE8726A21DAC1C2400D43377 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE8726A11DAC1C2400D43377 /* Images.xcassets */; };
 		CE8726A51DAC1C2400D43377 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE8726A31DAC1C2400D43377 /* MainMenu.xib */; };
 		CE8726B11DAC1C2400D43377 /* PedalStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8726B01DAC1C2400D43377 /* PedalStackTests.m */; };
 		CEE0D5EE1DAEB4F0003C1BB3 /* Change.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE0D5ED1DAEB4F0003C1BB3 /* Change.xib */; };
 		CEE0D5F01DAEBB3F003C1BB3 /* DistortionIII-11.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE0D5EF1DAEBB3F003C1BB3 /* DistortionIII-11.png */; };
+		CEEF68671DB7F6CE00EA21D7 /* PS_Core.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEEF68641DB7F6CE00EA21D7 /* PS_Core.mm */; };
+		CEEF686C1DB7F8C900EA21D7 /* PS_UI_Manager.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEEF686B1DB7F8C900EA21D7 /* PS_UI_Manager.mm */; };
 		CEFB29A81DAC1FB7009AF2F7 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFB29A71DAC1FB7009AF2F7 /* AppKit.framework */; };
 		CEFB29AE1DAC1FD1009AF2F7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFB29A91DAC1FD1009AF2F7 /* AudioToolbox.framework */; };
 		CEFB29AF1DAC1FD1009AF2F7 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFB29AA1DAC1FD1009AF2F7 /* AudioUnit.framework */; };
@@ -34,12 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CE0F5B6A1DAC22B800B77B6E /* UIManager.mm  */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = "UIManager.mm "; sourceTree = "<group>"; };
-		CE0F5B6C1DAC22E700B77B6E /* UIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIManager.h; sourceTree = "<group>"; };
 		CE8726971DAC1C2400D43377 /* PedalStack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PedalStack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE87269B1DAC1C2400D43377 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE87269C1DAC1C2400D43377 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		CE87269D1DAC1C2400D43377 /* AppDelegate.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		CE87269F1DAC1C2400D43377 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CE8726A11DAC1C2400D43377 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CE8726A41DAC1C2400D43377 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -48,6 +44,11 @@
 		CE8726B01DAC1C2400D43377 /* PedalStackTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PedalStackTests.m; sourceTree = "<group>"; };
 		CEE0D5ED1DAEB4F0003C1BB3 /* Change.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Change.xib; sourceTree = "<group>"; };
 		CEE0D5EF1DAEBB3F003C1BB3 /* DistortionIII-11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "DistortionIII-11.png"; path = "../../../../../../../lipstick/Downloads/DistortionIII-11.png"; sourceTree = "<group>"; };
+		CEEF68631DB7F6CE00EA21D7 /* PS_Core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PS_Core.h; sourceTree = "<group>"; };
+		CEEF68641DB7F6CE00EA21D7 /* PS_Core.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PS_Core.mm; sourceTree = "<group>"; };
+		CEEF68651DB7F6CE00EA21D7 /* PS_UI_Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PS_UI_Manager.h; sourceTree = "<group>"; };
+		CEEF68691DB7F77000EA21D7 /* PS_Headers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PS_Headers.h; sourceTree = "<group>"; };
+		CEEF686B1DB7F8C900EA21D7 /* PS_UI_Manager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PS_UI_Manager.mm; sourceTree = "<group>"; };
 		CEFB29A71DAC1FB7009AF2F7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		CEFB29A91DAC1FD1009AF2F7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		CEFB29AA1DAC1FD1009AF2F7 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
@@ -83,8 +84,8 @@
 		CE0F5B6D1DAC233600B77B6E /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				CE87269D1DAC1C2400D43377 /* AppDelegate.mm */,
-				CE87269C1DAC1C2400D43377 /* AppDelegate.h */,
+				CEEF68631DB7F6CE00EA21D7 /* PS_Core.h */,
+				CEEF68641DB7F6CE00EA21D7 /* PS_Core.mm */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -92,8 +93,8 @@
 		CE0F5B6E1DAC234800B77B6E /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				CE0F5B6A1DAC22B800B77B6E /* UIManager.mm  */,
-				CE0F5B6C1DAC22E700B77B6E /* UIManager.h */,
+				CEEF68651DB7F6CE00EA21D7 /* PS_UI_Manager.h */,
+				CEEF686B1DB7F8C900EA21D7 /* PS_UI_Manager.mm */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -124,6 +125,7 @@
 			children = (
 				CE0F5B6D1DAC233600B77B6E /* Main */,
 				CE0F5B6E1DAC234800B77B6E /* UI */,
+				CEEF686A1DB7F77600EA21D7 /* Utils */,
 			);
 			path = PedalStack;
 			sourceTree = "<group>";
@@ -161,6 +163,14 @@
 				CEE0D5EF1DAEBB3F003C1BB3 /* DistortionIII-11.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		CEEF686A1DB7F77600EA21D7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CEEF68691DB7F77000EA21D7 /* PS_Headers.h */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		CEFB29A61DAC1F48009AF2F7 /* UI */ = {
@@ -289,9 +299,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEEF686C1DB7F8C900EA21D7 /* PS_UI_Manager.mm in Sources */,
 				CE8726A01DAC1C2400D43377 /* main.m in Sources */,
-				CE87269E1DAC1C2400D43377 /* AppDelegate.mm in Sources */,
-				CE0F5B6B1DAC22B800B77B6E /* UIManager.mm  in Sources */,
+				CEEF68671DB7F6CE00EA21D7 /* PS_Core.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
