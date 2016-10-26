@@ -14,6 +14,10 @@
     AudioUnit output;
     AudioComponentDescription mCompDesc;
     AudioStreamBasicDescription mStreamDesc;
+    
+    vector<PS_Effects*> mEffects;
+    vector<UInt32> mEffectIDs;
+    
 }
 
 - (void) initializeGraph;

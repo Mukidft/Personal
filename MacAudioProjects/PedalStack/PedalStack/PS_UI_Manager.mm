@@ -9,10 +9,6 @@
 #import "PS_UI_Manager.h"
 #import "PS_Core.h"
 
-@interface PS_UI_Manager ()
-
-@end
-
 @implementation PS_UI_Manager
 
 - (void) awakeFromNib
@@ -21,6 +17,7 @@
 
 - (IBAction)test:(id)sender
 {
+    
 }
 
 @end

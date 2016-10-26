@@ -8,10 +8,6 @@
 
 #import "PS_Core.h"
 
-@interface PS_Core ()
-
-@end
-
 @implementation PS_Core
 
 - (void) awakeFromNib
@@ -27,11 +23,11 @@
     
     AUNode outputNode;
     
-    mCompDesc.componentType = kAudioUnitType_Output;
-    mCompDesc.componentSubType = kAudioUnitSubType_DefaultOutput;
-    mCompDesc.componentManufacturer = kAudioUnitManufacturer_Apple;
-    mCompDesc.componentFlagsMask = 0;
-    mCompDesc.componentFlags = 0;
+    // Initialize Base Effects
+    mEffectIDs = {kAudioUnitSubType_BandPassFilter, kAudioUnitSubType_Delay};
+    
+    // Store Output Description and add the node
+    mCompDesc = {kAudioUnitType_Output, kAudioUnitSubType_HALOutput, kAudioUnitManufacturer_Apple, 0, 0};
     
     result = AUGraphAddNode(mGraph, &mCompDesc, &outputNode);
     
@@ -41,6 +37,29 @@
         return;
     }
     
+    for(UInt32 effectID : mEffectIDs)
+    {
+        PS_Effects *NewEffect = new PS_Effects(effectID, mGraph, outputNode);
+        mEffects.push_back(NewEffect);
+    }
+    
+    if(mEffects.size() == 1)
+        mEffects[0]->ConnectEffectIO(mEffects[0]->GetEffectNode(), outputNode);
+    else
+    {
+        for(int i = 0; i < mEffects.size(); ++i)
+        {
+            if(i == mEffects.size() - 1)
+            {
+                mEffects[i]->ConnectEffectIO(mEffects[i]->GetEffectNode(), outputNode);
+                break;
+            }
+                
+            mEffects[i]->ConnectEffectIO(mEffects[i]->GetEffectNode(), mEffects[i + 1]->GetEffectNode());
+        }
+    }
+                                
+    // Open The Graph
     result = AUGraphOpen(mGraph);
     
     if (result)
@@ -56,18 +75,24 @@
         return;
     }
     
+    // Get The Node Info
+    for(PS_Effects *effect : mEffects)
+        effect->GetEffectInfo();
+    
     UInt32 size;
     
     AURenderCallbackStruct renderObj;
     renderObj.inputProc = &renderInput;
     //renderObj.inputProcRefCon = &modules;
     
-    result = AudioUnitSetProperty(output,
+    
+    result = AudioUnitSetProperty(mEffects[0]->GetEffectAU(),
                                   kAudioUnitProperty_SetRenderCallback,
                                   kAudioUnitScope_Input,
                                   0,
                                   &renderObj,
                                   sizeof(renderObj) );
+    
     
     size = sizeof(mStreamDesc);
     result = AudioUnitGetProperty(output,
@@ -107,7 +132,7 @@ OSStatus renderInput(void *inRefCon,
     
     for(unsigned i = 0; i < inNumberFrames; i++)
     {
-        float tone = sin(2 * M_PI * (440.0f) * (inTimeStamp->mSampleTime + i)/ 44100.0f);
+        float tone = (float)drand48() * 2.0 - 1.0;;
         outA[i] = tone;
         outB[i] = tone;
     }

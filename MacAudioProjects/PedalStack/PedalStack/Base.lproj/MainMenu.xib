@@ -719,11 +719,11 @@
                         <tabViewItems>
                             <tabViewItem label="Pedals" identifier="1" id="qj1-f4-vqw">
                                 <view key="view" ambiguous="YES" id="ymk-Hd-4vb">
-                                    <rect key="frame" x="10" y="33" width="994" height="301"/>
+                                    <rect key="frame" x="10" y="33" width="142" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfj-FT-MyI">
-                                            <rect key="frame" x="-3" y="-3" width="1000" height="315"/>
+                                            <rect key="frame" x="-3" y="-304" width="1000" height="315"/>
                                             <clipView key="contentView" ambiguous="YES" id="6Ns-gL-KcC">
                                                 <rect key="frame" x="1" y="1" width="983" height="298"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

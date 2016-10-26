@@ -24,6 +24,10 @@
 #include <iostream>
 #include <vector>
 
+// Project
+#include "PS_Effects.h"
+#include "PS_UI_Manager.h"
+
 using namespace std;
 
 #endif /* PS_Headers_h */
