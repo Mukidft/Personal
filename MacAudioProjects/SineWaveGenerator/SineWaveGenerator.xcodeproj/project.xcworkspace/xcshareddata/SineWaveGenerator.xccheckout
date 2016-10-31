@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>9F8F7924-608F-468F-9393-0BBC7053A7C3</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SineWaveGenerator</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>69dbfa79-2db0-42c6-9fd8-d3dea77f023e++826</key>
+		<string>https://svn.digipen.edu/users/deepak.chennakkadan/SineWaveGenerator</string>
+		<key>D062E6F9EC7F5D9F1EEDFC3B0C1D39CBE480415D</key>
+		<string>https://github.com/PixelFilter/Personal.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SineWaveGenerator.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>69dbfa79-2db0-42c6-9fd8-d3dea77f023e++826</key>
+		<string>../..</string>
+		<key>D062E6F9EC7F5D9F1EEDFC3B0C1D39CBE480415D</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>69dbfa79-2db0-42c6-9fd8-d3dea77f023e++826</key>
+		<string>https://svn.digipen.edu/users/deepak.chennakkadan</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://svn.digipen.edu/users/deepak.chennakkadan/SineWaveGenerator/SineWaveGenerator.xcodeproj</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>69dbfa79-2db0-42c6-9fd8-d3dea77f023e++826</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D062E6F9EC7F5D9F1EEDFC3B0C1D39CBE480415D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>..</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>69dbfa79-2db0-42c6-9fd8-d3dea77f023e++826</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SineWaveGenerator</string>
+		</dict>
+	</array>
+</dict>
+</plist>

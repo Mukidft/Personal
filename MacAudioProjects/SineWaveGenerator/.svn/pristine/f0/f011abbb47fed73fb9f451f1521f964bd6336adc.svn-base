@@ -1,0 +1,73 @@
+//
+//  Metronome.cpp
+//  SineWaveGenerator
+//
+//  Created by Lipstick on 9/19/16.
+//  Copyright © 2016 Lipstick. All rights reserved.
+//
+
+#include "Metronome.hpp"
+#include <iostream>
+#include "math.h"
+
+Metronome::Metronome(unsigned SampleRate) : mSampleRate(SampleRate), mFrequencyA(440), mFrequencyB(880), isPlaying(false), mBPM(120)
+{
+
+}
+
+Metronome::~Metronome()
+{
+
+}
+
+unsigned Metronome::GetSampleRate()
+{
+    return mSampleRate;
+}
+
+void Metronome::SetSampleRate(unsigned rate)
+{
+    mSampleRate = rate;
+}
+
+float Metronome::GenerateMetronome(float sample, float index)
+{
+    unsigned int frequency = 0;
+    unsigned int seconds = sample / mSampleRate;
+    float tone = 0;
+    
+    if(isPlaying)
+    {
+        if(seconds % (mBPM/60) == 0)
+        {
+            frequency = mFrequencyA;
+        }
+        else
+        {
+            frequency = mFrequencyB;
+        }
+        
+        tone = sin(2 * M_PI * (frequency * (sample + index)/mSampleRate));
+    }
+    else
+    {
+        tone = 0.0f;
+    }
+    
+    return tone;
+}
+
+void Metronome::SetFrequencyA(float frequency)
+{
+    mFrequencyA = frequency;
+}
+
+void Metronome::SetFrequencyB(float frequency)
+{
+    mFrequencyB = frequency;
+}
+
+void Metronome::SetPlaying(bool state)
+{
+    isPlaying = state;
+}

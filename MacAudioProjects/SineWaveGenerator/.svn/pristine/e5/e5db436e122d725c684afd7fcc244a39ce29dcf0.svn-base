@@ -1,0 +1,30 @@
+//
+//  AppDelegate.h
+//  SineWaveGenerator
+//
+//  Created by Lipstick on 9/12/16.
+//  Copyright (c) 2016 Lipstick. All rights reserved.
+//
+
+#import <Cocoa/Cocoa.h>
+#import <CoreAudio/CoreAudio.h>
+#import <AudioToolbox/AudioToolbox.h>
+#include "Metronome.hpp"
+
+
+@interface AppDelegate : NSObject <NSApplicationDelegate>
+{
+    AUGraph mGraph;
+    AudioUnit output;      
+    AudioComponentDescription mCompDesc;
+    AudioStreamBasicDescription mStreamDesc;
+    
+    bool isClicked;
+    Metronome *metronome;
+}
+
+- (IBAction)click:(id)sender;
+
+
+@end
+

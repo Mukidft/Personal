@@ -1,0 +1,468 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CE49731B1D87355200AF8CBC /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE49731A1D87355200AF8CBC /* AppDelegate.mm */; };
+		CE49731D1D87355200AF8CBC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE49731C1D87355200AF8CBC /* main.m */; };
+		CE49731F1D87355200AF8CBC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE49731E1D87355200AF8CBC /* Images.xcassets */; };
+		CE4973221D87355200AF8CBC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE4973201D87355200AF8CBC /* MainMenu.xib */; };
+		CE49732E1D87355200AF8CBC /* SineWaveGeneratorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE49732D1D87355200AF8CBC /* SineWaveGeneratorTests.m */; };
+		CE49733D1D8735FF00AF8CBC /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4973371D8735FF00AF8CBC /* AppKit.framework */; };
+		CE49733E1D8735FF00AF8CBC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4973381D8735FF00AF8CBC /* AudioToolbox.framework */; };
+		CE49733F1D8735FF00AF8CBC /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4973391D8735FF00AF8CBC /* AudioUnit.framework */; };
+		CE4973401D8735FF00AF8CBC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE49733A1D8735FF00AF8CBC /* Cocoa.framework */; };
+		CE4973411D8735FF00AF8CBC /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE49733B1D8735FF00AF8CBC /* CoreAudio.framework */; };
+		CE4973421D8735FF00AF8CBC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE49733C1D8735FF00AF8CBC /* Foundation.framework */; };
+		CEA2599D1D90731300CB3403 /* Metronome.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEA2599B1D90731300CB3403 /* Metronome.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CE4973281D87355200AF8CBC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE49730C1D87355200AF8CBC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE4973131D87355200AF8CBC;
+			remoteInfo = SineWaveGenerator;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CE4973141D87355200AF8CBC /* SineWaveGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SineWaveGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE4973181D87355200AF8CBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE4973191D87355200AF8CBC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CE49731A1D87355200AF8CBC /* AppDelegate.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
+		CE49731C1D87355200AF8CBC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CE49731E1D87355200AF8CBC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CE4973211D87355200AF8CBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		CE4973271D87355200AF8CBC /* SineWaveGeneratorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SineWaveGeneratorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE49732C1D87355200AF8CBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE49732D1D87355200AF8CBC /* SineWaveGeneratorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SineWaveGeneratorTests.m; sourceTree = "<group>"; };
+		CE4973371D8735FF00AF8CBC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		CE4973381D8735FF00AF8CBC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		CE4973391D8735FF00AF8CBC /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		CE49733A1D8735FF00AF8CBC /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		CE49733B1D8735FF00AF8CBC /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		CE49733C1D8735FF00AF8CBC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CEA2599B1D90731300CB3403 /* Metronome.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Metronome.cpp; sourceTree = "<group>"; };
+		CEA2599C1D90731300CB3403 /* Metronome.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Metronome.hpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CE4973111D87355200AF8CBC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE49733D1D8735FF00AF8CBC /* AppKit.framework in Frameworks */,
+				CE49733E1D8735FF00AF8CBC /* AudioToolbox.framework in Frameworks */,
+				CE49733F1D8735FF00AF8CBC /* AudioUnit.framework in Frameworks */,
+				CE4973401D8735FF00AF8CBC /* Cocoa.framework in Frameworks */,
+				CE4973411D8735FF00AF8CBC /* CoreAudio.framework in Frameworks */,
+				CE4973421D8735FF00AF8CBC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE4973241D87355200AF8CBC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CE49730B1D87355200AF8CBC = {
+			isa = PBXGroup;
+			children = (
+				CE4973171D87355200AF8CBC /* Supporting Files */,
+				CE4973441D87364500AF8CBC /* Resources */,
+				CE4973431D87360600AF8CBC /* Frameworks */,
+				CE4973161D87355200AF8CBC /* SineWaveGenerator */,
+				CE49732A1D87355200AF8CBC /* SineWaveGeneratorTests */,
+				CE4973151D87355200AF8CBC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CE4973151D87355200AF8CBC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CE4973141D87355200AF8CBC /* SineWaveGenerator.app */,
+				CE4973271D87355200AF8CBC /* SineWaveGeneratorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CE4973161D87355200AF8CBC /* SineWaveGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				CE4973191D87355200AF8CBC /* AppDelegate.h */,
+				CE49731A1D87355200AF8CBC /* AppDelegate.mm */,
+				CEA2599B1D90731300CB3403 /* Metronome.cpp */,
+				CEA2599C1D90731300CB3403 /* Metronome.hpp */,
+			);
+			path = SineWaveGenerator;
+			sourceTree = "<group>";
+		};
+		CE4973171D87355200AF8CBC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CE4973181D87355200AF8CBC /* Info.plist */,
+				CE49731C1D87355200AF8CBC /* main.m */,
+			);
+			name = "Supporting Files";
+			path = SineWaveGenerator;
+			sourceTree = "<group>";
+		};
+		CE49732A1D87355200AF8CBC /* SineWaveGeneratorTests */ = {
+			isa = PBXGroup;
+			children = (
+				CE49732D1D87355200AF8CBC /* SineWaveGeneratorTests.m */,
+				CE49732B1D87355200AF8CBC /* Supporting Files */,
+			);
+			path = SineWaveGeneratorTests;
+			sourceTree = "<group>";
+		};
+		CE49732B1D87355200AF8CBC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CE49732C1D87355200AF8CBC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CE4973431D87360600AF8CBC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE4973371D8735FF00AF8CBC /* AppKit.framework */,
+				CE4973381D8735FF00AF8CBC /* AudioToolbox.framework */,
+				CE4973391D8735FF00AF8CBC /* AudioUnit.framework */,
+				CE49733A1D8735FF00AF8CBC /* Cocoa.framework */,
+				CE49733B1D8735FF00AF8CBC /* CoreAudio.framework */,
+				CE49733C1D8735FF00AF8CBC /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE4973441D87364500AF8CBC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CE49731E1D87355200AF8CBC /* Images.xcassets */,
+				CE4973201D87355200AF8CBC /* MainMenu.xib */,
+			);
+			name = Resources;
+			path = SineWaveGenerator;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CE4973131D87355200AF8CBC /* SineWaveGenerator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE4973311D87355200AF8CBC /* Build configuration list for PBXNativeTarget "SineWaveGenerator" */;
+			buildPhases = (
+				CE4973101D87355200AF8CBC /* Sources */,
+				CE4973111D87355200AF8CBC /* Frameworks */,
+				CE4973121D87355200AF8CBC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SineWaveGenerator;
+			productName = SineWaveGenerator;
+			productReference = CE4973141D87355200AF8CBC /* SineWaveGenerator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CE4973261D87355200AF8CBC /* SineWaveGeneratorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE4973341D87355200AF8CBC /* Build configuration list for PBXNativeTarget "SineWaveGeneratorTests" */;
+			buildPhases = (
+				CE4973231D87355200AF8CBC /* Sources */,
+				CE4973241D87355200AF8CBC /* Frameworks */,
+				CE4973251D87355200AF8CBC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE4973291D87355200AF8CBC /* PBXTargetDependency */,
+			);
+			name = SineWaveGeneratorTests;
+			productName = SineWaveGeneratorTests;
+			productReference = CE4973271D87355200AF8CBC /* SineWaveGeneratorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CE49730C1D87355200AF8CBC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Lipstick;
+				TargetAttributes = {
+					CE4973131D87355200AF8CBC = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					CE4973261D87355200AF8CBC = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = CE4973131D87355200AF8CBC;
+					};
+				};
+			};
+			buildConfigurationList = CE49730F1D87355200AF8CBC /* Build configuration list for PBXProject "SineWaveGenerator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CE49730B1D87355200AF8CBC;
+			productRefGroup = CE4973151D87355200AF8CBC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CE4973131D87355200AF8CBC /* SineWaveGenerator */,
+				CE4973261D87355200AF8CBC /* SineWaveGeneratorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CE4973121D87355200AF8CBC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE49731F1D87355200AF8CBC /* Images.xcassets in Resources */,
+				CE4973221D87355200AF8CBC /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE4973251D87355200AF8CBC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CE4973101D87355200AF8CBC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEA2599D1D90731300CB3403 /* Metronome.cpp in Sources */,
+				CE49731D1D87355200AF8CBC /* main.m in Sources */,
+				CE49731B1D87355200AF8CBC /* AppDelegate.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE4973231D87355200AF8CBC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE49732E1D87355200AF8CBC /* SineWaveGeneratorTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CE4973291D87355200AF8CBC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE4973131D87355200AF8CBC /* SineWaveGenerator */;
+			targetProxy = CE4973281D87355200AF8CBC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CE4973201D87355200AF8CBC /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE4973211D87355200AF8CBC /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CE49732F1D87355200AF8CBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		CE4973301D87355200AF8CBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		CE4973321D87355200AF8CBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SineWaveGenerator/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "deepak.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CE4973331D87355200AF8CBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SineWaveGenerator/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "deepak.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CE4973351D87355200AF8CBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SineWaveGeneratorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "deepak.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SineWaveGenerator.app/Contents/MacOS/SineWaveGenerator";
+			};
+			name = Debug;
+		};
+		CE4973361D87355200AF8CBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SineWaveGeneratorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "deepak.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SineWaveGenerator.app/Contents/MacOS/SineWaveGenerator";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CE49730F1D87355200AF8CBC /* Build configuration list for PBXProject "SineWaveGenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE49732F1D87355200AF8CBC /* Debug */,
+				CE4973301D87355200AF8CBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE4973311D87355200AF8CBC /* Build configuration list for PBXNativeTarget "SineWaveGenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE4973321D87355200AF8CBC /* Debug */,
+				CE4973331D87355200AF8CBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE4973341D87355200AF8CBC /* Build configuration list for PBXNativeTarget "SineWaveGeneratorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE4973351D87355200AF8CBC /* Debug */,
+				CE4973361D87355200AF8CBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CE49730C1D87355200AF8CBC /* Project object */;
+}

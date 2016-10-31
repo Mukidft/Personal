@@ -1,0 +1,164 @@
+//
+//  AppDelegate.m
+//  SineWaveGenerator
+//
+//  Created by Lipstick on 9/12/16.
+//  Copyright (c) 2016 Lipstick. All rights reserved.
+//
+
+#import "AppDelegate.h"
+#import <AudioUnit/AudioUnitParameters.h>
+#import <AudioUnit/AudioUnitProperties.h>
+
+
+#include <iostream>
+
+#define L_HZ 440
+#define R_HZ 1760
+#define BPM 120
+
+@interface AppDelegate ()
+
+@end
+
+@implementation AppDelegate
+
+- (void)awakeFromNib
+{
+    std::cout << "Nib has been awaken!" << std::endl;
+    
+    isClicked = false;
+    
+    
+    [self initializeGraph];
+}
+
+- (IBAction)click:(id)sender
+{
+    if(!isClicked)
+        isClicked = true;
+    else
+        isClicked = false;
+    
+    
+    generator->SetPlaying(isClicked);
+}
+
+-(IBAction)OnValueChangeA:(id)sender
+{
+    float value = [sender floatValue];
+    generator->SetFrequency(value);
+    
+    if(sender == frequency)
+        [frequencyLabel setIntegerValue: (int)value];
+}
+
+-(IBAction)OnValueChangeB:(id)sender
+{
+    unsigned value = [sender intValue];
+    generator->SetBPM(value);
+    
+    if(sender == bpm)
+        [bpmLabel setIntegerValue: (int)value];
+}
+
+
+- (void) initializeGraph
+{    
+    OSStatus result = noErr;
+    
+    result = NewAUGraph(&mGraph);
+    
+    AUNode outputNode;
+    
+    std::cout << "Creating AUGraph" << std::endl;
+    
+    generator = new Generator();
+    
+    mCompDesc.componentType = kAudioUnitType_Output;
+    mCompDesc.componentSubType = kAudioUnitSubType_DefaultOutput;
+    mCompDesc.componentManufacturer = kAudioUnitManufacturer_Apple;
+    mCompDesc.componentFlagsMask = 0;
+    mCompDesc.componentFlags = 0;
+    
+    result = AUGraphAddNode(mGraph, &mCompDesc, &outputNode);
+    
+    if (result)
+    {
+        printf("AUGraphAddNode 1 result %lu %4.4s\n", (unsigned long)result, (char*)&result);
+        return;
+    }
+    
+    result = AUGraphOpen(mGraph);
+    
+    if (result)
+    {
+        printf("AUGraphOpen result %u %4.4s\n", (unsigned int)result, (char*)&result);
+        return;
+    }
+    
+    result = AUGraphNodeInfo(mGraph, outputNode, NULL, &output);
+    
+    if (result) {
+        printf("AUGraphNodeInfo result %u %4.4s\n", (unsigned int)result, (char*)&result);
+        return;
+    }
+    
+    UInt32 size;
+    
+    std::cout << "Setting Render Callback" << std::endl;
+    
+    AURenderCallbackStruct renderObj;
+    renderObj.inputProc = &renderInput;
+    renderObj.inputProcRefCon = generator;
+    
+    
+    result = AudioUnitSetProperty(output,
+                                  kAudioUnitProperty_SetRenderCallback,
+                                  kAudioUnitScope_Input,
+                                  0,
+                                  &renderObj,
+                                  sizeof(renderObj) );
+    
+    size = sizeof(mStreamDesc);
+    result = AudioUnitGetProperty(output,
+                                  kAudioUnitProperty_StreamFormat,
+                                  kAudioUnitScope_Input,
+                                  0,
+                                  &mStreamDesc,
+                                  &size );
+    
+    result = AudioUnitSetProperty(output,
+                                  kAudioUnitProperty_StreamFormat,
+                                  kAudioUnitScope_Output,
+                                  0,
+                                  &mStreamDesc,
+                                  sizeof(mStreamDesc) );
+    
+    generator->SetSampleRate(mStreamDesc.mSampleRate);
+    
+    AUGraphInitialize(mGraph);
+    CAShow(mGraph);
+    
+    AUGraphStart(mGraph);
+    
+}
+
+OSStatus renderInput(void *inRefCon,
+                     AudioUnitRenderActionFlags *ioActionFlags,
+                     const AudioTimeStamp *inTimeStamp,
+                     UInt32 inBusNumber,
+                     UInt32 inNumberFrames,
+                     AudioBufferList *ioData)
+{
+    Generator &generator = *(Generator*) inRefCon;
+    
+    float *outA = (float*)ioData->mBuffers[0].mData;
+    float *outB = (float*)ioData->mBuffers[1].mData;
+    
+    generator.Generate(outA, outB, inTimeStamp->mSampleTime, inNumberFrames);
+    
+    return noErr;
+}
+
+@end

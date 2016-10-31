@@ -33,6 +33,20 @@ void PS_Effects::ConnectEffectIO(AUNode input, AUNode output)
     ErrorCheck(NodeConnected);
 }
 
+void PS_Effects::DisconnectEffectIO()
+{
+    _result = AUGraphDisconnectNodeInput(_graph, _effectNode, 0);
+    
+    ErrorCheck(NodeConnected);
+}
+
+void PS_Effects::SetEffectParameter(AudioUnitParameterID paramID, AudioUnitParameterValue paramVal)
+{
+    _result = AudioUnitSetParameter(_effectAU, paramID, kAudioUnitScope_Global, 0, paramVal, 0);
+    
+    ErrorCheck(NodeParameter);
+}
+
 AUNode PS_Effects::GetEffectNode()
 {
     return _effectNode;
@@ -41,6 +55,12 @@ AUNode PS_Effects::GetEffectNode()
 AudioUnit PS_Effects::GetEffectAU()
 {
     return _effectAU;
+}
+
+
+UInt32 PS_Effects::GetEffectID()
+{
+    return _effectID;
 }
 
 AudioComponentDescription PS_Effects::GetEffectDescription()
@@ -63,14 +83,17 @@ void PS_Effects::ErrorCheck(ErrorType error)
         switch(error)
         {
             case NodeAdded:
-                printf("Effect Node Added result %lu %4.4s\n", (unsigned long)_result, (char*)&_result);
+                printf("Effect Node could not be added! Result: %lu %4.4s\n", (unsigned long)_result, (char*)&_result);
                 break;
             case NodeConnected:
                 
-                printf("Effect Node Connected result %lu %4.4s\n", (unsigned long)_result, (char*)&_result);
+                printf("Effect Node could not be connected! Result: %lu %4.4s\n", (unsigned long)_result, (char*)&_result);
                 break;
             case NodeInfo:
-                printf("AUGraphNodeInfo result %u %4.4s\n", (unsigned int)_result, (char*)&_result);
+                printf("Could not get AU Graph Node infor! Result: %u %4.4s\n", (unsigned int)_result, (char*)&_result);
+                break;
+            case NodeParameter:
+                printf("Could not set parameter! Result: %u %4.4s\n", (unsigned int)_result, (char*)&_result);
                 break;
                 
             default:

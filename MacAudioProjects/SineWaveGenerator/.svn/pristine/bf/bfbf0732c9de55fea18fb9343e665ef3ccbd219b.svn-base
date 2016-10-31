@@ -1,0 +1,54 @@
+//
+//  Metronome.hpp
+//  SineWaveGenerator
+//
+//  Created by Lipstick on 9/19/16.
+//  Copyright © 2016 Lipstick. All rights reserved.
+//
+
+#ifndef Metronome_hpp
+#define Metronome_hpp
+
+#include <stdio.h>
+#include <queue>
+#include <chrono>
+
+class Metronome
+{
+public:
+    
+    Metronome(unsigned SampleRate = 44100);
+    ~Metronome();
+    
+    float GenerateMetronome(float sample, float indexSize);
+    
+    unsigned GetSampleRate();
+    
+    void SetSampleRate(unsigned rate);
+    void SetFrequencyA(float frequency);
+    void SetFrequencyB(float frequency);
+    void SetPlaying(bool state);
+    void AddEvent();
+    
+private:
+    
+    unsigned mSampleRate;
+    unsigned mBPM;
+    unsigned mSeconds;
+    float mFrequencyA;
+    float mFrequencyB;
+    bool isPlaying;
+    bool timerStarted;
+    unsigned mIndex;
+    bool eventRunning;
+    
+    std::queue<int> event;
+    
+    void start(void);
+    template <typename duration_type>
+    const duration_type time_elapsed(void);
+    std::chrono::high_resolution_clock::time_point epoch;    
+    
+};
+
+#endif /* Metronome_hpp */

@@ -15,16 +15,56 @@
     [self initializeGraph];
 }
 
+-(IBAction)OnValueChangeA:(id)sender
+{
+    float value = [sender floatValue];
+    
+    [self GetEffectFromID: kAudioUnitSubType_BandPassFilter]->SetEffectParameter(kBandpassParam_CenterFrequency, value);
+}
+
+- (void) CreateNewEffect: (UInt32) effect arg2: (AUGraph) graph arg3: (AUNode) outNode
+{
+    PS_Effects *NewEffect = new PS_Effects(effect, mGraph, outNode);
+    mEffects.push_back(NewEffect);
+}
+
+- (PS_Effects*) GetEffectFromID: (UInt32) id;
+{
+    for(int i = 0; i < mEffects.size(); ++i)
+    {
+        if(mEffects[i]->GetEffectID() == id)
+            return mEffects[i];
+    }
+    
+    return nullptr;
+}
+
+- (IBAction)test:(id)sender
+{
+    [self CreateNewEffect:kAudioUnitSubType_BandPassFilter arg2:mGraph arg3:outputNode];
+    
+    AUGraphStop(mGraph);
+    
+    AUGraphDisconnectNodeInput(mGraph, outputNode, 0);
+    
+    mEffects[mEffects.size() - 2]->ConnectEffectIO(mEffects[mEffects.size() - 2]->GetEffectNode(), mEffects[mEffects.size() - 1]->GetEffectNode());
+    mEffects[mEffects.size() - 1]->ConnectEffectIO(mEffects[mEffects.size() - 1]->GetEffectNode(), outputNode);    
+    
+    mEffects[mEffects.size() - 2]->GetEffectInfo();
+    mEffects[mEffects.size() - 1]->GetEffectInfo();
+    
+    AUGraphStart(mGraph);
+    
+}
+
 - (void) initializeGraph
 {
     OSStatus result = noErr;
     
     result = NewAUGraph(&mGraph);
     
-    AUNode outputNode;
-    
     // Initialize Base Effects
-    mEffectIDs = {kAudioUnitSubType_BandPassFilter, kAudioUnitSubType_Delay};
+    mEffectIDs = {kAudioUnitSubType_Delay};
     
     // Store Output Description and add the node
     mCompDesc = {kAudioUnitType_Output, kAudioUnitSubType_HALOutput, kAudioUnitManufacturer_Apple, 0, 0};
@@ -38,13 +78,14 @@
     }
     
     for(UInt32 effectID : mEffectIDs)
-    {
-        PS_Effects *NewEffect = new PS_Effects(effectID, mGraph, outputNode);
-        mEffects.push_back(NewEffect);
+    {        
+        [self CreateNewEffect : effectID arg2 : mGraph arg3 : outputNode];
     }
     
     if(mEffects.size() == 1)
+    {
         mEffects[0]->ConnectEffectIO(mEffects[0]->GetEffectNode(), outputNode);
+    }
     else
     {
         for(int i = 0; i < mEffects.size(); ++i)
@@ -83,7 +124,6 @@
     
     AURenderCallbackStruct renderObj;
     renderObj.inputProc = &renderInput;
-    //renderObj.inputProcRefCon = &modules;
     
     
     result = AudioUnitSetProperty(mEffects[0]->GetEffectAU(),
@@ -95,6 +135,7 @@
     
     
     size = sizeof(mStreamDesc);
+    
     result = AudioUnitGetProperty(output,
                                   kAudioUnitProperty_StreamFormat,
                                   kAudioUnitScope_Input,
@@ -108,8 +149,6 @@
                                   0,
                                   &mStreamDesc,
                                   sizeof(mStreamDesc) );
-    
-    //modules.generator.SetSampleRate(mStreamDesc.mSampleRate);
     
     AUGraphInitialize(mGraph);
     CAShow(mGraph);

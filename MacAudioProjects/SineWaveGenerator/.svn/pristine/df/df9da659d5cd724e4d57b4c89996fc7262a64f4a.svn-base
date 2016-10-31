@@ -1,0 +1,117 @@
+//
+//  Metronome.cpp
+//  SineWaveGenerator
+//
+//  Created by Lipstick on 9/19/16.
+//  Copyright © 2016 Lipstick. All rights reserved.
+//
+
+#include "Metronome.hpp"
+#include <iostream>
+#include "math.h"
+
+Metronome::Metronome(unsigned SampleRate) : mSampleRate(SampleRate), mFrequencyA(440), mFrequencyB(880), isPlaying(false), mBPM(120), mIndex(0), eventRunning(false)
+{
+
+}
+
+Metronome::~Metronome()
+{
+
+}
+
+void Metronome::AddEvent()
+{
+    if(!eventRunning)
+    {
+        event.push(1);
+        timerStarted = true;
+    }
+}
+
+void Metronome::start(void) {
+    epoch = std::chrono::high_resolution_clock::now();
+}
+
+template <typename duration_type>
+const duration_type Metronome::time_elapsed(void)
+{
+    return std::chrono::duration_cast<duration_type>(std::chrono::high_resolution_clock::now() - epoch);
+}
+
+unsigned Metronome::GetSampleRate()
+{
+    return mSampleRate;
+}
+
+void Metronome::SetSampleRate(unsigned rate)
+{
+    mSampleRate = rate;
+}
+
+float Metronome::GenerateMetronome(float sample, float indexSize)
+{
+    unsigned int frequency = 0;
+    mSeconds = sample / mSampleRate;
+    std::chrono::seconds elapsed = time_elapsed<std::chrono::seconds>();
+    
+    float tone = 0;
+    
+    if(event.size() != 0)
+    {
+        if(timerStarted)
+        {
+            start();
+            timerStarted = false;
+            eventRunning = true;
+        }
+        
+        if(isPlaying)
+        {
+            tone = sin(2 * M_PI * (mFrequencyA * (sample + mIndex)/mSampleRate));
+            
+            ++mIndex;
+            
+            if(mIndex == indexSize)
+            {
+                mIndex = 0;
+                
+                if(elapsed.count() == 1)
+                {
+                    event.pop();
+                    eventRunning = false;
+                    epoch = std::chrono::high_resolution_clock::now();
+                }
+            }
+        }
+        else
+        {
+            tone = 0.0f;
+        }
+        
+        //std::cout << elapsed.count() << std::endl;
+
+    }
+    
+    return tone;
+}
+
+void Metronome::SetFrequencyA(float frequency)
+{
+    mFrequencyA = frequency;
+}
+
+void Metronome::SetFrequencyB(float frequency)
+{
+    mFrequencyB = frequency;
+}
+
+void Metronome::SetPlaying(bool state)
+{
+    isPlaying = state;
+    
+    if(isPlaying == true)
+        AddEvent();
+    
+    //std::cout << event.size() << std::endl;
+}

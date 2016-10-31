@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		CE8726A01DAC1C2400D43377 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE87269F1DAC1C2400D43377 /* main.m */; };
 		CE8726A21DAC1C2400D43377 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE8726A11DAC1C2400D43377 /* Images.xcassets */; };
-		CE8726A51DAC1C2400D43377 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE8726A31DAC1C2400D43377 /* MainMenu.xib */; };
+		CE8726A51DAC1C2400D43377 /* PedalStackUI.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE8726A31DAC1C2400D43377 /* PedalStackUI.xib */; };
 		CE8726B11DAC1C2400D43377 /* PedalStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8726B01DAC1C2400D43377 /* PedalStackTests.m */; };
 		CE9040B71DBE99EF009CEB44 /* PS_Effects.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE9040B61DBE99EF009CEB44 /* PS_Effects.mm */; };
 		CEE0D5EE1DAEB4F0003C1BB3 /* Change.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE0D5ED1DAEB4F0003C1BB3 /* Change.xib */; };
@@ -39,7 +39,7 @@
 		CE87269B1DAC1C2400D43377 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE87269F1DAC1C2400D43377 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CE8726A11DAC1C2400D43377 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		CE8726A41DAC1C2400D43377 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		CE8726A41DAC1C2400D43377 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PedalStackUI.xib; sourceTree = "<group>"; };
 		CE8726AA1DAC1C2400D43377 /* PedalStackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PedalStackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8726AF1DAC1C2400D43377 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE8726B01DAC1C2400D43377 /* PedalStackTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PedalStackTests.m; sourceTree = "<group>"; };
@@ -191,7 +191,7 @@
 			children = (
 				CEE0D5F11DAEBB49003C1BB3 /* Images */,
 				CE8726A11DAC1C2400D43377 /* Images.xcassets */,
-				CE8726A31DAC1C2400D43377 /* MainMenu.xib */,
+				CE8726A31DAC1C2400D43377 /* PedalStackUI.xib */,
 				CEE0D5ED1DAEB4F0003C1BB3 /* Change.xib */,
 			);
 			name = UI;
@@ -293,7 +293,7 @@
 			files = (
 				CEE0D5F01DAEBB3F003C1BB3 /* DistortionIII-11.png in Resources */,
 				CE8726A21DAC1C2400D43377 /* Images.xcassets in Resources */,
-				CE8726A51DAC1C2400D43377 /* MainMenu.xib in Resources */,
+				CE8726A51DAC1C2400D43377 /* PedalStackUI.xib in Resources */,
 				CEE0D5EE1DAEB4F0003C1BB3 /* Change.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,12 +338,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CE8726A31DAC1C2400D43377 /* MainMenu.xib */ = {
+		CE8726A31DAC1C2400D43377 /* PedalStackUI.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				CE8726A41DAC1C2400D43377 /* Base */,
 			);
-			name = MainMenu.xib;
+			name = PedalStackUI.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

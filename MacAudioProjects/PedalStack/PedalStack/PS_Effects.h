@@ -22,11 +22,14 @@ public:
     // Getters
     AUNode GetEffectNode();
     AudioComponentDescription GetEffectDescription();
+    UInt32 GetEffectID();
     AudioUnit GetEffectAU();
+    void GetEffectInfo();
+    
+    void SetEffectParameter(AudioUnitParameterID paramID, AudioUnitParameterValue paramVal);
     
     void ConnectEffectIO(AUNode input, AUNode output);
-    
-    void GetEffectInfo();
+    void DisconnectEffectIO();
     
     
 private:
@@ -35,7 +38,8 @@ private:
     {
       NodeAdded,
       NodeConnected,
-      NodeInfo
+      NodeInfo,
+      NodeParameter
     } _ErrorType;
     
     

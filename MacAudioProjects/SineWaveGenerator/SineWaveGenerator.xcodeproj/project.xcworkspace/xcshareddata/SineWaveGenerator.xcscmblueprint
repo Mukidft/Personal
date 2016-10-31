@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "69dbfa79-2db0-42c6-9fd8-d3dea77f023e++826",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "69dbfa79-2db0-42c6-9fd8-d3dea77f023e++826" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "69dbfa79-2db0-42c6-9fd8-d3dea77f023e++826" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9F8F7924-608F-468F-9393-0BBC7053A7C3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "69dbfa79-2db0-42c6-9fd8-d3dea77f023e++826" : "SineWaveGenerator\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SineWaveGenerator",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SineWaveGenerator.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/svn.digipen.edu\/users\/deepak.chennakkadan",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "69dbfa79-2db0-42c6-9fd8-d3dea77f023e++826"
+    }
+  ]
+}
