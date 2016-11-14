@@ -17,7 +17,7 @@ public:
     ~PS_Effects(){}
     PS_Effects(){}
     
-    PS_Effects(UInt32 effect, AUGraph graph, AUNode outNode);
+    PS_Effects(UInt32 effect, AUGraph graph, AUNode outNode, AudioStreamBasicDescription streamDesc);
     
     // Getters
     AUNode GetEffectNode();
@@ -27,6 +27,7 @@ public:
     void GetEffectInfo();
     
     void SetEffectParameter(AudioUnitParameterID paramID, AudioUnitParameterValue paramVal);
+    void SetStreamDescription(AudioUnit outAU);
     
     void ConnectEffectIO(AUNode input, AUNode output);
     void DisconnectEffectIO();
@@ -39,8 +40,11 @@ private:
       NodeAdded,
       NodeConnected,
       NodeInfo,
-      NodeParameter
+      NodeParameter,
+      NodeSetProperty,
+      NodeGetProperty    
     } _ErrorType;
+    
     
     
     UInt32 _effectID;
@@ -50,12 +54,14 @@ private:
     AudioUnit _effectAU;
     AUNode _effectNode;
     AudioComponentDescription _effectDesc;
+    AudioStreamBasicDescription _streamDesc;
     
     void FillDescription();
     void AddEffectNode();
     
     OSStatus _result;
     void ErrorCheck(ErrorType error);
+    void PrintStreamDescription();
     
 };
 

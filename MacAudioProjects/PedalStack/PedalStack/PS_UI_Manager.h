@@ -10,15 +10,16 @@
 #define PS_UI_Manager_h
 
 #include "PS_Headers.h"
+#import "PS_Core.h"
+
+@class PS_Core;
 
 @interface PS_UI_Manager : NSObject <NSApplicationDelegate>
 {
     IBOutlet NSWindow *window;
-    IBOutlet NSButton* button;
-    IBOutlet NSScrollView* scroller;
+    IBOutlet PS_Core *core;
+    IBOutlet NSImageView *UI_Effect;
 };
-
-- (IBAction)test:(id)sender;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #include "PS_Headers.h"
 
-@interface PS_Core : NSObject <NSApplicationDelegate>
+@interface PS_Core : NSObject
 {
     AUGraph mGraph;
     AUNode outputNode;
@@ -17,17 +17,15 @@
     AudioComponentDescription mCompDesc;
     AudioStreamBasicDescription mStreamDesc;
     
-    vector<PS_Effects*> mEffects;
-    vector<UInt32> mEffectIDs;
-    
-    // test
-    IBOutlet NSSlider *frequency;
-    IBOutlet NSButton *button;
+    std::vector<PS_Effects*> mEffects;
+    std::vector<UInt32> mEffectIDs;
     
 }
 
 - (void) initializeGraph;
 - (void) CreateNewEffect: (UInt32) effect arg2: (AUGraph) graph arg3: (AUNode) outNode;
+- (void) AddNewEffect: (UInt32) effect;
+- (void) PrintStreamDescription;
 - (PS_Effects*) GetEffectFromID: (UInt32) id;
 @end
 

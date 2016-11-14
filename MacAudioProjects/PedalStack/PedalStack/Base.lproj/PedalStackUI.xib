@@ -13,14 +13,12 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" userLabel="PS_UI_Manager" customClass="PS_UI_Manager">
             <connections>
+                <outlet property="UI_Effect" destination="22u-Rm-ebU" id="kzI-Fp-aMV"/>
+                <outlet property="core" destination="AHS-Fx-Sl4" id="yfT-yY-Mio"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="9HH-gL-UfF"/>
             </connections>
         </customObject>
-        <customObject id="AHS-Fx-Sl4" userLabel="PS_Core" customClass="PS_Core">
-            <connections>
-                <outlet property="frequency" destination="UPc-JA-Rif" id="wgX-KS-vSL"/>
-            </connections>
-        </customObject>
+        <customObject id="AHS-Fx-Sl4" userLabel="PS_Core" customClass="PS_Core"/>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
@@ -684,7 +682,7 @@
                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TAC-Lx-8rA">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="224"/>
                         <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="22u-Rm-ebU">
+                            <imageView identifier="BandPassFilter" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="22u-Rm-ebU">
                                 <rect key="frame" x="-8" y="37" width="234" height="150"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="DistortionIII-11" id="MZH-sj-Fos"/>
                             </imageView>
@@ -716,22 +714,31 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yz8-CG-ucN">
+                        <rect key="frame" x="125" y="564" width="82" height="32"/>
+                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="a3L-3T-b03">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="AddNewEffect:" target="Voe-Tx-rLC" id="1h2-9W-GIt"/>
+                        </connections>
+                    </button>
                     <tabView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xUQ-bZ-k7C">
-                        <rect key="frame" x="-6" y="214" width="1014" height="347"/>
+                        <rect key="frame" x="-7" y="214" width="1014" height="347"/>
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="Pedals" identifier="1" id="qj1-f4-vqw">
                                 <view key="view" id="ymk-Hd-4vb">
-                                    <rect key="frame" x="10" y="33" width="994" height="301"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfj-FT-MyI">
-                                            <rect key="frame" x="-3" y="-3" width="1000" height="315"/>
+                                            <rect key="frame" x="-3" y="-293" width="1000" height="298"/>
                                             <clipView key="contentView" misplaced="YES" id="6Ns-gL-KcC">
                                                 <rect key="frame" x="1" y="1" width="983" height="298"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nV8-bT-777">
+                                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nV8-bT-777" userLabel="Delay">
                                                         <rect key="frame" x="0.0" y="219" width="365" height="274"/>
                                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="DistortionIII-11" id="0ok-aE-u1b"/>
                                                     </imageView>
@@ -765,7 +772,7 @@
                                             <rect key="frame" x="404" y="207" width="187" height="21"/>
                                             <sliderCell key="cell" continuous="YES" alignment="left" minValue="20" maxValue="22000" doubleValue="20" tickMarkPosition="below" allowsTickMarkValuesOnly="YES" sliderType="linear" id="FfJ-vu-nJF"/>
                                             <connections>
-                                                <action selector="OnValueChangeA:" target="AHS-Fx-Sl4" id="X2e-cm-WaP"/>
+                                                <action selector="OnValueChangeA:" target="Voe-Tx-rLC" id="xtB-Ko-HC2"/>
                                             </connections>
                                         </slider>
                                     </subviews>
@@ -773,21 +780,11 @@
                             </tabViewItem>
                         </tabViewItems>
                     </tabView>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yz8-CG-ucN">
-                        <rect key="frame" x="125" y="564" width="82" height="32"/>
-                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="a3L-3T-b03">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="test:" target="AHS-Fx-Sl4" id="cCv-1g-Ife"/>
-                        </connections>
-                    </button>
                 </subviews>
             </view>
             <contentBorderThickness minY="22"/>
             <connections>
-                <outlet property="delegate" destination="Voe-Tx-rLC" id="eEo-cR-85q"/>
+                <outlet property="delegate" destination="Voe-Tx-rLC" id="un1-tY-WNc"/>
             </connections>
             <point key="canvasLocation" x="190" y="443"/>
         </window>

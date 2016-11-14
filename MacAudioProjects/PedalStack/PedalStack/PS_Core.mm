@@ -15,17 +15,42 @@
     [self initializeGraph];
 }
 
--(IBAction)OnValueChangeA:(id)sender
+- (void) PrintStreamDescription
 {
-    float value = [sender floatValue];
-    
-    [self GetEffectFromID: kAudioUnitSubType_BandPassFilter]->SetEffectParameter(kBandpassParam_CenterFrequency, value);
+    std::cout << "STREAM DESCRIPTION START ++++++++++++++++++++++++++++++++++++++++++" << std::endl << std::endl;
+    std::cout << "mBitsPerChannel: " << mStreamDesc.mBitsPerChannel << std::endl;
+    std::cout << "mBytesPerFrame: " << mStreamDesc.mBytesPerFrame << std::endl;
+    std::cout << "mBytesPerPacket: " << mStreamDesc.mBytesPerPacket << std::endl;
+    std::cout << "mChannelsPerFrame: " << mStreamDesc.mChannelsPerFrame << std::endl;
+    std::cout << "mFormateFlags: " << mStreamDesc.mFormatFlags << std::endl;
+    std::cout << "mFormatID: " << mStreamDesc.mFormatID << std::endl;
+    std::cout << "mFramesPerPacket: " << mStreamDesc.mFramesPerPacket << std::endl;
+    std::cout << "mReserved: " << mStreamDesc.mReserved << std::endl;
+    std::cout << "mSampelRate: " << mStreamDesc.mSampleRate << std::endl << std::endl;
+    std::cout << "STREAM DESCRIPTION END ++++++++++++++++++++++++++++++++++++++++++++" << std::endl << std::endl;
 }
 
 - (void) CreateNewEffect: (UInt32) effect arg2: (AUGraph) graph arg3: (AUNode) outNode
 {
-    PS_Effects *NewEffect = new PS_Effects(effect, mGraph, outNode);
+    PS_Effects *NewEffect = new PS_Effects(effect, mGraph, outNode, mStreamDesc);
     mEffects.push_back(NewEffect);
+}
+
+- (void) AddNewEffect: (UInt32) effect
+{
+    [self CreateNewEffect:effect arg2:mGraph arg3:outputNode];
+    
+    AUGraphStop(mGraph);
+    
+    AUGraphDisconnectNodeInput(mGraph, outputNode, 0);
+    
+    mEffects[mEffects.size() - 2]->ConnectEffectIO(mEffects[mEffects.size() - 2]->GetEffectNode(), mEffects[mEffects.size() - 1]->GetEffectNode());
+    mEffects[mEffects.size() - 1]->ConnectEffectIO(mEffects[mEffects.size() - 1]->GetEffectNode(), outputNode);
+    
+    mEffects[mEffects.size() - 2]->GetEffectInfo();
+    mEffects[mEffects.size() - 1]->GetEffectInfo();
+    
+    AUGraphStart(mGraph);
 }
 
 - (PS_Effects*) GetEffectFromID: (UInt32) id;
@@ -37,24 +62,6 @@
     }
     
     return nullptr;
-}
-
-- (IBAction)test:(id)sender
-{
-    [self CreateNewEffect:kAudioUnitSubType_BandPassFilter arg2:mGraph arg3:outputNode];
-    
-    AUGraphStop(mGraph);
-    
-    AUGraphDisconnectNodeInput(mGraph, outputNode, 0);
-    
-    mEffects[mEffects.size() - 2]->ConnectEffectIO(mEffects[mEffects.size() - 2]->GetEffectNode(), mEffects[mEffects.size() - 1]->GetEffectNode());
-    mEffects[mEffects.size() - 1]->ConnectEffectIO(mEffects[mEffects.size() - 1]->GetEffectNode(), outputNode);    
-    
-    mEffects[mEffects.size() - 2]->GetEffectInfo();
-    mEffects[mEffects.size() - 1]->GetEffectInfo();
-    
-    AUGraphStart(mGraph);
-    
 }
 
 - (void) initializeGraph
@@ -82,6 +89,24 @@
         [self CreateNewEffect : effectID arg2 : mGraph arg3 : outputNode];
     }
     
+    
+    result = AUGraphConnectNodeInput(mGraph, outputNode, 1, mEffects[0]->GetEffectNode(), 0);
+    
+    if (result)
+    {
+        printf("AUGraphAddNode result %d\n", result);
+        return;
+    }
+    
+    result = AUGraphConnectNodeInput(mGraph, mEffects[0]->GetEffectNode(), 0, outputNode, 0);
+    
+    if (result)
+    {
+        printf("AUGraphAddNode result %d\n", result);
+        return;
+    }
+    
+    /*
     if(mEffects.size() == 1)
     {
         mEffects[0]->ConnectEffectIO(mEffects[0]->GetEffectNode(), outputNode);
@@ -99,6 +124,7 @@
             mEffects[i]->ConnectEffectIO(mEffects[i]->GetEffectNode(), mEffects[i + 1]->GetEffectNode());
         }
     }
+     */
                                 
     // Open The Graph
     result = AUGraphOpen(mGraph);
@@ -126,34 +152,107 @@
     renderObj.inputProc = &renderInput;
     
     
-    result = AudioUnitSetProperty(mEffects[0]->GetEffectAU(),
+    /*result = AudioUnitSetProperty(mEffects[0]->GetEffectAU(),
                                   kAudioUnitProperty_SetRenderCallback,
                                   kAudioUnitScope_Input,
                                   0,
                                   &renderObj,
-                                  sizeof(renderObj) );
+                                  sizeof(renderObj) );*/
     
     
     size = sizeof(mStreamDesc);
     
+    
+    UInt32 enableIO = 1;
+    
+    result = AudioUnitSetProperty(output,
+                         kAudioOutputUnitProperty_EnableIO,
+                         kAudioUnitScope_Input,
+                         1,
+                         &enableIO,
+                         sizeof(enableIO) );
+    if (result)
+    {
+        printf("EnableIO result %u %4.4s\n", (unsigned int)result, (char*)&result);
+        return;
+    }
+    
+    result = AudioUnitSetProperty(output,
+                         kAudioOutputUnitProperty_EnableIO,
+                         kAudioUnitScope_Output,
+                         0,
+                         &enableIO,
+                         sizeof(enableIO) );
+    if (result)
+    {
+        printf("EnableIO result %u %4.4s\n", (unsigned int)result, (char*)&result);
+        return;
+    }
+    
     result = AudioUnitGetProperty(output,
                                   kAudioUnitProperty_StreamFormat,
                                   kAudioUnitScope_Input,
-                                  0,
+                                  1,
                                   &mStreamDesc,
                                   &size );
     
+    //[self PrintStreamDescription];
+    
+    if (result)
+    {
+        printf("StreamFormat result %u %4.4s\n", (unsigned int)result, (char*)&result);
+        return;
+    }
+    
+    result = AudioUnitGetProperty(output,
+                                 kAudioUnitProperty_StreamFormat,
+                                 kAudioUnitScope_Output,
+                                 0,
+                                 &mStreamDesc,
+                                 &size );
+    
+    //[self PrintStreamDescription];
+    
+    if (result)
+    {
+        printf("StreamFormat result %u %4.4s\n", (unsigned int)result, (char*)&result);
+        return;
+    }
+    
+    mEffects[0]->SetStreamDescription(output);
+    
+#if 0
     result = AudioUnitSetProperty(output,
                                   kAudioUnitProperty_StreamFormat,
                                   kAudioUnitScope_Output,
-                                  0,
+                                  1,
                                   &mStreamDesc,
                                   sizeof(mStreamDesc) );
+    if (result)
+    {
+        printf("StreamFormat result %u %4.4s\n", (unsigned int)result, (char*)&result);
+        return;
+    }
     
-    AUGraphInitialize(mGraph);
+#endif
+
+    result = AUGraphInitialize(mGraph);
+    
+    if (result)
+    {
+        printf("AUGraphInitialize result %d\n", result);
+        return;
+    }
+    
     CAShow(mGraph);
     
-    AUGraphStart(mGraph);
+    result = AUGraphStart(mGraph);
+    
+    if (result)
+    {
+        printf("AUGraphStart result %u %4.4s\n", (unsigned int)result, (char*)&result);
+        return;
+    }
     
 }
 

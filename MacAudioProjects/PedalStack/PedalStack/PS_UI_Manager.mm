@@ -7,17 +7,30 @@
 //
 
 #import "PS_UI_Manager.h"
-#import "PS_Core.h"
 
 @implementation PS_UI_Manager
 
-- (void) awakeFromNib
+-(IBAction)OnValueChangeA:(id)sender
 {
+    float value = [sender floatValue];
+    
+    [core GetEffectFromID: kAudioUnitSubType_BandPassFilter]->SetEffectParameter(kBandpassParam_CenterFrequency, value);
 }
 
-- (IBAction)test:(id)sender
+
+- (IBAction)AddNewEffect:(id)sender
 {
+    NSString *name = UI_Effect.identifier;
+    UInt32 effectID;
     
+    if([name isEqualToString: @"Delay"])
+        effectID = kAudioUnitSubType_Delay;
+    else if ([name isEqualToString: @"Distortion"])
+        effectID = kAudioUnitSubType_Distortion;
+    else if ([name isEqualToString: @"BandPassFilter"])
+        effectID = kAudioUnitSubType_BandPassFilter;
+    
+    [core AddNewEffect: effectID];
 }
 
 @end
