@@ -28,5 +28,6 @@
 - (void) AddNewEffect: (UInt32) effect;
 - (void) PrintStreamDescription;
 - (PS_Effects*) GetEffectFromID: (UInt32) id;
+- (std::vector<UInt32>) GetEffects;
 @end
 

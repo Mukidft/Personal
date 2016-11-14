@@ -21,6 +21,7 @@
 {
     PS_Effects *NewEffect = new PS_Effects(effect, mGraph, outNode, mStreamDesc);
     mEffects.push_back(NewEffect);
+    mEffectIDs.push_back(effect);
 }
 
 - (void) AddNewEffect: (UInt32) effect
@@ -68,6 +69,12 @@
     }
     
     return nullptr;
+}
+
+
+- (std::vector<UInt32>) GetEffects
+{
+    return mEffectIDs;
 }
 
 - (void) initializeGraph

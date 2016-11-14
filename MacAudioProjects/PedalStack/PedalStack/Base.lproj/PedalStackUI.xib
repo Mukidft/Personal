@@ -682,9 +682,13 @@
                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TAC-Lx-8rA">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="224"/>
                         <subviews>
-                            <imageView identifier="BandPassFilter" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="22u-Rm-ebU">
+                            <imageView identifier="Delay" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="22u-Rm-ebU">
                                 <rect key="frame" x="-8" y="37" width="234" height="150"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="DistortionIII-11" id="MZH-sj-Fos"/>
+                            </imageView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qj3-Kb-eaq">
+                                <rect key="frame" x="469" y="88" width="48" height="48"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="dEW-sJ-hmE"/>
                             </imageView>
                         </subviews>
                     </customView>
@@ -716,7 +720,7 @@
                     </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yz8-CG-ucN">
                         <rect key="frame" x="125" y="564" width="82" height="32"/>
-                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="a3L-3T-b03">
+                        <buttonCell key="cell" type="push" title="Delay" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="a3L-3T-b03">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -762,20 +766,21 @@
                                     <rect key="frame" x="10" y="33" width="994" height="301"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rvt-bW-5c5">
-                                            <rect key="frame" x="506" y="142" width="28" height="30"/>
-                                            <shadow key="shadow">
-                                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            </shadow>
-                                            <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="54.789079704871888" allowsTickMarkValuesOnly="YES" sliderType="circular" id="HKg-hW-lfS"/>
-                                        </slider>
                                         <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UPc-JA-Rif">
                                             <rect key="frame" x="404" y="207" width="187" height="21"/>
-                                            <sliderCell key="cell" continuous="YES" alignment="left" minValue="20" maxValue="22000" doubleValue="20" tickMarkPosition="below" allowsTickMarkValuesOnly="YES" sliderType="linear" id="FfJ-vu-nJF"/>
+                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="2" doubleValue="1" tickMarkPosition="below" allowsTickMarkValuesOnly="YES" sliderType="linear" id="FfJ-vu-nJF"/>
                                             <connections>
                                                 <action selector="OnValueChangeA:" target="Voe-Tx-rLC" id="xtB-Ko-HC2"/>
                                             </connections>
                                         </slider>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hUF-c9-rTw">
+                                            <rect key="frame" x="461" y="234" width="73" height="17"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Delay Time" id="2Kg-I5-x3w">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
                                     </subviews>
                                 </view>
                             </tabViewItem>

@@ -14,7 +14,8 @@
 {
     float value = [sender floatValue];
     
-    [core GetEffectFromID: kAudioUnitSubType_BandPassFilter]->SetEffectParameter(kBandpassParam_CenterFrequency, value);
+    if([core GetEffects].size() != 0)
+        [core GetEffectFromID: kAudioUnitSubType_Delay]->SetEffectParameter(kDelayParam_DelayTime, value);
 }
 
 
