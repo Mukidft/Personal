@@ -26,9 +26,9 @@ void PS_Effects::AddEffectNode()
     ErrorCheck(NodeAdded);
 }
 
-void PS_Effects::ConnectEffectIO(AUNode input, AUNode output)
+void PS_Effects::ConnectEffectIO(AUNode input, AUNode output, uint32 inBus, uint32 outBus)
 {
-    _result = AUGraphConnectNodeInput(_graph, input, 0, output, 0);
+    _result = AUGraphConnectNodeInput(_graph, input, inBus, output, outBus);
     
     ErrorCheck(NodeConnected);
 }
@@ -58,8 +58,6 @@ void PS_Effects::SetStreamDescription(AudioUnit outAU)
                                    &_streamDesc,
                                    &size );
     
-    PrintStreamDescription();
-    
     ErrorCheck(NodeGetProperty);
     
     
@@ -69,8 +67,6 @@ void PS_Effects::SetStreamDescription(AudioUnit outAU)
                                   0,
                                   &_streamDesc,
                                   sizeof(_streamDesc) );
-    
-    PrintStreamDescription();
     
     ErrorCheck(NodeSetProperty);
 }

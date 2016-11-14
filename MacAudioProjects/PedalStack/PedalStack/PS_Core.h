@@ -19,6 +19,7 @@
     
     std::vector<PS_Effects*> mEffects;
     std::vector<UInt32> mEffectIDs;
+    OSStatus result;
     
 }
 

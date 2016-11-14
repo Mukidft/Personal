@@ -14,9 +14,9 @@
 class PS_Effects
 {
 public:
+    // Constructor & Destructor
     ~PS_Effects(){}
     PS_Effects(){}
-    
     PS_Effects(UInt32 effect, AUGraph graph, AUNode outNode, AudioStreamBasicDescription streamDesc);
     
     // Getters
@@ -26,15 +26,17 @@ public:
     AudioUnit GetEffectAU();
     void GetEffectInfo();
     
+    // Setters
     void SetEffectParameter(AudioUnitParameterID paramID, AudioUnitParameterValue paramVal);
     void SetStreamDescription(AudioUnit outAU);
     
-    void ConnectEffectIO(AUNode input, AUNode output);
+    // Input Output
+    void ConnectEffectIO(AUNode input, AUNode output, uint32 inBus = 0, uint32 outBus = 0);
     void DisconnectEffectIO();
     
     
 private:
-    
+    // Error Checking
     enum ErrorType
     {
       NodeAdded,
@@ -56,10 +58,12 @@ private:
     AudioComponentDescription _effectDesc;
     AudioStreamBasicDescription _streamDesc;
     
+    OSStatus _result;
+    
     void FillDescription();
     void AddEffectNode();
     
-    OSStatus _result;
+    // Error Checking
     void ErrorCheck(ErrorType error);
     void PrintStreamDescription();
     
