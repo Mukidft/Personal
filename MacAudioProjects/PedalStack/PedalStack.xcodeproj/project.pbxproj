@@ -21,6 +21,7 @@
 		CEFB29B01DAC1FD1009AF2F7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFB29AB1DAC1FD1009AF2F7 /* Cocoa.framework */; };
 		CEFB29B11DAC1FD1009AF2F7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFB29AC1DAC1FD1009AF2F7 /* CoreAudio.framework */; };
 		CEFB29B21DAC1FD1009AF2F7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFB29AD1DAC1FD1009AF2F7 /* Foundation.framework */; };
+		F4333E2D1DDCE0B30035D4A7 /* PS_UI_DragDropView.mm in Sources */ = {isa = PBXBuildFile; fileRef = F4333E2C1DDCE0B30035D4A7 /* PS_UI_DragDropView.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		CEFB29AB1DAC1FD1009AF2F7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		CEFB29AC1DAC1FD1009AF2F7 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		CEFB29AD1DAC1FD1009AF2F7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F4333E2C1DDCE0B30035D4A7 /* PS_UI_DragDropView.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = PS_UI_DragDropView.mm; sourceTree = "<group>"; };
+		F4333E2F1DDCE1060035D4A7 /* PS_UI_DragDropView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PS_UI_DragDropView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,7 @@
 			children = (
 				CEEF68651DB7F6CE00EA21D7 /* PS_UI_Manager.h */,
 				CEEF686B1DB7F8C900EA21D7 /* PS_UI_Manager.mm */,
+				F4333E301DDCE2DD0035D4A7 /* CustomViews */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -208,6 +212,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F4333E301DDCE2DD0035D4A7 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				F4333E2C1DDCE0B30035D4A7 /* PS_UI_DragDropView.mm */,
+				F4333E2F1DDCE1060035D4A7 /* PS_UI_DragDropView.h */,
+			);
+			name = CustomViews;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -310,6 +323,7 @@
 			files = (
 				CEEF686C1DB7F8C900EA21D7 /* PS_UI_Manager.mm in Sources */,
 				CE8726A01DAC1C2400D43377 /* main.m in Sources */,
+				F4333E2D1DDCE0B30035D4A7 /* PS_UI_DragDropView.mm in Sources */,
 				CEEF68671DB7F6CE00EA21D7 /* PS_Core.mm in Sources */,
 				CE9040B71DBE99EF009CEB44 /* PS_Effects.mm in Sources */,
 			);

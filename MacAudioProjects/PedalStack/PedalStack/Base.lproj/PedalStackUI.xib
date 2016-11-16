@@ -679,19 +679,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="1000" height="600"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TAC-Lx-8rA">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="224"/>
-                        <subviews>
-                            <imageView identifier="Delay" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="22u-Rm-ebU">
-                                <rect key="frame" x="-8" y="37" width="234" height="150"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="DistortionIII-11" id="MZH-sj-Fos"/>
-                            </imageView>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qj3-Kb-eaq">
-                                <rect key="frame" x="469" y="88" width="48" height="48"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="dEW-sJ-hmE"/>
-                            </imageView>
-                        </subviews>
-                    </customView>
                     <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dVu-z9-LUk">
                         <rect key="frame" x="379" y="568" width="244" height="26"/>
                         <popUpButtonCell key="cell" type="push" title="Default" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="SXr-lC-ASZ" id="uZa-nX-etL">
@@ -733,36 +720,25 @@
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="Pedals" identifier="1" id="qj1-f4-vqw">
-                                <view key="view" id="ymk-Hd-4vb">
-                                    <rect key="frame" x="10" y="33" width="994" height="301"/>
+                                <view key="view" ambiguous="YES" id="ymk-Hd-4vb">
+                                    <rect key="frame" x="10" y="33" width="142" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfj-FT-MyI">
-                                            <rect key="frame" x="-3" y="8" width="1000" height="298"/>
-                                            <clipView key="contentView" ambiguous="YES" id="6Ns-gL-KcC">
-                                                <rect key="frame" x="1" y="1" width="983" height="281"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                <subviews>
-                                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nV8-bT-777" userLabel="Delay">
-                                                        <rect key="frame" x="0.0" y="202" width="365" height="274"/>
-                                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="DistortionIII-11" id="0ok-aE-u1b"/>
-                                                    </imageView>
-                                                </subviews>
-                                            </clipView>
-                                            <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="1QE-dG-dKE">
-                                                <rect key="frame" x="1" y="282" width="983" height="15"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                            </scroller>
-                                            <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="ZVk-55-QxX">
-                                                <rect key="frame" x="984" y="1" width="15" height="281"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                            </scroller>
-                                        </scrollView>
+                                        <imageView identifier="Delay" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="22u-Rm-ebU" customClass="PS_UI_DragDropView">
+                                            <rect key="frame" x="6" y="-230" width="234" height="150"/>
+                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="DistortionIII-11" id="MZH-sj-Fos" userLabel="Delay">
+                                                <accessibility identifier="Delay"/>
+                                            </imageCell>
+                                        </imageView>
+                                        <imageView identifier="BandPassFilter" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TPX-P2-bXb" customClass="PS_UI_DragDropView">
+                                            <rect key="frame" x="248" y="-230" width="234" height="150"/>
+                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="DistortionIII-11" id="zBo-7v-xBL"/>
+                                        </imageView>
                                     </subviews>
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Control" identifier="2" id="JUG-fd-GEX">
-                                <view key="view" ambiguous="YES" id="RrF-7E-nPf">
+                                <view key="view" id="RrF-7E-nPf">
                                     <rect key="frame" x="10" y="33" width="994" height="301"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -786,6 +762,34 @@
                             </tabViewItem>
                         </tabViewItems>
                     </tabView>
+                    <imageView identifier="Delay" autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ds-eY-YrS" customClass="PS_UI_DragDropView">
+                        <rect key="frame" x="13" y="53" width="228" height="144"/>
+                        <shadow key="shadow" blurRadius="12">
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </shadow>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="ktE-dT-HKB"/>
+                    </imageView>
+                    <imageView identifier="Delay" autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6f3-Zz-TMq" customClass="PS_UI_DragDropView">
+                        <rect key="frame" x="485" y="53" width="228" height="144"/>
+                        <shadow key="shadow" blurRadius="12">
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </shadow>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="DAd-mz-R59"/>
+                    </imageView>
+                    <imageView identifier="Delay" autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5tV-sd-ySd" customClass="PS_UI_DragDropView">
+                        <rect key="frame" x="721" y="53" width="228" height="144"/>
+                        <shadow key="shadow" blurRadius="12">
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </shadow>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="Eck-sO-vMz"/>
+                    </imageView>
+                    <imageView identifier="Delay" autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rrn-In-FCJ" customClass="PS_UI_DragDropView">
+                        <rect key="frame" x="249" y="53" width="228" height="144"/>
+                        <shadow key="shadow" blurRadius="12">
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </shadow>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="jee-9w-uDT"/>
+                    </imageView>
                 </subviews>
             </view>
             <contentBorderThickness minY="22"/>
