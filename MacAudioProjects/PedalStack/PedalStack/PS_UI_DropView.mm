@@ -81,6 +81,11 @@ NSString *kPrivateDropUTI = @"com.Deepak.PedalStack";
     [self setNeedsDisplay: YES];
 }
 
+- (void)rightMouseDown:(NSEvent *)event
+{
+    [self setImage: nil];
+}
+
 -(void)drawRect:(NSRect)rect
 {
     /*------------------------------------------------------
