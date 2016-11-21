@@ -705,33 +705,24 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yz8-CG-ucN">
-                        <rect key="frame" x="125" y="564" width="82" height="32"/>
-                        <buttonCell key="cell" type="push" title="Delay" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="a3L-3T-b03">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="AddNewEffect:" target="Voe-Tx-rLC" id="1h2-9W-GIt"/>
-                        </connections>
-                    </button>
                     <tabView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xUQ-bZ-k7C">
                         <rect key="frame" x="-7" y="214" width="1014" height="347"/>
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="Pedals" identifier="1" id="qj1-f4-vqw">
                                 <view key="view" ambiguous="YES" id="ymk-Hd-4vb">
-                                    <rect key="frame" x="10" y="33" width="142" height="0.0"/>
+                                    <rect key="frame" x="10" y="33" width="994" height="301"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <imageView identifier="Delay" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="22u-Rm-ebU" customClass="PS_UI_DragDropView">
-                                            <rect key="frame" x="6" y="-230" width="234" height="150"/>
-                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="DistortionIII-11" id="MZH-sj-Fos" userLabel="Delay">
-                                                <accessibility identifier="Delay"/>
+                                        <imageView identifier="Delay" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="22u-Rm-ebU" customClass="PS_UI_DragView">
+                                            <rect key="frame" x="6" y="71" width="234" height="150"/>
+                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" identifier="Delay2" imageScaling="proportionallyDown" image="DistortionIII-11" id="MZH-sj-Fos" userLabel="DelayPedal">
+                                                <accessibility identifier="Delay2"/>
                                             </imageCell>
+                                            <accessibility identifier="Delay"/>
                                         </imageView>
-                                        <imageView identifier="BandPassFilter" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TPX-P2-bXb" customClass="PS_UI_DragDropView">
-                                            <rect key="frame" x="248" y="-230" width="234" height="150"/>
+                                        <imageView identifier="BandPassFilter" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TPX-P2-bXb" customClass="PS_UI_DragView">
+                                            <rect key="frame" x="248" y="71" width="234" height="150"/>
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="DistortionIII-11" id="zBo-7v-xBL"/>
                                         </imageView>
                                     </subviews>
@@ -762,33 +753,33 @@
                             </tabViewItem>
                         </tabViewItems>
                     </tabView>
-                    <imageView identifier="Delay" autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ds-eY-YrS" customClass="PS_UI_DragDropView">
-                        <rect key="frame" x="13" y="53" width="228" height="144"/>
-                        <shadow key="shadow" blurRadius="12">
-                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        </shadow>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="ktE-dT-HKB"/>
-                    </imageView>
-                    <imageView identifier="Delay" autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6f3-Zz-TMq" customClass="PS_UI_DragDropView">
+                    <imageView autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6f3-Zz-TMq" customClass="PS_UI_DropView">
                         <rect key="frame" x="485" y="53" width="228" height="144"/>
                         <shadow key="shadow" blurRadius="12">
                             <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </shadow>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="DAd-mz-R59"/>
                     </imageView>
-                    <imageView identifier="Delay" autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5tV-sd-ySd" customClass="PS_UI_DragDropView">
+                    <imageView autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5tV-sd-ySd" customClass="PS_UI_DropView">
                         <rect key="frame" x="721" y="53" width="228" height="144"/>
                         <shadow key="shadow" blurRadius="12">
                             <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </shadow>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="Eck-sO-vMz"/>
                     </imageView>
-                    <imageView identifier="Delay" autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rrn-In-FCJ" customClass="PS_UI_DragDropView">
+                    <imageView autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rrn-In-FCJ" customClass="PS_UI_DropView">
                         <rect key="frame" x="249" y="53" width="228" height="144"/>
                         <shadow key="shadow" blurRadius="12">
                             <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </shadow>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="jee-9w-uDT"/>
+                    </imageView>
+                    <imageView autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ds-eY-YrS" customClass="PS_UI_DropView">
+                        <rect key="frame" x="13" y="53" width="228" height="144"/>
+                        <shadow key="shadow" blurRadius="12">
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </shadow>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="ktE-dT-HKB"/>
                     </imageView>
                 </subviews>
             </view>

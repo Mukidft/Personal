@@ -1,5 +1,5 @@
 //
-//  PS_UI_DragDropView.m
+//  PS_UI_DropView.m
 //  PedalStack
 //
 //  Created by Poppy on 11/16/16.
@@ -7,11 +7,11 @@
 //
 
 
-#import "PS_UI_DragDropView.h"
+#import "PS_UI_DropView.h"
 
-@implementation PS_UI_DragDropView
+@implementation PS_UI_DropView
 
-NSString *kPrivateDragUTI = @"com.Deepak.PedalStack";
+NSString *kPrivateDropUTI = @"com.Deepak.PedalStack";
 
 - (id)initWithCoder:(NSCoder *)coder
 {
@@ -48,7 +48,7 @@ NSString *kPrivateDragUTI = @"com.Deepak.PedalStack";
                                            /* Only resize a fragging item if it originated from one of our windows.  To do this,
                                             * we declare a custom UTI that will only be assigned to dragging items we created.  Here
                                             * we check if the dragging item can represent our custom UTI.  If it can't we stop. */
-                                           if ( ![[[draggingItem item] types] containsObject:kPrivateDragUTI] )
+                                           if ( ![[[draggingItem item] types] containsObject:kPrivateDropUTI] )
                                            {
                                                *stop = YES;
                                            }
@@ -111,26 +111,6 @@ NSString *kPrivateDragUTI = @"com.Deepak.PedalStack";
     return [NSImage canInitWithPasteboard: [sender draggingPasteboard]];
 }
 
-- (BOOL)performDragOperation:(id <NSDraggingInfo>)sender
-{
-    /*------------------------------------------------------
-     method that should handle the drop data
-     --------------------------------------------------------*/
-    if ( [sender draggingSource] != self )
-    {
-        
-        //set the image using the best representation we can get from the pasteboard
-        if([NSImage canInitWithPasteboard: [sender draggingPasteboard]])
-        {
-            NSImage *newImage = [[NSImage alloc] initWithPasteboard: [sender draggingPasteboard]];
-            [self setImage:newImage];
-            [newImage release];
-        }
-    }
-    
-    return YES;
-}
-
 - (NSRect)windowWillUseStandardFrame:(NSWindow *)window defaultFrame:(NSRect)newFrame;
 {
     /*------------------------------------------------------
@@ -147,48 +127,6 @@ NSString *kPrivateDragUTI = @"com.Deepak.PedalStack";
 
 #pragma mark - Source Operations
 
-- (void)mouseDown:(NSEvent*)event
-{
-    /*------------------------------------------------------
-     catch mouse down events in order to start drag
-     --------------------------------------------------------*/
-    
-    /* Dragging operation occur within the context of a special pasteboard (NSDragPboard).
-     * All items written or read from a pasteboard must conform to NSPasteboardWriting or
-     * NSPasteboardReading respectively.  NSPasteboardItem implements both these protocols
-     * and is as a container for any object that can be serialized to NSData. */
-    
-    NSPasteboardItem *pbItem = [NSPasteboardItem new];
-    /* Our pasteboard item will support public.tiff, public.pdf, and our custom UTI (see comment in -draggingEntered)
-     * representations of our data (the image).  Rather than compute both of these representations now, promise that
-     * we will provide either of these representations when asked.  When a receiver wants our data in one of the above
-     * representations, we'll get a call to  the NSPasteboardItemDataProvider protocol method –pasteboard:item:provideDataForType:. */
-    [pbItem setDataProvider:self forTypes:[NSArray arrayWithObjects:NSPasteboardTypeTIFF, NSPasteboardTypePDF, kPrivateDragUTI, nil]];
-    
-    //create a new NSDraggingItem with our pasteboard item.
-    NSDraggingItem *dragItem = [[NSDraggingItem alloc] initWithPasteboardWriter:pbItem];
-    [pbItem release];
-    
-    /* The coordinates of the dragging frame are relative to our view.  Setting them to our view's bounds will cause the drag image
-     * to be the same size as our view.  Alternatively, you can set the draggingFrame to an NSRect that is the size of the image in
-     * the view but this can cause the dragged image to not line up with the mouse if the actual image is smaller than the size of the
-     * our view. */
-    NSRect draggingRect = self.bounds;
-    
-    /* While our dragging item is represented by an image, this image can be made up of multiple images which
-     * are automatically composited together in painting order.  However, since we are only dragging a single
-     * item composed of a single image, we can use the convince method below. For a more complex example
-     * please see the MultiPhotoFrame sample. */
-    [dragItem setDraggingFrame:draggingRect contents:[self image]];
-    
-    //create a dragging session with our drag item and ourself as the source.
-    NSDraggingSession *draggingSession = [self beginDraggingSessionWithItems:[NSArray arrayWithObject:[dragItem autorelease]] event:event source:self];
-    //causes the dragging item to slide back to the source if the drag fails.
-    draggingSession.animatesToStartingPositionsOnCancelOrFail = YES;
-    
-    draggingSession.draggingFormation = NSDraggingFormationNone;
-}
-
 - (NSDragOperation)draggingSession:(NSDraggingSession *)session sourceOperationMaskForDraggingContext:(NSDraggingContext)context
 {
     /*------------------------------------------------------
@@ -204,34 +142,5 @@ NSString *kPrivateDragUTI = @"com.Deepak.PedalStack";
             return NSDragOperationCopy;
             break;
     }
-}
-
-- (BOOL)acceptsFirstMouse:(NSEvent *)event
-{
-    /*------------------------------------------------------
-     accept activation click as click in window
-     --------------------------------------------------------*/
-    //so source doesn't have to be the active window
-    return YES;
-}
-
-- (void)pasteboard:(NSPasteboard *)sender item:(NSPasteboardItem *)item provideDataForType:(NSString *)type
-{
-    /*------------------------------------------------------
-     method called by pasteboard to support promised
-     drag types.
-     --------------------------------------------------------*/
-    //sender has accepted the drag and now we need to send the data for the type we promised
-    if ( [type compare: NSPasteboardTypeTIFF] == NSOrderedSame ) {
-        
-        //set data for TIFF type on the pasteboard as requested
-        [sender setData:[[self image] TIFFRepresentation] forType:NSPasteboardTypeTIFF];
-        
-    } else if ( [type compare: NSPasteboardTypePDF] == NSOrderedSame ) {
-        
-        //set data for PDF type on the pasteboard as requested
-        [sender setData:[self dataWithPDFInsideRect:[self bounds]] forType:NSPasteboardTypePDF];
-    }
-    
 }
 @end
