@@ -9,10 +9,9 @@
 /* Begin PBXBuildFile section */
 		CE8726A01DAC1C2400D43377 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE87269F1DAC1C2400D43377 /* main.m */; };
 		CE8726A21DAC1C2400D43377 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE8726A11DAC1C2400D43377 /* Images.xcassets */; };
-		CE8726A51DAC1C2400D43377 /* PedalStackUI.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE8726A31DAC1C2400D43377 /* PedalStackUI.xib */; };
+		CE8726A51DAC1C2400D43377 /* PedalStackUI.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE8726A31DAC1C2400D43377 /* PedalStackUI.xib */; settings = {ASSET_TAGS = (test, ); }; };
 		CE8726B11DAC1C2400D43377 /* PedalStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8726B01DAC1C2400D43377 /* PedalStackTests.m */; };
 		CE9040B71DBE99EF009CEB44 /* PS_Effects.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE9040B61DBE99EF009CEB44 /* PS_Effects.mm */; };
-		CEE0D5EE1DAEB4F0003C1BB3 /* Change.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE0D5ED1DAEB4F0003C1BB3 /* Change.xib */; };
 		CEEF68671DB7F6CE00EA21D7 /* PS_Core.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEEF68641DB7F6CE00EA21D7 /* PS_Core.mm */; };
 		CEEF686C1DB7F8C900EA21D7 /* PS_UI_Manager.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEEF686B1DB7F8C900EA21D7 /* PS_UI_Manager.mm */; };
 		CEFB29A81DAC1FB7009AF2F7 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFB29A71DAC1FB7009AF2F7 /* AppKit.framework */; };
@@ -46,11 +45,9 @@
 		CE8726B01DAC1C2400D43377 /* PedalStackTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PedalStackTests.m; sourceTree = "<group>"; };
 		CE9040B51DBE99EF009CEB44 /* PS_Effects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PS_Effects.h; sourceTree = "<group>"; };
 		CE9040B61DBE99EF009CEB44 /* PS_Effects.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PS_Effects.mm; sourceTree = "<group>"; };
-		CEE0D5ED1DAEB4F0003C1BB3 /* Change.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Change.xib; sourceTree = "<group>"; };
 		CEEF68631DB7F6CE00EA21D7 /* PS_Core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PS_Core.h; sourceTree = "<group>"; };
 		CEEF68641DB7F6CE00EA21D7 /* PS_Core.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PS_Core.mm; sourceTree = "<group>"; };
 		CEEF68651DB7F6CE00EA21D7 /* PS_UI_Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PS_UI_Manager.h; sourceTree = "<group>"; };
-		CEEF68691DB7F77000EA21D7 /* PS_Headers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PS_Headers.h; sourceTree = "<group>"; };
 		CEEF686B1DB7F8C900EA21D7 /* PS_UI_Manager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PS_UI_Manager.mm; sourceTree = "<group>"; };
 		CEFB29A71DAC1FB7009AF2F7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		CEFB29A91DAC1FD1009AF2F7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -134,7 +131,6 @@
 				CE9040B21DBE9634009CEB44 /* Effects */,
 				CE0F5B6D1DAC233600B77B6E /* Main */,
 				CE0F5B6E1DAC234800B77B6E /* UI */,
-				CEEF686A1DB7F77600EA21D7 /* Utils */,
 			);
 			path = PedalStack;
 			sourceTree = "<group>";
@@ -182,21 +178,12 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
-		CEEF686A1DB7F77600EA21D7 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				CEEF68691DB7F77000EA21D7 /* PS_Headers.h */,
-			);
-			name = Utils;
-			sourceTree = "<group>";
-		};
 		CEFB29A61DAC1F48009AF2F7 /* UI */ = {
 			isa = PBXGroup;
 			children = (
 				CEE0D5F11DAEBB49003C1BB3 /* Images */,
 				CE8726A11DAC1C2400D43377 /* Images.xcassets */,
 				CE8726A31DAC1C2400D43377 /* PedalStackUI.xib */,
-				CEE0D5ED1DAEB4F0003C1BB3 /* Change.xib */,
 			);
 			name = UI;
 			path = PedalStack;
@@ -270,6 +257,9 @@
 		CE87268F1DAC1C2400D43377 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					test,
+				);
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Deepak Chennakkadan";
 				TargetAttributes = {
@@ -308,7 +298,6 @@
 			files = (
 				CE8726A21DAC1C2400D43377 /* Images.xcassets in Resources */,
 				CE8726A51DAC1C2400D43377 /* PedalStackUI.xib in Resources */,
-				CEE0D5EE1DAEB4F0003C1BB3 /* Change.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

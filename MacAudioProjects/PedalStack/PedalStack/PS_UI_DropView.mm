@@ -8,6 +8,7 @@
 
 
 #import "PS_UI_DropView.h"
+#include <iostream>
 
 @implementation PS_UI_DropView
 
@@ -81,8 +82,42 @@ NSString *kPrivateDropUTI = @"com.Deepak.PedalStack";
     [self setNeedsDisplay: YES];
 }
 
+
+- (BOOL)performDragOperation:(id <NSDraggingInfo>)sender
+{
+    /*------------------------------------------------------
+     method that should handle the drop data
+     --------------------------------------------------------*/
+    if ( [sender draggingSource] != self )
+    {
+        //set the image using the best representation we can get from the pasteboard
+        if([NSImage canInitWithPasteboard: [sender draggingPasteboard]])
+        {
+            NSImage *newImage = [[NSImage alloc] initWithPasteboard: [sender draggingPasteboard]];
+            [self setImage:newImage];
+            [newImage release];
+        }
+    }
+    
+    return YES;
+}
+
 - (void)rightMouseDown:(NSEvent *)event
 {
+    if(![self image])
+        return;
+    
+    NSString *name = self.identifier;
+    
+    if([name isEqualToString:@"0"])
+        std::cout << "Pedal 1 disconnected!" << std::endl;
+    else if([name isEqualToString:@"1"])
+        std::cout << "Pedal 2 disconnected!" << std::endl;
+    else if([name isEqualToString:@"2"])
+        std::cout << "Pedal 3 disconnected!" << std::endl;
+    else if([name isEqualToString:@"3"])
+        std::cout << "Pedal 4 disconnected!" << std::endl;
+    
     [self setImage: nil];
 }
 

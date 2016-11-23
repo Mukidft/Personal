@@ -6,19 +6,18 @@
 //  Copyright © 2016 Deepak Chennakkadan. All rights reserved.
 //
 
-#ifndef PS_UI_DragView_h
-#define PS_UI_DragView_h
+// Framework
+#import <Cocoa/Cocoa.h>
 
-#include "PS_Headers.h"
 
 @interface PS_UI_DragView : NSImageView <NSDraggingSource, NSDraggingDestination, NSPasteboardItemDataProvider>
 {
     //highlight the drop zone
     BOOL highlight;
+    NSString *effect_name;
 }
 
 - (id)initWithCoder:(NSCoder *)coder;
+- (void)setName: (NSString *) name;
 
 @end
-
-#endif /* PS_UI_DragView_h */

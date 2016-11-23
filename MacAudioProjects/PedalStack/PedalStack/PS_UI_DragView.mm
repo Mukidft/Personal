@@ -25,28 +25,11 @@ NSString *kPrivateDragUTI = @"com.Deepak.PedalStack";
     return self;
 }
 
-#pragma mark - Destination Operations
-- (BOOL)performDragOperation:(id <NSDraggingInfo>)sender
-{
-    /*------------------------------------------------------
-     method that should handle the drop data
-     --------------------------------------------------------*/
-    if ( [sender draggingSource] != self )
-    {
-        
-        //set the image using the best representation we can get from the pasteboard
-        if([NSImage canInitWithPasteboard: [sender draggingPasteboard]])
-        {
-            NSImage *newImage = [[NSImage alloc] initWithPasteboard: [sender draggingPasteboard]];
-            [self setImage:newImage];
-            [newImage release];
-        }
-    }
-    
-    return YES;
-}
 
-#pragma mark - Source Operations
+- (void)setName: (NSString *) name
+{
+    effect_name = name;
+}
 
 - (void)mouseDown:(NSEvent*)event
 {
@@ -123,8 +106,10 @@ NSString *kPrivateDragUTI = @"com.Deepak.PedalStack";
      drag types.
      --------------------------------------------------------*/
     //sender has accepted the drag and now we need to send the data for the type we promised
-    if ( [type compare: NSPasteboardTypeTIFF] == NSOrderedSame ) {
-        
+    if ( [type compare: NSPasteboardTypeTIFF] == NSOrderedSame )
+    {
+        //[sender setData:[effect_name dataUsingEncoding: NSASCIIStringEncoding]];
+                          
         //set data for TIFF type on the pasteboard as requested
         [sender setData:[[self image] TIFFRepresentation] forType:NSPasteboardTypeTIFF];
         

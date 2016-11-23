@@ -7,6 +7,7 @@
 //
 
 #include "PS_Effects.h"
+#include <iostream>
 
 PS_Effects::PS_Effects(UInt32 effect, AUGraph graph, AUNode outNode, AudioStreamBasicDescription streamDesc) : _effectID(effect), _graph(graph), _output(outNode), _streamDesc(streamDesc)
 {

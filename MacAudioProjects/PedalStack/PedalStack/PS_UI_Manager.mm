@@ -10,6 +10,12 @@
 
 @implementation PS_UI_Manager
 
+- (void) awakeFromNib
+{
+    [EffectA setName: EffectA.identifier];
+    [EffectB setName: EffectB.identifier];
+}
+
 -(IBAction)OnValueChangeA:(id)sender
 {
     float value = [sender floatValue];

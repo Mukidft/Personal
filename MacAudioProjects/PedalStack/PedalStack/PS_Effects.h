@@ -6,10 +6,20 @@
 //  Copyright © 2016 Deepak Chennakkadan. All rights reserved.
 //
 
-#import "PS_Headers.h"
-
 #ifndef PS_Effects_h
 #define PS_Effects_h
+
+// Core Audio
+#import <CoreAudio/CoreAudio.h>
+#import <AudioToolbox/AudioToolbox.h>
+
+// Audio Units
+#import <AudioUnit/AudioUnitParameters.h>
+#import <AudioUnit/AudioUnitProperties.h>
+
+// C++ std libs
+#include <iostream>
+#include <vector>
 
 class PS_Effects
 {

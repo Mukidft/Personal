@@ -9,6 +9,7 @@
 #define TEST 0
 
 #import "PS_Core.h"
+#include <iostream>
 
 @implementation PS_Core
 

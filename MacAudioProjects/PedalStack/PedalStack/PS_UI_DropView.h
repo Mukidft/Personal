@@ -6,10 +6,8 @@
 //  Copyright © 2016 Deepak Chennakkadan. All rights reserved.
 //
 
-#ifndef PS_UI_DropView_h
-#define PS_UI_DropView_h
-
-#include "PS_Headers.h"
+// Framework
+#import <Cocoa/Cocoa.h>
 
 @interface PS_UI_DropView : NSImageView <NSDraggingSource, NSDraggingDestination, NSPasteboardItemDataProvider>
 {
@@ -20,5 +18,3 @@
 - (id)initWithCoder:(NSCoder *)coder;
 
 @end
-
-#endif /* PS_UI_DragDropView_h */

@@ -13,6 +13,8 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" userLabel="PS_UI_Manager" customClass="PS_UI_Manager">
             <connections>
+                <outlet property="EffectA" destination="22u-Rm-ebU" id="4NN-3s-rK0"/>
+                <outlet property="EffectB" destination="TPX-P2-bXb" id="GIG-eD-HTR"/>
                 <outlet property="UI_Effect" destination="22u-Rm-ebU" id="kzI-Fp-aMV"/>
                 <outlet property="core" destination="AHS-Fx-Sl4" id="yfT-yY-Mio"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="9HH-gL-UfF"/>
@@ -717,7 +719,7 @@
                                         <imageView identifier="Delay" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="22u-Rm-ebU" customClass="PS_UI_DragView">
                                             <rect key="frame" x="6" y="71" width="234" height="150"/>
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" identifier="Delay2" imageScaling="proportionallyDown" image="DistortionIII-11" id="MZH-sj-Fos" userLabel="DelayPedal">
-                                                <accessibility identifier="Delay2"/>
+                                                <accessibility description="test" identifier="Delay2"/>
                                             </imageCell>
                                             <accessibility identifier="Delay"/>
                                         </imageView>
@@ -753,28 +755,28 @@
                             </tabViewItem>
                         </tabViewItems>
                     </tabView>
-                    <imageView autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6f3-Zz-TMq" customClass="PS_UI_DropView">
+                    <imageView identifier="2" autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6f3-Zz-TMq" customClass="PS_UI_DropView">
                         <rect key="frame" x="485" y="53" width="228" height="144"/>
                         <shadow key="shadow" blurRadius="12">
                             <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </shadow>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="DAd-mz-R59"/>
                     </imageView>
-                    <imageView autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5tV-sd-ySd" customClass="PS_UI_DropView">
+                    <imageView identifier="3" autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5tV-sd-ySd" customClass="PS_UI_DropView">
                         <rect key="frame" x="721" y="53" width="228" height="144"/>
                         <shadow key="shadow" blurRadius="12">
                             <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </shadow>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="Eck-sO-vMz"/>
                     </imageView>
-                    <imageView autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rrn-In-FCJ" customClass="PS_UI_DropView">
+                    <imageView identifier="1" autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rrn-In-FCJ" customClass="PS_UI_DropView">
                         <rect key="frame" x="249" y="53" width="228" height="144"/>
                         <shadow key="shadow" blurRadius="12">
                             <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </shadow>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="jee-9w-uDT"/>
                     </imageView>
-                    <imageView autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ds-eY-YrS" customClass="PS_UI_DropView">
+                    <imageView identifier="0" autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ds-eY-YrS" customClass="PS_UI_DropView">
                         <rect key="frame" x="13" y="53" width="228" height="144"/>
                         <shadow key="shadow" blurRadius="12">
                             <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -787,7 +789,7 @@
             <connections>
                 <outlet property="delegate" destination="Voe-Tx-rLC" id="un1-tY-WNc"/>
             </connections>
-            <point key="canvasLocation" x="190" y="443"/>
+            <point key="canvasLocation" x="405" y="525"/>
         </window>
     </objects>
     <resources>

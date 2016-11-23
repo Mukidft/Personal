@@ -6,11 +6,12 @@
 //  Copyright © 2016 Deepak Chennakkadan. All rights reserved.
 //
 
-#ifndef PS_UI_Manager_h
-#define PS_UI_Manager_h
-
-#include "PS_Headers.h"
 #import "PS_Core.h"
+// Framework
+#import <Cocoa/Cocoa.h>
+
+// Project
+#import "PS_UI_DragView.h"
 
 @class PS_Core;
 
@@ -19,8 +20,8 @@
     IBOutlet NSWindow *window;
     IBOutlet PS_Core *core;
     IBOutlet NSImageView *UI_Effect;
+    IBOutlet PS_UI_DragView *EffectA;
+    IBOutlet PS_UI_DragView *EffectB;
 };
 
 @end
-
-#endif /* PS_UI_Manager_h */

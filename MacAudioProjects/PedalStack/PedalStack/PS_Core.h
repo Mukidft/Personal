@@ -6,7 +6,9 @@
 //  Copyright (c) 2016 Deepak Chennakkadan. All rights reserved.
 //
 
-#include "PS_Headers.h"
+//#import "PS_Headers.h"
+#include <vector>
+#include "PS_Effects.h"
 
 @interface PS_Core : NSObject
 {
