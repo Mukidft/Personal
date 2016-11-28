@@ -8,11 +8,11 @@
 
 
 #import "PS_UI_DropView.h"
+#import "PS_UI_DragView.h"
+#import "PS_UI_Manager.h"
 #include <iostream>
 
 @implementation PS_UI_DropView
-
-NSString *kPrivateDropUTI = @"com.Deepak.PedalStack";
 
 - (id)initWithCoder:(NSCoder *)coder
 {
@@ -20,7 +20,7 @@ NSString *kPrivateDropUTI = @"com.Deepak.PedalStack";
     
     if ( self )
     {
-        [self registerForDraggedTypes:[NSImage imageTypes]];
+        [self registerForDraggedTypes:[PS_UI_DragView pasteboardTypes]];
     }
     
     return self;
@@ -31,7 +31,7 @@ NSString *kPrivateDropUTI = @"com.Deepak.PedalStack";
 - (NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender
 {
     // Check if the pasteboard contains image data and source/user wants it copied
-    if ( [NSImage canInitWithPasteboard:[sender draggingPasteboard]] && [sender draggingSourceOperationMask] & NSDragOperationCopy )
+    if ( [self isOurType:[sender draggingPasteboard]] && [sender draggingSourceOperationMask] & NSDragOperationCopy )
     {
         //highlight our drop zone
         highlight=YES;
@@ -49,7 +49,7 @@ NSString *kPrivateDropUTI = @"com.Deepak.PedalStack";
                                            /* Only resize a fragging item if it originated from one of our windows.  To do this,
                                             * we declare a custom UTI that will only be assigned to dragging items we created.  Here
                                             * we check if the dragging item can represent our custom UTI.  If it can't we stop. */
-                                           if ( ![[[draggingItem item] types] containsObject:kPrivateDropUTI] )
+                                           if ( ![self isOurType:[sender draggingPasteboard]])
                                            {
                                                *stop = YES;
                                            }
@@ -90,12 +90,23 @@ NSString *kPrivateDropUTI = @"com.Deepak.PedalStack";
      --------------------------------------------------------*/
     if ( [sender draggingSource] != self )
     {
+        NSData *data;
+        NSString *string;
+
         //set the image using the best representation we can get from the pasteboard
+        data = [[sender draggingPasteboard] dataForType:[PS_UI_DragView pasteboardType]];
+        string = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+        [(PS_UI_Manager *)[NSApp delegate] addNewEffect:string];
+        
         if([NSImage canInitWithPasteboard: [sender draggingPasteboard]])
         {
             NSImage *newImage = [[NSImage alloc] initWithPasteboard: [sender draggingPasteboard]];
             [self setImage:newImage];
             [newImage release];
+            
+            data = [[sender draggingPasteboard] dataForType:[PS_UI_DragView pasteboardType]];
+            string = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+            [(PS_UI_Manager *)[NSApp delegate] addNewEffect:string];
         }
     }
     
@@ -148,7 +159,12 @@ NSString *kPrivateDropUTI = @"com.Deepak.PedalStack";
     [self setNeedsDisplay: YES];
     
     //check to see if we can accept the data
-    return [NSImage canInitWithPasteboard: [sender draggingPasteboard]];
+    return [self isOurType:[sender draggingPasteboard]];
+}
+
+-(BOOL)isOurType:(NSPasteboard *)pasteboard
+{
+    return [[pasteboard types] containsObject:[PS_UI_DragView pasteboardType]];
 }
 
 - (NSRect)windowWillUseStandardFrame:(NSWindow *)window defaultFrame:(NSRect)newFrame;

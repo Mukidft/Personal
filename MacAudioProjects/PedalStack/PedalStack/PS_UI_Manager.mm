@@ -16,7 +16,7 @@
     [EffectB setName: EffectB.identifier];
 }
 
--(IBAction)OnValueChangeA:(id)sender
+-(IBAction)Delay_DelayTime:(id)sender
 {
     float value = [sender floatValue];
     
@@ -25,9 +25,8 @@
 }
 
 
-- (IBAction)AddNewEffect:(id)sender
+- (void)addNewEffect:(NSString *)name
 {
-    NSString *name = UI_Effect.identifier;
     UInt32 effectID;
     
     if([name isEqualToString: @"Delay"])

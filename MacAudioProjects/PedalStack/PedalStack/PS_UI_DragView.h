@@ -9,8 +9,7 @@
 // Framework
 #import <Cocoa/Cocoa.h>
 
-
-@interface PS_UI_DragView : NSImageView <NSDraggingSource, NSDraggingDestination, NSPasteboardItemDataProvider>
+@interface PS_UI_DragView : NSImageView <NSDraggingSource, NSPasteboardItemDataProvider>
 {
     //highlight the drop zone
     BOOL highlight;
@@ -19,5 +18,7 @@
 
 - (id)initWithCoder:(NSCoder *)coder;
 - (void)setName: (NSString *) name;
++ (NSString*)pasteboardType;
++ (NSArray*)pasteboardTypes;
 
 @end

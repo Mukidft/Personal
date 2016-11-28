@@ -739,7 +739,7 @@
                                             <rect key="frame" x="404" y="207" width="187" height="21"/>
                                             <sliderCell key="cell" continuous="YES" alignment="left" maxValue="2" doubleValue="1" tickMarkPosition="below" allowsTickMarkValuesOnly="YES" sliderType="linear" id="FfJ-vu-nJF"/>
                                             <connections>
-                                                <action selector="OnValueChangeA:" target="Voe-Tx-rLC" id="xtB-Ko-HC2"/>
+                                                <action selector="Delay_DelayTime:" target="Voe-Tx-rLC" id="gnA-xF-qay"/>
                                             </connections>
                                         </slider>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hUF-c9-rTw">

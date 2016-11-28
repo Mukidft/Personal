@@ -24,4 +24,6 @@
     IBOutlet PS_UI_DragView *EffectB;
 };
 
+- (void)addNewEffect:(NSString *)name;
+
 @end

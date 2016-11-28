@@ -11,7 +11,7 @@
 
 @implementation PS_UI_DragView
 
-NSString *kPrivateDragUTI = @"com.Deepak.PedalStack";
+NSString *kPrivateDropUTI = @"com.Deepak.PedalStack";
 
 - (id)initWithCoder:(NSCoder *)coder
 {
@@ -23,6 +23,17 @@ NSString *kPrivateDragUTI = @"com.Deepak.PedalStack";
     }
     
     return self;
+}
+
+
++ (NSString*)pasteboardType
+{
+    return kPrivateDropUTI;
+}
+
++ (NSArray*)pasteboardTypes
+{
+    return [NSArray arrayWithObject:[self pasteboardType]];
 }
 
 
@@ -47,7 +58,7 @@ NSString *kPrivateDragUTI = @"com.Deepak.PedalStack";
      * representations of our data (the image).  Rather than compute both of these representations now, promise that
      * we will provide either of these representations when asked.  When a receiver wants our data in one of the above
      * representations, we'll get a call to  the NSPasteboardItemDataProvider protocol method –pasteboard:item:provideDataForType:. */
-    [pbItem setDataProvider:self forTypes:[NSArray arrayWithObjects:NSPasteboardTypeTIFF, NSPasteboardTypePDF, kPrivateDragUTI, nil]];
+    [pbItem setDataProvider:self forTypes:[[self class] pasteboardTypes]];
     
     //create a new NSDraggingItem with our pasteboard item.
     NSDraggingItem *dragItem = [[NSDraggingItem alloc] initWithPasteboardWriter:pbItem];
@@ -106,18 +117,10 @@ NSString *kPrivateDragUTI = @"com.Deepak.PedalStack";
      drag types.
      --------------------------------------------------------*/
     //sender has accepted the drag and now we need to send the data for the type we promised
-    if ( [type compare: NSPasteboardTypeTIFF] == NSOrderedSame )
-    {
-        //[sender setData:[effect_name dataUsingEncoding: NSASCIIStringEncoding]];
-                          
-        //set data for TIFF type on the pasteboard as requested
-        [sender setData:[[self image] TIFFRepresentation] forType:NSPasteboardTypeTIFF];
-        
-    } else if ( [type compare: NSPasteboardTypePDF] == NSOrderedSame ) {
-        
-        //set data for PDF type on the pasteboard as requested
-        [sender setData:[self dataWithPDFInsideRect:[self bounds]] forType:NSPasteboardTypePDF];
-    }
     
+    if ( [type compare: [[self class] pasteboardType]] == NSOrderedSame )
+    {
+        [sender setData:[effect_name dataUsingEncoding: NSASCIIStringEncoding] forType: [[self class] pasteboardType]];
+    }
 }
 @end

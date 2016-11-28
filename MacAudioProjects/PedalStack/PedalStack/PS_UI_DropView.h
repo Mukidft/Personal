@@ -9,7 +9,7 @@
 // Framework
 #import <Cocoa/Cocoa.h>
 
-@interface PS_UI_DropView : NSImageView <NSDraggingSource, NSDraggingDestination, NSPasteboardItemDataProvider>
+@interface PS_UI_DropView : NSImageView <NSDraggingDestination>
 {
     //highlight the drop zone
     BOOL highlight;
