@@ -23,7 +23,12 @@
     IBOutlet PS_UI_DragView *EffectB;
     IBOutlet NSImageView *PedalA;
     IBOutlet NSImageView *PedalB;
+    
     IBOutlet NSView *control;
+    IBOutlet NSView *controlA;
+    
+    
+    NSString *currentSelection;
 };
 
 - (void)addNewEffect:(NSString *)name;

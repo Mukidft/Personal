@@ -94,13 +94,17 @@
         NSString *string;
 
         //set the effect type
-        data = [[sender draggingPasteboard] dataForType:[PS_UI_DragView pasteboardType]];
-        string = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-        effectType = string;
-        [(PS_UI_Manager *)[NSApp delegate] addNewEffect:string];
-        NSImage *newImage = [(PS_UI_Manager *)[NSApp delegate] getEffectImage:string];
-        [self setImage:newImage];
-        [newImage release];
+        if(self.image == nil)
+        {
+            data = [[sender draggingPasteboard] dataForType:[PS_UI_DragView pasteboardType]];
+            string = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+            effectType = string;
+            [(PS_UI_Manager *)[NSApp delegate] addNewEffect:string];
+            
+            NSImage *newImage = [(PS_UI_Manager *)[NSApp delegate] getEffectImage:string];
+            [self setImage:newImage];
+            [newImage release];
+        }
     }
     
     return YES;

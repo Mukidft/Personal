@@ -7,14 +7,14 @@
 //
 
 #import "PS_UI_Delay.h"
-#import "PS_UI_Manager.h"
+//#import "PS_UI_Manager.h"
 
 @implementation PS_UI_Delay
 
 -(IBAction)Delay_DelayTime:(id)sender
 {
     float value = [sender floatValue];
-    [(PS_UI_Manager *) [NSApp delegate] setUIParam:value arg2:kAudioUnitSubType_Delay arg3:kDelayParam_DelayTime];
+    //[(PS_UI_Manager *) [NSApp delegate] setUIParam:value arg2:kAudioUnitSubType_Delay arg3:kDelayParam_DelayTime];
 }
 
 @end

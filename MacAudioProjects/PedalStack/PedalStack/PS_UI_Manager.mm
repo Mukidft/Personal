@@ -26,12 +26,20 @@
 
 - (void)drawControls:(NSString *)name
 {
-    if([name isEqualToString: @"Delay"])
-        std::cout << "Delay" << std::endl;
-    else if ([name isEqualToString: @"BandPassFilter"])
-        std::cout << "BandPassFilter" << std::endl;
-    else if ([name isEqualToString: @"Distortion"])
-        std::cout << "Distortion" << std::endl;
+    if(name != currentSelection)
+    {
+        if([name isEqualToString: @"Delay"])
+        {
+            std::cout << "Showing controls for Delay" << std::endl;
+            [control addSubview:controlA];
+        }
+        else if ([name isEqualToString: @"BandPassFilter"])
+            std::cout << "Showing controls for BandPassFilter" << std::endl;
+        else if ([name isEqualToString: @"Distortion"])
+            std::cout << "Showing controls for Distortion" << std::endl;
+    }
+    
+    currentSelection = name;
 }
 
 - (void)addNewEffect:(NSString *)name

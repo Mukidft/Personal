@@ -34,8 +34,9 @@
             </subviews>
             <point key="canvasLocation" x="620" y="435"/>
         </customView>
-        <customObject id="4bJ-t4-MYe" userLabel="Owner" customClass="PS_UI_Delay">
+        <customObject id="4bJ-t4-MYe" userLabel="Owner" customClass="PS_UI_Manager">
             <connections>
+                <outlet property="controlA" destination="mWt-qz-F04" id="hF2-39-Rxa"/>
                 <outlet property="view" destination="mWt-qz-F04" id="ehF-jz-ryg"/>
             </connections>
         </customObject>
