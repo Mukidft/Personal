@@ -13,6 +13,7 @@
 {
     //highlight the drop zone
     BOOL highlight;
+    NSString *effectType;
 }
 
 - (id)initWithCoder:(NSCoder *)coder;

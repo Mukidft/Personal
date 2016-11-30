@@ -15,7 +15,9 @@
             <connections>
                 <outlet property="EffectA" destination="22u-Rm-ebU" id="4NN-3s-rK0"/>
                 <outlet property="EffectB" destination="TPX-P2-bXb" id="GIG-eD-HTR"/>
-                <outlet property="UI_Effect" destination="22u-Rm-ebU" id="kzI-Fp-aMV"/>
+                <outlet property="PedalA" destination="22u-Rm-ebU" id="gZQ-DM-jFv"/>
+                <outlet property="PedalB" destination="TPX-P2-bXb" id="aq8-Mm-hNw"/>
+                <outlet property="control" destination="RrF-7E-nPf" id="cWl-lS-o48"/>
                 <outlet property="core" destination="AHS-Fx-Sl4" id="yfT-yY-Mio"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="9HH-gL-UfF"/>
             </connections>
@@ -712,7 +714,7 @@
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="Pedals" identifier="1" id="qj1-f4-vqw">
-                                <view key="view" ambiguous="YES" id="ymk-Hd-4vb">
+                                <view key="view" id="ymk-Hd-4vb">
                                     <rect key="frame" x="10" y="33" width="994" height="301"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -731,26 +733,9 @@
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Control" identifier="2" id="JUG-fd-GEX">
-                                <view key="view" id="RrF-7E-nPf">
+                                <view key="view" ambiguous="YES" id="RrF-7E-nPf">
                                     <rect key="frame" x="10" y="33" width="994" height="301"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UPc-JA-Rif">
-                                            <rect key="frame" x="404" y="207" width="187" height="21"/>
-                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="2" doubleValue="1" tickMarkPosition="below" allowsTickMarkValuesOnly="YES" sliderType="linear" id="FfJ-vu-nJF"/>
-                                            <connections>
-                                                <action selector="Delay_DelayTime:" target="Voe-Tx-rLC" id="gnA-xF-qay"/>
-                                            </connections>
-                                        </slider>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hUF-c9-rTw">
-                                            <rect key="frame" x="461" y="234" width="73" height="17"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Delay Time" id="2Kg-I5-x3w">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                    </subviews>
                                 </view>
                             </tabViewItem>
                         </tabViewItems>
@@ -789,7 +774,7 @@
             <connections>
                 <outlet property="delegate" destination="Voe-Tx-rLC" id="un1-tY-WNc"/>
             </connections>
-            <point key="canvasLocation" x="405" y="525"/>
+            <point key="canvasLocation" x="590" y="639"/>
         </window>
     </objects>
     <resources>

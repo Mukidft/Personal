@@ -22,6 +22,8 @@
 		CEFB29B21DAC1FD1009AF2F7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFB29AD1DAC1FD1009AF2F7 /* Foundation.framework */; };
 		F4333E2D1DDCE0B30035D4A7 /* PS_UI_DragView.mm in Sources */ = {isa = PBXBuildFile; fileRef = F4333E2C1DDCE0B30035D4A7 /* PS_UI_DragView.mm */; };
 		F4C200C21DE38D6A00DA157E /* PS_UI_DropView.mm in Sources */ = {isa = PBXBuildFile; fileRef = F4C200C11DE38D6A00DA157E /* PS_UI_DropView.mm */; };
+		F4EE57741DEF5C46009CA7FB /* PedalA.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4EE57731DEF5C46009CA7FB /* PedalA.xib */; };
+		F4EE57761DEF5EB4009CA7FB /* PS_UI_Delay.mm in Sources */ = {isa = PBXBuildFile; fileRef = F4EE57751DEF5EB4009CA7FB /* PS_UI_Delay.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,9 @@
 		F4333E2F1DDCE1060035D4A7 /* PS_UI_DragView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PS_UI_DragView.h; sourceTree = "<group>"; };
 		F4C200C01DE38D6A00DA157E /* PS_UI_DropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PS_UI_DropView.h; sourceTree = "<group>"; };
 		F4C200C11DE38D6A00DA157E /* PS_UI_DropView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PS_UI_DropView.mm; sourceTree = "<group>"; };
+		F4EE57731DEF5C46009CA7FB /* PedalA.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PedalA.xib; sourceTree = "<group>"; };
+		F4EE57751DEF5EB4009CA7FB /* PS_UI_Delay.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = PS_UI_Delay.mm; sourceTree = "<group>"; };
+		F4EE57771DEF5EE8009CA7FB /* PS_UI_Delay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PS_UI_Delay.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +105,7 @@
 				CEEF68651DB7F6CE00EA21D7 /* PS_UI_Manager.h */,
 				CEEF686B1DB7F8C900EA21D7 /* PS_UI_Manager.mm */,
 				F4333E301DDCE2DD0035D4A7 /* CustomViews */,
+				F4EE57781DEF5F09009CA7FB /* EffectViews */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -184,6 +190,7 @@
 				CEE0D5F11DAEBB49003C1BB3 /* Images */,
 				CE8726A11DAC1C2400D43377 /* Images.xcassets */,
 				CE8726A31DAC1C2400D43377 /* PedalStackUI.xib */,
+				F4EE57731DEF5C46009CA7FB /* PedalA.xib */,
 			);
 			name = UI;
 			path = PedalStack;
@@ -211,6 +218,23 @@
 				F4333E2C1DDCE0B30035D4A7 /* PS_UI_DragView.mm */,
 			);
 			name = CustomViews;
+			sourceTree = "<group>";
+		};
+		F4EE57781DEF5F09009CA7FB /* EffectViews */ = {
+			isa = PBXGroup;
+			children = (
+				F4EE57791DEF5F18009CA7FB /* Delay */,
+			);
+			name = EffectViews;
+			sourceTree = "<group>";
+		};
+		F4EE57791DEF5F18009CA7FB /* Delay */ = {
+			isa = PBXGroup;
+			children = (
+				F4EE57751DEF5EB4009CA7FB /* PS_UI_Delay.mm */,
+				F4EE57771DEF5EE8009CA7FB /* PS_UI_Delay.h */,
+			);
+			name = Delay;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,6 +320,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4EE57741DEF5C46009CA7FB /* PedalA.xib in Resources */,
 				CE8726A21DAC1C2400D43377 /* Images.xcassets in Resources */,
 				CE8726A51DAC1C2400D43377 /* PedalStackUI.xib in Resources */,
 			);
@@ -316,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEEF686C1DB7F8C900EA21D7 /* PS_UI_Manager.mm in Sources */,
+				F4EE57761DEF5EB4009CA7FB /* PS_UI_Delay.mm in Sources */,
 				CE8726A01DAC1C2400D43377 /* main.m in Sources */,
 				F4C200C21DE38D6A00DA157E /* PS_UI_DropView.mm in Sources */,
 				F4333E2D1DDCE0B30035D4A7 /* PS_UI_DragView.mm in Sources */,

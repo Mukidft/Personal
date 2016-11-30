@@ -16,14 +16,23 @@
     [EffectB setName: EffectB.identifier];
 }
 
--(IBAction)Delay_DelayTime:(id)sender
+
+- (void)setUIParam:(float)value arg2: (UInt32)type arg3: (UInt32) param
 {
-    float value = [sender floatValue];
-    
     if([core GetEffects].size() != 0)
-        [core GetEffectFromID: kAudioUnitSubType_Delay]->SetEffectParameter(kDelayParam_DelayTime, value);
+        [core GetEffectFromID: type]->SetEffectParameter(param, value);
 }
 
+
+- (void)drawControls:(NSString *)name
+{
+    if([name isEqualToString: @"Delay"])
+        std::cout << "Delay" << std::endl;
+    else if ([name isEqualToString: @"BandPassFilter"])
+        std::cout << "BandPassFilter" << std::endl;
+    else if ([name isEqualToString: @"Distortion"])
+        std::cout << "Distortion" << std::endl;
+}
 
 - (void)addNewEffect:(NSString *)name
 {
@@ -37,6 +46,24 @@
         effectID = kAudioUnitSubType_BandPassFilter;
     
     [core AddNewEffect: effectID];
+}
+
+-(NSImage*)getEffectImage:(NSString *)name
+{
+    if([name isEqualToString: @"Delay"])
+        return PedalA.image;
+    else if ([name isEqualToString: @"BandPassFilter"])
+        return PedalB.image;
+    
+    std::cout << "Error: Image not found!" << std::endl;
+    
+    return nil;
+}
+
+
+- (PS_Core *)getCore
+{
+    return core;
 }
 
 @end

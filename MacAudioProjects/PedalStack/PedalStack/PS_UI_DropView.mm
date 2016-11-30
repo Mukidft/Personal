@@ -93,24 +93,25 @@
         NSData *data;
         NSString *string;
 
-        //set the image using the best representation we can get from the pasteboard
+        //set the effect type
         data = [[sender draggingPasteboard] dataForType:[PS_UI_DragView pasteboardType]];
         string = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+        effectType = string;
         [(PS_UI_Manager *)[NSApp delegate] addNewEffect:string];
-        
-        if([NSImage canInitWithPasteboard: [sender draggingPasteboard]])
-        {
-            NSImage *newImage = [[NSImage alloc] initWithPasteboard: [sender draggingPasteboard]];
-            [self setImage:newImage];
-            [newImage release];
-            
-            data = [[sender draggingPasteboard] dataForType:[PS_UI_DragView pasteboardType]];
-            string = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-            [(PS_UI_Manager *)[NSApp delegate] addNewEffect:string];
-        }
+        NSImage *newImage = [(PS_UI_Manager *)[NSApp delegate] getEffectImage:string];
+        [self setImage:newImage];
+        [newImage release];
     }
     
     return YES;
+}
+
+- (void) mouseDown: (NSEvent *)event
+{
+    if(effectType != nil)
+    {
+        [(PS_UI_Manager *)[NSApp delegate] drawControls: effectType];
+    }
 }
 
 - (void)rightMouseDown:(NSEvent *)event
@@ -130,6 +131,7 @@
         std::cout << "Pedal 4 disconnected!" << std::endl;
     
     [self setImage: nil];
+    effectType = nil;
 }
 
 -(void)drawRect:(NSRect)rect

@@ -19,11 +19,17 @@
 {
     IBOutlet NSWindow *window;
     IBOutlet PS_Core *core;
-    IBOutlet NSImageView *UI_Effect;
     IBOutlet PS_UI_DragView *EffectA;
     IBOutlet PS_UI_DragView *EffectB;
+    IBOutlet NSImageView *PedalA;
+    IBOutlet NSImageView *PedalB;
+    IBOutlet NSView *control;
 };
 
 - (void)addNewEffect:(NSString *)name;
+- (NSImage*)getEffectImage:(NSString *)name;
+- (PS_Core *)getCore;
+- (void)setUIParam:(float)value arg2: (UInt32)type arg3: (UInt32) param;
+- (void)drawControls:(NSString *)name;
 
 @end
