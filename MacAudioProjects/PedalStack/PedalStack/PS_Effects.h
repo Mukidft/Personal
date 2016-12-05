@@ -41,7 +41,7 @@ public:
     void SetStreamDescription(AudioUnit outAU);
     
     // Input Output
-    void ConnectEffectIO(AUNode input, AUNode output, uint32 inBus = 0, uint32 outBus = 0);
+    void ConnectEffectIO(AUNode input, AUNode output, UInt32 inBus = 0, UInt32 outBus = 0);
     void DisconnectEffectIO();
     
     

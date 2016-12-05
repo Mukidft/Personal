@@ -14,6 +14,8 @@
 {
     [EffectA setName: EffectA.identifier];
     [EffectB setName: EffectB.identifier];
+    [EffectC setName: EffectC.identifier];
+    [EffectD setName: EffectD.identifier];
 }
 
 
@@ -26,18 +28,27 @@
 
 - (void)drawControls:(NSString *)name
 {
-    if(name != currentSelection)
-    {
+    [control selectTabViewItemAtIndex:1];
         if([name isEqualToString: @"Delay"])
         {
             std::cout << "Showing controls for Delay" << std::endl;
-            [control addSubview:controlA];
+            [controls selectTabViewItemAtIndex:0];
         }
-        else if ([name isEqualToString: @"BandPassFilter"])
-            std::cout << "Showing controls for BandPassFilter" << std::endl;
         else if ([name isEqualToString: @"Distortion"])
+        {
             std::cout << "Showing controls for Distortion" << std::endl;
-    }
+            [controls selectTabViewItemAtIndex:1];
+        }
+        else if ([name isEqualToString: @"Equalizer"])
+        {
+            std::cout << "Showing controls for Equalizer" << std::endl;
+            [controls selectTabViewItemAtIndex:2];
+        }
+        else if ([name isEqualToString: @"Reverb"])
+        {
+            std::cout << "Showing controls for Reverb" << std::endl;
+            [controls selectTabViewItemAtIndex:3];
+        }
     
     currentSelection = name;
 }
@@ -50,8 +61,10 @@
         effectID = kAudioUnitSubType_Delay;
     else if ([name isEqualToString: @"Distortion"])
         effectID = kAudioUnitSubType_Distortion;
-    else if ([name isEqualToString: @"BandPassFilter"])
-        effectID = kAudioUnitSubType_BandPassFilter;
+    else if ([name isEqualToString: @"Equalizer"])
+        effectID = kAudioUnitSubType_GraphicEQ;
+    else if ([name isEqualToString: @"Reverb"])
+        effectID = kAudioUnitSubType_MatrixReverb;
     
     [core AddNewEffect: effectID];
 }
@@ -60,8 +73,12 @@
 {
     if([name isEqualToString: @"Delay"])
         return PedalA.image;
-    else if ([name isEqualToString: @"BandPassFilter"])
+    else if ([name isEqualToString: @"Distortion"])
         return PedalB.image;
+    else if ([name isEqualToString: @"Equalizer"])
+        return PedalC.image;
+    else if ([name isEqualToString: @"Reverb"])
+        return PedalD.image;
     
     std::cout << "Error: Image not found!" << std::endl;
     

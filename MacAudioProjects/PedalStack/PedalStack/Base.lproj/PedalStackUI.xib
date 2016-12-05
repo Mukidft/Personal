@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -14,16 +14,29 @@
         <customObject id="Voe-Tx-rLC" userLabel="PS_UI_Manager" customClass="PS_UI_Manager">
             <connections>
                 <outlet property="EffectA" destination="22u-Rm-ebU" id="4NN-3s-rK0"/>
-                <outlet property="EffectB" destination="TPX-P2-bXb" id="GIG-eD-HTR"/>
+                <outlet property="EffectB" destination="grM-Au-555" id="ju3-Y8-Z9r"/>
+                <outlet property="EffectC" destination="ySJ-sw-uoF" id="GR9-4A-oat"/>
+                <outlet property="EffectD" destination="GDe-rj-f5s" id="EIl-Ik-oz6"/>
                 <outlet property="PedalA" destination="22u-Rm-ebU" id="gZQ-DM-jFv"/>
-                <outlet property="PedalB" destination="TPX-P2-bXb" id="aq8-Mm-hNw"/>
-                <outlet property="control" destination="RrF-7E-nPf" id="cWl-lS-o48"/>
+                <outlet property="PedalB" destination="grM-Au-555" id="1FU-cU-yJc"/>
+                <outlet property="PedalC" destination="ySJ-sw-uoF" id="02m-w4-cWe"/>
+                <outlet property="PedalD" destination="GDe-rj-f5s" id="s1o-I2-zUz"/>
+                <outlet property="control" destination="xUQ-bZ-k7C" id="dne-Gi-vY7"/>
+                <outlet property="controls" destination="aKM-hc-81B" id="bJe-Ob-LNW"/>
                 <outlet property="core" destination="AHS-Fx-Sl4" id="yfT-yY-Mio"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="9HH-gL-UfF"/>
             </connections>
         </customObject>
         <customObject id="AHS-Fx-Sl4" userLabel="PS_Core" customClass="PS_Core"/>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <customObject id="3Nj-Ps-rEE" userLabel="Delay" customClass="PS_UI_Delay">
+            <connections>
+                <outlet property="label_delaytime" destination="O0Z-7m-Acm" id="AxF-27-jfy"/>
+                <outlet property="label_feedback" destination="HFM-RM-x5c" id="BGQ-3D-uab"/>
+                <outlet property="label_lowpasscutoff" destination="VNd-d5-FvK" id="5qg-hn-CZK"/>
+                <outlet property="label_wetdrymix" destination="09r-Jj-Vk3" id="H0C-WJ-9lP"/>
+            </connections>
+        </customObject>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
                 <menuItem title="PedalStack" id="1Xt-HY-uBw">
@@ -683,101 +696,236 @@
                 <rect key="frame" x="0.0" y="0.0" width="1000" height="600"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dVu-z9-LUk">
-                        <rect key="frame" x="379" y="568" width="244" height="26"/>
-                        <popUpButtonCell key="cell" type="push" title="Default" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="SXr-lC-ASZ" id="uZa-nX-etL">
-                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="menu"/>
-                            <menu key="menu" id="mBz-hc-7es">
-                                <items>
-                                    <menuItem title="Default" state="on" id="SXr-lC-ASZ"/>
-                                    <menuItem title="Preset 1" state="on" id="rgd-Uf-aOS"/>
-                                    <menuItem title="Preset 2" id="hO1-NA-akK"/>
-                                </items>
-                            </menu>
-                        </popUpButtonCell>
-                    </popUpButton>
-                    <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tti-LH-JQJ">
-                        <rect key="frame" x="860" y="581" width="96" height="21"/>
-                        <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="rwT-s8-vPe"/>
-                    </slider>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KRq-N7-3aw">
-                        <rect key="frame" x="885" y="563" width="47" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Output" id="m7a-hx-1ib">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <tabView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xUQ-bZ-k7C">
-                        <rect key="frame" x="-7" y="214" width="1014" height="347"/>
+                    <imageView identifier="0" autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ds-eY-YrS" customClass="PS_UI_DropView">
+                        <rect key="frame" x="82" y="37" width="95" height="156"/>
+                        <shadow key="shadow" blurRadius="12">
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </shadow>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="ktE-dT-HKB"/>
+                    </imageView>
+                    <imageView identifier="1" autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EJ1-y4-mdv" customClass="PS_UI_DropView">
+                        <rect key="frame" x="268" y="37" width="95" height="156"/>
+                        <shadow key="shadow" blurRadius="12">
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </shadow>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="La2-OS-K1e"/>
+                    </imageView>
+                    <imageView identifier="2" autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="67Z-kl-F0l" customClass="PS_UI_DropView">
+                        <rect key="frame" x="450" y="37" width="95" height="156"/>
+                        <shadow key="shadow" blurRadius="12">
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </shadow>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="YqT-pf-MUn"/>
+                    </imageView>
+                    <imageView identifier="3" autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UKO-Ex-i7m" customClass="PS_UI_DropView">
+                        <rect key="frame" x="631" y="37" width="95" height="156"/>
+                        <shadow key="shadow" blurRadius="12">
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </shadow>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="Gmy-0Z-Qml"/>
+                    </imageView>
+                    <tabView fixedFrame="YES" type="bottomTabsBezelBorder" translatesAutoresizingMaskIntoConstraints="NO" id="xUQ-bZ-k7C">
+                        <rect key="frame" x="-7" y="204" width="1015" height="323"/>
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="Pedals" identifier="1" id="qj1-f4-vqw">
                                 <view key="view" id="ymk-Hd-4vb">
-                                    <rect key="frame" x="10" y="33" width="994" height="301"/>
+                                    <rect key="frame" x="10" y="7" width="995" height="285"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <imageView identifier="Delay" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="22u-Rm-ebU" customClass="PS_UI_DragView">
-                                            <rect key="frame" x="6" y="71" width="234" height="150"/>
-                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" identifier="Delay2" imageScaling="proportionallyDown" image="DistortionIII-11" id="MZH-sj-Fos" userLabel="DelayPedal">
-                                                <accessibility description="test" identifier="Delay2"/>
-                                            </imageCell>
-                                            <accessibility identifier="Delay"/>
+                                            <rect key="frame" x="17" y="77" width="89" height="150"/>
+                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Delay" id="MZH-sj-Fos" userLabel="DelayPedal"/>
                                         </imageView>
-                                        <imageView identifier="BandPassFilter" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TPX-P2-bXb" customClass="PS_UI_DragView">
-                                            <rect key="frame" x="248" y="71" width="234" height="150"/>
-                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="DistortionIII-11" id="zBo-7v-xBL"/>
+                                        <imageView identifier="Equalizer" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ySJ-sw-uoF" customClass="PS_UI_DragView">
+                                            <rect key="frame" x="378" y="77" width="89" height="150"/>
+                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Equalizer" id="BRm-oA-Bmg" userLabel="DelayPedal"/>
+                                        </imageView>
+                                        <imageView identifier="Reverb" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GDe-rj-f5s" customClass="PS_UI_DragView">
+                                            <rect key="frame" x="557" y="77" width="89" height="150"/>
+                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Reverb" id="FZM-7a-jCI" userLabel="DelayPedal"/>
+                                        </imageView>
+                                        <imageView identifier="Distortion" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="grM-Au-555" customClass="PS_UI_DragView">
+                                            <rect key="frame" x="195" y="77" width="89" height="150"/>
+                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Distortion" id="TZx-1h-GWu" userLabel="DelayPedal"/>
                                         </imageView>
                                     </subviews>
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Control" identifier="2" id="JUG-fd-GEX">
-                                <view key="view" ambiguous="YES" id="RrF-7E-nPf">
-                                    <rect key="frame" x="10" y="33" width="994" height="301"/>
+                                <view key="view" id="RrF-7E-nPf">
+                                    <rect key="frame" x="10" y="7" width="995" height="285"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <tabView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aKM-hc-81B">
+                                            <rect key="frame" x="10" y="14" width="975" height="277"/>
+                                            <font key="font" metaFont="system"/>
+                                            <tabViewItems>
+                                                <tabViewItem label="Delay" identifier="1" id="b7b-OR-NL8">
+                                                    <view key="view" id="k7W-QA-97f">
+                                                        <rect key="frame" x="10" y="33" width="955" height="231"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <subviews>
+                                                            <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZrQ-Qh-9Qb">
+                                                                <rect key="frame" x="103" y="133" width="313" height="26"/>
+                                                                <shadow key="shadow">
+                                                                    <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </shadow>
+                                                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" numberOfTickMarks="10" sliderType="linear" id="35N-BZ-2cb"/>
+                                                                <connections>
+                                                                    <action selector="Delay_WetDryMix:" target="3Nj-Ps-rEE" id="tkb-34-pvl"/>
+                                                                </connections>
+                                                            </slider>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="09r-Jj-Vk3">
+                                                                <rect key="frame" x="240" y="116" width="38" height="17"/>
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="label" id="6nH-ds-s97">
+                                                                    <font key="font" metaFont="system"/>
+                                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W68-p5-9Td">
+                                                                <rect key="frame" x="103" y="36" width="313" height="26"/>
+                                                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="2" doubleValue="1" tickMarkPosition="above" numberOfTickMarks="12" sliderType="linear" id="Pc2-TC-G0Z"/>
+                                                                <connections>
+                                                                    <action selector="Delay_DelayTime:" target="3Nj-Ps-rEE" id="O6g-A8-xIv"/>
+                                                                </connections>
+                                                            </slider>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kmp-7v-NyK">
+                                                                <rect key="frame" x="200" y="68" width="118" height="17"/>
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Delay Time" id="TY0-qs-DZr">
+                                                                    <font key="font" metaFont="systemBold"/>
+                                                                    <color key="textColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O0Z-7m-Acm">
+                                                                <rect key="frame" x="240" y="19" width="38" height="17"/>
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="label" id="xew-uJ-Fr5">
+                                                                    <font key="font" metaFont="system"/>
+                                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WrM-9u-gM7">
+                                                                <rect key="frame" x="531" y="133" width="313" height="26"/>
+                                                                <sliderCell key="cell" continuous="YES" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" numberOfTickMarks="10" sliderType="linear" id="6FZ-ny-pxv"/>
+                                                                <connections>
+                                                                    <action selector="Delay_Feedback:" target="3Nj-Ps-rEE" id="Ufm-fa-YG2"/>
+                                                                </connections>
+                                                            </slider>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SB2-O4-Jg9">
+                                                                <rect key="frame" x="643" y="167" width="88" height="17"/>
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Feedback" id="K7D-J3-qcn">
+                                                                    <font key="font" metaFont="systemBold"/>
+                                                                    <color key="textColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JOH-WA-Buz">
+                                                                <rect key="frame" x="194" y="167" width="130" height="17"/>
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Wet / Dry Mix" id="9x0-TX-Pnp">
+                                                                    <font key="font" metaFont="systemBold"/>
+                                                                    <color key="textColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HFM-RM-x5c">
+                                                                <rect key="frame" x="668" y="116" width="38" height="17"/>
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="label" id="vCn-23-uIR">
+                                                                    <font key="font" metaFont="system"/>
+                                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UTG-tn-mhC">
+                                                                <rect key="frame" x="531" y="36" width="313" height="26"/>
+                                                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="10" maxValue="22000" doubleValue="15000" tickMarkPosition="above" numberOfTickMarks="12" sliderType="linear" id="7aX-NU-S79"/>
+                                                                <connections>
+                                                                    <action selector="Delay_LowPassCutoff:" target="3Nj-Ps-rEE" id="Qxy-4u-cYe"/>
+                                                                </connections>
+                                                            </slider>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1KR-uI-5Og">
+                                                                <rect key="frame" x="611" y="68" width="153" height="17"/>
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Low Pass Cutoff" id="Oly-gY-t8b">
+                                                                    <font key="font" metaFont="systemBold"/>
+                                                                    <color key="textColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VNd-d5-FvK">
+                                                                <rect key="frame" x="654" y="19" width="64" height="17"/>
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="label" id="p1m-Yi-KZe">
+                                                                    <font key="font" metaFont="system"/>
+                                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                        </subviews>
+                                                    </view>
+                                                </tabViewItem>
+                                                <tabViewItem label="Distortion" identifier="2" id="lCu-Yh-HQ8">
+                                                    <view key="view" id="PEc-8E-VkZ">
+                                                        <rect key="frame" x="10" y="33" width="955" height="231"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    </view>
+                                                </tabViewItem>
+                                                <tabViewItem label="Equalizer" identifier="2" id="9Dh-hV-ORf">
+                                                    <view key="view" id="uev-F7-7ZT">
+                                                        <rect key="frame" x="10" y="33" width="955" height="274"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    </view>
+                                                </tabViewItem>
+                                                <tabViewItem label="Reverb" identifier="2" id="QVr-oG-QhG">
+                                                    <view key="view" id="eWq-fn-Vhi">
+                                                        <rect key="frame" x="10" y="33" width="955" height="274"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    </view>
+                                                </tabViewItem>
+                                            </tabViewItems>
+                                        </tabView>
+                                    </subviews>
                                 </view>
                             </tabViewItem>
                         </tabViewItems>
                     </tabView>
-                    <imageView identifier="2" autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6f3-Zz-TMq" customClass="PS_UI_DropView">
-                        <rect key="frame" x="485" y="53" width="228" height="144"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jpC-sG-oMJ">
+                        <rect key="frame" x="204" y="531" width="593" height="49"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="P   E   D   A   L   |   S   T   A   C   K" id="9ZY-3b-APO">
+                            <font key="font" metaFont="system" size="37"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <imageView identifier="4" autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pu6-Em-pft" customClass="PS_UI_DropView">
+                        <rect key="frame" x="808" y="37" width="95" height="156"/>
                         <shadow key="shadow" blurRadius="12">
                             <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </shadow>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="DAd-mz-R59"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="3cm-0F-3Bb"/>
                     </imageView>
-                    <imageView identifier="3" autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5tV-sd-ySd" customClass="PS_UI_DropView">
-                        <rect key="frame" x="721" y="53" width="228" height="144"/>
-                        <shadow key="shadow" blurRadius="12">
-                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        </shadow>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="Eck-sO-vMz"/>
-                    </imageView>
-                    <imageView identifier="1" autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rrn-In-FCJ" customClass="PS_UI_DropView">
-                        <rect key="frame" x="249" y="53" width="228" height="144"/>
-                        <shadow key="shadow" blurRadius="12">
-                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        </shadow>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="jee-9w-uDT"/>
-                    </imageView>
-                    <imageView identifier="0" autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ds-eY-YrS" customClass="PS_UI_DropView">
-                        <rect key="frame" x="13" y="53" width="228" height="144"/>
-                        <shadow key="shadow" blurRadius="12">
-                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        </shadow>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="ktE-dT-HKB"/>
-                    </imageView>
+                    <box autoresizesSubviews="NO" fixedFrame="YES" boxType="custom" borderType="none" translatesAutoresizingMaskIntoConstraints="NO" id="9Uj-DU-DHc">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="600"/>
+                        <view key="contentView">
+                            <rect key="frame" x="0.0" y="0.0" width="1000" height="600"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </view>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                    </box>
                 </subviews>
             </view>
             <contentBorderThickness minY="22"/>
             <connections>
                 <outlet property="delegate" destination="Voe-Tx-rLC" id="un1-tY-WNc"/>
             </connections>
-            <point key="canvasLocation" x="590" y="639"/>
+            <point key="canvasLocation" x="532" y="521"/>
         </window>
     </objects>
     <resources>
-        <image name="DistortionIII-11" width="568" height="402"/>
+        <image name="Delay" width="337" height="613"/>
+        <image name="Distortion" width="337" height="613"/>
+        <image name="Equalizer" width="337" height="613"/>
+        <image name="Reverb" width="337" height="613"/>
     </resources>
 </document>

@@ -27,7 +27,7 @@ void PS_Effects::AddEffectNode()
     ErrorCheck(NodeAdded);
 }
 
-void PS_Effects::ConnectEffectIO(AUNode input, AUNode output, uint32 inBus, uint32 outBus)
+void PS_Effects::ConnectEffectIO(AUNode input, AUNode output, UInt32 inBus, UInt32 outBus)
 {
     _result = AUGraphConnectNodeInput(_graph, input, inBus, output, outBus);
     

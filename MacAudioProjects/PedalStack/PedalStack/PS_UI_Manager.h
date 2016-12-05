@@ -21,13 +21,15 @@
     IBOutlet PS_Core *core;
     IBOutlet PS_UI_DragView *EffectA;
     IBOutlet PS_UI_DragView *EffectB;
+    IBOutlet PS_UI_DragView *EffectC;
+    IBOutlet PS_UI_DragView *EffectD;
     IBOutlet NSImageView *PedalA;
     IBOutlet NSImageView *PedalB;
+    IBOutlet NSImageView *PedalC;
+    IBOutlet NSImageView *PedalD;
     
-    IBOutlet NSView *control;
-    IBOutlet NSView *controlA;
-    
-    
+    IBOutlet NSTabView *control;
+    IBOutlet NSTabView *controls;
     NSString *currentSelection;
 };
 

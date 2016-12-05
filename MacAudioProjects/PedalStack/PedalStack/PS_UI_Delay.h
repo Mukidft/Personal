@@ -8,9 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 
+
 @interface PS_UI_Delay : NSObject
 {
-    IBOutlet NSView *view;
+    IBOutlet NSTextField *label_delaytime;
+    IBOutlet NSTextField *label_wetdrymix;
+    IBOutlet NSTextField *label_feedback;
+    IBOutlet NSTextField *label_lowpasscutoff;
 }
 
 @end

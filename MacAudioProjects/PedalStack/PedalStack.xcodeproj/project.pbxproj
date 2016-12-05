@@ -9,11 +9,16 @@
 /* Begin PBXBuildFile section */
 		CE8726A01DAC1C2400D43377 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE87269F1DAC1C2400D43377 /* main.m */; };
 		CE8726A21DAC1C2400D43377 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE8726A11DAC1C2400D43377 /* Images.xcassets */; };
-		CE8726A51DAC1C2400D43377 /* PedalStackUI.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE8726A31DAC1C2400D43377 /* PedalStackUI.xib */; settings = {ASSET_TAGS = (test, ); }; };
+		CE8726A51DAC1C2400D43377 /* PedalStackUI.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE8726A31DAC1C2400D43377 /* PedalStackUI.xib */; };
 		CE8726B11DAC1C2400D43377 /* PedalStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8726B01DAC1C2400D43377 /* PedalStackTests.m */; };
 		CE9040B71DBE99EF009CEB44 /* PS_Effects.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE9040B61DBE99EF009CEB44 /* PS_Effects.mm */; };
+		CEB8BAD01DF5F0A80062CA42 /* Delay.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB8BACC1DF5F0A80062CA42 /* Delay.png */; };
+		CEB8BAD11DF5F0A80062CA42 /* Distortion.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB8BACD1DF5F0A80062CA42 /* Distortion.png */; };
+		CEB8BAD21DF5F0A80062CA42 /* Equalizer.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB8BACE1DF5F0A80062CA42 /* Equalizer.png */; };
+		CEB8BAD31DF5F0A80062CA42 /* Reverb.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB8BACF1DF5F0A80062CA42 /* Reverb.png */; };
 		CEEF68671DB7F6CE00EA21D7 /* PS_Core.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEEF68641DB7F6CE00EA21D7 /* PS_Core.mm */; };
 		CEEF686C1DB7F8C900EA21D7 /* PS_UI_Manager.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEEF686B1DB7F8C900EA21D7 /* PS_UI_Manager.mm */; };
+		CEF68BCF1DF61A9A0002D38A /* PS_UI_Distortion.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEF68BCE1DF61A9A0002D38A /* PS_UI_Distortion.mm */; };
 		CEFB29A81DAC1FB7009AF2F7 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFB29A71DAC1FB7009AF2F7 /* AppKit.framework */; };
 		CEFB29AE1DAC1FD1009AF2F7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFB29A91DAC1FD1009AF2F7 /* AudioToolbox.framework */; };
 		CEFB29AF1DAC1FD1009AF2F7 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFB29AA1DAC1FD1009AF2F7 /* AudioUnit.framework */; };
@@ -22,7 +27,6 @@
 		CEFB29B21DAC1FD1009AF2F7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFB29AD1DAC1FD1009AF2F7 /* Foundation.framework */; };
 		F4333E2D1DDCE0B30035D4A7 /* PS_UI_DragView.mm in Sources */ = {isa = PBXBuildFile; fileRef = F4333E2C1DDCE0B30035D4A7 /* PS_UI_DragView.mm */; };
 		F4C200C21DE38D6A00DA157E /* PS_UI_DropView.mm in Sources */ = {isa = PBXBuildFile; fileRef = F4C200C11DE38D6A00DA157E /* PS_UI_DropView.mm */; };
-		F4EE57741DEF5C46009CA7FB /* PedalA.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4EE57731DEF5C46009CA7FB /* PedalA.xib */; };
 		F4EE57761DEF5EB4009CA7FB /* PS_UI_Delay.mm in Sources */ = {isa = PBXBuildFile; fileRef = F4EE57751DEF5EB4009CA7FB /* PS_UI_Delay.mm */; };
 /* End PBXBuildFile section */
 
@@ -47,10 +51,16 @@
 		CE8726B01DAC1C2400D43377 /* PedalStackTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PedalStackTests.m; sourceTree = "<group>"; };
 		CE9040B51DBE99EF009CEB44 /* PS_Effects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PS_Effects.h; sourceTree = "<group>"; };
 		CE9040B61DBE99EF009CEB44 /* PS_Effects.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PS_Effects.mm; sourceTree = "<group>"; };
+		CEB8BACC1DF5F0A80062CA42 /* Delay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Delay.png; path = Images.xcassets/Delay.png; sourceTree = "<group>"; };
+		CEB8BACD1DF5F0A80062CA42 /* Distortion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Distortion.png; path = Images.xcassets/Distortion.png; sourceTree = "<group>"; };
+		CEB8BACE1DF5F0A80062CA42 /* Equalizer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Equalizer.png; path = Images.xcassets/Equalizer.png; sourceTree = "<group>"; };
+		CEB8BACF1DF5F0A80062CA42 /* Reverb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Reverb.png; path = Images.xcassets/Reverb.png; sourceTree = "<group>"; };
 		CEEF68631DB7F6CE00EA21D7 /* PS_Core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PS_Core.h; sourceTree = "<group>"; };
 		CEEF68641DB7F6CE00EA21D7 /* PS_Core.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PS_Core.mm; sourceTree = "<group>"; };
 		CEEF68651DB7F6CE00EA21D7 /* PS_UI_Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PS_UI_Manager.h; sourceTree = "<group>"; };
 		CEEF686B1DB7F8C900EA21D7 /* PS_UI_Manager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PS_UI_Manager.mm; sourceTree = "<group>"; };
+		CEF68BCD1DF61A9A0002D38A /* PS_UI_Distortion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PS_UI_Distortion.h; sourceTree = "<group>"; };
+		CEF68BCE1DF61A9A0002D38A /* PS_UI_Distortion.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PS_UI_Distortion.mm; sourceTree = "<group>"; };
 		CEFB29A71DAC1FB7009AF2F7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		CEFB29A91DAC1FD1009AF2F7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		CEFB29AA1DAC1FD1009AF2F7 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
@@ -61,7 +71,6 @@
 		F4333E2F1DDCE1060035D4A7 /* PS_UI_DragView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PS_UI_DragView.h; sourceTree = "<group>"; };
 		F4C200C01DE38D6A00DA157E /* PS_UI_DropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PS_UI_DropView.h; sourceTree = "<group>"; };
 		F4C200C11DE38D6A00DA157E /* PS_UI_DropView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PS_UI_DropView.mm; sourceTree = "<group>"; };
-		F4EE57731DEF5C46009CA7FB /* PedalA.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PedalA.xib; sourceTree = "<group>"; };
 		F4EE57751DEF5EB4009CA7FB /* PS_UI_Delay.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = PS_UI_Delay.mm; sourceTree = "<group>"; };
 		F4EE57771DEF5EE8009CA7FB /* PS_UI_Delay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PS_UI_Delay.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -180,8 +189,21 @@
 		CEE0D5F11DAEBB49003C1BB3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				CEB8BACC1DF5F0A80062CA42 /* Delay.png */,
+				CEB8BACD1DF5F0A80062CA42 /* Distortion.png */,
+				CEB8BACE1DF5F0A80062CA42 /* Equalizer.png */,
+				CEB8BACF1DF5F0A80062CA42 /* Reverb.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		CEF68BD01DF61A9F0002D38A /* Distortion */ = {
+			isa = PBXGroup;
+			children = (
+				CEF68BCD1DF61A9A0002D38A /* PS_UI_Distortion.h */,
+				CEF68BCE1DF61A9A0002D38A /* PS_UI_Distortion.mm */,
+			);
+			name = Distortion;
 			sourceTree = "<group>";
 		};
 		CEFB29A61DAC1F48009AF2F7 /* UI */ = {
@@ -190,7 +212,6 @@
 				CEE0D5F11DAEBB49003C1BB3 /* Images */,
 				CE8726A11DAC1C2400D43377 /* Images.xcassets */,
 				CE8726A31DAC1C2400D43377 /* PedalStackUI.xib */,
-				F4EE57731DEF5C46009CA7FB /* PedalA.xib */,
 			);
 			name = UI;
 			path = PedalStack;
@@ -223,6 +244,7 @@
 		F4EE57781DEF5F09009CA7FB /* EffectViews */ = {
 			isa = PBXGroup;
 			children = (
+				CEF68BD01DF61A9F0002D38A /* Distortion */,
 				F4EE57791DEF5F18009CA7FB /* Delay */,
 			);
 			name = EffectViews;
@@ -231,8 +253,8 @@
 		F4EE57791DEF5F18009CA7FB /* Delay */ = {
 			isa = PBXGroup;
 			children = (
-				F4EE57751DEF5EB4009CA7FB /* PS_UI_Delay.mm */,
 				F4EE57771DEF5EE8009CA7FB /* PS_UI_Delay.h */,
+				F4EE57751DEF5EB4009CA7FB /* PS_UI_Delay.mm */,
 			);
 			name = Delay;
 			sourceTree = "<group>";
@@ -320,9 +342,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4EE57741DEF5C46009CA7FB /* PedalA.xib in Resources */,
+				CEB8BAD21DF5F0A80062CA42 /* Equalizer.png in Resources */,
+				CEB8BAD31DF5F0A80062CA42 /* Reverb.png in Resources */,
 				CE8726A21DAC1C2400D43377 /* Images.xcassets in Resources */,
+				CEB8BAD11DF5F0A80062CA42 /* Distortion.png in Resources */,
 				CE8726A51DAC1C2400D43377 /* PedalStackUI.xib in Resources */,
+				CEB8BAD01DF5F0A80062CA42 /* Delay.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEEF686C1DB7F8C900EA21D7 /* PS_UI_Manager.mm in Sources */,
+				CEF68BCF1DF61A9A0002D38A /* PS_UI_Distortion.mm in Sources */,
 				F4EE57761DEF5EB4009CA7FB /* PS_UI_Delay.mm in Sources */,
 				CE8726A01DAC1C2400D43377 /* main.m in Sources */,
 				F4C200C21DE38D6A00DA157E /* PS_UI_DropView.mm in Sources */,
