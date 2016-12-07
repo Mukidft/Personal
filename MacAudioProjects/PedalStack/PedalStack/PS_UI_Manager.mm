@@ -7,6 +7,8 @@
 //
 
 #import "PS_UI_Manager.h"
+#include <iostream>
+#include <string>
 
 @implementation PS_UI_Manager
 
@@ -16,8 +18,56 @@
     [EffectB setName: EffectB.identifier];
     [EffectC setName: EffectC.identifier];
     [EffectD setName: EffectD.identifier];
+    [EffectE setName: EffectE.identifier];
+    [EffectF setName: EffectF.identifier];
 }
 
+- (void) printSignalChain
+{
+    std::cout << std::endl;
+    
+    std::cout << "-------------------------------- SIGNAL CHAIN --------------------------------" << std::endl;
+    
+    for(auto pedal : pedals)
+    {
+        std::cout << std::string([pedal UTF8String]);
+        std::cout << " --> ";
+    }
+    
+    std::cout << std::endl;
+    
+    std::cout << "------------------------------------------------------------------------------" << std::endl;
+}
+
+- (void) addPedal:(NSString *)name
+{
+    pedals.push_back(name);
+    
+    [self printSignalChain];
+}
+
+- (void) removePedal:(unsigned)index
+{
+    pedals.erase(pedals.begin() + index);
+    [self printSignalChain];
+}
+
+- (void) swapPedal: (NSString *)name arg2: (unsigned)index;
+{
+    pedals[index] = name;
+    [self printSignalChain];
+}
+
+- (NSString*) getEmptyPedalIndex
+{
+    return [NSString stringWithFormat:@"%d",(unsigned)pedals.size()];
+}
+
+
+- (NSString*) getLastPedalIndex
+{
+    return [NSString stringWithFormat:@"%d",(unsigned)pedals.size() - 1];
+}
 
 - (void)setUIParam:(float)value arg2: (UInt32)type arg3: (UInt32) param
 {
@@ -49,6 +99,16 @@
             std::cout << "Showing controls for Reverb" << std::endl;
             [controls selectTabViewItemAtIndex:3];
         }
+        else if ([name isEqualToString: @"Compressor"])
+        {
+            std::cout << "Showing controls for Compressor" << std::endl;
+            [controls selectTabViewItemAtIndex:4];
+        }
+        else if ([name isEqualToString: @"Whammy"])
+        {
+            std::cout << "Showing controls for Whammy" << std::endl;
+            [controls selectTabViewItemAtIndex:5];
+        }
     
     currentSelection = name;
 }
@@ -65,8 +125,23 @@
         effectID = kAudioUnitSubType_GraphicEQ;
     else if ([name isEqualToString: @"Reverb"])
         effectID = kAudioUnitSubType_MatrixReverb;
+    else if ([name isEqualToString: @"Compressor"])
+        effectID = kAudioUnitSubType_DynamicsProcessor;
+    else if ([name isEqualToString: @"Whammy"])
+        effectID = kAudioUnitSubType_Pitch;
     
     [core AddNewEffect: effectID];
+}
+
+- (void)removeEffect
+{
+    [core RemoveEffect];
+}
+
+
+- (void)swapEffect: (NSString *)name arg2: (unsigned)index
+{
+
 }
 
 -(NSImage*)getEffectImage:(NSString *)name
@@ -79,6 +154,10 @@
         return PedalC.image;
     else if ([name isEqualToString: @"Reverb"])
         return PedalD.image;
+    else if ([name isEqualToString: @"Compressor"])
+        return PedalE.image;
+    else if ([name isEqualToString: @"Whammy"])
+        return PedalF.image;
     
     std::cout << "Error: Image not found!" << std::endl;
     

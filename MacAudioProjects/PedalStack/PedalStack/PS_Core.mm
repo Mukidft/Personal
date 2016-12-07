@@ -48,7 +48,7 @@
         mEffects[mEffects.size() - 2]->SetStreamDescription(output);
     }
     
-    // Route the efefct to the output
+    // Route the effect to the output
     mEffects[mEffects.size() - 1]->ConnectEffectIO(mEffects[mEffects.size() - 1]->GetEffectNode(), outputNode);
     
     mEffects[mEffects.size() - 1]->GetEffectInfo();
@@ -59,6 +59,52 @@
     
     // Print out signal chain
     CAShow(mGraph);
+}
+
+- (void) RemoveEffect
+{
+    // Stop the graph
+    AUGraphStop(mGraph);
+    
+    // Disconnect the output node
+    AUGraphDisconnectNodeInput(mGraph, outputNode, 0);
+    
+    // Disconnect the last node
+    mEffects[mEffects.size() - 1]->DisconnectEffectIO();
+    
+    // Remove effects from the containers
+    mEffects.pop_back();
+    mEffectIDs.pop_back();
+    
+    if(mEffects.size() != 0)
+    {
+        // Route the effect to the output
+        mEffects[mEffects.size() - 1]->ConnectEffectIO(mEffects[mEffects.size() - 1]->GetEffectNode(), outputNode);
+        mEffects[mEffects.size() - 1]->GetEffectInfo();
+        mEffects[mEffects.size() - 1]->SetStreamDescription(output);
+    }
+    else
+    {
+        result = AUGraphConnectNodeInput(mGraph, outputNode, 1, outputNode, 0);
+        
+        if (result)
+        {
+            printf("AUGraphAddNode result %d\n", result);
+            return;
+        }
+    }
+    
+    // Start the graph
+    AUGraphStart(mGraph);
+    
+    // Print out signal chain
+    //CAShow(mGraph);
+}
+
+
+- (void) SwapEffect: (UInt32) effect arg2: (unsigned) index
+{
+
 }
 
 - (PS_Effects*) GetEffectFromID: (UInt32) id;

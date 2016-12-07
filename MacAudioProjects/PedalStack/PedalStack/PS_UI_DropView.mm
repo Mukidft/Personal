@@ -96,14 +96,40 @@
         //set the effect type
         if(self.image == nil)
         {
+            NSString *name = self.identifier;
+            
+            if(name == [(PS_UI_Manager *) [NSApp delegate] getEmptyPedalIndex])
+            {
+                data = [[sender draggingPasteboard] dataForType:[PS_UI_DragView pasteboardType]];
+                string = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+                effectType = string;
+                [(PS_UI_Manager *)[NSApp delegate] addNewEffect:string];
+                
+                NSImage *newImage = [(PS_UI_Manager *)[NSApp delegate] getEffectImage:string];
+                [self setImage:newImage];
+                [newImage release];
+                
+                std::cout << std::endl << std::string([effectType UTF8String]) << " Pedal Connected!";
+                [(PS_UI_Manager *) [NSApp delegate] addPedal:string];
+            }
+        }
+        else
+        {
             data = [[sender draggingPasteboard] dataForType:[PS_UI_DragView pasteboardType]];
             string = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
             effectType = string;
-            [(PS_UI_Manager *)[NSApp delegate] addNewEffect:string];
+            //[(PS_UI_Manager *)[NSApp delegate] addNewEffect:string];
             
             NSImage *newImage = [(PS_UI_Manager *)[NSApp delegate] getEffectImage:string];
             [self setImage:newImage];
             [newImage release];
+            
+            std::cout << std::endl << std::string([effectType UTF8String]) << " Pedal Connected!";
+            
+            NSString *name = self.identifier;
+            unsigned index;
+            sscanf([name UTF8String], "%u", &index);
+            [(PS_UI_Manager *) [NSApp delegate] swapPedal:string arg2:index];
         }
     }
     
@@ -125,17 +151,35 @@
     
     NSString *name = self.identifier;
     
-    if([name isEqualToString:@"0"])
-        std::cout << "Pedal 1 disconnected!" << std::endl;
-    else if([name isEqualToString:@"1"])
-        std::cout << "Pedal 2 disconnected!" << std::endl;
-    else if([name isEqualToString:@"2"])
-        std::cout << "Pedal 3 disconnected!" << std::endl;
-    else if([name isEqualToString:@"3"])
-        std::cout << "Pedal 4 disconnected!" << std::endl;
-    
-    [self setImage: nil];
-    effectType = nil;
+    if(name == [(PS_UI_Manager *) [NSApp delegate] getLastPedalIndex])
+    {
+        std::cout  << std::endl << std::string([effectType UTF8String]) << " Pedal Disconnected!";
+        
+        if([name isEqualToString:@"0"])
+        {
+            [(PS_UI_Manager *) [NSApp delegate] removePedal:0];
+        }
+        else if([name isEqualToString:@"1"])
+        {
+            [(PS_UI_Manager *) [NSApp delegate] removePedal:1];
+        }
+        else if([name isEqualToString:@"2"])
+        {
+            [(PS_UI_Manager *) [NSApp delegate] removePedal:2];
+        }
+        else if([name isEqualToString:@"3"])
+        {
+            [(PS_UI_Manager *) [NSApp delegate] removePedal:3];
+        }
+        else if([name isEqualToString:@"4"])
+        {
+            [(PS_UI_Manager *) [NSApp delegate] removePedal:4];
+        }
+        
+        [(PS_UI_Manager *) [NSApp delegate] removeEffect];
+        [self setImage: nil];
+        effectType = nil;
+    }
 }
 
 -(void)drawRect:(NSRect)rect
@@ -144,13 +188,20 @@
      draw method is overridden to do drop highlighing
      --------------------------------------------------------*/
     //do the usual draw operation to display the image
+   
     [super drawRect:rect];
     
-    if ( highlight ) {
-        //highlight by overlaying a gray border
-        [[NSColor grayColor] set];
-        [NSBezierPath setDefaultLineWidth: 5];
-        [NSBezierPath strokeRect: rect];
+    if ( highlight )
+    {
+        NSString *name = self.identifier;
+        
+        if(name == [(PS_UI_Manager *) [NSApp delegate] getEmptyPedalIndex])
+        {
+            //highlight by overlaying a gray border
+            [[NSColor grayColor] set];
+            [NSBezierPath setDefaultLineWidth: 5];
+            [NSBezierPath strokeRect: rect];
+        }
     }
 }
 

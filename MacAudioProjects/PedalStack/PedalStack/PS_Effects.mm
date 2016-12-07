@@ -38,6 +38,8 @@ void PS_Effects::DisconnectEffectIO()
 {
     _result = AUGraphDisconnectNodeInput(_graph, _effectNode, 0);
     
+    AUGraphRemoveNode(_graph, _effectNode);
+    
     ErrorCheck(NodeConnected);
 }
 

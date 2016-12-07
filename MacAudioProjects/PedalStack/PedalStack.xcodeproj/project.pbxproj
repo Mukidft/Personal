@@ -25,6 +25,8 @@
 		CEFB29B01DAC1FD1009AF2F7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFB29AB1DAC1FD1009AF2F7 /* Cocoa.framework */; };
 		CEFB29B11DAC1FD1009AF2F7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFB29AC1DAC1FD1009AF2F7 /* CoreAudio.framework */; };
 		CEFB29B21DAC1FD1009AF2F7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFB29AD1DAC1FD1009AF2F7 /* Foundation.framework */; };
+		E002D7951DF89348005FF862 /* Compressor.png in Resources */ = {isa = PBXBuildFile; fileRef = E002D7931DF89348005FF862 /* Compressor.png */; };
+		E002D7961DF89348005FF862 /* Whammy.png in Resources */ = {isa = PBXBuildFile; fileRef = E002D7941DF89348005FF862 /* Whammy.png */; };
 		F4333E2D1DDCE0B30035D4A7 /* PS_UI_DragView.mm in Sources */ = {isa = PBXBuildFile; fileRef = F4333E2C1DDCE0B30035D4A7 /* PS_UI_DragView.mm */; };
 		F4C200C21DE38D6A00DA157E /* PS_UI_DropView.mm in Sources */ = {isa = PBXBuildFile; fileRef = F4C200C11DE38D6A00DA157E /* PS_UI_DropView.mm */; };
 		F4EE57761DEF5EB4009CA7FB /* PS_UI_Delay.mm in Sources */ = {isa = PBXBuildFile; fileRef = F4EE57751DEF5EB4009CA7FB /* PS_UI_Delay.mm */; };
@@ -67,6 +69,8 @@
 		CEFB29AB1DAC1FD1009AF2F7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		CEFB29AC1DAC1FD1009AF2F7 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		CEFB29AD1DAC1FD1009AF2F7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E002D7931DF89348005FF862 /* Compressor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Compressor.png; path = Images.xcassets/Compressor.png; sourceTree = "<group>"; };
+		E002D7941DF89348005FF862 /* Whammy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Whammy.png; path = Images.xcassets/Whammy.png; sourceTree = "<group>"; };
 		F4333E2C1DDCE0B30035D4A7 /* PS_UI_DragView.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = PS_UI_DragView.mm; sourceTree = "<group>"; };
 		F4333E2F1DDCE1060035D4A7 /* PS_UI_DragView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PS_UI_DragView.h; sourceTree = "<group>"; };
 		F4C200C01DE38D6A00DA157E /* PS_UI_DropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PS_UI_DropView.h; sourceTree = "<group>"; };
@@ -189,6 +193,8 @@
 		CEE0D5F11DAEBB49003C1BB3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E002D7931DF89348005FF862 /* Compressor.png */,
+				E002D7941DF89348005FF862 /* Whammy.png */,
 				CEB8BACC1DF5F0A80062CA42 /* Delay.png */,
 				CEB8BACD1DF5F0A80062CA42 /* Distortion.png */,
 				CEB8BACE1DF5F0A80062CA42 /* Equalizer.png */,
@@ -342,12 +348,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E002D7961DF89348005FF862 /* Whammy.png in Resources */,
 				CEB8BAD21DF5F0A80062CA42 /* Equalizer.png in Resources */,
 				CEB8BAD31DF5F0A80062CA42 /* Reverb.png in Resources */,
 				CE8726A21DAC1C2400D43377 /* Images.xcassets in Resources */,
 				CEB8BAD11DF5F0A80062CA42 /* Distortion.png in Resources */,
 				CE8726A51DAC1C2400D43377 /* PedalStackUI.xib in Resources */,
 				CEB8BAD01DF5F0A80062CA42 /* Delay.png in Resources */,
+				E002D7951DF89348005FF862 /* Compressor.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

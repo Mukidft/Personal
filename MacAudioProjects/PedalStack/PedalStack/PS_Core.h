@@ -28,6 +28,8 @@
 - (void) initializeGraph;
 - (void) CreateNewEffect: (UInt32) effect arg2: (AUGraph) graph arg3: (AUNode) outNode;
 - (void) AddNewEffect: (UInt32) effect;
+- (void) SwapEffect: (UInt32) effect arg2: (unsigned) index;
+- (void) RemoveEffect;
 - (void) PrintStreamDescription;
 - (PS_Effects*) GetEffectFromID: (UInt32) id;
 - (std::vector<UInt32>) GetEffects;
