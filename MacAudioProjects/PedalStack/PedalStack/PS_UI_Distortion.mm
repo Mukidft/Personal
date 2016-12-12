@@ -13,64 +13,64 @@
 
 - (void) awakeFromNib
 {
-    [label_Delay setFloatValue: 0.1];
-    [label_Decay setFloatValue: 1.0];
-    [label_DelayMix setFloatValue: 50];
-    [label_Decimation setFloatValue: 50];
-    [label_Rounding setFloatValue: 0];
-    [label_DecimationMix setFloatValue: 50];
+    [label_Delay setIntegerValue: 0.1];
+    [label_Decay setIntegerValue: 1.0];
+    [label_DelayMix setIntegerValue: 50];
+    [label_Decimation setIntegerValue: 50];
+    [label_Rounding setIntegerValue: 0];
+    [label_DecimationMix setIntegerValue: 50];
     [label_LinearTerm setFloatValue: 1];
     [label_SquaredTerm setFloatValue: 0];
     [label_CubicTerm setFloatValue: 0];
-    [label_PolynomialMix setFloatValue: 50];
-    [label_RingModFreq1 setFloatValue: 100];
-    [label_RingModFreq2 setFloatValue: 100];
-    [label_RingModBalance setFloatValue: 50];
-    [label_RingModMix setFloatValue: 0];
-    [label_SoftClipGain setFloatValue: -6];
-    [label_FinalMix setFloatValue: 50];
+    [label_PolynomialMix setIntegerValue: 50];
+    [label_RingModFreq1 setIntegerValue: 100];
+    [label_RingModFreq2 setIntegerValue: 100];
+    [label_RingModBalance setIntegerValue: 50];
+    [label_RingModMix setIntegerValue: 0];
+    [label_SoftClipGain setIntegerValue: -6];
+    [label_FinalMix setIntegerValue: 50];
 }
 
 -(IBAction)Distortion_Delay:(id)sender
 {
     float value = [sender floatValue];
     [(PS_UI_Manager *) [NSApp delegate] setUIParam:value arg2:kAudioUnitSubType_Distortion arg3:kDistortionParam_Delay];
-    [label_Delay setFloatValue: value];
+    [label_Delay setIntegerValue: value];
 }
 
 -(IBAction)Distortion_Decay:(id)sender
 {
     float value = [sender floatValue];
     [(PS_UI_Manager *) [NSApp delegate] setUIParam:value arg2:kAudioUnitSubType_Distortion arg3:kDistortionParam_Decay];
-    [label_Decay setFloatValue: value];
+    [label_Decay setIntegerValue: value];
 }
 
 -(IBAction)Distortion_DelayMix:(id)sender
 {
     float value = [sender floatValue];
     [(PS_UI_Manager *) [NSApp delegate] setUIParam:value arg2:kAudioUnitSubType_Distortion arg3:kDistortionParam_DelayMix];
-    [label_DelayMix setFloatValue: value];
+    [label_DelayMix setIntegerValue: value];
 }
 
 -(IBAction)Distortion_Decimation:(id)sender
 {
     float value = [sender floatValue];
     [(PS_UI_Manager *) [NSApp delegate] setUIParam:value arg2:kAudioUnitSubType_Distortion arg3:kDistortionParam_Decimation];
-    [label_Decimation setFloatValue: value];
+    [label_Decimation setIntegerValue: value];
 }
 
 -(IBAction)Distortion_Rounding:(id)sender
 {
     float value = [sender floatValue];
     [(PS_UI_Manager *) [NSApp delegate] setUIParam:value arg2:kAudioUnitSubType_Distortion arg3:kDistortionParam_Rounding];
-    [label_Rounding setFloatValue: value];
+    [label_Rounding setIntegerValue: value];
 }
 
 -(IBAction)Distortion_DecimationMix:(id)sender
 {
     float value = [sender floatValue];
     [(PS_UI_Manager *) [NSApp delegate] setUIParam:value arg2:kAudioUnitSubType_Distortion arg3:kDistortionParam_DecimationMix];
-    [label_DecimationMix setFloatValue: value];
+    [label_DecimationMix setIntegerValue: value];
 }
 
 -(IBAction)Distortion_LinearTerm:(id)sender
@@ -98,49 +98,49 @@
 {
     float value = [sender floatValue];
     [(PS_UI_Manager *) [NSApp delegate] setUIParam:value arg2:kAudioUnitSubType_Distortion arg3:kDistortionParam_PolynomialMix];
-    [label_PolynomialMix setFloatValue: value];
+    [label_PolynomialMix setIntegerValue: value];
 }
 
 -(IBAction)Distortion_RingModFreq1:(id)sender
 {
     float value = [sender floatValue];
     [(PS_UI_Manager *) [NSApp delegate] setUIParam:value arg2:kAudioUnitSubType_Distortion arg3:kDistortionParam_RingModFreq1];
-    [label_RingModFreq1 setFloatValue: value];
+    [label_RingModFreq1 setIntegerValue: value];
 }
 
 -(IBAction)Distortion_RingModFreq2:(id)sender
 {
     float value = [sender floatValue];
     [(PS_UI_Manager *) [NSApp delegate] setUIParam:value arg2:kAudioUnitSubType_Distortion arg3:kDistortionParam_RingModFreq2];
-    [label_RingModFreq2 setFloatValue: value];
+    [label_RingModFreq2 setIntegerValue: value];
 }
 
 -(IBAction)Distortion_RingModBalance:(id)sender
 {
     float value = [sender floatValue];
     [(PS_UI_Manager *) [NSApp delegate] setUIParam:value arg2:kAudioUnitSubType_Distortion arg3:kDistortionParam_RingModBalance];
-    [label_RingModBalance setFloatValue: value];
+    [label_RingModBalance setIntegerValue: value];
 }
 
 -(IBAction)Distortion_RingModMix:(id)sender
 {
     float value = [sender floatValue];
     [(PS_UI_Manager *) [NSApp delegate] setUIParam:value arg2:kAudioUnitSubType_Distortion arg3:kDistortionParam_RingModMix];
-    [label_RingModMix setFloatValue: value];
+    [label_RingModMix setIntegerValue: value];
 }
 
 -(IBAction)Distortion_SoftClipGain:(id)sender
 {
     float value = [sender floatValue];
     [(PS_UI_Manager *) [NSApp delegate] setUIParam:value arg2:kAudioUnitSubType_Distortion arg3:kDistortionParam_SoftClipGain];
-    [label_SoftClipGain setFloatValue: value];
+    [label_SoftClipGain setIntegerValue: value];
 }
 
 -(IBAction)Distortion_FinalMix:(id)sender
 {
     float value = [sender floatValue];
     [(PS_UI_Manager *) [NSApp delegate] setUIParam:value arg2:kAudioUnitSubType_Distortion arg3:kDistortionParam_FinalMix];
-    [label_FinalMix setFloatValue: value];
+    [label_FinalMix setIntegerValue: value];
 }
 
 @end

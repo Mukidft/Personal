@@ -27,6 +27,10 @@
 		CEFB29B21DAC1FD1009AF2F7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFB29AD1DAC1FD1009AF2F7 /* Foundation.framework */; };
 		E002D7951DF89348005FF862 /* Compressor.png in Resources */ = {isa = PBXBuildFile; fileRef = E002D7931DF89348005FF862 /* Compressor.png */; };
 		E002D7961DF89348005FF862 /* Whammy.png in Resources */ = {isa = PBXBuildFile; fileRef = E002D7941DF89348005FF862 /* Whammy.png */; };
+		E0C2C8061DFE493F00A5F9E5 /* PS_UI_Reverb.mm in Sources */ = {isa = PBXBuildFile; fileRef = E0C2C8051DFE493F00A5F9E5 /* PS_UI_Reverb.mm */; };
+		E0C2C80A1DFE609800A5F9E5 /* PS_UI_Compressor.mm in Sources */ = {isa = PBXBuildFile; fileRef = E0C2C8091DFE609800A5F9E5 /* PS_UI_Compressor.mm */; };
+		E0C2C80E1DFE675400A5F9E5 /* PS_UI_Equalizer.mm in Sources */ = {isa = PBXBuildFile; fileRef = E0C2C80D1DFE675400A5F9E5 /* PS_UI_Equalizer.mm */; };
+		E0C2C8121DFE6AF000A5F9E5 /* PS_UI_Whammy.mm in Sources */ = {isa = PBXBuildFile; fileRef = E0C2C8111DFE6AF000A5F9E5 /* PS_UI_Whammy.mm */; };
 		F4333E2D1DDCE0B30035D4A7 /* PS_UI_DragView.mm in Sources */ = {isa = PBXBuildFile; fileRef = F4333E2C1DDCE0B30035D4A7 /* PS_UI_DragView.mm */; };
 		F4C200C21DE38D6A00DA157E /* PS_UI_DropView.mm in Sources */ = {isa = PBXBuildFile; fileRef = F4C200C11DE38D6A00DA157E /* PS_UI_DropView.mm */; };
 		F4EE57761DEF5EB4009CA7FB /* PS_UI_Delay.mm in Sources */ = {isa = PBXBuildFile; fileRef = F4EE57751DEF5EB4009CA7FB /* PS_UI_Delay.mm */; };
@@ -71,6 +75,14 @@
 		CEFB29AD1DAC1FD1009AF2F7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E002D7931DF89348005FF862 /* Compressor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Compressor.png; path = Images.xcassets/Compressor.png; sourceTree = "<group>"; };
 		E002D7941DF89348005FF862 /* Whammy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Whammy.png; path = Images.xcassets/Whammy.png; sourceTree = "<group>"; };
+		E0C2C8041DFE493F00A5F9E5 /* PS_UI_Reverb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PS_UI_Reverb.h; sourceTree = "<group>"; };
+		E0C2C8051DFE493F00A5F9E5 /* PS_UI_Reverb.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PS_UI_Reverb.mm; sourceTree = "<group>"; };
+		E0C2C8081DFE609800A5F9E5 /* PS_UI_Compressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PS_UI_Compressor.h; sourceTree = "<group>"; };
+		E0C2C8091DFE609800A5F9E5 /* PS_UI_Compressor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PS_UI_Compressor.mm; sourceTree = "<group>"; };
+		E0C2C80C1DFE675400A5F9E5 /* PS_UI_Equalizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PS_UI_Equalizer.h; sourceTree = "<group>"; };
+		E0C2C80D1DFE675400A5F9E5 /* PS_UI_Equalizer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PS_UI_Equalizer.mm; sourceTree = "<group>"; };
+		E0C2C8101DFE6AF000A5F9E5 /* PS_UI_Whammy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PS_UI_Whammy.h; sourceTree = "<group>"; };
+		E0C2C8111DFE6AF000A5F9E5 /* PS_UI_Whammy.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PS_UI_Whammy.mm; sourceTree = "<group>"; };
 		F4333E2C1DDCE0B30035D4A7 /* PS_UI_DragView.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = PS_UI_DragView.mm; sourceTree = "<group>"; };
 		F4333E2F1DDCE1060035D4A7 /* PS_UI_DragView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PS_UI_DragView.h; sourceTree = "<group>"; };
 		F4C200C01DE38D6A00DA157E /* PS_UI_DropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PS_UI_DropView.h; sourceTree = "<group>"; };
@@ -236,6 +248,42 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E0C2C8071DFE494300A5F9E5 /* Reverb */ = {
+			isa = PBXGroup;
+			children = (
+				E0C2C8041DFE493F00A5F9E5 /* PS_UI_Reverb.h */,
+				E0C2C8051DFE493F00A5F9E5 /* PS_UI_Reverb.mm */,
+			);
+			name = Reverb;
+			sourceTree = "<group>";
+		};
+		E0C2C80B1DFE609D00A5F9E5 /* Compressor */ = {
+			isa = PBXGroup;
+			children = (
+				E0C2C8081DFE609800A5F9E5 /* PS_UI_Compressor.h */,
+				E0C2C8091DFE609800A5F9E5 /* PS_UI_Compressor.mm */,
+			);
+			name = Compressor;
+			sourceTree = "<group>";
+		};
+		E0C2C80F1DFE675800A5F9E5 /* Equalizer */ = {
+			isa = PBXGroup;
+			children = (
+				E0C2C80C1DFE675400A5F9E5 /* PS_UI_Equalizer.h */,
+				E0C2C80D1DFE675400A5F9E5 /* PS_UI_Equalizer.mm */,
+			);
+			name = Equalizer;
+			sourceTree = "<group>";
+		};
+		E0C2C8131DFE6AF500A5F9E5 /* Whammy */ = {
+			isa = PBXGroup;
+			children = (
+				E0C2C8101DFE6AF000A5F9E5 /* PS_UI_Whammy.h */,
+				E0C2C8111DFE6AF000A5F9E5 /* PS_UI_Whammy.mm */,
+			);
+			name = Whammy;
+			sourceTree = "<group>";
+		};
 		F4333E301DDCE2DD0035D4A7 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +298,10 @@
 		F4EE57781DEF5F09009CA7FB /* EffectViews */ = {
 			isa = PBXGroup;
 			children = (
+				E0C2C8131DFE6AF500A5F9E5 /* Whammy */,
+				E0C2C80F1DFE675800A5F9E5 /* Equalizer */,
+				E0C2C80B1DFE609D00A5F9E5 /* Compressor */,
+				E0C2C8071DFE494300A5F9E5 /* Reverb */,
 				CEF68BD01DF61A9F0002D38A /* Distortion */,
 				F4EE57791DEF5F18009CA7FB /* Delay */,
 			);
@@ -373,12 +425,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0C2C80E1DFE675400A5F9E5 /* PS_UI_Equalizer.mm in Sources */,
 				CEEF686C1DB7F8C900EA21D7 /* PS_UI_Manager.mm in Sources */,
+				E0C2C8061DFE493F00A5F9E5 /* PS_UI_Reverb.mm in Sources */,
 				CEF68BCF1DF61A9A0002D38A /* PS_UI_Distortion.mm in Sources */,
+				E0C2C80A1DFE609800A5F9E5 /* PS_UI_Compressor.mm in Sources */,
 				F4EE57761DEF5EB4009CA7FB /* PS_UI_Delay.mm in Sources */,
 				CE8726A01DAC1C2400D43377 /* main.m in Sources */,
 				F4C200C21DE38D6A00DA157E /* PS_UI_DropView.mm in Sources */,
 				F4333E2D1DDCE0B30035D4A7 /* PS_UI_DragView.mm in Sources */,
+				E0C2C8121DFE6AF000A5F9E5 /* PS_UI_Whammy.mm in Sources */,
 				CEEF68671DB7F6CE00EA21D7 /* PS_Core.mm in Sources */,
 				CE9040B71DBE99EF009CEB44 /* PS_Effects.mm in Sources */,
 			);

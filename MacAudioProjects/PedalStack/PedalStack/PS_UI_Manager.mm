@@ -122,7 +122,7 @@
     else if ([name isEqualToString: @"Distortion"])
         effectID = kAudioUnitSubType_Distortion;
     else if ([name isEqualToString: @"Equalizer"])
-        effectID = kAudioUnitSubType_GraphicEQ;
+        effectID = kAudioUnitSubType_ParametricEQ;
     else if ([name isEqualToString: @"Reverb"])
         effectID = kAudioUnitSubType_MatrixReverb;
     else if ([name isEqualToString: @"Compressor"])
