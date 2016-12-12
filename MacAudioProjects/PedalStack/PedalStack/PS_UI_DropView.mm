@@ -115,6 +115,7 @@
         }
         else
         {
+            /*
             data = [[sender draggingPasteboard] dataForType:[PS_UI_DragView pasteboardType]];
             string = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
             effectType = string;
@@ -130,6 +131,7 @@
             unsigned index;
             sscanf([name UTF8String], "%u", &index);
             [(PS_UI_Manager *) [NSApp delegate] swapPedal:string arg2:index];
+             */
         }
     }
     

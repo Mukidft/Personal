@@ -2123,6 +2123,15 @@
                         </shadow>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="ktE-dT-HKB"/>
                     </imageView>
+                    <box autoresizesSubviews="NO" fixedFrame="YES" boxType="custom" borderType="none" translatesAutoresizingMaskIntoConstraints="NO" id="9Uj-DU-DHc">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="600"/>
+                        <view key="contentView">
+                            <rect key="frame" x="0.0" y="0.0" width="1000" height="600"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </view>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                    </box>
                 </subviews>
             </view>
             <contentBorderThickness minY="22"/>
@@ -2131,16 +2140,6 @@
             </connections>
             <point key="canvasLocation" x="532" y="521"/>
         </window>
-        <box autoresizesSubviews="NO" boxType="custom" borderType="none" id="9Uj-DU-DHc">
-            <rect key="frame" x="0.0" y="0.0" width="1000" height="600"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <view key="contentView">
-                <rect key="frame" x="0.0" y="0.0" width="1000" height="600"/>
-                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            </view>
-            <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-            <color key="fillColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
-        </box>
     </objects>
     <resources>
         <image name="Compressor" width="337" height="613"/>
