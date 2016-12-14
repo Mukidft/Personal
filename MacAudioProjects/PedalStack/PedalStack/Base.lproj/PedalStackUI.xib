@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <development version="6300" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -784,44 +784,66 @@
                         </shadow>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="Gmy-0Z-Qml"/>
                     </imageView>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jpC-sG-oMJ">
+                        <rect key="frame" x="204" y="531" width="593" height="49"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="P   E   D   A   L   |   S   T   A   C   K" id="9ZY-3b-APO">
+                            <font key="font" metaFont="system" size="37"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <imageView identifier="4" autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pu6-Em-pft" customClass="PS_UI_DropView">
+                        <rect key="frame" x="808" y="37" width="95" height="156"/>
+                        <shadow key="shadow" blurRadius="12">
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </shadow>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="3cm-0F-3Bb"/>
+                    </imageView>
+                    <imageView identifier="0" autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ds-eY-YrS" customClass="PS_UI_DropView">
+                        <rect key="frame" x="98" y="37" width="95" height="156"/>
+                        <shadow key="shadow" blurRadius="12">
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </shadow>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="ktE-dT-HKB"/>
+                    </imageView>
                     <tabView fixedFrame="YES" type="bottomTabsBezelBorder" translatesAutoresizingMaskIntoConstraints="NO" id="xUQ-bZ-k7C">
                         <rect key="frame" x="-7" y="204" width="1015" height="323"/>
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="Pedals" identifier="1" id="qj1-f4-vqw">
                                 <view key="view" id="ymk-Hd-4vb">
-                                    <rect key="frame" x="10" y="7" width="142" height="0.0"/>
+                                    <rect key="frame" x="10" y="7" width="995" height="285"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <imageView identifier="Equalizer" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ySJ-sw-uoF" customClass="PS_UI_DragView">
-                                            <rect key="frame" x="356" y="-208" width="89" height="150"/>
+                                            <rect key="frame" x="356" y="77" width="89" height="150"/>
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Equalizer" id="BRm-oA-Bmg" userLabel="DelayPedal"/>
                                         </imageView>
                                         <imageView identifier="Reverb" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GDe-rj-f5s" customClass="PS_UI_DragView">
-                                            <rect key="frame" x="540" y="-208" width="89" height="150"/>
+                                            <rect key="frame" x="540" y="77" width="89" height="150"/>
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Reverb" id="FZM-7a-jCI" userLabel="DelayPedal"/>
                                         </imageView>
                                         <imageView identifier="Whammy" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="of0-1P-gjB" customClass="PS_UI_DragView">
-                                            <rect key="frame" x="896" y="-208" width="89" height="150"/>
+                                            <rect key="frame" x="896" y="77" width="89" height="150"/>
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Whammy" id="MOm-xc-RnY" userLabel="DelayPedal"/>
                                         </imageView>
                                         <imageView identifier="Distortion" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="grM-Au-555" customClass="PS_UI_DragView">
-                                            <rect key="frame" x="183" y="-208" width="89" height="150"/>
+                                            <rect key="frame" x="183" y="77" width="89" height="150"/>
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Distortion" id="TZx-1h-GWu" userLabel="DelayPedal"/>
                                         </imageView>
                                         <imageView identifier="Delay" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="22u-Rm-ebU" customClass="PS_UI_DragView">
-                                            <rect key="frame" x="6" y="-208" width="89" height="150"/>
+                                            <rect key="frame" x="6" y="77" width="89" height="150"/>
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Delay" id="MZH-sj-Fos" userLabel="DelayPedal"/>
                                         </imageView>
                                         <imageView identifier="Compressor" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="55L-Zp-IYM" customClass="PS_UI_DragView">
-                                            <rect key="frame" x="719" y="-208" width="89" height="150"/>
+                                            <rect key="frame" x="719" y="77" width="89" height="150"/>
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Compressor" id="6T0-Mg-0xG" userLabel="DelayPedal"/>
                                         </imageView>
                                     </subviews>
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Control" identifier="2" id="JUG-fd-GEX">
-                                <view key="view" ambiguous="YES" id="RrF-7E-nPf">
+                                <view key="view" id="RrF-7E-nPf">
                                     <rect key="frame" x="10" y="7" width="995" height="285"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -831,11 +853,11 @@
                                             <tabViewItems>
                                                 <tabViewItem label="Delay" identifier="1" id="b7b-OR-NL8">
                                                     <view key="view" id="k7W-QA-97f">
-                                                        <rect key="frame" x="10" y="33" width="405" height="0.0"/>
+                                                        <rect key="frame" x="10" y="33" width="955" height="244"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZrQ-Qh-9Qb">
-                                                                <rect key="frame" x="103" y="-98" width="313" height="26"/>
+                                                                <rect key="frame" x="103" y="146" width="313" height="26"/>
                                                                 <shadow key="shadow">
                                                                     <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </shadow>
@@ -845,7 +867,7 @@
                                                                 </connections>
                                                             </slider>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="09r-Jj-Vk3">
-                                                                <rect key="frame" x="240" y="-115" width="38" height="17"/>
+                                                                <rect key="frame" x="240" y="129" width="38" height="17"/>
                                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="label" id="6nH-ds-s97">
                                                                     <font key="font" metaFont="system"/>
                                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -853,14 +875,14 @@
                                                                 </textFieldCell>
                                                             </textField>
                                                             <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W68-p5-9Td">
-                                                                <rect key="frame" x="103" y="-195" width="313" height="26"/>
+                                                                <rect key="frame" x="103" y="49" width="313" height="26"/>
                                                                 <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="2" doubleValue="1" tickMarkPosition="above" numberOfTickMarks="12" sliderType="linear" id="Pc2-TC-G0Z"/>
                                                                 <connections>
                                                                     <action selector="Delay_DelayTime:" target="3Nj-Ps-rEE" id="O6g-A8-xIv"/>
                                                                 </connections>
                                                             </slider>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kmp-7v-NyK">
-                                                                <rect key="frame" x="200" y="-163" width="118" height="17"/>
+                                                                <rect key="frame" x="200" y="81" width="118" height="17"/>
                                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Delay Time" id="TY0-qs-DZr">
                                                                     <font key="font" metaFont="systemBold"/>
                                                                     <color key="textColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -868,7 +890,7 @@
                                                                 </textFieldCell>
                                                             </textField>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O0Z-7m-Acm">
-                                                                <rect key="frame" x="240" y="-212" width="38" height="17"/>
+                                                                <rect key="frame" x="240" y="32" width="38" height="17"/>
                                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="label" id="xew-uJ-Fr5">
                                                                     <font key="font" metaFont="system"/>
                                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -876,30 +898,22 @@
                                                                 </textFieldCell>
                                                             </textField>
                                                             <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WrM-9u-gM7">
-                                                                <rect key="frame" x="531" y="-98" width="313" height="26"/>
+                                                                <rect key="frame" x="531" y="146" width="313" height="26"/>
                                                                 <sliderCell key="cell" continuous="YES" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" numberOfTickMarks="10" sliderType="linear" id="6FZ-ny-pxv"/>
                                                                 <connections>
                                                                     <action selector="Delay_Feedback:" target="3Nj-Ps-rEE" id="Ufm-fa-YG2"/>
                                                                 </connections>
                                                             </slider>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SB2-O4-Jg9">
-                                                                <rect key="frame" x="643" y="-64" width="88" height="17"/>
+                                                                <rect key="frame" x="643" y="180" width="88" height="17"/>
                                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Feedback" id="K7D-J3-qcn">
                                                                     <font key="font" metaFont="systemBold"/>
                                                                     <color key="textColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JOH-WA-Buz">
-                                                                <rect key="frame" x="194" y="-64" width="130" height="17"/>
-                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Wet / Dry Mix" id="9x0-TX-Pnp">
-                                                                    <font key="font" metaFont="systemBold"/>
-                                                                    <color key="textColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                </textFieldCell>
-                                                            </textField>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HFM-RM-x5c">
-                                                                <rect key="frame" x="668" y="-115" width="38" height="17"/>
+                                                                <rect key="frame" x="668" y="129" width="38" height="17"/>
                                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="label" id="vCn-23-uIR">
                                                                     <font key="font" metaFont="system"/>
                                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -907,14 +921,14 @@
                                                                 </textFieldCell>
                                                             </textField>
                                                             <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UTG-tn-mhC">
-                                                                <rect key="frame" x="531" y="-195" width="313" height="26"/>
+                                                                <rect key="frame" x="531" y="49" width="313" height="26"/>
                                                                 <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="10" maxValue="22000" doubleValue="15000" tickMarkPosition="above" numberOfTickMarks="12" sliderType="linear" id="7aX-NU-S79"/>
                                                                 <connections>
                                                                     <action selector="Delay_LowPassCutoff:" target="3Nj-Ps-rEE" id="Qxy-4u-cYe"/>
                                                                 </connections>
                                                             </slider>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1KR-uI-5Og">
-                                                                <rect key="frame" x="611" y="-163" width="153" height="17"/>
+                                                                <rect key="frame" x="611" y="81" width="153" height="17"/>
                                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Low Pass Cutoff" id="Oly-gY-t8b">
                                                                     <font key="font" metaFont="systemBold"/>
                                                                     <color key="textColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -922,11 +936,19 @@
                                                                 </textFieldCell>
                                                             </textField>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VNd-d5-FvK">
-                                                                <rect key="frame" x="654" y="-212" width="64" height="17"/>
+                                                                <rect key="frame" x="654" y="32" width="64" height="17"/>
                                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="label" id="p1m-Yi-KZe">
                                                                     <font key="font" metaFont="system"/>
                                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JOH-WA-Buz">
+                                                                <rect key="frame" x="194" y="180" width="130" height="17"/>
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Dry/Wet Mix" id="9x0-TX-Pnp">
+                                                                    <font key="font" metaFont="systemBold"/>
+                                                                    <color key="textColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
                                                         </subviews>
@@ -945,21 +967,21 @@
                                                                     <subviews>
                                                                         <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w5G-tB-Elp">
                                                                             <rect key="frame" x="145" y="37" width="32" height="32"/>
-                                                                            <sliderCell key="cell" continuous="YES" alignment="left" minValue="0.10000000000000001" maxValue="50" doubleValue="0.10000000000000001" numberOfTickMarks="10" sliderType="circular" id="BGt-Wo-sta"/>
+                                                                            <sliderCell key="cell" continuous="YES" alignment="left" minValue="0.10000000000000001" maxValue="50" doubleValue="0.10000000000000001" tickMarkPosition="below" numberOfTickMarks="10" sliderType="circular" id="BGt-Wo-sta"/>
                                                                             <connections>
                                                                                 <action selector="Distortion_Decay:" target="yN7-Zw-Wv8" id="AbE-s2-Lm2"/>
                                                                             </connections>
                                                                         </slider>
                                                                         <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l96-OK-Zsq">
                                                                             <rect key="frame" x="219" y="37" width="32" height="32"/>
-                                                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="100" doubleValue="50" numberOfTickMarks="10" sliderType="circular" id="hfg-KC-aZb"/>
+                                                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="below" numberOfTickMarks="10" sliderType="circular" id="hfg-KC-aZb"/>
                                                                             <connections>
                                                                                 <action selector="Distortion_DelayMix:" target="yN7-Zw-Wv8" id="wYC-3b-ZPD"/>
                                                                             </connections>
                                                                         </slider>
                                                                         <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uZQ-b5-3YZ">
                                                                             <rect key="frame" x="64" y="37" width="32" height="32"/>
-                                                                            <sliderCell key="cell" continuous="YES" alignment="left" minValue="0.10000000000000001" maxValue="500" doubleValue="0.10000000000000001" numberOfTickMarks="10" sliderType="circular" id="RzT-cw-gG9"/>
+                                                                            <sliderCell key="cell" continuous="YES" alignment="left" minValue="0.10000000000000001" maxValue="500" doubleValue="0.10000000000000001" tickMarkPosition="below" numberOfTickMarks="10" sliderType="circular" id="RzT-cw-gG9"/>
                                                                             <connections>
                                                                                 <action selector="Distortion_Delay:" target="yN7-Zw-Wv8" id="w3t-Cr-afJ"/>
                                                                             </connections>
@@ -1025,21 +1047,21 @@
                                                                     <subviews>
                                                                         <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hLf-gg-ZnN">
                                                                             <rect key="frame" x="145" y="37" width="32" height="32"/>
-                                                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="100" numberOfTickMarks="10" sliderType="circular" id="ZYm-pZ-ebP"/>
+                                                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="100" tickMarkPosition="below" numberOfTickMarks="10" sliderType="circular" id="ZYm-pZ-ebP"/>
                                                                             <connections>
                                                                                 <action selector="Distortion_Rounding:" target="yN7-Zw-Wv8" id="7s1-24-vG5"/>
                                                                             </connections>
                                                                         </slider>
                                                                         <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CZD-pg-hwE">
                                                                             <rect key="frame" x="219" y="37" width="32" height="32"/>
-                                                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="100" doubleValue="50" numberOfTickMarks="10" sliderType="circular" id="V6M-WZ-MU4"/>
+                                                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="below" numberOfTickMarks="10" sliderType="circular" id="V6M-WZ-MU4"/>
                                                                             <connections>
                                                                                 <action selector="Distortion_DecimationMix:" target="yN7-Zw-Wv8" id="KsB-Do-Bxc"/>
                                                                             </connections>
                                                                         </slider>
                                                                         <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zdf-uV-ZxY">
                                                                             <rect key="frame" x="64" y="37" width="32" height="32"/>
-                                                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="100" doubleValue="50" numberOfTickMarks="10" sliderType="circular" id="K58-63-aAd"/>
+                                                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="below" numberOfTickMarks="10" sliderType="circular" id="K58-63-aAd"/>
                                                                             <connections>
                                                                                 <action selector="Distortion_Decimation:" target="yN7-Zw-Wv8" id="mgv-Gy-zFz"/>
                                                                             </connections>
@@ -1105,28 +1127,28 @@
                                                                     <subviews>
                                                                         <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bqe-CP-eYq">
                                                                             <rect key="frame" x="113" y="37" width="32" height="32"/>
-                                                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="100" doubleValue="50" numberOfTickMarks="10" sliderType="circular" id="xQK-Fh-UYN"/>
+                                                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="below" numberOfTickMarks="10" sliderType="circular" id="xQK-Fh-UYN"/>
                                                                             <connections>
                                                                                 <action selector="Distortion_RingModBalance:" target="yN7-Zw-Wv8" id="Saa-WM-uNg"/>
                                                                             </connections>
                                                                         </slider>
                                                                         <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nGN-BC-w20">
                                                                             <rect key="frame" x="187" y="37" width="32" height="32"/>
-                                                                            <sliderCell key="cell" continuous="YES" alignment="left" minValue="0.5" maxValue="8000" doubleValue="0.5" numberOfTickMarks="10" sliderType="circular" id="7uD-rp-w1E"/>
+                                                                            <sliderCell key="cell" continuous="YES" alignment="left" minValue="0.5" maxValue="8000" doubleValue="0.5" tickMarkPosition="below" numberOfTickMarks="10" sliderType="circular" id="7uD-rp-w1E"/>
                                                                             <connections>
                                                                                 <action selector="Distortion_RingModFreq2:" target="yN7-Zw-Wv8" id="xuq-PV-ZF3"/>
                                                                             </connections>
                                                                         </slider>
                                                                         <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BAn-ZI-LNg">
                                                                             <rect key="frame" x="32" y="37" width="32" height="32"/>
-                                                                            <sliderCell key="cell" continuous="YES" alignment="left" minValue="0.5" maxValue="8000" doubleValue="0.5" numberOfTickMarks="10" sliderType="circular" id="AVG-yW-Z3I"/>
+                                                                            <sliderCell key="cell" continuous="YES" alignment="left" minValue="0.5" maxValue="8000" doubleValue="0.5" tickMarkPosition="below" numberOfTickMarks="10" sliderType="circular" id="AVG-yW-Z3I"/>
                                                                             <connections>
                                                                                 <action selector="Distortion_RingModFreq1:" target="yN7-Zw-Wv8" id="xbi-PK-qKd"/>
                                                                             </connections>
                                                                         </slider>
                                                                         <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dSd-FR-HyP">
                                                                             <rect key="frame" x="257" y="37" width="32" height="32"/>
-                                                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="100" doubleValue="50" numberOfTickMarks="10" sliderType="circular" id="iiY-Qb-t1X"/>
+                                                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="below" numberOfTickMarks="10" sliderType="circular" id="iiY-Qb-t1X"/>
                                                                             <connections>
                                                                                 <action selector="Distortion_RingModMix:" target="yN7-Zw-Wv8" id="7s4-TF-YRU"/>
                                                                             </connections>
@@ -1208,28 +1230,28 @@
                                                                     <subviews>
                                                                         <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b7n-WA-xfq">
                                                                             <rect key="frame" x="113" y="37" width="32" height="32"/>
-                                                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="20" numberOfTickMarks="10" sliderType="circular" id="Nwp-L7-ckU"/>
+                                                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="20" tickMarkPosition="below" numberOfTickMarks="10" sliderType="circular" id="Nwp-L7-ckU"/>
                                                                             <connections>
                                                                                 <action selector="Distortion_SquaredTerm:" target="yN7-Zw-Wv8" id="OGI-ea-qH2"/>
                                                                             </connections>
                                                                         </slider>
                                                                         <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lEb-k5-u30">
                                                                             <rect key="frame" x="187" y="37" width="32" height="32"/>
-                                                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="20" numberOfTickMarks="10" sliderType="circular" id="P6B-fl-8xU"/>
+                                                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="20" tickMarkPosition="below" numberOfTickMarks="10" sliderType="circular" id="P6B-fl-8xU"/>
                                                                             <connections>
                                                                                 <action selector="Distortion_CubicTerm:" target="yN7-Zw-Wv8" id="1pD-As-Mz5"/>
                                                                             </connections>
                                                                         </slider>
                                                                         <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bc1-Gw-hmz">
                                                                             <rect key="frame" x="32" y="37" width="32" height="32"/>
-                                                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="1" doubleValue="0.90000000000000002" numberOfTickMarks="10" sliderType="circular" id="Ybr-CO-kFa"/>
+                                                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="1" doubleValue="0.90000000000000002" tickMarkPosition="below" numberOfTickMarks="10" sliderType="circular" id="Ybr-CO-kFa"/>
                                                                             <connections>
                                                                                 <action selector="Distortion_LinearTerm:" target="yN7-Zw-Wv8" id="3vz-zO-0RZ"/>
                                                                             </connections>
                                                                         </slider>
                                                                         <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pg5-fw-fKn">
                                                                             <rect key="frame" x="257" y="37" width="32" height="32"/>
-                                                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="100" doubleValue="50" numberOfTickMarks="10" sliderType="circular" id="g6o-8b-3G6"/>
+                                                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="below" numberOfTickMarks="10" sliderType="circular" id="g6o-8b-3G6"/>
                                                                             <connections>
                                                                                 <action selector="Distortion_PolynomialMix:" target="yN7-Zw-Wv8" id="jm9-dg-Nyz"/>
                                                                             </connections>
@@ -1845,7 +1867,7 @@
                                                     </view>
                                                 </tabViewItem>
                                                 <tabViewItem label="Compressor" identifier="2" id="Qzp-Pc-gJm" userLabel="Compressor">
-                                                    <view key="view" ambiguous="YES" id="RS6-oa-q3e">
+                                                    <view key="view" id="RS6-oa-q3e">
                                                         <rect key="frame" x="10" y="33" width="955" height="244"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
@@ -2101,28 +2123,6 @@
                             </tabViewItem>
                         </tabViewItems>
                     </tabView>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jpC-sG-oMJ">
-                        <rect key="frame" x="204" y="531" width="593" height="49"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="P   E   D   A   L   |   S   T   A   C   K" id="9ZY-3b-APO">
-                            <font key="font" metaFont="system" size="37"/>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <imageView identifier="4" autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pu6-Em-pft" customClass="PS_UI_DropView">
-                        <rect key="frame" x="808" y="37" width="95" height="156"/>
-                        <shadow key="shadow" blurRadius="12">
-                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        </shadow>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="3cm-0F-3Bb"/>
-                    </imageView>
-                    <imageView identifier="0" autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ds-eY-YrS" customClass="PS_UI_DropView">
-                        <rect key="frame" x="98" y="37" width="95" height="156"/>
-                        <shadow key="shadow" blurRadius="12">
-                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        </shadow>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="ktE-dT-HKB"/>
-                    </imageView>
                     <box autoresizesSubviews="NO" fixedFrame="YES" boxType="custom" borderType="none" translatesAutoresizingMaskIntoConstraints="NO" id="9Uj-DU-DHc">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="600"/>
                         <view key="contentView">
