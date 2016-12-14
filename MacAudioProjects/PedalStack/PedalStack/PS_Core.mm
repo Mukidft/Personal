@@ -150,7 +150,87 @@
 
 - (void) SwapEffect: (UInt32) effect arg2: (unsigned) index
 {
-
+    // Stop the graph
+    AUGraphStop(mGraph);
+    
+    PS_Effects *NewEffect = new PS_Effects(effect, mGraph, outputNode, mStreamDesc);
+    
+    mEffects[index]->DisconnectEffectIO();
+    
+    mEffects.push_back(NewEffect);
+    std::replace(mEffects.begin(), mEffects.end(), mEffects[index], mEffects[mEffects.size() - 1]);
+    mEffects.pop_back();
+    
+    mEffectIDs.push_back(effect);
+    std::replace(mEffectIDs.begin(), mEffectIDs.end(), mEffectIDs[index], mEffectIDs[mEffectIDs.size() - 1]);
+    mEffectIDs.pop_back();
+    
+    // If its the last pedal
+    if(index == mEffects.size() - 1 && index != 0)
+    {
+        // Connect previous pedal to current
+        mEffects[index]->ConnectEffectIO(mEffects[index - 1]->GetEffectNode(), mEffects[index]->GetEffectNode());
+        mEffects[index]->GetEffectInfo();
+        mEffects[index]->SetStreamDescription(output);
+        
+        // Connect current pedal to output
+        mEffects[index]->ConnectEffectIO(mEffects[mEffects.size() - 1]->GetEffectNode(), outputNode);
+        mEffects[index]->GetEffectInfo();
+        mEffects[index]->SetStreamDescription(output);
+    }
+    // If its the first pedal and the only pedal
+    else if(index == 0 && mEffects.size() == 1)
+    {
+        // Disconnect Output node
+        AUGraphDisconnectNodeInput(mGraph, outputNode, 0);
+        
+        // Connect input to current pedal
+        mEffects[index]->ConnectEffectIO(outputNode, mEffects[index]->GetEffectNode(), 1);
+        
+        // Conenct current pedal to output
+        mEffects[index]->ConnectEffectIO(mEffects[index]->GetEffectNode(), outputNode);
+        mEffects[index]->GetEffectInfo();
+        mEffects[index]->SetStreamDescription(output);
+    }
+    // If its the first pedal and there are more pedals
+    else if(index == 0 && mEffects.size() > 1)
+    {
+        // Disconnect Output node
+        AUGraphDisconnectNodeInput(mGraph, outputNode, 0);
+        
+        // Conect input to current pedal
+        mEffects[index]->ConnectEffectIO(outputNode, mEffects[index]->GetEffectNode(), 1);
+        
+        // Conenct current pedal to next pedal
+        mEffects[index]->ConnectEffectIO(mEffects[index]->GetEffectNode(), mEffects[index + 1]->GetEffectNode());
+        mEffects[index]->GetEffectInfo();
+        mEffects[index]->SetStreamDescription(output);
+        
+        // Connect last pedal to the output
+        mEffects[index]->ConnectEffectIO(mEffects[mEffects.size() - 1]->GetEffectNode(), outputNode);
+        mEffects[index]->GetEffectInfo();
+        mEffects[index]->SetStreamDescription(output);
+    }
+    // If its any other pedal in the signal chain
+    else
+    {
+        // Connect previous pedal to current pedal
+        mEffects[index]->ConnectEffectIO(mEffects[index - 1]->GetEffectNode(), mEffects[index]->GetEffectNode());
+        mEffects[index]->GetEffectInfo();
+        mEffects[index]->SetStreamDescription(output);
+        
+        // Conenct current pedal to the next pedal
+        mEffects[index]->ConnectEffectIO(mEffects[index]->GetEffectNode(), mEffects[index + 1]->GetEffectNode());
+        mEffects[index]->GetEffectInfo();
+        mEffects[index]->SetStreamDescription(output);
+    }
+    
+    // Start the graph
+    AUGraphStart(mGraph);
+    
+    // Print out signal chain
+    CAShow(mGraph);
+    
 }
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/

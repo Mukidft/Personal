@@ -278,7 +278,22 @@
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 - (void)swapEffect: (NSString *)name arg2: (unsigned)index
 {
-
+    UInt32 effectID;
+    
+    if([name isEqualToString: @"Delay"])
+        effectID = kAudioUnitSubType_Delay;
+    else if ([name isEqualToString: @"Distortion"])
+        effectID = kAudioUnitSubType_Distortion;
+    else if ([name isEqualToString: @"Equalizer"])
+        effectID = kAudioUnitSubType_ParametricEQ;
+    else if ([name isEqualToString: @"Reverb"])
+        effectID = kAudioUnitSubType_MatrixReverb;
+    else if ([name isEqualToString: @"Compressor"])
+        effectID = kAudioUnitSubType_DynamicsProcessor;
+    else if ([name isEqualToString: @"Whammy"])
+        effectID = kAudioUnitSubType_Pitch;
+    
+    [core SwapEffect:effectID arg2:index];
 }
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
