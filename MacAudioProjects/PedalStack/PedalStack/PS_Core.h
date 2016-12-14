@@ -37,6 +37,7 @@
 - (void) RemoveEffect;
 - (void) PrintStreamDescription;
 - (PS_Effects*) GetEffectFromID: (UInt32) id;
+- (PS_Effects*) GetEffectFromIndex: (unsigned) index;
 - (std::vector<UInt32>) GetEffects;
 @end
 

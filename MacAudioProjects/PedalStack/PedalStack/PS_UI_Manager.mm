@@ -163,7 +163,7 @@
 - (void)setUIParam:(float)value arg2: (UInt32)type arg3: (UInt32) param
 {
     if([core GetEffects].size() != 0)
-        [core GetEffectFromID: type]->SetEffectParameter(param, value);
+        [core GetEffectFromIndex: currentIndex]->SetEffectParameter(param, value);
 }
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
@@ -325,6 +325,24 @@
 - (PS_Core *)getCore
 {
     return core;
+}
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Sets the current selected pedal index
+ 
+ \param name
+ (String containing index information)
+ 
+ \return
+ Does not return anything
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+- (void) setIndex:(NSString *) name
+{
+    unsigned int index = atoi( [ name cStringUsingEncoding: NSASCIIStringEncoding ] );
+    currentIndex = index;
 }
 
 @end

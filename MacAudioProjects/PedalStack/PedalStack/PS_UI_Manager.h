@@ -42,7 +42,9 @@
     IBOutlet NSTabView *control;
     IBOutlet NSTabView *controls;
     NSString *currentSelection;
-    std::vector<NSString *> pedals;
+    std::vector<NSString *> pedals;    
+    
+    @public unsigned currentIndex;
 };
 
 - (void)addNewEffect:(NSString *)name;
@@ -58,5 +60,6 @@
 - (NSString*) getEmptyPedalIndex;
 - (NSString*) getLastPedalIndex;
 - (void) printSignalChain;
+- (void) setIndex:(NSString *) name;
 
 @end

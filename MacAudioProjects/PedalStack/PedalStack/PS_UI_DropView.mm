@@ -149,6 +149,7 @@
     if(effectType != nil)
     {
         [(PS_UI_Manager *)[NSApp delegate] drawControls: effectType];
+        [(PS_UI_Manager *)[NSApp delegate] setIndex: self.identifier];
     }
 }
 

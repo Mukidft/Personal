@@ -165,7 +165,7 @@
  Returns the PS_Effects class instance for the specified effect
  */
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-- (PS_Effects*) GetEffectFromID: (UInt32) id;
+- (PS_Effects*) GetEffectFromID: (UInt32) id
 {
     for(int i = 0; i < mEffects.size(); ++i)
     {
@@ -174,6 +174,23 @@
     }
     
     return nullptr;
+}
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Gets an effect corresponding to the index
+ 
+ \param index
+ (Index needed to access)
+ 
+ \return
+ Returns the PS_Effects class instance for the specified effect
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+- (PS_Effects*) GetEffectFromIndex: (unsigned) index
+{
+    return mEffects[index];
 }
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
