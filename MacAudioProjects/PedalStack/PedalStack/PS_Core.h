@@ -1,12 +1,17 @@
-//
-//  PS_Core.h
-//  PedalStack
-//
-//  Created by Lipstick on 10/10/16.
-//  Copyright (c) 2016 Deepak Chennakkadan. All rights reserved.
-//
+/*****************************************************************************/
+/*!
+ \file   PS_Core.h
+ \author Deepak Chennakkadan
+ \par    email: deepak.chennakkadan\@digipen.edu
+ \par    DigiPen login: deepak.chennakkadan
+ \par    Course: MUS470
+ \par    Project: PedalStack
+ \date   12/13/2016
+ \brief
+ This file contains the interface for CoreAudio and managing the audio graph
+ */
+/*****************************************************************************/
 
-//#import "PS_Headers.h"
 #include <vector>
 #include "PS_Effects.h"
 

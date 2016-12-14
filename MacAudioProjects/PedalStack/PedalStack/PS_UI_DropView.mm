@@ -1,11 +1,17 @@
-//
-//  PS_UI_DropView.m
-//  PedalStack
-//
-//  Created by Poppy on 11/16/16.
-//  Copyright © 2016 Deepak Chennakkadan. All rights reserved.
-//
-
+/*****************************************************************************/
+/*!
+ \file   PS_UI_DragView.mm
+ \author Deepak Chennakkadan
+ \par    email: deepak.chennakkadan\@digipen.edu
+ \par    DigiPen login: deepak.chennakkadan
+ \par    Course: MUS470
+ \par    Project: PedalStack
+ \date   12/13/2016
+ \brief
+ This file contains the implementation for a Custom Drag View class for Drag
+ & Drop
+ */
+/*****************************************************************************/
 
 #import "PS_UI_DropView.h"
 #import "PS_UI_DragView.h"
@@ -221,6 +227,18 @@
     return [self isOurType:[sender draggingPasteboard]];
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Function to check if incoming object type is the type we want
+ 
+ \param pasteboard
+ (Item that was copied to the pasteboard)
+ 
+ \return
+ Returns a bool if true or false
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 -(BOOL)isOurType:(NSPasteboard *)pasteboard
 {
     return [[pasteboard types] containsObject:[PS_UI_DragView pasteboardType]];

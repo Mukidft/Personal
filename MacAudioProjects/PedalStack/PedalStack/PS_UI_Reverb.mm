@@ -1,10 +1,16 @@
-//
-//  PS_UI_Reverb.m
-//  PedalStack
-//
-//  Created by Poppy on 11/30/16.
-//  Copyright © 2016 Deepak Chennakkadan. All rights reserved.
-//
+/*****************************************************************************/
+/*!
+ \file   PS_UI_Reverb.mm
+ \author Deepak Chennakkadan
+ \par    email: deepak.chennakkadan\@digipen.edu
+ \par    DigiPen login: deepak.chennakkadan
+ \par    Course: MUS470
+ \par    Project: PedalStack
+ \date   12/13/2016
+ \brief
+ This file contains the implementation for the Reverb Effects Pedal
+ */
+/*****************************************************************************/
 
 #import "PS_UI_Reverb.h"
 #import "PS_UI_Manager.h"
@@ -32,6 +38,18 @@
     [label_LargeBrightness setFloatValue: 0.49];
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Sets the Reverb Dry/Wet Mix
+ 
+ \param sender
+ (Values from the UI)
+ 
+ \return
+ Returns an IBAction
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 -(IBAction)Reverb_DryWetMix:(id)sender
 {
     float value = [sender floatValue];
@@ -39,6 +57,18 @@
     [label_DryWetMix setIntegerValue: value];
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Sets the Reverb Small/Large Mix
+ 
+ \param sender
+ (Values from the UI)
+ 
+ \return
+ Returns an IBAction
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 -(IBAction)Reverb_SmallLargeMix:(id)sender
 {
     float value = [sender floatValue];
@@ -46,6 +76,18 @@
     [label_SmallLargeMix setIntegerValue: value];
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Sets the Reverb Pre-Delay
+ 
+ \param sender
+ (Values from the UI)
+ 
+ \return
+ Returns an IBAction
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 -(IBAction)Reverb_PreDelay:(id)sender
 {
     float value = [sender floatValue];
@@ -53,6 +95,18 @@
     [label_PreDelay setFloatValue: value];
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Sets the Reverb Modulation Rate
+ 
+ \param sender
+ (Values from the UI)
+ 
+ \return
+ Returns an IBAction
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 -(IBAction)Reverb_ModulationRate:(id)sender
 {
     float value = [sender floatValue];
@@ -60,6 +114,18 @@
     [label_ModulationRate setFloatValue: value];
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Sets the Reverb Modulation Depth
+ 
+ \param sender
+ (Values from the UI)
+ 
+ \return
+ Returns an IBAction
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 -(IBAction)Reverb_ModulationDepth:(id)sender
 {
     float value = [sender floatValue];
@@ -67,6 +133,18 @@
     [label_ModulationDepth setFloatValue: value];
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Sets the Reverb Small Size
+ 
+ \param sender
+ (Values from the UI)
+ 
+ \return
+ Returns an IBAction
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 -(IBAction)Reverb_SmallSize:(id)sender
 {
     float value = [sender floatValue];
@@ -74,6 +152,18 @@
     [label_SmallSize setFloatValue: value];
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Sets the Reverb Small Density
+ 
+ \param sender
+ (Values from the UI)
+ 
+ \return
+ Returns an IBAction
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 -(IBAction)Reverb_SmallDensity:(id)sender
 {
     float value = [sender floatValue];
@@ -81,6 +171,18 @@
     [label_SmallDensity setFloatValue: value];
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Sets the Reverb Small Brightness
+ 
+ \param sender
+ (Values from the UI)
+ 
+ \return
+ Returns an IBAction
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 -(IBAction)Reverb_SmallBrightness:(id)sender
 {
     float value = [sender floatValue];
@@ -88,6 +190,18 @@
     [label_SmallBrightness setFloatValue: value];
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Sets the Reverb Small Delay Range
+ 
+ \param sender
+ (Values from the UI)
+ 
+ \return
+ Returns an IBAction
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 -(IBAction)Reverb_SmallDelayRange:(id)sender
 {
     float value = [sender floatValue];
@@ -95,6 +209,18 @@
     [label_SmallDelayRange setFloatValue: value];
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Sets the Reverb Large Size
+ 
+ \param sender
+ (Values from the UI)
+ 
+ \return
+ Returns an IBAction
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 -(IBAction)Reverb_LargeSize:(id)sender
 {
     float value = [sender floatValue];
@@ -102,6 +228,18 @@
     [label_LargeSize setFloatValue: value];
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Sets the Reverb Large Delay
+ 
+ \param sender
+ (Values from the UI)
+ 
+ \return
+ Returns an IBAction
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 -(IBAction)Reverb_LargeDelay:(id)sender
 {
     float value = [sender floatValue];
@@ -109,6 +247,18 @@
     [label_LargeDelay setFloatValue: value];
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Sets the Reverb Large Density
+ 
+ \param sender
+ (Values from the UI)
+ 
+ \return
+ Returns an IBAction
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 -(IBAction)Reverb_LargeDensity:(id)sender
 {
     float value = [sender floatValue];
@@ -116,6 +266,18 @@
     [label_LargeDensity setFloatValue: value];
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Sets the Reverb Large Delay Range
+ 
+ \param sender
+ (Values from the UI)
+ 
+ \return
+ Returns an IBAction
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 -(IBAction)Reverb_LargeDelayRange:(id)sender
 {
     float value = [sender floatValue];
@@ -123,6 +285,18 @@
     [label_LargeDelayRange setFloatValue: value];
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Sets the Reverb Large Brightness
+ 
+ \param sender
+ (Values from the UI)
+ 
+ \return
+ Returns an IBAction
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 -(IBAction)Reverb_LargeBrightness:(id)sender
 {
     float value = [sender floatValue];

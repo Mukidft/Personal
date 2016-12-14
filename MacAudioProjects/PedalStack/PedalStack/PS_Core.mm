@@ -1,10 +1,17 @@
-//
-//  PS_Core.mm
-//  PedalStack
-//
-//  Created by Lipstick on 10/10/16.
-//  Copyright (c) 2016 Deepak Chennakkadan. All rights reserved.
-//
+/*****************************************************************************/
+/*!
+ \file   PS_Core.mm
+ \author Deepak Chennakkadan
+ \par    email: deepak.chennakkadan\@digipen.edu
+ \par    DigiPen login: deepak.chennakkadan
+ \par    Course: MUS470
+ \par    Project: PedalStack
+ \date   12/13/2016
+ \brief
+ This file contains the implementation for CoreAudio and managing the audio 
+ graph
+ */
+/*****************************************************************************/
 
 #define TEST 0
 
@@ -18,6 +25,24 @@
     [self initializeGraph];
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Dynamically allocates and creates a new effect
+ 
+ \param effect
+ (Type of effect)
+ 
+ \param graph
+ (Audio Unit Graph)
+ 
+ \param outNode
+ (Output Node)
+ 
+ \return
+ Does not return anything
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 - (void) CreateNewEffect: (UInt32) effect arg2: (AUGraph) graph arg3: (AUNode) outNode
 {
     PS_Effects *NewEffect = new PS_Effects(effect, mGraph, outNode, mStreamDesc);
@@ -25,6 +50,18 @@
     mEffectIDs.push_back(effect);
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Adds the effect to the graph and handles node conenctions
+ 
+ \param effect
+ (Type of effect)
+ 
+ \return
+ Does not return anything
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 - (void) AddNewEffect: (UInt32) effect
 {
     [self CreateNewEffect:effect arg2:mGraph arg3:outputNode];
@@ -61,6 +98,15 @@
     CAShow(mGraph);
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Removes the last effect from the graph and handles node conenctions
+ 
+ \return
+ Does not return anything
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 - (void) RemoveEffect
 {
     // Stop the graph
@@ -107,6 +153,18 @@
 
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Gets an effect corresponding to the ID
+ 
+ \param id
+ (Effect ID)
+ 
+ \return
+ Returns the PS_Effects class instance for the specified effect
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 - (PS_Effects*) GetEffectFromID: (UInt32) id;
 {
     for(int i = 0; i < mEffects.size(); ++i)
@@ -118,12 +176,29 @@
     return nullptr;
 }
 
-
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Gets the list of IDs
+ 
+ \return
+ Returns a vector with the effect IDs
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 - (std::vector<UInt32>) GetEffects
 {
     return mEffectIDs;
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Initializes the Audio Unit Graph
+ 
+ \return
+ Does not return anything
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 - (void) initializeGraph
 {
     result = noErr;
@@ -256,6 +331,15 @@
     
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Prints out the stream description structure
+ 
+ \return
+ Does not return anything
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 - (void) PrintStreamDescription
 {
     std::cout << "STREAM DESCRIPTION START ++++++++++++++++++++++++++++++++++++++++++" << std::endl << std::endl;
@@ -271,7 +355,6 @@
     std::cout << "STREAM DESCRIPTION END ++++++++++++++++++++++++++++++++++++++++++++" << std::endl << std::endl;
 }
 
-// Testing with White Noise
 OSStatus renderInput(void *inRefCon,
                      AudioUnitRenderActionFlags *ioActionFlags,
                      const AudioTimeStamp *inTimeStamp,

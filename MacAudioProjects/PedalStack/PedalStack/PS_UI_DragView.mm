@@ -1,10 +1,17 @@
-//
-//  PS_UI_DragView.m
-//  PedalStack
-//
-//  Created by Poppy on 11/16/16.
-//  Copyright © 2016 Deepak Chennakkadan. All rights reserved.
-//
+/*****************************************************************************/
+/*!
+ \file   PS_UI_DropView.mm
+ \author Deepak Chennakkadan
+ \par    email: deepak.chennakkadan\@digipen.edu
+ \par    DigiPen login: deepak.chennakkadan
+ \par    Course: MUS470
+ \par    Project: PedalStack
+ \date   12/13/2016
+ \brief
+ This file contains the implementation for a Custom Drop View class for Drag 
+ & Drop
+ */
+/*****************************************************************************/
 
 
 #import "PS_UI_DragView.h"
@@ -25,18 +32,46 @@ NSString *kPrivateDropUTI = @"com.Deepak.PedalStack";
     return self;
 }
 
-
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Gets valid pasteboard type
+ 
+ \return
+ Returns a valid pasteboard type
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 + (NSString*)pasteboardType
 {
     return kPrivateDropUTI;
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Gets an array with valid pasteboard type
+ 
+ \return
+ Returns an array with valid pasteboard type
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 + (NSArray*)pasteboardTypes
 {
     return [NSArray arrayWithObject:[self pasteboardType]];
 }
 
-
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Sets the name of the effect dropped in
+ 
+ \param name
+ (Name of the effect)
+ 
+ \return
+ Does not return anything
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 - (void)setName: (NSString *) name
 {
     effect_name = name;

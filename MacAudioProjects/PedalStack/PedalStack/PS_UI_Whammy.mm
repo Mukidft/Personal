@@ -1,10 +1,16 @@
-//
-//  PS_UI_Whammy.m
-//  PedalStack
-//
-//  Created by Poppy on 11/30/16.
-//  Copyright © 2016 Deepak Chennakkadan. All rights reserved.
-//
+/*****************************************************************************/
+/*!
+ \file   PS_UI_Whammy.mm
+ \author Deepak Chennakkadan
+ \par    email: deepak.chennakkadan\@digipen.edu
+ \par    DigiPen login: deepak.chennakkadan
+ \par    Course: MUS470
+ \par    Project: PedalStack
+ \date   12/13/2016
+ \brief
+ This file contains the implementation for the Whammy Effects Pedal
+ */
+/*****************************************************************************/
 
 #import "PS_UI_Whammy.h"
 #import "PS_UI_Manager.h"
@@ -18,21 +24,57 @@
     [label_EffectBlend setIntegerValue: 50];
 }
 
--(IBAction)Reverb_Rate:(id)sender
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Sets the Whammy Rate
+ 
+ \param sender
+ (Values from the UI)
+ 
+ \return
+ Returns an IBAction
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+-(IBAction)Whammy_Rate:(id)sender
 {
     float value = [sender floatValue];
     [(PS_UI_Manager *) [NSApp delegate] setUIParam:value arg2:kAudioUnitSubType_Pitch arg3:kTimePitchParam_Rate];
     [label_Rate setIntegerValue: value];
 }
 
--(IBAction)Reverb_Pitch:(id)sender
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Sets the Whammy Pitch
+ 
+ \param sender
+ (Values from the UI)
+ 
+ \return
+ Returns an IBAction
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+-(IBAction)Whammy_Pitch:(id)sender
 {
     float value = [sender floatValue];
     [(PS_UI_Manager *) [NSApp delegate] setUIParam:value arg2:kAudioUnitSubType_Pitch arg3:kTimePitchParam_Pitch];
     [label_Pitch setIntegerValue: value];
 }
 
--(IBAction)Reverb_EffectBlend:(id)sender
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Sets the Whammy Effect Blend
+ 
+ \param sender
+ (Values from the UI)
+ 
+ \return
+ Returns an IBAction
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+-(IBAction)Whammy_EffectBlend:(id)sender
 {
     float value = [sender floatValue];
     [(PS_UI_Manager *) [NSApp delegate] setUIParam:value arg2:kAudioUnitSubType_Pitch arg3:kTimePitchParam_EffectBlend];

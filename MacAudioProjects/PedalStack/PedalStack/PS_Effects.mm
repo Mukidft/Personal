@@ -1,25 +1,71 @@
-//
-//  PS_Effects.m
-//  PedalStack
-//
-//  Created by Lipstick on 10/24/16.
-//  Copyright © 2016 Deepak Chennakkadan. All rights reserved.
-//
+/*****************************************************************************/
+/*!
+ \file   PS_Effects.mm
+ \author Deepak Chennakkadan
+ \par    email: deepak.chennakkadan\@digipen.edu
+ \par    DigiPen login: deepak.chennakkadan
+ \par    Course: MUS470
+ \par    Project: PedalStack
+ \date   12/13/2016
+ \brief
+ This file contains the implementation for the effects class consisting methods 
+ to modify add, remove and modify individual effects.
+ */
+/*****************************************************************************/
 
 #include "PS_Effects.h"
 #include <iostream>
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Class Constructor
+ 
+ \param effect
+ (Effect ID)
+ 
+ \param graph
+ (Audio Unit Graph)
+ 
+ \param outNode
+ (Output Node)
+ 
+ \param streamDesc
+ (Audio Stream Basic Description)
+ 
+ \return
+ Does not return anything
+*/
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 PS_Effects::PS_Effects(UInt32 effect, AUGraph graph, AUNode outNode, AudioStreamBasicDescription streamDesc) : _effectID(effect), _graph(graph), _output(outNode), _streamDesc(streamDesc)
 {
     FillDescription();
     AddEffectNode();
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Fills description structure as an effect type
+ 
+ \return
+ Does not return anything
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 void PS_Effects::FillDescription()
 {
     _effectDesc = {kAudioUnitType_Effect, _effectID, kAudioUnitManufacturer_Apple, 0, 0};
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Adds the effect node to the Audio Unit graph
+ 
+ \return
+ Does not return anything
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 void PS_Effects::AddEffectNode()
 {
     _result = AUGraphAddNode(_graph, &_effectDesc, &_effectNode);
@@ -27,6 +73,27 @@ void PS_Effects::AddEffectNode()
     ErrorCheck(NodeAdded);
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Manages input and output node connections
+ 
+ \param input
+ (Input node)
+ 
+ \param output
+ (Output node)
+ 
+ \param inBus
+ (Input bus number)
+ 
+ \param outBus
+ (Output bus number)
+ 
+ \return
+ Does not return anything
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 void PS_Effects::ConnectEffectIO(AUNode input, AUNode output, UInt32 inBus, UInt32 outBus)
 {
     _result = AUGraphConnectNodeInput(_graph, input, inBus, output, outBus);
@@ -34,6 +101,15 @@ void PS_Effects::ConnectEffectIO(AUNode input, AUNode output, UInt32 inBus, UInt
     ErrorCheck(NodeConnected);
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Disconencts the and removes the effect node from the graph
+ 
+ \return
+ Does not return anything
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 void PS_Effects::DisconnectEffectIO()
 {
     _result = AUGraphDisconnectNodeInput(_graph, _effectNode, 0);
@@ -43,6 +119,27 @@ void PS_Effects::DisconnectEffectIO()
     ErrorCheck(NodeConnected);
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Manages input and output node connections
+ 
+ \param input
+ (Input node)
+ 
+ \param output
+ (Output node)
+ 
+ \param inBus
+ (Input bus number)
+ 
+ \param outBus
+ (Output bus number)
+ 
+ \return
+ Does not return anything
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 void PS_Effects::SetEffectParameter(AudioUnitParameterID paramID, AudioUnitParameterValue paramVal)
 {
     _result = AudioUnitSetParameter(_effectAU, paramID, kAudioUnitScope_Global, 0, paramVal, 0);
@@ -74,27 +171,71 @@ void PS_Effects::SetStreamDescription(AudioUnit outAU)
     ErrorCheck(NodeSetProperty);
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Gets the Audio Unit Node for the Effect
+ 
+ \return
+ Returns the effect node
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 AUNode PS_Effects::GetEffectNode()
 {
     return _effectNode;
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Gets the Audio Unit for the Effect
+ 
+ \return
+ Returns the audio unit
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 AudioUnit PS_Effects::GetEffectAU()
 {
     return _effectAU;
 }
 
-
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Gets the effect ID
+ 
+ \return
+ Returns the effect ID
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 UInt32 PS_Effects::GetEffectID()
 {
     return _effectID;
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Gets the Audio Component Description structure for the effect
+ 
+ \return
+ Returns the Audio Component Description structure for the effect
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 AudioComponentDescription PS_Effects::GetEffectDescription()
 {
     return _effectDesc;
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Gets the node information from the graph
+ 
+ \return
+ Does not return anything
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 void PS_Effects::GetEffectInfo()
 {
     
@@ -103,6 +244,18 @@ void PS_Effects::GetEffectInfo()
     ErrorCheck(NodeInfo);
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Checks for return error codes
+ 
+ \param error
+ (Error Code)
+ 
+ \return
+ Does not return anything
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 void PS_Effects::ErrorCheck(ErrorType error)
 {
     if(_result)
@@ -134,6 +287,15 @@ void PS_Effects::ErrorCheck(ErrorType error)
     }
 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Prints out the stream description structure
+ 
+ \return
+ Does not return anything
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 void PS_Effects::PrintStreamDescription()
 {
     std::cout << "STREAM DESCRIPTION START" << std::endl << std::endl;

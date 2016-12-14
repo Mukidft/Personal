@@ -288,8 +288,8 @@
 			isa = PBXGroup;
 			children = (
 				F4C200C01DE38D6A00DA157E /* PS_UI_DropView.h */,
-				F4333E2F1DDCE1060035D4A7 /* PS_UI_DragView.h */,
 				F4C200C11DE38D6A00DA157E /* PS_UI_DropView.mm */,
+				F4333E2F1DDCE1060035D4A7 /* PS_UI_DragView.h */,
 				F4333E2C1DDCE0B30035D4A7 /* PS_UI_DragView.mm */,
 			);
 			name = CustomViews;

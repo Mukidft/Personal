@@ -1,10 +1,16 @@
-//
-//  PS_UI_Equalizer.m
-//  PedalStack
-//
-//  Created by Poppy on 11/30/16.
-//  Copyright © 2016 Deepak Chennakkadan. All rights reserved.
-//
+/*****************************************************************************/
+/*!
+ \file   PS_UI_Equalizer.mm
+ \author Deepak Chennakkadan
+ \par    email: deepak.chennakkadan\@digipen.edu
+ \par    DigiPen login: deepak.chennakkadan
+ \par    Course: MUS470
+ \par    Project: PedalStack
+ \date   12/13/2016
+ \brief
+ This file contains the interface for the Equalizer Effects Pedal
+ */
+/*****************************************************************************/
 
 #import "PS_UI_Equalizer.h"
 #import "PS_UI_Manager.h"
@@ -18,21 +24,57 @@
     [label_Gain setIntegerValue: 0];
 }
 
--(IBAction)Reverb_CenterFreq:(id)sender
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Sets the Equalizer Center Frequency
+ 
+ \param sender
+ (Values from the UI)
+ 
+ \return
+ Returns an IBAction
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+-(IBAction)Equalizer_CenterFreq:(id)sender
 {
     float value = [sender floatValue];
     [(PS_UI_Manager *) [NSApp delegate] setUIParam:value arg2:kAudioUnitSubType_ParametricEQ arg3:kParametricEQParam_CenterFreq];
     [label_CenterFreq setIntegerValue: value];
 }
 
--(IBAction)Reverb_Q:(id)sender
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Sets the Equalizer Q
+ 
+ \param sender
+ (Values from the UI)
+ 
+ \return
+ Returns an IBAction
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+-(IBAction)Equalizer_Q:(id)sender
 {
     float value = [sender floatValue];
     [(PS_UI_Manager *) [NSApp delegate] setUIParam:value arg2:kAudioUnitSubType_ParametricEQ arg3:kParametricEQParam_Q];
     [label_Q setIntegerValue: value];
 }
 
--(IBAction)Reverb_Gain:(id)sender
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*!
+ \brief
+ Sets the Equalizer Gain
+ 
+ \param sender
+ (Values from the UI)
+ 
+ \return
+ Returns an IBAction
+ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+-(IBAction)Equalizer_Gain:(id)sender
 {
     float value = [sender floatValue];
     [(PS_UI_Manager *) [NSApp delegate] setUIParam:value arg2:kAudioUnitSubType_ParametricEQ arg3:kParametricEQParam_Gain];

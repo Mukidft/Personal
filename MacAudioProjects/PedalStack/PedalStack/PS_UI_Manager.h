@@ -1,10 +1,16 @@
-//
-//  PS_UI_Manager.h
-//  PedalStack
-//
-//  Created by Lipstick on 10/10/16.
-//  Copyright © 2016 Deepak Chennakkadan. All rights reserved.
-//
+/*****************************************************************************/
+/*!
+ \file   PS_UI_Manager.h
+ \author Deepak Chennakkadan
+ \par    email: deepak.chennakkadan\@digipen.edu
+ \par    DigiPen login: deepak.chennakkadan
+ \par    Course: MUS470
+ \par    Project: PedalStack
+ \date   12/13/2016
+ \brief
+ This file contains the interface for the UI manager that handles the app's UI
+ */
+/*****************************************************************************/
 
 #import "PS_Core.h"
 // Framework

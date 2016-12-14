@@ -1,10 +1,16 @@
-//
-//  PS_UI_Whammy.h
-//  PedalStack
-//
-//  Created by Poppy on 11/30/16.
-//  Copyright © 2016 Deepak Chennakkadan. All rights reserved.
-//
+/*****************************************************************************/
+/*!
+ \file   PS_UI_Whammy.h
+ \author Deepak Chennakkadan
+ \par    email: deepak.chennakkadan\@digipen.edu
+ \par    DigiPen login: deepak.chennakkadan
+ \par    Course: MUS470
+ \par    Project: PedalStack
+ \date   12/13/2016
+ \brief
+ This file contains the interface for the Whammy Effects Pedal
+ */
+/*****************************************************************************/
 
 #import <Cocoa/Cocoa.h>
 
