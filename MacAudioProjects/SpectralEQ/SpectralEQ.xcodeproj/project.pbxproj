@@ -1,0 +1,667 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E05C2E501E414B74005F3080 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05C2E4F1E414B74005F3080 /* CoreAudio.framework */; };
+		E05C2E521E414B74005F3080 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05C2E511E414B74005F3080 /* AudioToolbox.framework */; };
+		E05C2E541E414B74005F3080 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05C2E531E414B74005F3080 /* AudioUnit.framework */; };
+		E05C2E561E414B74005F3080 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05C2E551E414B74005F3080 /* CoreServices.framework */; };
+		E05C2E581E414B74005F3080 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05C2E571E414B74005F3080 /* Cocoa.framework */; };
+		E05C2E5A1E414B74005F3080 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05C2E591E414B74005F3080 /* AppKit.framework */; };
+		E05C2E5C1E414B74005F3080 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05C2E5B1E414B74005F3080 /* CoreData.framework */; };
+		E05C2E5E1E414B74005F3080 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05C2E5D1E414B74005F3080 /* Foundation.framework */; };
+		E05C2E651E414B74005F3080 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05C2E551E414B74005F3080 /* CoreServices.framework */; };
+		E05C2E661E414B74005F3080 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05C2E511E414B74005F3080 /* AudioToolbox.framework */; };
+		E05C2E671E414B74005F3080 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05C2E531E414B74005F3080 /* AudioUnit.framework */; };
+		E05C2E681E414B74005F3080 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05C2E571E414B74005F3080 /* Cocoa.framework */; };
+		E05C2E6F1E414B74005F3080 /* SpectralEQ_CocoaViewFactory.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E05C2E641E414B74005F3080 /* SpectralEQ_CocoaViewFactory.bundle */; };
+		E05C2E731E414B74005F3080 /* SpectralEQ.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E05C2E721E414B74005F3080 /* SpectralEQ.cpp */; };
+		E05C2E761E414B74005F3080 /* SpectralEQ.h in Headers */ = {isa = PBXBuildFile; fileRef = E05C2E751E414B74005F3080 /* SpectralEQ.h */; };
+		E05C2E781E414B74005F3080 /* SpectralEQ.r in Rez */ = {isa = PBXBuildFile; fileRef = E05C2E771E414B74005F3080 /* SpectralEQ.r */; };
+		E05C2E7A1E414B74005F3080 /* SpectralEQVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = E05C2E791E414B74005F3080 /* SpectralEQVersion.h */; };
+		E05C2E7C1E414B74005F3080 /* SpectralEQ_CocoaViewFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = E05C2E7B1E414B74005F3080 /* SpectralEQ_CocoaViewFactory.h */; };
+		E05C2E7E1E414B74005F3080 /* SpectralEQ_CocoaViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E05C2E7D1E414B74005F3080 /* SpectralEQ_CocoaViewFactory.m */; };
+		E05C2E801E414B74005F3080 /* SpectralEQ_CocoaView.h in Headers */ = {isa = PBXBuildFile; fileRef = E05C2E7F1E414B74005F3080 /* SpectralEQ_CocoaView.h */; };
+		E05C2E821E414B74005F3080 /* SpectralEQ_CocoaView.m in Sources */ = {isa = PBXBuildFile; fileRef = E05C2E811E414B74005F3080 /* SpectralEQ_CocoaView.m */; };
+		E05C2E841E414B74005F3080 /* SpectralEQ_CocoaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E05C2E831E414B74005F3080 /* SpectralEQ_CocoaView.xib */; };
+		E05C2E891E414B74005F3080 /* AUBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E05C2E881E414B74005F3080 /* AUBase.cpp */; };
+		E05C2E8B1E414B74005F3080 /* AUBase.h in Headers */ = {isa = PBXBuildFile; fileRef = E05C2E8A1E414B74005F3080 /* AUBase.h */; };
+		E05C2E8D1E414B74005F3080 /* AUDispatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E05C2E8C1E414B74005F3080 /* AUDispatch.cpp */; };
+		E05C2E8F1E414B74005F3080 /* AUDispatch.h in Headers */ = {isa = PBXBuildFile; fileRef = E05C2E8E1E414B74005F3080 /* AUDispatch.h */; };
+		E05C2E911E414B74005F3080 /* AUInputElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E05C2E901E414B74005F3080 /* AUInputElement.cpp */; };
+		E05C2E931E414B74005F3080 /* AUInputElement.h in Headers */ = {isa = PBXBuildFile; fileRef = E05C2E921E414B74005F3080 /* AUInputElement.h */; };
+		E05C2E951E414B74005F3080 /* AUOutputElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E05C2E941E414B74005F3080 /* AUOutputElement.cpp */; };
+		E05C2E971E414B74005F3080 /* AUOutputElement.h in Headers */ = {isa = PBXBuildFile; fileRef = E05C2E961E414B74005F3080 /* AUOutputElement.h */; };
+		E05C2E991E414B74005F3080 /* AUPluginDispatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E05C2E981E414B74005F3080 /* AUPluginDispatch.cpp */; };
+		E05C2E9B1E414B74005F3080 /* AUPluginDispatch.h in Headers */ = {isa = PBXBuildFile; fileRef = E05C2E9A1E414B74005F3080 /* AUPluginDispatch.h */; };
+		E05C2E9E1E414B74005F3080 /* AUScopeElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E05C2E9D1E414B74005F3080 /* AUScopeElement.cpp */; };
+		E05C2EA01E414B74005F3080 /* AUScopeElement.h in Headers */ = {isa = PBXBuildFile; fileRef = E05C2E9F1E414B74005F3080 /* AUScopeElement.h */; };
+		E05C2EA21E414B74005F3080 /* ComponentBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E05C2EA11E414B74005F3080 /* ComponentBase.cpp */; };
+		E05C2EA41E414B74005F3080 /* ComponentBase.h in Headers */ = {isa = PBXBuildFile; fileRef = E05C2EA31E414B74005F3080 /* ComponentBase.h */; };
+		E05C2EA71E414B74005F3080 /* AUEffectBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E05C2EA61E414B74005F3080 /* AUEffectBase.cpp */; };
+		E05C2EA91E414B74005F3080 /* AUEffectBase.h in Headers */ = {isa = PBXBuildFile; fileRef = E05C2EA81E414B74005F3080 /* AUEffectBase.h */; };
+		E05C2EAC1E414B74005F3080 /* AUBaseHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E05C2EAB1E414B74005F3080 /* AUBaseHelper.cpp */; };
+		E05C2EAE1E414B74005F3080 /* AUBaseHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = E05C2EAD1E414B74005F3080 /* AUBaseHelper.h */; };
+		E05C2EB01E414B74005F3080 /* AUBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E05C2EAF1E414B74005F3080 /* AUBuffer.cpp */; };
+		E05C2EB21E414B74005F3080 /* AUBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = E05C2EB11E414B74005F3080 /* AUBuffer.h */; };
+		E05C2EB41E414B74005F3080 /* AUInputFormatConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = E05C2EB31E414B74005F3080 /* AUInputFormatConverter.h */; };
+		E05C2EB61E414B74005F3080 /* AUSilentTimeout.h in Headers */ = {isa = PBXBuildFile; fileRef = E05C2EB51E414B74005F3080 /* AUSilentTimeout.h */; };
+		E05C2EB81E414B74005F3080 /* AUTimestampGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = E05C2EB71E414B74005F3080 /* AUTimestampGenerator.h */; };
+		E05C2EBB1E414B74005F3080 /* CAAudioChannelLayout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E05C2EBA1E414B74005F3080 /* CAAudioChannelLayout.cpp */; };
+		E05C2EBD1E414B74005F3080 /* CAAudioChannelLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = E05C2EBC1E414B74005F3080 /* CAAudioChannelLayout.h */; };
+		E05C2EBF1E414B74005F3080 /* CAAUParameter.h in Headers */ = {isa = PBXBuildFile; fileRef = E05C2EBE1E414B74005F3080 /* CAAUParameter.h */; };
+		E05C2EC11E414B74005F3080 /* CAAUParameter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E05C2EC01E414B74005F3080 /* CAAUParameter.cpp */; };
+		E05C2EC31E414B74005F3080 /* CAMutex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E05C2EC21E414B74005F3080 /* CAMutex.cpp */; };
+		E05C2EC51E414B74005F3080 /* CAMutex.h in Headers */ = {isa = PBXBuildFile; fileRef = E05C2EC41E414B74005F3080 /* CAMutex.h */; };
+		E05C2EC71E414B74005F3080 /* CAStreamBasicDescription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E05C2EC61E414B74005F3080 /* CAStreamBasicDescription.cpp */; };
+		E05C2EC91E414B74005F3080 /* CAStreamBasicDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = E05C2EC81E414B74005F3080 /* CAStreamBasicDescription.h */; };
+		E05C2ECB1E414B74005F3080 /* CAVectorUnit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E05C2ECA1E414B74005F3080 /* CAVectorUnit.cpp */; };
+		E05C2ECD1E414B74005F3080 /* CAVectorUnit.h in Headers */ = {isa = PBXBuildFile; fileRef = E05C2ECC1E414B74005F3080 /* CAVectorUnit.h */; };
+		E05C2ECF1E414B74005F3080 /* CAVectorUnitTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = E05C2ECE1E414B74005F3080 /* CAVectorUnitTypes.h */; };
+		E05C2ED91E414F0A005F3080 /* SpectralEQ.component in CopyFiles */ = {isa = PBXBuildFile; fileRef = E05C2E4C1E414B74005F3080 /* SpectralEQ.component */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E05C2E6D1E414B74005F3080 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E05C2E421E414B74005F3080 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E05C2E631E414B74005F3080;
+			remoteInfo = SpectralEQ_CocoaViewFactory;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E05C2ED81E414ED0005F3080 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "/Users/owl/Library/Audio/Plug-Ins/Components";
+			dstSubfolderSpec = 0;
+			files = (
+				E05C2ED91E414F0A005F3080 /* SpectralEQ.component in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		E05C2E4C1E414B74005F3080 /* SpectralEQ.component */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpectralEQ.component; sourceTree = BUILT_PRODUCTS_DIR; };
+		E05C2E4F1E414B74005F3080 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = /System/Library/Frameworks/CoreAudio.framework; sourceTree = "<absolute>"; };
+		E05C2E511E414B74005F3080 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = /System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<absolute>"; };
+		E05C2E531E414B74005F3080 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = /System/Library/Frameworks/AudioUnit.framework; sourceTree = "<absolute>"; };
+		E05C2E551E414B74005F3080 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = /System/Library/Frameworks/CoreServices.framework; sourceTree = "<absolute>"; };
+		E05C2E571E414B74005F3080 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		E05C2E591E414B74005F3080 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		E05C2E5B1E414B74005F3080 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		E05C2E5D1E414B74005F3080 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		E05C2E641E414B74005F3080 /* SpectralEQ_CocoaViewFactory.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpectralEQ_CocoaViewFactory.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		E05C2E6A1E414B74005F3080 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		E05C2E6B1E414B74005F3080 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		E05C2E6C1E414B74005F3080 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		E05C2E711E414B74005F3080 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E05C2E721E414B74005F3080 /* SpectralEQ.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SpectralEQ.cpp; sourceTree = "<group>"; };
+		E05C2E741E414B74005F3080 /* SpectralEQ.exp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.exports; path = SpectralEQ.exp; sourceTree = "<group>"; };
+		E05C2E751E414B74005F3080 /* SpectralEQ.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpectralEQ.h; sourceTree = "<group>"; };
+		E05C2E771E414B74005F3080 /* SpectralEQ.r */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.rez; path = SpectralEQ.r; sourceTree = "<group>"; };
+		E05C2E791E414B74005F3080 /* SpectralEQVersion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpectralEQVersion.h; sourceTree = "<group>"; };
+		E05C2E7B1E414B74005F3080 /* SpectralEQ_CocoaViewFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpectralEQ_CocoaViewFactory.h; sourceTree = "<group>"; };
+		E05C2E7D1E414B74005F3080 /* SpectralEQ_CocoaViewFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpectralEQ_CocoaViewFactory.m; sourceTree = "<group>"; };
+		E05C2E7F1E414B74005F3080 /* SpectralEQ_CocoaView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpectralEQ_CocoaView.h; sourceTree = "<group>"; };
+		E05C2E811E414B74005F3080 /* SpectralEQ_CocoaView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpectralEQ_CocoaView.m; sourceTree = "<group>"; };
+		E05C2E831E414B74005F3080 /* SpectralEQ_CocoaView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpectralEQ_CocoaView.xib; sourceTree = "<group>"; };
+		E05C2E851E414B74005F3080 /* SpectralEQ_CocoaViewFactory-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpectralEQ_CocoaViewFactory-Info.plist"; sourceTree = "<group>"; };
+		E05C2E881E414B74005F3080 /* AUBase.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AUBase.cpp; sourceTree = "<group>"; };
+		E05C2E8A1E414B74005F3080 /* AUBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AUBase.h; sourceTree = "<group>"; };
+		E05C2E8C1E414B74005F3080 /* AUDispatch.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AUDispatch.cpp; sourceTree = "<group>"; };
+		E05C2E8E1E414B74005F3080 /* AUDispatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AUDispatch.h; sourceTree = "<group>"; };
+		E05C2E901E414B74005F3080 /* AUInputElement.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AUInputElement.cpp; sourceTree = "<group>"; };
+		E05C2E921E414B74005F3080 /* AUInputElement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AUInputElement.h; sourceTree = "<group>"; };
+		E05C2E941E414B74005F3080 /* AUOutputElement.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AUOutputElement.cpp; sourceTree = "<group>"; };
+		E05C2E961E414B74005F3080 /* AUOutputElement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AUOutputElement.h; sourceTree = "<group>"; };
+		E05C2E981E414B74005F3080 /* AUPluginDispatch.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AUPluginDispatch.cpp; sourceTree = "<group>"; };
+		E05C2E9A1E414B74005F3080 /* AUPluginDispatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AUPluginDispatch.h; sourceTree = "<group>"; };
+		E05C2E9C1E414B74005F3080 /* AUResources.r */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.rez; path = AUResources.r; sourceTree = "<group>"; };
+		E05C2E9D1E414B74005F3080 /* AUScopeElement.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AUScopeElement.cpp; sourceTree = "<group>"; };
+		E05C2E9F1E414B74005F3080 /* AUScopeElement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AUScopeElement.h; sourceTree = "<group>"; };
+		E05C2EA11E414B74005F3080 /* ComponentBase.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ComponentBase.cpp; sourceTree = "<group>"; };
+		E05C2EA31E414B74005F3080 /* ComponentBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComponentBase.h; sourceTree = "<group>"; };
+		E05C2EA61E414B74005F3080 /* AUEffectBase.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AUEffectBase.cpp; sourceTree = "<group>"; };
+		E05C2EA81E414B74005F3080 /* AUEffectBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AUEffectBase.h; sourceTree = "<group>"; };
+		E05C2EAB1E414B74005F3080 /* AUBaseHelper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AUBaseHelper.cpp; sourceTree = "<group>"; };
+		E05C2EAD1E414B74005F3080 /* AUBaseHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AUBaseHelper.h; sourceTree = "<group>"; };
+		E05C2EAF1E414B74005F3080 /* AUBuffer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AUBuffer.cpp; sourceTree = "<group>"; };
+		E05C2EB11E414B74005F3080 /* AUBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AUBuffer.h; sourceTree = "<group>"; };
+		E05C2EB31E414B74005F3080 /* AUInputFormatConverter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AUInputFormatConverter.h; sourceTree = "<group>"; };
+		E05C2EB51E414B74005F3080 /* AUSilentTimeout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AUSilentTimeout.h; sourceTree = "<group>"; };
+		E05C2EB71E414B74005F3080 /* AUTimestampGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AUTimestampGenerator.h; sourceTree = "<group>"; };
+		E05C2EBA1E414B74005F3080 /* CAAudioChannelLayout.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CAAudioChannelLayout.cpp; sourceTree = "<group>"; };
+		E05C2EBC1E414B74005F3080 /* CAAudioChannelLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAAudioChannelLayout.h; sourceTree = "<group>"; };
+		E05C2EBE1E414B74005F3080 /* CAAUParameter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAAUParameter.h; sourceTree = "<group>"; };
+		E05C2EC01E414B74005F3080 /* CAAUParameter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CAAUParameter.cpp; sourceTree = "<group>"; };
+		E05C2EC21E414B74005F3080 /* CAMutex.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CAMutex.cpp; sourceTree = "<group>"; };
+		E05C2EC41E414B74005F3080 /* CAMutex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAMutex.h; sourceTree = "<group>"; };
+		E05C2EC61E414B74005F3080 /* CAStreamBasicDescription.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CAStreamBasicDescription.cpp; sourceTree = "<group>"; };
+		E05C2EC81E414B74005F3080 /* CAStreamBasicDescription.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAStreamBasicDescription.h; sourceTree = "<group>"; };
+		E05C2ECA1E414B74005F3080 /* CAVectorUnit.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CAVectorUnit.cpp; sourceTree = "<group>"; };
+		E05C2ECC1E414B74005F3080 /* CAVectorUnit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAVectorUnit.h; sourceTree = "<group>"; };
+		E05C2ECE1E414B74005F3080 /* CAVectorUnitTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAVectorUnitTypes.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E05C2E471E414B74005F3080 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E05C2E501E414B74005F3080 /* CoreAudio.framework in Frameworks */,
+				E05C2E581E414B74005F3080 /* Cocoa.framework in Frameworks */,
+				E05C2E5C1E414B74005F3080 /* CoreData.framework in Frameworks */,
+				E05C2E521E414B74005F3080 /* AudioToolbox.framework in Frameworks */,
+				E05C2E5A1E414B74005F3080 /* AppKit.framework in Frameworks */,
+				E05C2E541E414B74005F3080 /* AudioUnit.framework in Frameworks */,
+				E05C2E561E414B74005F3080 /* CoreServices.framework in Frameworks */,
+				E05C2E5E1E414B74005F3080 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E05C2E601E414B74005F3080 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E05C2E681E414B74005F3080 /* Cocoa.framework in Frameworks */,
+				E05C2E651E414B74005F3080 /* CoreServices.framework in Frameworks */,
+				E05C2E661E414B74005F3080 /* AudioToolbox.framework in Frameworks */,
+				E05C2E671E414B74005F3080 /* AudioUnit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E05C2E411E414B74005F3080 = {
+			isa = PBXGroup;
+			children = (
+				E05C2E701E414B74005F3080 /* SpectralEQ */,
+				E05C2E4E1E414B74005F3080 /* Frameworks */,
+				E05C2E4D1E414B74005F3080 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E05C2E4D1E414B74005F3080 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E05C2E4C1E414B74005F3080 /* SpectralEQ.component */,
+				E05C2E641E414B74005F3080 /* SpectralEQ_CocoaViewFactory.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E05C2E4E1E414B74005F3080 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E05C2E4F1E414B74005F3080 /* CoreAudio.framework */,
+				E05C2E511E414B74005F3080 /* AudioToolbox.framework */,
+				E05C2E531E414B74005F3080 /* AudioUnit.framework */,
+				E05C2E551E414B74005F3080 /* CoreServices.framework */,
+				E05C2E571E414B74005F3080 /* Cocoa.framework */,
+				E05C2E591E414B74005F3080 /* AppKit.framework */,
+				E05C2E5B1E414B74005F3080 /* CoreData.framework */,
+				E05C2E5D1E414B74005F3080 /* Foundation.framework */,
+				E05C2E691E414B74005F3080 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E05C2E691E414B74005F3080 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E05C2E6A1E414B74005F3080 /* AppKit.framework */,
+				E05C2E6B1E414B74005F3080 /* CoreData.framework */,
+				E05C2E6C1E414B74005F3080 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		E05C2E701E414B74005F3080 /* SpectralEQ */ = {
+			isa = PBXGroup;
+			children = (
+				E05C2E711E414B74005F3080 /* Info.plist */,
+				E05C2E721E414B74005F3080 /* SpectralEQ.cpp */,
+				E05C2E741E414B74005F3080 /* SpectralEQ.exp */,
+				E05C2E751E414B74005F3080 /* SpectralEQ.h */,
+				E05C2E771E414B74005F3080 /* SpectralEQ.r */,
+				E05C2E791E414B74005F3080 /* SpectralEQVersion.h */,
+				E05C2E7B1E414B74005F3080 /* SpectralEQ_CocoaViewFactory.h */,
+				E05C2E7D1E414B74005F3080 /* SpectralEQ_CocoaViewFactory.m */,
+				E05C2E7F1E414B74005F3080 /* SpectralEQ_CocoaView.h */,
+				E05C2E811E414B74005F3080 /* SpectralEQ_CocoaView.m */,
+				E05C2E831E414B74005F3080 /* SpectralEQ_CocoaView.xib */,
+				E05C2E851E414B74005F3080 /* SpectralEQ_CocoaViewFactory-Info.plist */,
+				E05C2E861E414B74005F3080 /* CoreAudio/AudioUnits/AUPublic/ */,
+				E05C2EB91E414B74005F3080 /* CoreAudio/PublicUtility */,
+			);
+			path = SpectralEQ;
+			sourceTree = "<group>";
+		};
+		E05C2E861E414B74005F3080 /* CoreAudio/AudioUnits/AUPublic/ */ = {
+			isa = PBXGroup;
+			children = (
+				E05C2E871E414B74005F3080 /* AUBase */,
+				E05C2EA51E414B74005F3080 /* OtherBases */,
+				E05C2EAA1E414B74005F3080 /* Utility */,
+			);
+			name = CoreAudio/AudioUnits/AUPublic/;
+			path = AUPublic;
+			sourceTree = "<group>";
+		};
+		E05C2E871E414B74005F3080 /* AUBase */ = {
+			isa = PBXGroup;
+			children = (
+				E05C2E881E414B74005F3080 /* AUBase.cpp */,
+				E05C2E8A1E414B74005F3080 /* AUBase.h */,
+				E05C2E8C1E414B74005F3080 /* AUDispatch.cpp */,
+				E05C2E8E1E414B74005F3080 /* AUDispatch.h */,
+				E05C2E901E414B74005F3080 /* AUInputElement.cpp */,
+				E05C2E921E414B74005F3080 /* AUInputElement.h */,
+				E05C2E941E414B74005F3080 /* AUOutputElement.cpp */,
+				E05C2E961E414B74005F3080 /* AUOutputElement.h */,
+				E05C2E981E414B74005F3080 /* AUPluginDispatch.cpp */,
+				E05C2E9A1E414B74005F3080 /* AUPluginDispatch.h */,
+				E05C2E9C1E414B74005F3080 /* AUResources.r */,
+				E05C2E9D1E414B74005F3080 /* AUScopeElement.cpp */,
+				E05C2E9F1E414B74005F3080 /* AUScopeElement.h */,
+				E05C2EA11E414B74005F3080 /* ComponentBase.cpp */,
+				E05C2EA31E414B74005F3080 /* ComponentBase.h */,
+			);
+			path = AUBase;
+			sourceTree = "<group>";
+		};
+		E05C2EA51E414B74005F3080 /* OtherBases */ = {
+			isa = PBXGroup;
+			children = (
+				E05C2EA61E414B74005F3080 /* AUEffectBase.cpp */,
+				E05C2EA81E414B74005F3080 /* AUEffectBase.h */,
+			);
+			path = OtherBases;
+			sourceTree = "<group>";
+		};
+		E05C2EAA1E414B74005F3080 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				E05C2EAB1E414B74005F3080 /* AUBaseHelper.cpp */,
+				E05C2EAD1E414B74005F3080 /* AUBaseHelper.h */,
+				E05C2EAF1E414B74005F3080 /* AUBuffer.cpp */,
+				E05C2EB11E414B74005F3080 /* AUBuffer.h */,
+				E05C2EB31E414B74005F3080 /* AUInputFormatConverter.h */,
+				E05C2EB51E414B74005F3080 /* AUSilentTimeout.h */,
+				E05C2EB71E414B74005F3080 /* AUTimestampGenerator.h */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		E05C2EB91E414B74005F3080 /* CoreAudio/PublicUtility */ = {
+			isa = PBXGroup;
+			children = (
+				E05C2EBA1E414B74005F3080 /* CAAudioChannelLayout.cpp */,
+				E05C2EBC1E414B74005F3080 /* CAAudioChannelLayout.h */,
+				E05C2EBE1E414B74005F3080 /* CAAUParameter.h */,
+				E05C2EC01E414B74005F3080 /* CAAUParameter.cpp */,
+				E05C2EC21E414B74005F3080 /* CAMutex.cpp */,
+				E05C2EC41E414B74005F3080 /* CAMutex.h */,
+				E05C2EC61E414B74005F3080 /* CAStreamBasicDescription.cpp */,
+				E05C2EC81E414B74005F3080 /* CAStreamBasicDescription.h */,
+				E05C2ECA1E414B74005F3080 /* CAVectorUnit.cpp */,
+				E05C2ECC1E414B74005F3080 /* CAVectorUnit.h */,
+				E05C2ECE1E414B74005F3080 /* CAVectorUnitTypes.h */,
+			);
+			name = CoreAudio/PublicUtility;
+			path = PublicUtility;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		E05C2E481E414B74005F3080 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E05C2EAE1E414B74005F3080 /* AUBaseHelper.h in Headers */,
+				E05C2EB61E414B74005F3080 /* AUSilentTimeout.h in Headers */,
+				E05C2EA01E414B74005F3080 /* AUScopeElement.h in Headers */,
+				E05C2EB41E414B74005F3080 /* AUInputFormatConverter.h in Headers */,
+				E05C2EA41E414B74005F3080 /* ComponentBase.h in Headers */,
+				E05C2E8F1E414B74005F3080 /* AUDispatch.h in Headers */,
+				E05C2E8B1E414B74005F3080 /* AUBase.h in Headers */,
+				E05C2EA91E414B74005F3080 /* AUEffectBase.h in Headers */,
+				E05C2E761E414B74005F3080 /* SpectralEQ.h in Headers */,
+				E05C2EBD1E414B74005F3080 /* CAAudioChannelLayout.h in Headers */,
+				E05C2EC91E414B74005F3080 /* CAStreamBasicDescription.h in Headers */,
+				E05C2EB81E414B74005F3080 /* AUTimestampGenerator.h in Headers */,
+				E05C2E931E414B74005F3080 /* AUInputElement.h in Headers */,
+				E05C2EC51E414B74005F3080 /* CAMutex.h in Headers */,
+				E05C2EB21E414B74005F3080 /* AUBuffer.h in Headers */,
+				E05C2ECD1E414B74005F3080 /* CAVectorUnit.h in Headers */,
+				E05C2E971E414B74005F3080 /* AUOutputElement.h in Headers */,
+				E05C2E7A1E414B74005F3080 /* SpectralEQVersion.h in Headers */,
+				E05C2E9B1E414B74005F3080 /* AUPluginDispatch.h in Headers */,
+				E05C2EBF1E414B74005F3080 /* CAAUParameter.h in Headers */,
+				E05C2ECF1E414B74005F3080 /* CAVectorUnitTypes.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E05C2E611E414B74005F3080 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E05C2E7C1E414B74005F3080 /* SpectralEQ_CocoaViewFactory.h in Headers */,
+				E05C2E801E414B74005F3080 /* SpectralEQ_CocoaView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		E05C2E4B1E414B74005F3080 /* SpectralEQ */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E05C2ED51E414B74005F3080 /* Build configuration list for PBXNativeTarget "SpectralEQ" */;
+			buildPhases = (
+				E05C2E461E414B74005F3080 /* Sources */,
+				E05C2E471E414B74005F3080 /* Frameworks */,
+				E05C2E481E414B74005F3080 /* Headers */,
+				E05C2E491E414B74005F3080 /* Rez */,
+				E05C2E4A1E414B74005F3080 /* Resources */,
+				E05C2ED81E414ED0005F3080 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E05C2E6E1E414B74005F3080 /* PBXTargetDependency */,
+			);
+			name = SpectralEQ;
+			productName = SpectralEQ;
+			productReference = E05C2E4C1E414B74005F3080 /* SpectralEQ.component */;
+			productType = "com.apple.product-type.bundle";
+		};
+		E05C2E631E414B74005F3080 /* SpectralEQ_CocoaViewFactory */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E05C2ED21E414B74005F3080 /* Build configuration list for PBXNativeTarget "SpectralEQ_CocoaViewFactory" */;
+			buildPhases = (
+				E05C2E5F1E414B74005F3080 /* Sources */,
+				E05C2E601E414B74005F3080 /* Frameworks */,
+				E05C2E611E414B74005F3080 /* Headers */,
+				E05C2E621E414B74005F3080 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpectralEQ_CocoaViewFactory;
+			productName = SpectralEQ_CocoaViewFactory;
+			productReference = E05C2E641E414B74005F3080 /* SpectralEQ_CocoaViewFactory.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E05C2E421E414B74005F3080 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = DeepakChennakkadan;
+				TargetAttributes = {
+					E05C2E4B1E414B74005F3080 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					E05C2E631E414B74005F3080 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
+			};
+			buildConfigurationList = E05C2E451E414B74005F3080 /* Build configuration list for PBXProject "SpectralEQ" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E05C2E411E414B74005F3080;
+			productRefGroup = E05C2E4D1E414B74005F3080 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E05C2E4B1E414B74005F3080 /* SpectralEQ */,
+				E05C2E631E414B74005F3080 /* SpectralEQ_CocoaViewFactory */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E05C2E4A1E414B74005F3080 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E05C2E6F1E414B74005F3080 /* SpectralEQ_CocoaViewFactory.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E05C2E621E414B74005F3080 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E05C2E841E414B74005F3080 /* SpectralEQ_CocoaView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		E05C2E491E414B74005F3080 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E05C2E781E414B74005F3080 /* SpectralEQ.r in Rez */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E05C2E461E414B74005F3080 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E05C2EAC1E414B74005F3080 /* AUBaseHelper.cpp in Sources */,
+				E05C2EA21E414B74005F3080 /* ComponentBase.cpp in Sources */,
+				E05C2E891E414B74005F3080 /* AUBase.cpp in Sources */,
+				E05C2EA71E414B74005F3080 /* AUEffectBase.cpp in Sources */,
+				E05C2EB01E414B74005F3080 /* AUBuffer.cpp in Sources */,
+				E05C2EC11E414B74005F3080 /* CAAUParameter.cpp in Sources */,
+				E05C2E9E1E414B74005F3080 /* AUScopeElement.cpp in Sources */,
+				E05C2E8D1E414B74005F3080 /* AUDispatch.cpp in Sources */,
+				E05C2ECB1E414B74005F3080 /* CAVectorUnit.cpp in Sources */,
+				E05C2E991E414B74005F3080 /* AUPluginDispatch.cpp in Sources */,
+				E05C2E951E414B74005F3080 /* AUOutputElement.cpp in Sources */,
+				E05C2E731E414B74005F3080 /* SpectralEQ.cpp in Sources */,
+				E05C2EBB1E414B74005F3080 /* CAAudioChannelLayout.cpp in Sources */,
+				E05C2E911E414B74005F3080 /* AUInputElement.cpp in Sources */,
+				E05C2EC31E414B74005F3080 /* CAMutex.cpp in Sources */,
+				E05C2EC71E414B74005F3080 /* CAStreamBasicDescription.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E05C2E5F1E414B74005F3080 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E05C2E821E414B74005F3080 /* SpectralEQ_CocoaView.m in Sources */,
+				E05C2E7E1E414B74005F3080 /* SpectralEQ_CocoaViewFactory.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E05C2E6E1E414B74005F3080 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E05C2E631E414B74005F3080 /* SpectralEQ_CocoaViewFactory */;
+			targetProxy = E05C2E6D1E414B74005F3080 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E05C2ED01E414B74005F3080 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		E05C2ED11E414B74005F3080 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+			};
+			name = Release;
+		};
+		E05C2ED31E414B74005F3080 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INFOPLIST_FILE = "SpectralEQ/SpectralEQ_CocoaViewFactory-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = SpectralEQ_CocoaViewFactory;
+			};
+			name = Debug;
+		};
+		E05C2ED41E414B74005F3080 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "SpectralEQ/SpectralEQ_CocoaViewFactory-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = SpectralEQ_CocoaViewFactory;
+			};
+			name = Release;
+		};
+		E05C2ED61E414B74005F3080 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				EXPORTED_SYMBOLS_FILE = SpectralEQ/SpectralEQ.exp;
+				GENERATE_PKGINFO_FILE = YES;
+				INFOPLIST_FILE = SpectralEQ/Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Audio/Plug-Ins/Components/";
+				LIBRARY_STYLE = Bundle;
+				OTHER_LDFLAGS = "-bundle";
+				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -d ppc64_$ppc64 -d x86_64_$x86_64 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I \"$(DEVELOPER_DIR)/CoreAudio/**”";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = component;
+			};
+			name = Debug;
+		};
+		E05C2ED71E414B74005F3080 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				EXPORTED_SYMBOLS_FILE = SpectralEQ/SpectralEQ.exp;
+				GENERATE_PKGINFO_FILE = YES;
+				INFOPLIST_FILE = SpectralEQ/Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Audio/Plug-Ins/Components/";
+				LIBRARY_STYLE = Bundle;
+				OTHER_LDFLAGS = "-bundle";
+				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -d ppc64_$ppc64 -d x86_64_$x86_64 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I \"$(DEVELOPER_DIR)/CoreAudio/**”";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = component;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E05C2E451E414B74005F3080 /* Build configuration list for PBXProject "SpectralEQ" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E05C2ED01E414B74005F3080 /* Debug */,
+				E05C2ED11E414B74005F3080 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E05C2ED21E414B74005F3080 /* Build configuration list for PBXNativeTarget "SpectralEQ_CocoaViewFactory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E05C2ED31E414B74005F3080 /* Debug */,
+				E05C2ED41E414B74005F3080 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E05C2ED51E414B74005F3080 /* Build configuration list for PBXNativeTarget "SpectralEQ" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E05C2ED61E414B74005F3080 /* Debug */,
+				E05C2ED71E414B74005F3080 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E05C2E421E414B74005F3080 /* Project object */;
+}
