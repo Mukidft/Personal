@@ -64,6 +64,9 @@
 		E05C2ECD1E414B74005F3080 /* CAVectorUnit.h in Headers */ = {isa = PBXBuildFile; fileRef = E05C2ECC1E414B74005F3080 /* CAVectorUnit.h */; };
 		E05C2ECF1E414B74005F3080 /* CAVectorUnitTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = E05C2ECE1E414B74005F3080 /* CAVectorUnitTypes.h */; };
 		E05C2ED91E414F0A005F3080 /* SpectralEQ.component in CopyFiles */ = {isa = PBXBuildFile; fileRef = E05C2E4C1E414B74005F3080 /* SpectralEQ.component */; };
+		E095588D1E41577B00F077CF /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E095588C1E41577B00F077CF /* Accelerate.framework */; };
+		E0AC6F221E43F6EE00CEE027 /* DSP_FFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E0AC6F201E43F6EE00CEE027 /* DSP_FFT.cpp */; };
+		E0AC6F231E43F6EE00CEE027 /* DSP_FFT.h in Headers */ = {isa = PBXBuildFile; fileRef = E0AC6F211E43F6EE00CEE027 /* DSP_FFT.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,7 +137,7 @@
 		E05C2EA81E414B74005F3080 /* AUEffectBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AUEffectBase.h; sourceTree = "<group>"; };
 		E05C2EAB1E414B74005F3080 /* AUBaseHelper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AUBaseHelper.cpp; sourceTree = "<group>"; };
 		E05C2EAD1E414B74005F3080 /* AUBaseHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AUBaseHelper.h; sourceTree = "<group>"; };
-		E05C2EAF1E414B74005F3080 /* AUBuffer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AUBuffer.cpp; sourceTree = "<group>"; };
+		E05C2EAF1E414B74005F3080 /* AUBuffer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AUBuffer.cpp; path = ../AUPublic/Utility/AUBuffer.cpp; sourceTree = "<group>"; };
 		E05C2EB11E414B74005F3080 /* AUBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AUBuffer.h; sourceTree = "<group>"; };
 		E05C2EB31E414B74005F3080 /* AUInputFormatConverter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AUInputFormatConverter.h; sourceTree = "<group>"; };
 		E05C2EB51E414B74005F3080 /* AUSilentTimeout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AUSilentTimeout.h; sourceTree = "<group>"; };
@@ -150,6 +153,9 @@
 		E05C2ECA1E414B74005F3080 /* CAVectorUnit.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CAVectorUnit.cpp; sourceTree = "<group>"; };
 		E05C2ECC1E414B74005F3080 /* CAVectorUnit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAVectorUnit.h; sourceTree = "<group>"; };
 		E05C2ECE1E414B74005F3080 /* CAVectorUnitTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAVectorUnitTypes.h; sourceTree = "<group>"; };
+		E095588C1E41577B00F077CF /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = ../../../../../../../System/Library/Frameworks/Accelerate.framework; sourceTree = "<group>"; };
+		E0AC6F201E43F6EE00CEE027 /* DSP_FFT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DSP_FFT.cpp; sourceTree = "<group>"; };
+		E0AC6F211E43F6EE00CEE027 /* DSP_FFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSP_FFT.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +169,7 @@
 				E05C2E521E414B74005F3080 /* AudioToolbox.framework in Frameworks */,
 				E05C2E5A1E414B74005F3080 /* AppKit.framework in Frameworks */,
 				E05C2E541E414B74005F3080 /* AudioUnit.framework in Frameworks */,
+				E095588D1E41577B00F077CF /* Accelerate.framework in Frameworks */,
 				E05C2E561E414B74005F3080 /* CoreServices.framework in Frameworks */,
 				E05C2E5E1E414B74005F3080 /* Foundation.framework in Frameworks */,
 			);
@@ -203,6 +210,7 @@
 		E05C2E4E1E414B74005F3080 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E095588C1E41577B00F077CF /* Accelerate.framework */,
 				E05C2E4F1E414B74005F3080 /* CoreAudio.framework */,
 				E05C2E511E414B74005F3080 /* AudioToolbox.framework */,
 				E05C2E531E414B74005F3080 /* AudioUnit.framework */,
@@ -230,17 +238,10 @@
 			isa = PBXGroup;
 			children = (
 				E05C2E711E414B74005F3080 /* Info.plist */,
-				E05C2E721E414B74005F3080 /* SpectralEQ.cpp */,
-				E05C2E741E414B74005F3080 /* SpectralEQ.exp */,
-				E05C2E751E414B74005F3080 /* SpectralEQ.h */,
-				E05C2E771E414B74005F3080 /* SpectralEQ.r */,
-				E05C2E791E414B74005F3080 /* SpectralEQVersion.h */,
-				E05C2E7B1E414B74005F3080 /* SpectralEQ_CocoaViewFactory.h */,
-				E05C2E7D1E414B74005F3080 /* SpectralEQ_CocoaViewFactory.m */,
-				E05C2E7F1E414B74005F3080 /* SpectralEQ_CocoaView.h */,
-				E05C2E811E414B74005F3080 /* SpectralEQ_CocoaView.m */,
-				E05C2E831E414B74005F3080 /* SpectralEQ_CocoaView.xib */,
-				E05C2E851E414B74005F3080 /* SpectralEQ_CocoaViewFactory-Info.plist */,
+				E0AC6F1A1E43F5E500CEE027 /* Main */,
+				E0AC6F241E43F6F500CEE027 /* DSP */,
+				E0AC6F1C1E43F61400CEE027 /* Resources */,
+				E0AC6F1D1E43F63300CEE027 /* UI */,
 				E05C2E861E414B74005F3080 /* CoreAudio/AudioUnits/AUPublic/ */,
 				E05C2EB91E414B74005F3080 /* CoreAudio/PublicUtility */,
 			);
@@ -294,7 +295,6 @@
 			children = (
 				E05C2EAB1E414B74005F3080 /* AUBaseHelper.cpp */,
 				E05C2EAD1E414B74005F3080 /* AUBaseHelper.h */,
-				E05C2EAF1E414B74005F3080 /* AUBuffer.cpp */,
 				E05C2EB11E414B74005F3080 /* AUBuffer.h */,
 				E05C2EB31E414B74005F3080 /* AUInputFormatConverter.h */,
 				E05C2EB51E414B74005F3080 /* AUSilentTimeout.h */,
@@ -308,6 +308,7 @@
 			children = (
 				E05C2EBA1E414B74005F3080 /* CAAudioChannelLayout.cpp */,
 				E05C2EBC1E414B74005F3080 /* CAAudioChannelLayout.h */,
+				E05C2EAF1E414B74005F3080 /* AUBuffer.cpp */,
 				E05C2EBE1E414B74005F3080 /* CAAUParameter.h */,
 				E05C2EC01E414B74005F3080 /* CAAUParameter.cpp */,
 				E05C2EC21E414B74005F3080 /* CAMutex.cpp */,
@@ -320,6 +321,71 @@
 			);
 			name = CoreAudio/PublicUtility;
 			path = PublicUtility;
+			sourceTree = "<group>";
+		};
+		E0AC6F1A1E43F5E500CEE027 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E05C2E721E414B74005F3080 /* SpectralEQ.cpp */,
+				E05C2E751E414B74005F3080 /* SpectralEQ.h */,
+				E05C2E791E414B74005F3080 /* SpectralEQVersion.h */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		E0AC6F1C1E43F61400CEE027 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E05C2E741E414B74005F3080 /* SpectralEQ.exp */,
+				E05C2E771E414B74005F3080 /* SpectralEQ.r */,
+				E05C2E851E414B74005F3080 /* SpectralEQ_CocoaViewFactory-Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		E0AC6F1D1E43F63300CEE027 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				E0AC6F1E1E43F64A00CEE027 /* Main */,
+				E0AC6F1F1E43F65400CEE027 /* Nib */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		E0AC6F1E1E43F64A00CEE027 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E05C2E7B1E414B74005F3080 /* SpectralEQ_CocoaViewFactory.h */,
+				E05C2E7D1E414B74005F3080 /* SpectralEQ_CocoaViewFactory.m */,
+				E05C2E7F1E414B74005F3080 /* SpectralEQ_CocoaView.h */,
+				E05C2E811E414B74005F3080 /* SpectralEQ_CocoaView.m */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		E0AC6F1F1E43F65400CEE027 /* Nib */ = {
+			isa = PBXGroup;
+			children = (
+				E05C2E831E414B74005F3080 /* SpectralEQ_CocoaView.xib */,
+			);
+			name = Nib;
+			sourceTree = "<group>";
+		};
+		E0AC6F241E43F6F500CEE027 /* DSP */ = {
+			isa = PBXGroup;
+			children = (
+				E0AC6F251E43F70800CEE027 /* FFT */,
+			);
+			name = DSP;
+			sourceTree = "<group>";
+		};
+		E0AC6F251E43F70800CEE027 /* FFT */ = {
+			isa = PBXGroup;
+			children = (
+				E0AC6F201E43F6EE00CEE027 /* DSP_FFT.cpp */,
+				E0AC6F211E43F6EE00CEE027 /* DSP_FFT.h */,
+			);
+			name = FFT;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,6 +408,7 @@
 				E05C2EC91E414B74005F3080 /* CAStreamBasicDescription.h in Headers */,
 				E05C2EB81E414B74005F3080 /* AUTimestampGenerator.h in Headers */,
 				E05C2E931E414B74005F3080 /* AUInputElement.h in Headers */,
+				E0AC6F231E43F6EE00CEE027 /* DSP_FFT.h in Headers */,
 				E05C2EC51E414B74005F3080 /* CAMutex.h in Headers */,
 				E05C2EB21E414B74005F3080 /* AUBuffer.h in Headers */,
 				E05C2ECD1E414B74005F3080 /* CAVectorUnit.h in Headers */,
@@ -480,6 +547,7 @@
 				E05C2EA71E414B74005F3080 /* AUEffectBase.cpp in Sources */,
 				E05C2EB01E414B74005F3080 /* AUBuffer.cpp in Sources */,
 				E05C2EC11E414B74005F3080 /* CAAUParameter.cpp in Sources */,
+				E0AC6F221E43F6EE00CEE027 /* DSP_FFT.cpp in Sources */,
 				E05C2E9E1E414B74005F3080 /* AUScopeElement.cpp in Sources */,
 				E05C2E8D1E414B74005F3080 /* AUDispatch.cpp in Sources */,
 				E05C2ECB1E414B74005F3080 /* CAVectorUnit.cpp in Sources */,
@@ -652,6 +720,7 @@
 				E05C2ED41E414B74005F3080 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E05C2ED51E414B74005F3080 /* Build configuration list for PBXNativeTarget "SpectralEQ" */ = {
 			isa = XCConfigurationList;
@@ -660,6 +729,7 @@
 				E05C2ED71E414B74005F3080 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -81,6 +81,9 @@ public:
                                                  AudioUnitParameterID	inParameterID,
                                                  AudioUnitParameterInfo	&outParameterInfo);
 
+    virtual OSStatus            Render(AudioUnitRenderActionFlags & ioActionFlags,
+                                       const AudioTimeStamp & inTimeStamp,
+                                       UInt32 inFramesToProcess );
 
      // START COCOA UI::
     virtual OSStatus			GetPropertyInfo(AudioUnitPropertyID		inID,

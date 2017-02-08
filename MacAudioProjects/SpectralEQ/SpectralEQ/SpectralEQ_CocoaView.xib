@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1060</int>
 		<string key="IBDocument.SystemVersion">14F27</string>
-		<string key="IBDocument.InterfaceBuilderVersion">7706</string>
+		<string key="IBDocument.InterfaceBuilderVersion">6254</string>
 		<string key="IBDocument.AppKitVersion">1348.17</string>
 		<string key="IBDocument.HIToolboxVersion">758.70</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">7706</string>
+			<string key="NS.object.0">6254</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>NSCustomObject</string>
@@ -39,7 +39,7 @@
 					<object class="NSSlider" id="35504903">
 						<reference key="NSNextResponder" ref="963808189"/>
 						<int key="NSvFlags">256</int>
-						<string key="NSFrame">{{88, 31}, {133, 26}}</string>
+						<string key="NSFrame">{{368, 44}, {133, 26}}</string>
 						<reference key="NSSuperview" ref="963808189"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSSliderCell" key="NSCell" id="990678944">
@@ -68,7 +68,7 @@
 					<object class="NSTextField" id="7772822">
 						<reference key="NSNextResponder" ref="963808189"/>
 						<int key="NSvFlags">256</int>
-						<string key="NSFrame">{{5, 30}, {80, 17}}</string>
+						<string key="NSFrame">{{285, 43}, {80, 17}}</string>
 						<reference key="NSSuperview" ref="963808189"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="775219921">
@@ -81,7 +81,7 @@
 								<int key="NSfFlags">3100</int>
 							</object>
 							<reference key="NSControlView" ref="7772822"/>
-							<object class="NSColor" key="NSBackgroundColor" id="314039258">
+							<object class="NSColor" key="NSBackgroundColor">
 								<int key="NSColorSpace">6</int>
 								<string key="NSCatalogName">System</string>
 								<string key="NSColorName">controlColor</string>
@@ -90,7 +90,7 @@
 									<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
 								</object>
 							</object>
-							<object class="NSColor" key="NSTextColor" id="483457251">
+							<object class="NSColor" key="NSTextColor">
 								<int key="NSColorSpace">6</int>
 								<string key="NSCatalogName">System</string>
 								<string key="NSColorName">controlTextColor</string>
@@ -106,14 +106,14 @@
 					<object class="NSTextField" id="187715390">
 						<reference key="NSNextResponder" ref="963808189"/>
 						<int key="NSvFlags">256</int>
-						<string key="NSFrame">{{227, 30}, {51, 22}}</string>
+						<string key="NSFrame">{{507, 43}, {51, 22}}</string>
 						<reference key="NSSuperview" ref="963808189"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="841260005">
 							<int key="NSCellFlags">-1804599231</int>
 							<int key="NSCellFlags2">4195328</int>
 							<string key="NSContents"/>
-							<object class="NSFont" key="NSSupport" id="859889199">
+							<object class="NSFont" key="NSSupport">
 								<bool key="IBIsSystemFont">YES</bool>
 								<double key="NSSize">13</double>
 								<int key="NSfFlags">1044</int>
@@ -139,26 +139,8 @@
 						<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 						<int key="NSTextFieldAlignmentRectInsetsVersion">1</int>
 					</object>
-					<object class="NSTextField" id="953160050">
-						<reference key="NSNextResponder" ref="963808189"/>
-						<int key="NSvFlags">256</int>
-						<string key="NSFrame">{{98, 73}, {101, 17}}</string>
-						<reference key="NSSuperview" ref="963808189"/>
-						<bool key="NSEnabled">YES</bool>
-						<object class="NSTextFieldCell" key="NSCell" id="655427059">
-							<int key="NSCellFlags">67108864</int>
-							<int key="NSCellFlags2">4194304</int>
-							<string key="NSContents">Cocoa AU View</string>
-							<reference key="NSSupport" ref="859889199"/>
-							<reference key="NSControlView" ref="953160050"/>
-							<reference key="NSBackgroundColor" ref="314039258"/>
-							<reference key="NSTextColor" ref="483457251"/>
-						</object>
-						<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
-						<int key="NSTextFieldAlignmentRectInsetsVersion">1</int>
-					</object>
 				</array>
-				<string key="NSFrameSize">{298, 99}</string>
+				<string key="NSFrameSize">{857, 519}</string>
 				<string key="NSClassName">SpectralEQ_CocoaView</string>
 			</object>
 		</array>
@@ -229,10 +211,9 @@
 						<int key="objectID">22</int>
 						<reference key="object" ref="963808189"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="35504903"/>
-							<reference ref="953160050"/>
-							<reference ref="7772822"/>
 							<reference ref="187715390"/>
+							<reference ref="7772822"/>
+							<reference ref="35504903"/>
 						</array>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">SpectralEQ_CocoaView</string>
@@ -262,14 +243,6 @@
 						<reference key="parent" ref="963808189"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">26</int>
-						<reference key="object" ref="953160050"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="655427059"/>
-						</array>
-						<reference key="parent" ref="963808189"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">100023</int>
 						<reference key="object" ref="990678944"/>
 						<reference key="parent" ref="35504903"/>
@@ -283,11 +256,6 @@
 						<int key="objectID">100025</int>
 						<reference key="object" ref="841260005"/>
 						<reference key="parent" ref="187715390"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">100026</int>
-						<reference key="object" ref="655427059"/>
-						<reference key="parent" ref="953160050"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">-3</int>
@@ -304,7 +272,8 @@
 				<string key="100023.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="100024.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="100025.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="100026.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<reference key="22.IBNSViewMetadataGestureRecognizers" ref="0"/>
+				<string key="22.IBPersistedLastKnownCanvasPosition">{818.5, 659.5}</string>
 				<string key="22.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<object class="NSMutableString" key="23.CustomClassName">
 					<characters key="NS.bytes">SpectralEQ_GestureSlider</characters>
@@ -312,7 +281,6 @@
 				<string key="23.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="24.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="25.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="26.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>

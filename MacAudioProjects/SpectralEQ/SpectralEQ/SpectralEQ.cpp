@@ -48,6 +48,7 @@
 */
 
 #include "SpectralEQ.h"
+#include <iostream>
 
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -228,5 +229,24 @@ void SpectralEQ::SpectralEQKernel::Process(	const Float32 	*inSourceP,
 		*destP = outputSample;
 		destP += inNumChannels;
 	}
+}
+
+OSStatus SpectralEQ::Render(AudioUnitRenderActionFlags & ioActionFlags,
+                           const AudioTimeStamp & inTimeStamp,
+                           UInt32 inFramesToProcess )
+{
+    UInt32 actionFlags = 0;
+    OSStatus err = PullInput(0, actionFlags, inTimeStamp, inFramesToProcess);
+    
+    GetOutput(0)->PrepareBuffer(inFramesToProcess);
+    
+    AudioBufferList& inputBuffer = GetInput(0)->GetBufferList();
+    
+    
+    // TODO: Send above buffer list to the FFT thingy later
+    
+    
+    
+    return AUEffectBase::Render(ioActionFlags, inTimeStamp, inFramesToProcess);
 }
 
