@@ -50,6 +50,7 @@
 #include "SpectralEQ.h"
 #include <iostream>
 
+#define kMaxBlockSize 16384
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -60,13 +61,29 @@ AUDIOCOMPONENT_ENTRY(AUBaseFactory, SpectralEQ)
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //	SpectralEQ::SpectralEQ
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-SpectralEQ::SpectralEQ(AudioUnit component)
-	: AUEffectBase(component)
+SpectralEQ::SpectralEQ(AudioUnit component)	: AUEffectBase(component)
 {
 	CreateElements();
 	Globals()->UseIndexedParameters(kNumberOfParameters);
 	SetParameter(kParam_One, kDefaultValue_ParamOne );
 	
+}
+
+OSStatus SpectralEQ::Initialize()
+{
+    OSStatus result = AUEffectBase::Initialize();
+    
+    if(result == noErr)
+    {
+        mDSP_FFT.Allocate(GetNumberOfChannels(), kMaxBlockSize);
+        mComputedMagnitudes.alloc(kMaxBlockSize >> 1);
+        
+        mInfos.mNumBins = 0;
+        mInfos.mNumChannels = GetNumberOfChannels();
+        mInfos.mSamplingRate = GetSampleRate();
+    }
+    
+    return result;
 }
 
 
@@ -92,8 +109,7 @@ OSStatus			SpectralEQ::GetParameterInfo(AudioUnitScope		inScope,
 {
 	OSStatus result = noErr;
 
-	outParameterInfo.flags = 	kAudioUnitParameterFlag_IsWritable
-						|		kAudioUnitParameterFlag_IsReadable;
+	outParameterInfo.flags = 	kAudioUnitParameterFlag_IsWritable + kAudioUnitParameterFlag_IsReadable;
     
     if (inScope == kAudioUnitScope_Global) {
         switch(inParameterID)
@@ -177,7 +193,27 @@ OSStatus			SpectralEQ::GetProperty(	AudioUnitPropertyID inID,
 				*((AudioUnitCocoaViewInfo *)outData) = cocoaInfo;
 				
 				return noErr;
-			}
+            }
+            // This property gives infos about the computed magnitudes
+            case kAudioUnitProperty_SpectrumGraphInfo:
+            {
+                SpectrumGraphInfo* g = (SpectrumGraphInfo*) outData;
+                
+                g->mNumBins = mInfos.mNumBins;
+                g->mSamplingRate = mInfos.mSamplingRate;
+                g->mNumChannels = mInfos.mNumChannels;
+                
+                return noErr;
+            }
+                // This property sends magnitudes data as Float32
+            case kAudioUnitProperty_SpectrumGraphData:
+            {
+                Float32* mData = (Float32*) outData;
+                
+                if(mInfos.mNumBins > 0) {
+                    memcpy(mData, mComputedMagnitudes(), mInfos.mNumBins * sizeof(Float32));
+                }
+            }
 		}
 	}
 
@@ -208,7 +244,7 @@ void SpectralEQ::SpectralEQKernel::Process(	const Float32 	*inSourceP,
 
 	//This code will pass-thru the audio data.
 	//This is where you want to process data to produce an effect.
-	
+	/*
 	UInt32 nSampleFrames = inFramesToProcess;
 	const Float32 *sourceP = inSourceP;
 	Float32 *destP = inDestP;
@@ -229,24 +265,50 @@ void SpectralEQ::SpectralEQKernel::Process(	const Float32 	*inSourceP,
 		*destP = outputSample;
 		destP += inNumChannels;
 	}
+     */
+    
 }
 
 OSStatus SpectralEQ::Render(AudioUnitRenderActionFlags & ioActionFlags,
                            const AudioTimeStamp & inTimeStamp,
                            UInt32 inFramesToProcess )
 {
+    
     UInt32 actionFlags = 0;
     OSStatus err = PullInput(0, actionFlags, inTimeStamp, inFramesToProcess);
+    
+    if(err)
+        return err;
     
     GetOutput(0)->PrepareBuffer(inFramesToProcess);
     
     AudioBufferList& inputBuffer = GetInput(0)->GetBufferList();
     
+    //std::cout << *(float *)inputBuffer.mBuffers[0].mData << std::endl;
     
-    // TODO: Send above buffer list to the FFT thingy later
+    mDSP_FFT.CopyInputToRingBuffer(inFramesToProcess, &inputBuffer);
+    
+    // TEMP
+    UInt32 currentBlockSize = 1024;
+    
+    // TEMP
+    DSP_FFT::Window currentWindow = DSP_FFT::Window::Rectangular;
     
     
+    if(mDSP_FFT.ApplyFFT(currentBlockSize, currentWindow))
+    {
+        mInfos.mNumBins = currentBlockSize >> 1;
+        
+        // TEMP
+        UInt32 channelSelect = 1;
+        
+        if(mDSP_FFT.GetMagnitudes(mComputedMagnitudes, currentWindow, channelSelect))
+        {
+            PropertyChanged(kAudioUnitProperty_SpectrumGraphData, kAudioUnitScope_Global, 0);
+        }
+    }
     
     return AUEffectBase::Render(ioActionFlags, inTimeStamp, inFramesToProcess);
+    
 }
 

@@ -46,6 +46,8 @@
 
 #include "AUEffectBase.h"
 #include "SpectralEQVersion.h"
+#include "DSP_FFT.h"
+#include "SpectralEQDefinitions.h"
 
 
 #ifndef __SpectralEQ_h__
@@ -68,7 +70,15 @@ enum {
 #pragma mark ____SpectralEQ
 class SpectralEQ : public AUEffectBase
 {
+private:
+    DSP_FFT mDSP_FFT;
+    SpectrumGraphInfo mInfos;
+    CAAutoFree<Float32> mComputedMagnitudes;
+    
 public:
+    
+    virtual OSStatus Initialize();
+    
     SpectralEQ(AudioUnit component);
     
     virtual AUKernelBase *		NewKernel() { return new SpectralEQKernel(this); }

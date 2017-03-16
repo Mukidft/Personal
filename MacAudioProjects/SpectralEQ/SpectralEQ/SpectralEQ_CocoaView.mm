@@ -207,5 +207,38 @@ NSString *SpectralEQ_GestureSliderMouseUpNotification = @"CAGestureSliderMouseUp
 	}
 }
 
+-(void)drawSpectrumGraph:(id)sender
+{
+    struct SpectrumGraphInfo graphInfo;
+    graphInfo.mNumBins = 0;
+    
+    UInt32 sizeOfResult = sizeof(graphInfo);
+    
+    ComponentResult result = AudioUnitGetProperty(mAU,
+                                                  kAudioUnitProperty_SpectrumGraphInfo,
+                                                  kAudioUnitScope_Global,
+                                                  0,
+                                                  &graphInfo,
+                                                  &sizeOfResult);
+    
+    if(result == noErr && graphInfo.mNumBins > 0)
+    {
+        size_t mBins = graphInfo.mNumBins;
+        sizeOfResult = graphInfo.mNumBins * sizeof(Float32);
+        
+        Float32 graphData[mBins];
+        memset(graphData, 0, sizeOfResult);
+        
+        result = AudioUnitGetProperty(mAU,
+                                      kAudioUnitProperty_SpectrumGraphData,
+                                      kAudioUnitScope_Global,
+                                      0,
+                                      graphData,
+                                      &sizeOfResult);
+        
+        [graphView plotData: graphData givenInfos: graphInfo];
+    }
+}
+
 
 @end

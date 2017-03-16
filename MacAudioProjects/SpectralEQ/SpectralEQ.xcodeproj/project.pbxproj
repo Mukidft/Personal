@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E00C9EE71E56628B002B702F /* UI_GraphView.mm in Sources */ = {isa = PBXBuildFile; fileRef = E00C9EE61E56628B002B702F /* UI_GraphView.mm */; };
 		E05C2E501E414B74005F3080 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05C2E4F1E414B74005F3080 /* CoreAudio.framework */; };
 		E05C2E521E414B74005F3080 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05C2E511E414B74005F3080 /* AudioToolbox.framework */; };
 		E05C2E541E414B74005F3080 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05C2E531E414B74005F3080 /* AudioUnit.framework */; };
@@ -27,7 +28,7 @@
 		E05C2E7C1E414B74005F3080 /* SpectralEQ_CocoaViewFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = E05C2E7B1E414B74005F3080 /* SpectralEQ_CocoaViewFactory.h */; };
 		E05C2E7E1E414B74005F3080 /* SpectralEQ_CocoaViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E05C2E7D1E414B74005F3080 /* SpectralEQ_CocoaViewFactory.m */; };
 		E05C2E801E414B74005F3080 /* SpectralEQ_CocoaView.h in Headers */ = {isa = PBXBuildFile; fileRef = E05C2E7F1E414B74005F3080 /* SpectralEQ_CocoaView.h */; };
-		E05C2E821E414B74005F3080 /* SpectralEQ_CocoaView.m in Sources */ = {isa = PBXBuildFile; fileRef = E05C2E811E414B74005F3080 /* SpectralEQ_CocoaView.m */; };
+		E05C2E821E414B74005F3080 /* SpectralEQ_CocoaView.mm in Sources */ = {isa = PBXBuildFile; fileRef = E05C2E811E414B74005F3080 /* SpectralEQ_CocoaView.mm */; };
 		E05C2E841E414B74005F3080 /* SpectralEQ_CocoaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E05C2E831E414B74005F3080 /* SpectralEQ_CocoaView.xib */; };
 		E05C2E891E414B74005F3080 /* AUBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E05C2E881E414B74005F3080 /* AUBase.cpp */; };
 		E05C2E8B1E414B74005F3080 /* AUBase.h in Headers */ = {isa = PBXBuildFile; fileRef = E05C2E8A1E414B74005F3080 /* AUBase.h */; };
@@ -93,6 +94,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E00C9EE61E56628B002B702F /* UI_GraphView.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp.preprocessed; fileEncoding = 4; path = UI_GraphView.mm; sourceTree = "<group>"; };
+		E00C9EE81E5662B0002B702F /* UI_GraphView.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = UI_GraphView.h; sourceTree = "<group>"; };
 		E05C2E4C1E414B74005F3080 /* SpectralEQ.component */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpectralEQ.component; sourceTree = BUILT_PRODUCTS_DIR; };
 		E05C2E4F1E414B74005F3080 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = /System/Library/Frameworks/CoreAudio.framework; sourceTree = "<absolute>"; };
 		E05C2E511E414B74005F3080 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = /System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<absolute>"; };
@@ -115,7 +118,7 @@
 		E05C2E7B1E414B74005F3080 /* SpectralEQ_CocoaViewFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpectralEQ_CocoaViewFactory.h; sourceTree = "<group>"; };
 		E05C2E7D1E414B74005F3080 /* SpectralEQ_CocoaViewFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpectralEQ_CocoaViewFactory.m; sourceTree = "<group>"; };
 		E05C2E7F1E414B74005F3080 /* SpectralEQ_CocoaView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpectralEQ_CocoaView.h; sourceTree = "<group>"; };
-		E05C2E811E414B74005F3080 /* SpectralEQ_CocoaView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpectralEQ_CocoaView.m; sourceTree = "<group>"; };
+		E05C2E811E414B74005F3080 /* SpectralEQ_CocoaView.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = SpectralEQ_CocoaView.mm; sourceTree = "<group>"; };
 		E05C2E831E414B74005F3080 /* SpectralEQ_CocoaView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpectralEQ_CocoaView.xib; sourceTree = "<group>"; };
 		E05C2E851E414B74005F3080 /* SpectralEQ_CocoaViewFactory-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpectralEQ_CocoaViewFactory-Info.plist"; sourceTree = "<group>"; };
 		E05C2E881E414B74005F3080 /* AUBase.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AUBase.cpp; sourceTree = "<group>"; };
@@ -153,6 +156,7 @@
 		E05C2ECA1E414B74005F3080 /* CAVectorUnit.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CAVectorUnit.cpp; sourceTree = "<group>"; };
 		E05C2ECC1E414B74005F3080 /* CAVectorUnit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAVectorUnit.h; sourceTree = "<group>"; };
 		E05C2ECE1E414B74005F3080 /* CAVectorUnitTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAVectorUnitTypes.h; sourceTree = "<group>"; };
+		E060AE661E4D2A1700418703 /* SpectralEQDefinitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpectralEQDefinitions.h; sourceTree = "<group>"; };
 		E095588C1E41577B00F077CF /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = ../../../../../../../System/Library/Frameworks/Accelerate.framework; sourceTree = "<group>"; };
 		E0AC6F201E43F6EE00CEE027 /* DSP_FFT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DSP_FFT.cpp; sourceTree = "<group>"; };
 		E0AC6F211E43F6EE00CEE027 /* DSP_FFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSP_FFT.h; sourceTree = "<group>"; };
@@ -189,6 +193,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E00C9EE91E5662B7002B702F /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				E00C9EE61E56628B002B702F /* UI_GraphView.mm */,
+				E00C9EE81E5662B0002B702F /* UI_GraphView.h */,
+			);
+			name = Graph;
+			sourceTree = "<group>";
+		};
 		E05C2E411E414B74005F3080 = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +252,7 @@
 			children = (
 				E05C2E711E414B74005F3080 /* Info.plist */,
 				E0AC6F1A1E43F5E500CEE027 /* Main */,
+				E060AE671E4D2A1D00418703 /* Utility */,
 				E0AC6F241E43F6F500CEE027 /* DSP */,
 				E0AC6F1C1E43F61400CEE027 /* Resources */,
 				E0AC6F1D1E43F63300CEE027 /* UI */,
@@ -323,6 +337,14 @@
 			path = PublicUtility;
 			sourceTree = "<group>";
 		};
+		E060AE671E4D2A1D00418703 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				E060AE661E4D2A1700418703 /* SpectralEQDefinitions.h */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
 		E0AC6F1A1E43F5E500CEE027 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -348,6 +370,7 @@
 			children = (
 				E0AC6F1E1E43F64A00CEE027 /* Main */,
 				E0AC6F1F1E43F65400CEE027 /* Nib */,
+				E00C9EE91E5662B7002B702F /* Graph */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -358,7 +381,7 @@
 				E05C2E7B1E414B74005F3080 /* SpectralEQ_CocoaViewFactory.h */,
 				E05C2E7D1E414B74005F3080 /* SpectralEQ_CocoaViewFactory.m */,
 				E05C2E7F1E414B74005F3080 /* SpectralEQ_CocoaView.h */,
-				E05C2E811E414B74005F3080 /* SpectralEQ_CocoaView.m */,
+				E05C2E811E414B74005F3080 /* SpectralEQ_CocoaView.mm */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -552,6 +575,7 @@
 				E05C2E8D1E414B74005F3080 /* AUDispatch.cpp in Sources */,
 				E05C2ECB1E414B74005F3080 /* CAVectorUnit.cpp in Sources */,
 				E05C2E991E414B74005F3080 /* AUPluginDispatch.cpp in Sources */,
+				E00C9EE71E56628B002B702F /* UI_GraphView.mm in Sources */,
 				E05C2E951E414B74005F3080 /* AUOutputElement.cpp in Sources */,
 				E05C2E731E414B74005F3080 /* SpectralEQ.cpp in Sources */,
 				E05C2EBB1E414B74005F3080 /* CAAudioChannelLayout.cpp in Sources */,
@@ -565,7 +589,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E05C2E821E414B74005F3080 /* SpectralEQ_CocoaView.m in Sources */,
+				E05C2E821E414B74005F3080 /* SpectralEQ_CocoaView.mm in Sources */,
 				E05C2E7E1E414B74005F3080 /* SpectralEQ_CocoaViewFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

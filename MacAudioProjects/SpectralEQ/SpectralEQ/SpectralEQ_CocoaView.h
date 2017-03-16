@@ -50,6 +50,7 @@
 #import <Cocoa/Cocoa.h>
 #import <AudioUnit/AudioUnit.h>
 #import <AudioToolbox/AudioToolbox.h>
+#include "UI_GraphView.h"
 
 /************************************************************************************************************/
 /* NOTE: It is important to rename ALL ui classes when using the Xcode Audio Unit with Cocoa View template	*/
@@ -68,6 +69,7 @@
 {
     // IB Members
     IBOutlet SpectralEQ_GestureSlider * uiParam1Slider;
+    IBOutlet UI_GraphView * graphView;
     IBOutlet NSTextField *			uiParam1TextField;
 	
     // Other Members
