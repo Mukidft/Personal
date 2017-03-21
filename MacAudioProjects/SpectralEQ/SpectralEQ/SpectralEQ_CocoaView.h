@@ -76,6 +76,7 @@
     AudioUnit 				mAU;
 	AudioUnitParameter		mParameter[1];
     AUParameterListenerRef	mParameterListener;
+    AUEventListenerRef      mAUEventListener;
 }
 
 #pragma mark ____ PUBLIC FUNCTIONS ____
@@ -88,6 +89,8 @@
 - (void)synchronizeUIWithParameterValues;
 - (void)addListeners;
 - (void)removeListeners;
+- (void)addEventListeners;
+- (void)removeEventListeners;
 
 #pragma mark ____ LISTENER CALLBACK DISPATCHEE ____
 - (void)parameterListener:(void *)inObject parameter:(const AudioUnitParameter *)inParameter value:(Float32)inValue;

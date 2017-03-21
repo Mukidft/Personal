@@ -99,6 +99,7 @@ NSString *SpectralEQ_GestureSliderMouseUpNotification = @"CAGestureSliderMouseUp
 
 	// add new listeners
 	[self addListeners];
+    [self addEventListeners];
 	
 	// initial setup
 	[self synchronizeUIWithParameterValues];
@@ -160,6 +161,37 @@ NSString *SpectralEQ_GestureSliderMouseUpNotification = @"CAGestureSliderMouseUp
     
    	[[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(handleMouseDown:) name:SpectralEQ_GestureSliderMouseDownNotification object: uiParam1Slider];
 	[[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(handleMouseUp:) name:SpectralEQ_GestureSliderMouseUpNotification object: uiParam1Slider];
+    
+}
+
+void EventListenerDispatcher(void *inRefCon, void *inObject, const AudioUnitEvent *inEvent, UInt64 inHostTime, Float32 inValue)
+{
+    SpectralEQ_CocoaView *SELF = (SpectralEQ_CocoaView *) inRefCon;
+    // TODO
+}
+
+- (void) addEventListeners
+{
+    if(mAU)
+    {
+        verify_noerr(AUEventListenerCreate(EventListenerDispatcher, self, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode, 0.05, 0.05, &mAUEventListener));
+        
+        AudioUnitEvent auEvent;
+        auEvent.mEventType = kAudioUnitEvent_PropertyChange;
+        auEvent.mArgument.mProperty.mAudioUnit = mAU;
+        auEvent.mArgument.mProperty.mPropertyID = kAudioUnitProperty_SpectrumGraphData;
+        auEvent.mArgument.mProperty.mScope = kAudioUnitScope_Global;
+        auEvent.mArgument.mProperty.mElement = 0;
+        verify_noerr(AUEventListenerAddEventType(mAUEventListener, self, &auEvent));
+    }
+}
+
+- (void) removeEventListeners
+{
+    if(mAUEventListener) verify_noerr(AUListenerDispose(mAUEventListener));
+    
+    mAUEventListener = NULL;
+    mAU = NULL;
 }
 
 - (void)removeListeners {
@@ -206,6 +238,7 @@ NSString *SpectralEQ_GestureSliderMouseUpNotification = @"CAGestureSliderMouseUp
                     break;
 	}
 }
+
 
 -(void)drawSpectrumGraph:(id)sender
 {

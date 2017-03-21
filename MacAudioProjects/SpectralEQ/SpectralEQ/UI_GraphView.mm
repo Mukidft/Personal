@@ -27,6 +27,7 @@
 
 - (void)drawRect:(NSRect)dirtyRect
 {
+    // Background
     [[NSColor colorWithDeviceRed:0.227 green:0.251 blue:0.337 alpha:0.6] set];
     NSRectFill(dirtyRect);
     
@@ -55,6 +56,7 @@
     
     NSBezierPath* path = [NSBezierPath bezierPath];
     
+    // Main Input
     [path moveToPoint:tp[0]];
     [path lineToPoint:tp[1]];
     [path lineToPoint:tp[2]];
