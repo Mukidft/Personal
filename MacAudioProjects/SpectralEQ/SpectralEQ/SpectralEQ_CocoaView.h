@@ -94,5 +94,6 @@
 
 #pragma mark ____ LISTENER CALLBACK DISPATCHEE ____
 - (void)parameterListener:(void *)inObject parameter:(const AudioUnitParameter *)inParameter value:(Float32)inValue;
+- (void)priv_eventListener:(void *) inObject event:(const AudioUnitEvent *)inEvent value:(Float32)inValue;
 
 @end

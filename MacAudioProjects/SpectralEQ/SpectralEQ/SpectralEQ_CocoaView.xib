@@ -62,6 +62,7 @@
                 </textField>
             </subviews>
             <connections>
+                <outlet property="graphView" destination="vUi-Ae-PGe" id="89K-j4-iyY"/>
                 <outlet property="uiParam1Slider" destination="23" id="27"/>
                 <outlet property="uiParam1TextField" destination="25" id="28"/>
             </connections>

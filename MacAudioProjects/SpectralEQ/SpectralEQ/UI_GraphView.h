@@ -15,10 +15,12 @@
 
 @interface UI_GraphView : NSView
 {
-
+    //NSArray<NSPoint*> points;
 }
 
 -(void) plotData:(Float32 *) data givenInfos:(SpectrumGraphInfo) infos;
+- (void)drawBackground: (NSRect) dirtyRect color: (NSColor*) color;
+- (void)drawGraph: (NSPoint *) points fill: (NSColor*) fill stroke: (NSColor*) stroke;
 
 @end
 

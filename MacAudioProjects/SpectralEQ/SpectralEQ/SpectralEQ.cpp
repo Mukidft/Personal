@@ -153,6 +153,14 @@ OSStatus			SpectralEQ::GetPropertyInfo (AudioUnitPropertyID	inID,
 				outWritable = false;
 				outDataSize = sizeof (AudioUnitCocoaViewInfo);
 				return noErr;
+            case kAudioUnitProperty_SpectrumGraphInfo:
+                outWritable = false;
+                outDataSize = sizeof(SpectrumGraphInfo);
+                return noErr;
+            case kAudioUnitProperty_SpectrumGraphData:
+                outWritable = false;
+                outDataSize = mInfos.mNumBins * sizeof(Float32);
+                return noErr;
 					
 		}
 	}

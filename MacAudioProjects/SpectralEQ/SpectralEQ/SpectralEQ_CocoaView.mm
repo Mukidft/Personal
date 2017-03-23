@@ -57,7 +57,6 @@ enum {
 #pragma mark ____ LISTENER CALLBACK DISPATCHER ____
 void ParameterListenerDispatcher (void *inRefCon, void *inObject, const AudioUnitParameter *inParameter, Float32 inValue) {
 	SpectralEQ_CocoaView *SELF = (SpectralEQ_CocoaView *)inRefCon;
-    
     [SELF parameterListener:inObject parameter:inParameter value:inValue];
 }
 
@@ -167,7 +166,22 @@ NSString *SpectralEQ_GestureSliderMouseUpNotification = @"CAGestureSliderMouseUp
 void EventListenerDispatcher(void *inRefCon, void *inObject, const AudioUnitEvent *inEvent, UInt64 inHostTime, Float32 inValue)
 {
     SpectralEQ_CocoaView *SELF = (SpectralEQ_CocoaView *) inRefCon;
-    // TODO
+    [SELF priv_eventListener:inObject event: inEvent value: inValue];
+}
+
+// CALLBACK DISPATCHEE
+- (void)priv_eventListener:(void *) inObject event:(const AudioUnitEvent *)inEvent value:(Float32)inValue
+{
+    if(mAU)
+    {
+        if(inEvent->mEventType == kAudioUnitEvent_PropertyChange)
+        {
+            if(inEvent->mArgument.mProperty.mPropertyID == kAudioUnitProperty_SpectrumGraphData)
+            {
+                [self performSelector:@selector(drawSpectrumGraph:) withObject:self];
+            }
+        }
+    }
 }
 
 - (void) addEventListeners
