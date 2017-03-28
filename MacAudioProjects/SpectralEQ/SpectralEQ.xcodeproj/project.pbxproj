@@ -68,6 +68,7 @@
 		E095588D1E41577B00F077CF /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E095588C1E41577B00F077CF /* Accelerate.framework */; };
 		E0AC6F221E43F6EE00CEE027 /* DSP_FFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E0AC6F201E43F6EE00CEE027 /* DSP_FFT.cpp */; };
 		E0AC6F231E43F6EE00CEE027 /* DSP_FFT.h in Headers */ = {isa = PBXBuildFile; fileRef = E0AC6F211E43F6EE00CEE027 /* DSP_FFT.h */; };
+		E0BBBFF01E8B22A300C0FA62 /* CAAutoDisposer.h in Headers */ = {isa = PBXBuildFile; fileRef = E0BBBFEF1E8B22A300C0FA62 /* CAAutoDisposer.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,7 +85,7 @@
 		E05C2ED81E414ED0005F3080 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = "/Users/owl/Library/Audio/Plug-Ins/Components";
+			dstPath = "~/Library/Audio/Plug-Ins/Components";
 			dstSubfolderSpec = 0;
 			files = (
 				E05C2ED91E414F0A005F3080 /* SpectralEQ.component in CopyFiles */,
@@ -160,6 +161,7 @@
 		E095588C1E41577B00F077CF /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = ../../../../../../../System/Library/Frameworks/Accelerate.framework; sourceTree = "<group>"; };
 		E0AC6F201E43F6EE00CEE027 /* DSP_FFT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DSP_FFT.cpp; sourceTree = "<group>"; };
 		E0AC6F211E43F6EE00CEE027 /* DSP_FFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSP_FFT.h; sourceTree = "<group>"; };
+		E0BBBFEF1E8B22A300C0FA62 /* CAAutoDisposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAAutoDisposer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,6 +322,7 @@
 		E05C2EB91E414B74005F3080 /* CoreAudio/PublicUtility */ = {
 			isa = PBXGroup;
 			children = (
+				E0BBBFEF1E8B22A300C0FA62 /* CAAutoDisposer.h */,
 				E05C2EBA1E414B74005F3080 /* CAAudioChannelLayout.cpp */,
 				E05C2EBC1E414B74005F3080 /* CAAudioChannelLayout.h */,
 				E05C2EAF1E414B74005F3080 /* AUBuffer.cpp */,
@@ -419,6 +422,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E05C2EAE1E414B74005F3080 /* AUBaseHelper.h in Headers */,
+				E0BBBFF01E8B22A300C0FA62 /* CAAutoDisposer.h in Headers */,
 				E05C2EB61E414B74005F3080 /* AUSilentTimeout.h in Headers */,
 				E05C2EA01E414B74005F3080 /* AUScopeElement.h in Headers */,
 				E05C2EB41E414B74005F3080 /* AUInputFormatConverter.h in Headers */,

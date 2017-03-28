@@ -59,7 +59,7 @@
 
 //~~~~~~~~~~~~~~  Change!!! ~~~~~~~~~~~~~~~~~~~~~//
 #define SpectralEQ_COMP_SUBTYPE		'SPEQ'
-#define SpectralEQ_COMP_MANF		'SPEQ'
+#define SpectralEQ_COMP_MANF		'DPAK'
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
 #endif

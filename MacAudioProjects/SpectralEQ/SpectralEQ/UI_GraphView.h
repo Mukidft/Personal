@@ -15,7 +15,6 @@
 
 @interface UI_GraphView : NSView
 {
-    //NSArray<NSPoint*> points;
 }
 
 -(void) plotData:(Float32 *) data givenInfos:(SpectrumGraphInfo) infos;

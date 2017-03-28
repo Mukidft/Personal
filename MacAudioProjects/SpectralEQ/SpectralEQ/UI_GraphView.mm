@@ -17,11 +17,9 @@
 
 - (instancetype)initWithFrame:(NSRect)frame
 {
-    self = [super initWithFrame:frame];
+    if (!(self = [super initWithFrame:frame]))
+        return nil;
     
-    if (self)
-    {
-    }
     return self;
 }
 
@@ -56,22 +54,16 @@
 
 }
 
-
-
 -(void) plotData:(Float32 *) data givenInfos: (SpectrumGraphInfo) infos;
-{
-    //points.alloc(infos.mNumBins + 2, true);
-    
+{   
     for (UInt32  i = 0; i < infos.mNumBins; i++)
     {
         double bin = i * (double) infos.mSamplingRate / (double)(infos.mNumBins * 2);
         
-        //points[0] = 0;
-        
         NSPoint point;
-        point.x = rand();
-        point.y = (CGFloat) bin;
-        //points[i] = point;
+        point.x = (CGFloat) bin;
+        point.y = data[i];
+        
     }
     
     [self setNeedsDisplay:YES];

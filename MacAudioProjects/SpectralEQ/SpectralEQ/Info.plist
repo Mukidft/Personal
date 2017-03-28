@@ -10,7 +10,7 @@
 			<key>factoryFunction</key>
 			<string>SpectralEQFactory</string>
 			<key>manufacturer</key>
-			<string>SPEQ</string>
+			<string>DPAK</string>
 			<key>name</key>
 			<string>DeepakChennakkadan: SpectralEQ</string>
 			<key>subtype</key>

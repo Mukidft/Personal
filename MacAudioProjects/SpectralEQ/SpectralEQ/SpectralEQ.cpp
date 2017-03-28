@@ -218,7 +218,8 @@ OSStatus			SpectralEQ::GetProperty(	AudioUnitPropertyID inID,
             {
                 Float32* mData = (Float32*) outData;
                 
-                if(mInfos.mNumBins > 0) {
+                if(mInfos.mNumBins > 0)
+                {
                     memcpy(mData, mComputedMagnitudes(), mInfos.mNumBins * sizeof(Float32));
                 }
             }
