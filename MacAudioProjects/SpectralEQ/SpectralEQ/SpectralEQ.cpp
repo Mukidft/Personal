@@ -300,8 +300,10 @@ OSStatus SpectralEQ::Render(AudioUnitRenderActionFlags & ioActionFlags,
     // TEMP
     UInt32 currentBlockSize = 1024;
     
+    std::cout << "TEST" << std::endl;
+    
     // TEMP
-    DSP_FFT::Window currentWindow = DSP_FFT::Window::Rectangular;
+    DSP_FFT::Window currentWindow = DSP_FFT::Window::Blackman;
     
     
     if(mDSP_FFT.ApplyFFT(currentBlockSize, currentWindow))

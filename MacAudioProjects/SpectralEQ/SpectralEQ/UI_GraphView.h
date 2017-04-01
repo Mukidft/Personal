@@ -13,13 +13,17 @@
 #import <AppKit/NSView.h>
 #import "SpectralEQDefinitions.h"
 
+#define M_BINS 512
+
 @interface UI_GraphView : NSView
 {
+    NSPoint mBins[M_BINS];
 }
 
 -(void) plotData:(Float32 *) data givenInfos:(SpectrumGraphInfo) infos;
 - (void)drawBackground: (NSRect) dirtyRect color: (NSColor*) color;
-- (void)drawGraph: (NSPoint *) points fill: (NSColor*) fill stroke: (NSColor*) stroke;
+- (void)drawGraph: (NSColor*) fill stroke: (NSColor*) stroke;
+- (void)drawGrid;
 
 @end
 
