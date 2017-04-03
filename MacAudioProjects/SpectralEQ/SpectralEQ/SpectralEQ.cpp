@@ -286,6 +286,8 @@ OSStatus SpectralEQ::Render(AudioUnitRenderActionFlags & ioActionFlags,
     UInt32 actionFlags = 0;
     OSStatus err = PullInput(0, actionFlags, inTimeStamp, inFramesToProcess);
     
+    //Float32 gain = GetParameter(kParam_One);
+    
     if(err)
         return err;
     
@@ -299,8 +301,6 @@ OSStatus SpectralEQ::Render(AudioUnitRenderActionFlags & ioActionFlags,
     
     // TEMP
     UInt32 currentBlockSize = 1024;
-    
-    std::cout << "TEST" << std::endl;
     
     // TEMP
     DSP_FFT::Window currentWindow = DSP_FFT::Window::Blackman;

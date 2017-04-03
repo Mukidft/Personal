@@ -26,8 +26,8 @@
 - (void)drawRect:(NSRect)dirtyRect
 {
     [self drawBackground:dirtyRect color: [NSColor colorWithDeviceRed:0.227 green:0.251 blue:0.337 alpha:0.6]];
+    [self drawGrid];
     [self drawGraph:[NSColor colorWithDeviceRed:0 green:255 blue:255 alpha:0.3] stroke: [NSColor cyanColor]];
-    
 }
 
 - (void)drawBackground: (NSRect) dirtyRect color: (NSColor*) color;
@@ -41,14 +41,28 @@
     NSBezierPath* path = [NSBezierPath bezierPath];
     NSSize size = [self bounds].size;
     
-    for(int i = 1; i < M_BINS; ++i)
+    if(mBins[1].x != 0)
     {
-        CGPoint point;
+        for(int i = 0; i < size.width; i+=30)
+        {
+            CGPoint point;
         
-        point.x = ((mBins[i].x - mBins[1].x) / (mBins[M_BINS - 1].x - mBins[1].x)) * (size.width - 0) + 0;
-        point.y = size.height;
-        
-        [path lineToPoint:NSMakePoint(point.x, size.height)];
+            point.x = i;
+            point.y = size.height;
+            [path moveToPoint:NSMakePoint(point.x, 0)];
+            [path lineToPoint:NSMakePoint(point.x, point.y)];
+            [path closePath];
+            [[NSColor colorWithDeviceRed:255 green:0 blue:255 alpha:0.006] set];
+            [path stroke];
+            
+            point.x = size.width;
+            point.y = i;
+            [path moveToPoint:NSMakePoint(0, point.y)];
+            [path lineToPoint:NSMakePoint(point.x, point.y)];
+            [path closePath];
+            [[NSColor colorWithDeviceRed:255 green:255 blue:0 alpha:0.006] set];
+            [path stroke];
+        }
     }
 }
 
@@ -68,15 +82,14 @@
             
             CGPoint point;
             
+            //Result := ((Input - InputLow) / (InputHigh - InputLow)) * (OutputHigh - OutputLow) + OutputLow;
             point.x = ((mBins[i].x - mBins[1].x) / (mBins[M_BINS - 1].x - mBins[1].x)) * (size.width - 0) + 0;
             point.y = ((mBins[i].y - (-150)) / (6 - (-150))) * (size.height - 0) + 0;
             
-            
             //std::cout << point.x << "     " << point.y << std::endl;
-            //Result := ((Input - InputLow) / (InputHigh - InputLow)) * (OutputHigh - OutputLow) + OutputLow;
             
             if(point.x > 0 && point.x < size.width && point.y > 0 && point.y < size.height)
-                [path lineToPoint:NSMakePoint(point.x, point.y - 100)];
+                [path lineToPoint:NSMakePoint(point.x, point.y - 80)];
         }
     }
     
@@ -84,10 +97,8 @@
     [path closePath];
     [fill set];
     [path fill];
-    
     [stroke set];
     [path stroke];
-
 }
 
 -(void) plotData:(Float32 *) data givenInfos: (SpectrumGraphInfo) infos;
