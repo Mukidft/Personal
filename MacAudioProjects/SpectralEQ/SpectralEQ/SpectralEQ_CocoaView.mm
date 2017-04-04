@@ -178,7 +178,7 @@ void EventListenerDispatcher(void *inRefCon, void *inObject, const AudioUnitEven
         {
             if(inEvent->mArgument.mProperty.mPropertyID == kAudioUnitProperty_SpectrumGraphData)
             {
-                [self performSelector:@selector(drawSpectrumGraph:) withObject:self];
+                [self performSelector:@selector(drawSpectrumGraph:) withObject:self afterDelay:1];
             }
         }
     }

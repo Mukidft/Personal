@@ -81,12 +81,15 @@ bool DSP_FFT::ApplyFFT(UInt32 inNumFrames, Window w)
     
     for (UInt32 i=0; i<mNumChannels; ++i)
     {
-        vDSP_ctoz((DSPComplex*)mChannels[i].mInputData(), 2, mChannels[i].mDSPSplitComplex(), 1, bins);
-        vDSP_fft_zrip(mFFTSetup, mChannels[i].mDSPSplitComplex(), 1, log2FFTSize, FFT_FORWARD);
-        
-        // zero DC
-        *(mChannels[i].mDSPSplitComplex->realp) = 0;
-        *(mChannels[i].mDSPSplitComplex->imagp) = 0;
+        if(mChannels[i].mInputData() != NULL)
+        {
+            vDSP_ctoz((DSPComplex*)mChannels[i].mInputData(), 2, mChannels[i].mDSPSplitComplex(), 1, bins);
+            vDSP_fft_zrip(mFFTSetup, mChannels[i].mDSPSplitComplex(), 1, log2FFTSize, FFT_FORWARD);
+            
+            // zero DC
+            *(mChannels[i].mDSPSplitComplex->realp) = 0;
+            *(mChannels[i].mDSPSplitComplex->imagp) = 0;
+        }
     }
     
     return true;
@@ -114,7 +117,8 @@ void DSP_FFT::ApplyWindow(Window w)
     
     for (UInt32 i = 0; i < mNumChannels; ++i)
     {
-        vDSP_vmul(mChannels[i].mInputData(), 1, mWindowData(), 1, mChannels[i].mInputData(), 1, mFFTSize);
+        if(mChannels[i].mInputData() != NULL)
+            vDSP_vmul(mChannels[i].mInputData(), 1, mWindowData(), 1, mChannels[i].mInputData(), 1, mFFTSize);
     }
 }
 
@@ -175,7 +179,8 @@ void DSP_FFT::ConvertRingBuffer(UInt32 inNumFrames)
     {
         for (UInt32 i = 0; i < mNumChannels; ++i)
         {
-            memcpy(mChannels[i].mInputData(), mChannels[i].mRingBufferData() + mRingBufferPosRead, bytes);
+            if(mChannels[i].mInputData() != NULL)
+                memcpy(mChannels[i].mInputData(), mChannels[i].mRingBufferData() + mRingBufferPosRead, bytes);
         }
     }
     
@@ -190,30 +195,33 @@ bool DSP_FFT::GetMagnitudes(Float32 *result, const Window w, const UInt32 channe
     
     for (UInt32 i=0; i<mNumChannels; ++i)
     {
-        // compute Z magnitude
-        vDSP_zvabs(mChannels[i].mDSPSplitComplex(), 1, mChannels[i].mOutputData(), 1, bins);
-        vDSP_vsdiv(mChannels[i].mOutputData(), 1, &fBins, mChannels[i].mOutputData(), 1, bins);
-        
-        // convert to Db
-        vDSP_vdbcon(mChannels[i].mOutputData(), 1, &one, mChannels[i].mOutputData(), 1, bins, 1);
-        
-        // db correction considering window
-        switch (w)
+        if(mChannels[i].mInputData() != NULL)
         {
-            case Hann:
-                fGainOffset = kHannFactor;
-                break;
-            case Hamming:
-                fGainOffset = kHammingFactor;
-                break;
-            case Blackman:
-                fGainOffset = kBlackmanFactor;
-                break;
-            default:
-                break;
+            // compute Z magnitude
+            vDSP_zvabs(mChannels[i].mDSPSplitComplex(), 1, mChannels[i].mOutputData(), 1, bins);
+            vDSP_vsdiv(mChannels[i].mOutputData(), 1, &fBins, mChannels[i].mOutputData(), 1, bins);
+            
+            // convert to Db
+            vDSP_vdbcon(mChannels[i].mOutputData(), 1, &one, mChannels[i].mOutputData(), 1, bins, 1);
+            
+            // db correction considering window
+            switch (w)
+            {
+                case Hann:
+                    fGainOffset = kHannFactor;
+                    break;
+                case Hamming:
+                    fGainOffset = kHammingFactor;
+                    break;
+                case Blackman:
+                    fGainOffset = kBlackmanFactor;
+                    break;
+                default:
+                    break;
+            }
+            
+            vDSP_vsadd(mChannels[i].mOutputData(), 1, &fGainOffset, mChannels[i].mOutputData(), 1, bins);
         }
-        
-        vDSP_vsadd(mChannels[i].mOutputData(), 1, &fGainOffset, mChannels[i].mOutputData(), 1, bins);
     }
     
     // stereo analysis
@@ -228,9 +236,12 @@ bool DSP_FFT::GetMagnitudes(Float32 *result, const Window w, const UInt32 channe
     // mono analysis
     if (channelSelect <= mNumChannels)
     {
-        memcpy(result, mChannels[channelSelect-1].mOutputData(), bins * sizeof(Float32));
+        if(mChannels[channelSelect - 1].mOutputData() != NULL)
+        {
+            memcpy(result, mChannels[channelSelect-1].mOutputData(), bins * sizeof(Float32));
         
-        return true;
+            return true;
+        }
     }
     
     return false;
