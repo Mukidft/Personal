@@ -87,11 +87,14 @@ private:
     // AUGraph
     AUGraph mGraph;
     AUNode outputNode;
+    AUNode eq1_node;
     AudioUnit output;
-    AudioUnit input;
+    AudioUnit eq1;
     AudioComponentDescription mCompDesc;
     AudioStreamBasicDescription mStreamDesc;
     OSStatus mResult;
+    AudioTimeStamp timeStamp;
+    const Float32 *mSource;
     
     void initializeGraph();
     
