@@ -1,4 +1,6 @@
-/*
+^{
+    <#code#>
+}/*
  
      File: SpectralEQ.cpp
  Abstract: Audio Unit class implementation.
@@ -58,6 +60,161 @@
 
 AUDIOCOMPONENT_ENTRY(AUBaseFactory, SpectralEQ)
 
+
+OSStatus renderInput(void *inRefCon,
+                     AudioUnitRenderActionFlags *ioActionFlags,
+                     const AudioTimeStamp *inTimeStamp,
+                     UInt32 inBusNumber,
+                     UInt32 inNumberFrames,
+                     AudioBufferList *ioData)
+{
+    
+    
+    float *outA = (float*)ioData->mBuffers[0].mData;
+    float *outB = (float*)ioData->mBuffers[1].mData;
+    
+    for(unsigned i = 0; i < inNumberFrames; i++)
+    {
+        float tone = (float)drand48() * 2.0 - 1.0;;
+        outA[i] = tone;
+        outB[i] = tone;
+    }
+    
+    return noErr;
+}
+
+void SpectralEQ::initializeGraph()
+{
+    mResult = noErr;
+    
+    mResult = NewAUGraph(&mGraph);
+    
+    // Store Output Description and add the node
+    mCompDesc = {kAudioUnitType_Output, kAudioUnitSubType_GenericOutput, kAudioUnitManufacturer_Apple, 0, 0};
+    
+    mResult = AUGraphAddNode(mGraph, &mCompDesc, &outputNode);
+    
+    if (mResult)
+    {
+        printf("AUGraphAddNode 1 result %lu %4.4s\n", (unsigned long)mResult, (char*)&mResult);
+        return;
+    }
+    
+    // Route incoming audio to the output
+    mResult = AUGraphConnectNodeInput(mGraph, outputNode, 1, outputNode, 0);
+    
+    if (mResult)
+    {
+        printf("AUGraphAddNode result %d\n", mResult);
+        return;
+    }
+    
+    // Open The Graph
+    mResult = AUGraphOpen(mGraph);
+    
+    if (mResult)
+    {
+        printf("AUGraphOpen result %u %4.4s\n", (unsigned int)mResult, (char*)&mResult);
+        return;
+    }
+    
+    mResult = AUGraphNodeInfo(mGraph, outputNode, NULL, &output);
+    
+    if (mResult) {
+        printf("AUGraphNodeInfo result %u %4.4s\n", (unsigned int)mResult, (char*)&mResult);
+        return;
+    }
+    
+    UInt32 size;
+    
+    AURenderCallbackStruct renderObj;
+    renderObj.inputProc = &renderInput;
+    
+    
+    // White Noise Testing
+    mResult = AudioUnitSetProperty(input,
+     kAudioUnitProperty_SetRenderCallback,
+     kAudioUnitScope_Input,
+     0,
+     &renderObj,
+     sizeof(renderObj) );
+    
+    
+    size = sizeof(mStreamDesc);
+    
+    
+    UInt32 enableIO = 1;
+    
+    mResult = AudioUnitSetProperty(output,
+                                  kAudioOutputUnitProperty_EnableIO,
+                                  kAudioUnitScope_Input,
+                                  1,
+                                  &enableIO,
+                                  sizeof(enableIO) );
+    if (mResult)
+    {
+        printf("EnableIO result %u %4.4s\n", (unsigned int)mResult, (char*)&mResult);
+        return;
+    }
+    
+    mResult = AudioUnitSetProperty(output,
+                                  kAudioOutputUnitProperty_EnableIO,
+                                  kAudioUnitScope_Output,
+                                  0,
+                                  &enableIO,
+                                  sizeof(enableIO) );
+    if (mResult)
+    {
+        printf("EnableIO result %u %4.4s\n", (unsigned int)mResult, (char*)&mResult);
+        return;
+    }
+    
+    mResult = AudioUnitGetProperty(output,
+                                  kAudioUnitProperty_StreamFormat,
+                                  kAudioUnitScope_Input,
+                                  1,
+                                  &mStreamDesc,
+                                  &size );
+    
+    if (mResult)
+    {
+        printf("StreamFormat result %u %4.4s\n", (unsigned int)mResult, (char*)&mResult);
+        return;
+    }
+    
+    mResult = AudioUnitGetProperty(output,
+                                  kAudioUnitProperty_StreamFormat,
+                                  kAudioUnitScope_Output,
+                                  0,
+                                  &mStreamDesc,
+                                  &size );
+    
+    if (mResult)
+    {
+        printf("StreamFormat result %u %4.4s\n", (unsigned int)mResult, (char*)&mResult);
+        return;
+    }
+    
+    mResult = AUGraphInitialize(mGraph);
+    
+    if (mResult)
+    {
+        printf("AUGraphInitialize result %d\n", mResult);
+        return;
+    }
+    
+    CAShow(mGraph);
+    
+    //mResult = AUGraphStart(mGraph);
+    
+    
+    if (mResult)
+    {
+        printf("AUGraphStart result %u %4.4s\n", (unsigned int)mResult, (char*)&mResult);
+        return;
+    }
+}
+
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //	SpectralEQ::SpectralEQ
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -82,6 +239,8 @@ OSStatus SpectralEQ::Initialize()
         mInfos.mNumChannels = GetNumberOfChannels();
         mInfos.mSamplingRate = GetSampleRate();
     }
+    
+    initializeGraph();
     
     return result;
 }
@@ -253,7 +412,15 @@ void SpectralEQ::SpectralEQKernel::Process(	const Float32 	*inSourceP,
 
 	//This code will pass-thru the audio data.
 	//This is where you want to process data to produce an effect.
-	/*
+    AudioBuffer newBuffer;
+    AudioBufferList newList;
+    newList.mNumberBuffers = 1;
+    newList.mBuffers[0].mNumberChannels = 1;
+    newList.mBuffers[0].mDataByteSize = inFramesToProcess * (sizeof(Float32));
+    newList.mBuffers[0].mData = inDestP;
+    
+    //AudioUnitRender(output, 0, const AudioTimeStamp *inTimeStamp, <#UInt32 inOutputBusNumber#>, <#UInt32 inNumberFrames#>, <#AudioBufferList *ioData#>)
+	
 	UInt32 nSampleFrames = inFramesToProcess;
 	const Float32 *sourceP = inSourceP;
 	Float32 *destP = inDestP;
@@ -274,8 +441,6 @@ void SpectralEQ::SpectralEQKernel::Process(	const Float32 	*inSourceP,
 		*destP = outputSample;
 		destP += inNumChannels;
 	}
-     */
-    
 }
 
 OSStatus SpectralEQ::Render(AudioUnitRenderActionFlags & ioActionFlags,

@@ -49,6 +49,14 @@
 #include "DSP_FFT.h"
 #include "SpectralEQDefinitions.h"
 
+// Core Audio
+#import <CoreAudio/CoreAudio.h>
+#import <AudioToolbox/AudioToolbox.h>
+
+// Audio Units
+#import <AudioUnit/AudioUnitParameters.h>
+#import <AudioUnit/AudioUnitProperties.h>
+
 
 #ifndef __SpectralEQ_h__
 #define __SpectralEQ_h__
@@ -71,9 +79,21 @@ enum {
 class SpectralEQ : public AUEffectBase
 {
 private:
+    // FFT
     DSP_FFT mDSP_FFT;
     SpectrumGraphInfo mInfos;
     CAAutoFree<Float32> mComputedMagnitudes;
+    
+    // AUGraph
+    AUGraph mGraph;
+    AUNode outputNode;
+    AudioUnit output;
+    AudioUnit input;
+    AudioComponentDescription mCompDesc;
+    AudioStreamBasicDescription mStreamDesc;
+    OSStatus mResult;
+    
+    void initializeGraph();
     
 public:
     

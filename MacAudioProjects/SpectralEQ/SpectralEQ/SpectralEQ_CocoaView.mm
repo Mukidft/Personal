@@ -147,7 +147,7 @@ NSString *SpectralEQ_GestureSliderMouseUpNotification = @"CAGestureSliderMouseUp
 #pragma mark ____ PRIVATE FUNCTIONS ____
 - (void)addListeners {
     OSStatus result = AUListenerCreate(	ParameterListenerDispatcher, self, 
-                                    CFRunLoopGetCurrent(), kCFRunLoopDefaultMode, 0.100, // 100 ms
+                                    CFRunLoopGetCurrent(), kCFRunLoopCommonModes, 0.100, // 100 ms
                                     &mParameterListener	);
 	NSAssert(result == noErr, @"[SpectralEQ_CocoaView _addListeners] AUListenerCreate()");
 	
@@ -178,7 +178,7 @@ void EventListenerDispatcher(void *inRefCon, void *inObject, const AudioUnitEven
         {
             if(inEvent->mArgument.mProperty.mPropertyID == kAudioUnitProperty_SpectrumGraphData)
             {
-                [self performSelector:@selector(drawSpectrumGraph:) withObject:self afterDelay:1];
+                [self performSelector:@selector(drawSpectrumGraph:) withObject:self afterDelay:0];
             }
         }
     }
@@ -188,7 +188,7 @@ void EventListenerDispatcher(void *inRefCon, void *inObject, const AudioUnitEven
 {
     if(mAU)
     {
-        verify_noerr(AUEventListenerCreate(EventListenerDispatcher, self, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode, 0.05, 0.05, &mAUEventListener));
+        verify_noerr(AUEventListenerCreate(EventListenerDispatcher, self, CFRunLoopGetCurrent(), kCFRunLoopCommonModes, 0.05, 0.05, &mAUEventListener));
         
         AudioUnitEvent auEvent;
         auEvent.mEventType = kAudioUnitEvent_PropertyChange;

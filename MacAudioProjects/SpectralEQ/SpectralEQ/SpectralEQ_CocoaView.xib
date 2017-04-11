@@ -40,7 +40,7 @@
                 <slider verticalHuggingPriority="750" id="23" customClass="SpectralEQ_GestureSlider">
                     <rect key="frame" x="368" y="44" width="133" height="26"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <sliderCell key="cell" alignment="left" maxValue="1" doubleValue="0.5" tickMarkPosition="above" numberOfTickMarks="1" sliderType="linear" id="100023">
+                    <sliderCell key="cell" continuous="YES" alignment="left" maxValue="1" doubleValue="0.5" tickMarkPosition="above" numberOfTickMarks="1" sliderType="linear" id="100023">
                         <font key="font" size="12" name="Helvetica"/>
                     </sliderCell>
                     <connections>
