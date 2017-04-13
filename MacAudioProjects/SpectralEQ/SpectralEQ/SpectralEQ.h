@@ -67,12 +67,19 @@
 // parameters
 static const float kDefaultValue_ParamOne = 0.5;
 
+static const float kDefaultValue_Param_EQ1_F = 0.5;
+static const float kDefaultValue_Param_EQ1_Q = 0.5;
+static const float kDefaultValue_Param_EQ1_G = 0.5;
+
 static CFStringRef kParameterOneName = CFSTR("Parameter One");
 
 enum {
     kParam_One =0,
     //Add your parameters here...
-    kNumberOfParameters=1
+    kParam_EQ1_F =1,
+    kParam_EQ1_Q =2,
+    kParam_EQ1_G =3,
+    kNumberOfParameters=4
 };
 
 #pragma mark ____SpectralEQ

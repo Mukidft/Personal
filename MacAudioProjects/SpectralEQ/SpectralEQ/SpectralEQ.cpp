@@ -154,7 +154,7 @@ void SpectralEQ::initializeGraph()
     
     
     
-    UInt32 size;
+    UInt32 size, eqsize;
     
     AURenderCallbackStruct renderObj;
     renderObj.inputProc = &renderInput;
@@ -176,13 +176,29 @@ void SpectralEQ::initializeGraph()
     }
     
     size = sizeof(mStreamDesc);
+    eqsize = sizeof(eqStreamDesc);
     
     mResult = AudioUnitGetProperty(eq1,
                                    kAudioUnitProperty_StreamFormat,
                                    kAudioUnitScope_Input,
                                    0,
                                    &eqStreamDesc,
-                                   &size );
+                                   &eqsize );
+    
+    if (mResult)
+    {
+        printf("StreamFormat result %u %4.4s\n", (unsigned int)mResult, (char*)&mResult);
+        return;
+    }
+    
+    eqStreamDesc.mChannelsPerFrame  = 1;
+    
+    mResult = AudioUnitSetProperty(eq1,
+                                   kAudioUnitProperty_StreamFormat,
+                                   kAudioUnitScope_Input,
+                                   0,
+                                   &eqStreamDesc,
+                                   eqsize );
     
     if (mResult)
     {
@@ -196,6 +212,23 @@ void SpectralEQ::initializeGraph()
                                   0,
                                   &mStreamDesc,
                                   &size );
+    
+    
+    if (mResult)
+    {
+        printf("StreamFormat result %u %4.4s\n", (unsigned int)mResult, (char*)&mResult);
+        return;
+    }
+    
+    mStreamDesc.mChannelsPerFrame = 1;
+    
+    mResult = AudioUnitSetProperty(output,
+                                   kAudioUnitProperty_StreamFormat,
+                                   kAudioUnitScope_Input,
+                                   0,
+                                   &mStreamDesc,
+                                   size );
+    
     
     if (mResult)
     {
@@ -216,6 +249,21 @@ void SpectralEQ::initializeGraph()
         return;
     }
     
+    mStreamDesc.mChannelsPerFrame = 1;
+    
+    mResult = AudioUnitSetProperty(output,
+                                   kAudioUnitProperty_StreamFormat,
+                                   kAudioUnitScope_Output,
+                                   0,
+                                   &mStreamDesc,
+                                   size );
+    
+    if (mResult)
+    {
+        printf("StreamFormat result %u %4.4s\n", (unsigned int)mResult, (char*)&mResult);
+        return;
+    }
+    
     mResult = AUGraphInitialize(mGraph);
     
     if (mResult)
@@ -226,7 +274,7 @@ void SpectralEQ::initializeGraph()
     
     CAShow(mGraph);
     
-    //mResult = AUGraphStart(mGraph);
+    mResult = AUGraphStart(mGraph);
     
     
     if (mResult)
@@ -441,13 +489,20 @@ void SpectralEQ::SpectralEQKernel::Process(	const Float32 	*inSourceP,
     
     ((SpectralEQ*)mAudioUnit)->mSource = inSourceP;
     
-    AudioUnitRender(((SpectralEQ*)mAudioUnit)->output, 0, &((SpectralEQ*)mAudioUnit)->timeStamp, 0, inFramesToProcess, &newList);
 	
+    OSStatus result = AudioUnitRender(((SpectralEQ*)mAudioUnit)->output, 0, &((SpectralEQ*)mAudioUnit)->timeStamp, 0, inFramesToProcess, &newList);
+    
+    if (result) {
+        printf("AudioUnitRender result %u %4.4s\n", (unsigned int)result, (char*)&result);
+        return;
+    }
+    
 	UInt32 nSampleFrames = inFramesToProcess;
 	const Float32 *sourceP = inSourceP;
 	Float32 *destP = inDestP;
     Float32 gain = GetParameter( kParam_One );
-		
+	
+    /*
 	while (nSampleFrames-- > 0) {
 		Float32 inputSample = *sourceP;
 		
@@ -463,6 +518,32 @@ void SpectralEQ::SpectralEQKernel::Process(	const Float32 	*inSourceP,
 		*destP = outputSample;
 		destP += inNumChannels;
 	}
+     */
+    
+    /*
+    ((SpectralEQ*)mAudioUnit)->mDSP_FFT.CopyInputToRingBuffer(inFramesToProcess, &newList);
+    
+    // TEMP
+    UInt32 currentBlockSize = 1024;
+    
+    // TEMP
+    DSP_FFT::Window currentWindow = DSP_FFT::Window::Blackman;
+    
+    
+    if(((SpectralEQ*)mAudioUnit)->mDSP_FFT.ApplyFFT(currentBlockSize, currentWindow))
+    {
+        ((SpectralEQ*)mAudioUnit)->mInfos.mNumBins = currentBlockSize >> 1;
+        
+        // TEMP
+        UInt32 channelSelect = 1;
+        
+        if(((SpectralEQ*)mAudioUnit)->mDSP_FFT.GetMagnitudes(((SpectralEQ*)mAudioUnit)->mComputedMagnitudes, currentWindow, channelSelect))
+        {
+            ((SpectralEQ*)mAudioUnit)->PropertyChanged(kAudioUnitProperty_SpectrumGraphData, kAudioUnitScope_Global, 0);
+        }
+    }
+     */
+
 }
 
 OSStatus SpectralEQ::Render(AudioUnitRenderActionFlags & ioActionFlags,
@@ -471,6 +552,8 @@ OSStatus SpectralEQ::Render(AudioUnitRenderActionFlags & ioActionFlags,
 {
     
     timeStamp = inTimeStamp;
+    
+    
     UInt32 actionFlags = 0;
     OSStatus err = PullInput(0, actionFlags, inTimeStamp, inFramesToProcess);
     
@@ -506,6 +589,7 @@ OSStatus SpectralEQ::Render(AudioUnitRenderActionFlags & ioActionFlags,
             PropertyChanged(kAudioUnitProperty_SpectrumGraphData, kAudioUnitScope_Global, 0);
         }
     }
+     
     
     return AUEffectBase::Render(ioActionFlags, inTimeStamp, inFramesToProcess);
     
