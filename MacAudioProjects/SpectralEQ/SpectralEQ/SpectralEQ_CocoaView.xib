@@ -57,42 +57,42 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="01M-bD-wMC" userLabel="Label_Frequency">
+                    <rect key="frame" x="8" y="146" width="91" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Frequency" id="fE6-TY-Kbf">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" white="0.352783203125" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="j2x-t5-c8i" userLabel="Label_Q">
+                    <rect key="frame" x="8" y="98" width="91" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Q" id="BnC-8Y-AbP">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" white="0.3527832031" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="JUk-ji-pux" userLabel="Label_Gain">
+                    <rect key="frame" x="8" y="52" width="91" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Gain" id="AMb-Th-dAi">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" white="0.3527832031" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </textFieldCell>
+                </textField>
                 <box autoresizesSubviews="NO" title="EQ 1" borderType="line" id="rDU-ta-qbl">
-                    <rect key="frame" x="17" y="29" width="177" height="147"/>
+                    <rect key="frame" x="86" y="33" width="105" height="155"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <view key="contentView">
-                        <rect key="frame" x="1" y="1" width="175" height="131"/>
+                        <rect key="frame" x="1" y="1" width="103" height="139"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="01M-bD-wMC" userLabel="Label_Frequency">
-                                <rect key="frame" x="42" y="67" width="91" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Frequency" id="fE6-TY-Kbf">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" white="0.352783203125" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="j2x-t5-c8i" userLabel="Label_Q">
-                                <rect key="frame" x="-15" y="9" width="91" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Q" id="BnC-8Y-AbP">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" white="0.3527832031" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="JUk-ji-pux" userLabel="Label_Gain">
-                                <rect key="frame" x="100" y="8" width="91" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Gain" id="AMb-Th-dAi">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" white="0.3527832031" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </textFieldCell>
-                            </textField>
                             <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" id="jsX-6V-Svc" userLabel="Knob_Frequency">
-                                <rect key="frame" x="73" y="79" width="28" height="30"/>
+                                <rect key="frame" x="8" y="102" width="28" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <sliderCell key="cell" continuous="YES" alignment="left" minValue="20" maxValue="4000" doubleValue="2000" tickMarkPosition="above" allowsTickMarkValuesOnly="YES" sliderType="circular" id="L7m-j1-1eY"/>
                                 <connections>
@@ -100,7 +100,7 @@
                                 </connections>
                             </slider>
                             <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" id="v1I-VL-PNM" userLabel="Knob_Q">
-                                <rect key="frame" x="16" y="26" width="28" height="30"/>
+                                <rect key="frame" x="8" y="56" width="28" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <sliderCell key="cell" continuous="YES" alignment="left" minValue="0.10000000000000001" maxValue="20" doubleValue="1" tickMarkPosition="above" allowsTickMarkValuesOnly="YES" sliderType="circular" id="kkG-ZG-nBV"/>
                                 <connections>
@@ -108,13 +108,40 @@
                                 </connections>
                             </slider>
                             <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" id="fgr-ag-fhB" userLabel="Knob_Gain">
-                                <rect key="frame" x="131" y="22" width="28" height="30"/>
+                                <rect key="frame" x="8" y="11" width="28" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <sliderCell key="cell" continuous="YES" alignment="left" minValue="-20" maxValue="20" tickMarkPosition="above" allowsTickMarkValuesOnly="YES" sliderType="circular" id="5uV-ue-o9D"/>
                                 <connections>
                                     <action selector="iaParam_eq1_g_Changed:" target="22" id="ja9-AK-dy8"/>
                                 </connections>
                             </slider>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="U3e-MR-fVM">
+                                <rect key="frame" x="45" y="109" width="38" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="PCu-R4-DXm">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="E80-Hy-vkA">
+                                <rect key="frame" x="45" y="63" width="38" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="yzz-CE-AbU">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="0aM-MN-H1L">
+                                <rect key="frame" x="45" y="18" width="38" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="NRz-sa-6od">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <color key="borderColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -126,8 +153,11 @@
                 <outlet property="uiParam1Slider" destination="23" id="27"/>
                 <outlet property="uiParam1TextField" destination="dAi-AM-np3" id="uZa-lL-1qw"/>
                 <outlet property="uiParam_eq1_f" destination="jsX-6V-Svc" id="SpD-C0-hlY"/>
+                <outlet property="uiParam_eq1_f_Label" destination="U3e-MR-fVM" id="tZS-6Y-IcS"/>
                 <outlet property="uiParam_eq1_g" destination="fgr-ag-fhB" id="EE2-eh-tVB"/>
+                <outlet property="uiParam_eq1_g_Label" destination="0aM-MN-H1L" id="Qa5-ik-7oc"/>
                 <outlet property="uiParam_eq1_q" destination="v1I-VL-PNM" id="0FD-0c-rHz"/>
+                <outlet property="uiParam_eq1_q_Label" destination="E80-Hy-vkA" id="8rG-d0-jfx"/>
             </connections>
             <point key="canvasLocation" x="818.5" y="690.5"/>
         </customView>
