@@ -523,9 +523,29 @@ void SpectralEQ::SpectralEQKernel::Process(	const Float32 	*inSourceP,
 	Float32 *destP = inDestP;
     Float32 gain = GetParameter( kParam_One );
     
-    Float32 frequency = GetParameter( kParam_EQ1_G );
-    std::cout << frequency << std::endl;
-	
+    result = AudioUnitSetParameter(((SpectralEQ*)mAudioUnit)->eq1, kParametricEQParam_CenterFreq, kAudioUnitScope_Global, 0, GetParameter(kParam_EQ1_F), 0);
+    
+    if (result)
+    {
+        printf("AudioUnitSetParameter result %u %4.4s\n", (unsigned int)result, (char*)&result);
+        return;
+    }
+    
+    result = AudioUnitSetParameter(((SpectralEQ*)mAudioUnit)->eq1, kParametricEQParam_Q, kAudioUnitScope_Global, 0, GetParameter(kParam_EQ1_Q), 0);
+    
+    if (result)
+    {
+        printf("AudioUnitSetParameter result %u %4.4s\n", (unsigned int)result, (char*)&result);
+        return;
+    }
+    
+    result = AudioUnitSetParameter(((SpectralEQ*)mAudioUnit)->eq1, kParametricEQParam_Gain, kAudioUnitScope_Global, 0, GetParameter(kParam_EQ1_G), 0);
+    
+    if (result)
+    {
+        printf("AudioUnitSetParameter result %u %4.4s\n", (unsigned int)result, (char*)&result);
+        return;
+    }
     
 	while (nSampleFrames-- > 0) {
 		Float32 inputSample = *sourceP;
