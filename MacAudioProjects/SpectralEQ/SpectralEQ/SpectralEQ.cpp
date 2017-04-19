@@ -67,17 +67,9 @@ OSStatus renderInput(void *inRefCon,
                      AudioBufferList *ioData)
 {
     
+    SpectralEQ *This = (SpectralEQ *)inRefCon;
     
-    float *outA = (float*)ioData->mBuffers[0].mData;
-    float *outB = (float*)ioData->mBuffers[1].mData;
-    
-    for(unsigned i = 0; i < inNumberFrames; i++)
-    {
-        float tone = (float)drand48() * 2.0 - 1.0;;
-        outA[i] = tone;
-        outB[i] = tone;
-    }
-    
+    memcpy((float*)ioData->mBuffers[0].mData, This->mSource, ioData->mBuffers[0].mDataByteSize);
     
     return noErr;
 }
@@ -178,6 +170,7 @@ void SpectralEQ::initializeGraph()
     size = sizeof(mStreamDesc);
     eqsize = sizeof(eqStreamDesc);
     
+    // INPUT SCOPE EQ
     mResult = AudioUnitGetProperty(eq1,
                                    kAudioUnitProperty_StreamFormat,
                                    kAudioUnitScope_Input,
@@ -206,62 +199,69 @@ void SpectralEQ::initializeGraph()
         return;
     }
     
-    mResult = AudioUnitGetProperty(output,
-                                  kAudioUnitProperty_StreamFormat,
-                                  kAudioUnitScope_Input,
-                                  0,
-                                  &mStreamDesc,
-                                  &size );
-    
-    
-    if (mResult)
-    {
-        printf("StreamFormat result %u %4.4s\n", (unsigned int)mResult, (char*)&mResult);
-        return;
-    }
-    
-    mStreamDesc.mChannelsPerFrame = 1;
-    
-    mResult = AudioUnitSetProperty(output,
-                                   kAudioUnitProperty_StreamFormat,
-                                   kAudioUnitScope_Input,
-                                   0,
-                                   &mStreamDesc,
-                                   size );
-    
-    
-    if (mResult)
-    {
-        printf("StreamFormat result %u %4.4s\n", (unsigned int)mResult, (char*)&mResult);
-        return;
-    }
-    
-    mResult = AudioUnitGetProperty(output,
-                                  kAudioUnitProperty_StreamFormat,
-                                  kAudioUnitScope_Output,
-                                  0,
-                                  &mStreamDesc,
-                                  &size );
-    
-    if (mResult)
-    {
-        printf("StreamFormat result %u %4.4s\n", (unsigned int)mResult, (char*)&mResult);
-        return;
-    }
-    
-    mStreamDesc.mChannelsPerFrame = 1;
-    
-    mResult = AudioUnitSetProperty(output,
+    // OUTPUT SCOPE EQ
+    mResult = AudioUnitGetProperty(eq1,
                                    kAudioUnitProperty_StreamFormat,
                                    kAudioUnitScope_Output,
                                    0,
-                                   &mStreamDesc,
-                                   size );
+                                   &eqStreamDesc,
+                                   &eqsize );
     
     if (mResult)
     {
         printf("StreamFormat result %u %4.4s\n", (unsigned int)mResult, (char*)&mResult);
         return;
+    }
+    
+    eqStreamDesc.mChannelsPerFrame  = 1;
+    
+    mResult = AudioUnitSetProperty(eq1,
+                                   kAudioUnitProperty_StreamFormat,
+                                   kAudioUnitScope_Output,
+                                   0,
+                                   &eqStreamDesc,
+                                   eqsize );
+    
+    if (mResult)
+    {
+        printf("StreamFormat result %u %4.4s\n", (unsigned int)mResult, (char*)&mResult);
+        return;
+    }
+    
+    
+    Boolean test;
+    
+    AudioUnitGetPropertyInfo(output, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, 0, &size, &test);
+    
+    if(test)
+    {
+        mResult = AudioUnitGetProperty(output,
+                                       kAudioUnitProperty_StreamFormat,
+                                       kAudioUnitScope_Output,
+                                       0,
+                                       &mStreamDesc,
+                                       &size );
+        
+        if (mResult)
+        {
+            printf("StreamFormat result %u %4.4s\n", (unsigned int)mResult, (char*)&mResult);
+            return;
+        }
+        
+        mStreamDesc.mChannelsPerFrame = 1;
+        
+        mResult = AudioUnitSetProperty(output,
+                                       kAudioUnitProperty_StreamFormat,
+                                       kAudioUnitScope_Output,
+                                       0,
+                                       &mStreamDesc,
+                                       size );
+        
+        if (mResult)
+        {
+            printf("StreamFormat result %u %4.4s\n", (unsigned int)mResult, (char*)&mResult);
+            return;
+        }
     }
     
     mResult = AUGraphInitialize(mGraph);
@@ -348,6 +348,27 @@ OSStatus			SpectralEQ::GetParameterInfo(AudioUnitScope		inScope,
                 outParameterInfo.minValue = 0.0;
                 outParameterInfo.maxValue = 1;
                 outParameterInfo.defaultValue = kDefaultValue_ParamOne;
+                break;
+            case kParam_EQ1_F:
+                AUBase::FillInParameterName (outParameterInfo, kParameter_EQ1_F_Name, false);
+                outParameterInfo.unit = kAudioUnitParameterUnit_LinearGain;
+                outParameterInfo.minValue = 20;
+                outParameterInfo.maxValue = 20000;
+                outParameterInfo.defaultValue = kDefaultValue_Param_EQ1_F;
+                break;
+            case kParam_EQ1_Q:
+                AUBase::FillInParameterName (outParameterInfo, kParameter_EQ1_Q_Name, false);
+                outParameterInfo.unit = kAudioUnitParameterUnit_LinearGain;
+                outParameterInfo.minValue = 0.1;
+                outParameterInfo.maxValue = 20;
+                outParameterInfo.defaultValue = kDefaultValue_Param_EQ1_Q;
+                break;
+            case kParam_EQ1_G:
+                AUBase::FillInParameterName (outParameterInfo, kParameter_EQ1_G_Name, false);
+                outParameterInfo.unit = kAudioUnitParameterUnit_LinearGain;
+                outParameterInfo.minValue = -20;
+                outParameterInfo.maxValue = 20;
+                outParameterInfo.defaultValue = kDefaultValue_Param_EQ1_G;
                 break;
             default:
                 result = kAudioUnitErr_InvalidParameter;
@@ -502,7 +523,7 @@ void SpectralEQ::SpectralEQKernel::Process(	const Float32 	*inSourceP,
 	Float32 *destP = inDestP;
     Float32 gain = GetParameter( kParam_One );
 	
-    /*
+    
 	while (nSampleFrames-- > 0) {
 		Float32 inputSample = *sourceP;
 		
@@ -518,7 +539,7 @@ void SpectralEQ::SpectralEQKernel::Process(	const Float32 	*inSourceP,
 		*destP = outputSample;
 		destP += inNumChannels;
 	}
-     */
+    
     
     /*
     ((SpectralEQ*)mAudioUnit)->mDSP_FFT.CopyInputToRingBuffer(inFramesToProcess, &newList);

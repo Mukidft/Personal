@@ -50,8 +50,11 @@
 #import "SpectralEQ_CocoaView.h"
 
 enum {
-	kParam_One =0,
-	kNumberOfParameters=1
+    kParam_One =0,
+    kParam_EQ1_F =1,
+    kParam_EQ1_Q =2,
+    kParam_EQ1_G =3,
+	kNumberOfParameters=4
 };
 
 #pragma mark ____ LISTENER CALLBACK DISPATCHER ____
@@ -94,7 +97,22 @@ NSString *SpectralEQ_GestureSliderMouseUpNotification = @"CAGestureSliderMouseUp
    	mParameter[0].mAudioUnit = inAU;
 	mParameter[0].mParameterID = kParam_One;
 	mParameter[0].mScope = kAudioUnitScope_Global;
-	mParameter[0].mElement = 0;	
+	mParameter[0].mElement = 0;
+    
+    mParameter[1].mAudioUnit = inAU;
+    mParameter[1].mParameterID = kParam_EQ1_F;
+    mParameter[1].mScope = kAudioUnitScope_Global;
+    mParameter[1].mElement = 0;
+    
+    mParameter[2].mAudioUnit = inAU;
+    mParameter[2].mParameterID = kParam_EQ1_Q;
+    mParameter[2].mScope = kAudioUnitScope_Global;
+    mParameter[2].mElement = 0;
+    
+    mParameter[3].mAudioUnit = inAU;
+    mParameter[3].mParameterID = kParam_EQ1_G;
+    mParameter[3].mScope = kAudioUnitScope_Global;
+    mParameter[3].mElement = 0;
 
 	// add new listeners
 	[self addListeners];
@@ -115,6 +133,49 @@ NSString *SpectralEQ_GestureSliderMouseUpNotification = @"CAGestureSliderMouseUp
         [uiParam1TextField setFloatValue:floatValue];
     } else {
         [uiParam1Slider setFloatValue:floatValue];
+    }
+}
+
+
+- (IBAction)iaParam_eq1_f_Changed:(id)sender
+{
+    float floatValue = [sender floatValue];
+    
+    OSStatus result = AUParameterSet(mParameterListener, sender, &mParameter[1], (Float32)floatValue, 0);
+    NSAssert(result == noErr, @"[SpectralEQ_CocoaView iaParam_eq1_f_Changed:] AUParameterSet()");
+    
+    if (sender == uiParam_eq1_f) {
+        [uiParam_eq1_f_Label setFloatValue:floatValue];
+    } else {
+        [uiParam_eq1_f setFloatValue:floatValue];
+    }
+}
+
+- (IBAction)iaParam_eq1_q_Changed:(id)sender
+{
+    float floatValue = [sender floatValue];
+    
+    OSStatus result = AUParameterSet(mParameterListener, sender, &mParameter[2], (Float32)floatValue, 0);
+    NSAssert(result == noErr, @"[SpectralEQ_CocoaView iaParam_eq1_q_Changed:] AUParameterSet()");
+    
+    if (sender == uiParam_eq1_q) {
+        [uiParam_eq1_q_Label setFloatValue:floatValue];
+    } else {
+        [uiParam_eq1_q setFloatValue:floatValue];
+    }
+}
+
+- (IBAction)iaParam_eq1_g_Changed:(id)sender
+{
+    float floatValue = [sender floatValue];
+    
+    OSStatus result = AUParameterSet(mParameterListener, sender, &mParameter[3], (Float32)floatValue, 0);
+    NSAssert(result == noErr, @"[SpectralEQ_CocoaView iaParam_eq1_g_Changed:] AUParameterSet()");
+    
+    if (sender == uiParam_eq1_g) {
+        [uiParam_eq1_g_Label setFloatValue:floatValue];
+    } else {
+        [uiParam_eq1_g setFloatValue:floatValue];
     }
 }
 
@@ -250,6 +311,18 @@ void EventListenerDispatcher(void *inRefCon, void *inObject, const AudioUnitEven
                     [uiParam1Slider setFloatValue:inValue];
                     [uiParam1TextField setStringValue:[[NSNumber numberWithFloat:inValue] stringValue]];
                     break;
+        case kParam_EQ1_F:
+            [uiParam_eq1_f setFloatValue:inValue];
+            [uiParam_eq1_f_Label setStringValue:[[NSNumber numberWithFloat:inValue] stringValue]];
+            break;
+        case kParam_EQ1_Q:
+            [uiParam_eq1_q setFloatValue:inValue];
+            [uiParam_eq1_q_Label setStringValue:[[NSNumber numberWithFloat:inValue] stringValue]];
+            break;
+        case kParam_EQ1_G:
+            [uiParam_eq1_g setFloatValue:inValue];
+            [uiParam_eq1_g_Label setStringValue:[[NSNumber numberWithFloat:inValue] stringValue]];
+            break;
 	}
 }
 

@@ -67,14 +67,25 @@
 
 @interface SpectralEQ_CocoaView : NSView
 {
-    // IB Members
-    IBOutlet SpectralEQ_GestureSlider * uiParam1Slider;
     IBOutlet UI_GraphView * graphView;
+    
+    // IB Members
+    IBOutlet NSSlider * uiParam1Slider;
     IBOutlet NSTextField *			uiParam1TextField;
+    
+    // EQ1
+    IBOutlet NSSlider * uiParam_eq1_f;
+    IBOutlet NSSlider * uiParam_eq1_q;
+    IBOutlet NSSlider * uiParam_eq1_g;
+    
+    
+    IBOutlet NSTextField * uiParam_eq1_f_Label;
+    IBOutlet NSTextField * uiParam_eq1_q_Label;
+    IBOutlet NSTextField * uiParam_eq1_g_Label;
 	
     // Other Members
     AudioUnit 				mAU;
-	AudioUnitParameter		mParameter[1];
+	AudioUnitParameter		mParameter[4];
     AUParameterListenerRef	mParameterListener;
     AUEventListenerRef      mAUEventListener;
 }
@@ -84,6 +95,9 @@
 
 #pragma mark ____ INTERFACE ACTIONS ____
 - (IBAction)iaParam1Changed:(id)sender;
+- (IBAction)iaParam_eq1_f_Changed:(id)sender;
+- (IBAction)iaParam_eq1_q_Changed:(id)sender;
+- (IBAction)iaParam_eq1_g_Changed:(id)sender;
 
 #pragma mark ____ PRIVATE FUNCTIONS
 - (void)synchronizeUIWithParameterValues;

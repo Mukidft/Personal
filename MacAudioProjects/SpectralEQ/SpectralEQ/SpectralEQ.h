@@ -67,11 +67,15 @@
 // parameters
 static const float kDefaultValue_ParamOne = 0.5;
 
-static const float kDefaultValue_Param_EQ1_F = 0.5;
-static const float kDefaultValue_Param_EQ1_Q = 0.5;
-static const float kDefaultValue_Param_EQ1_G = 0.5;
+static const float kDefaultValue_Param_EQ1_F = 2000;
+static const float kDefaultValue_Param_EQ1_Q = 0;
+static const float kDefaultValue_Param_EQ1_G = 10;
 
 static CFStringRef kParameterOneName = CFSTR("Parameter One");
+
+static CFStringRef kParameter_EQ1_F_Name = CFSTR("Param_EQ1_F");
+static CFStringRef kParameter_EQ1_Q_Name = CFSTR("Param_EQ1_Q");
+static CFStringRef kParameter_EQ1_G_Name = CFSTR("Param_EQ1_G");
 
 enum {
     kParam_One =0,
@@ -95,17 +99,18 @@ private:
     AUGraph mGraph;
     AUNode outputNode;
     AUNode eq1_node;
-    AudioUnit output;
-    AudioUnit eq1;
     AudioComponentDescription mCompDesc;
     AudioStreamBasicDescription mStreamDesc;
     OSStatus mResult;
     AudioTimeStamp timeStamp;
-    const Float32 *mSource;
     
     void initializeGraph();
     
-public:
+public:    
+    
+    AudioUnit output;
+    AudioUnit eq1;    
+    const Float32 *mSource;
     
     virtual OSStatus Initialize();
     
