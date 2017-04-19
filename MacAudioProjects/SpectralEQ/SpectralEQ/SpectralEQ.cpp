@@ -353,7 +353,7 @@ OSStatus			SpectralEQ::GetParameterInfo(AudioUnitScope		inScope,
                 AUBase::FillInParameterName (outParameterInfo, kParameter_EQ1_F_Name, false);
                 outParameterInfo.unit = kAudioUnitParameterUnit_LinearGain;
                 outParameterInfo.minValue = 20;
-                outParameterInfo.maxValue = 20000;
+                outParameterInfo.maxValue = 4000;
                 outParameterInfo.defaultValue = kDefaultValue_Param_EQ1_F;
                 break;
             case kParam_EQ1_Q:
@@ -522,6 +522,9 @@ void SpectralEQ::SpectralEQKernel::Process(	const Float32 	*inSourceP,
 	const Float32 *sourceP = inSourceP;
 	Float32 *destP = inDestP;
     Float32 gain = GetParameter( kParam_One );
+    
+    Float32 frequency = GetParameter( kParam_EQ1_G );
+    std::cout << frequency << std::endl;
 	
     
 	while (nSampleFrames-- > 0) {
@@ -539,32 +542,6 @@ void SpectralEQ::SpectralEQKernel::Process(	const Float32 	*inSourceP,
 		*destP = outputSample;
 		destP += inNumChannels;
 	}
-    
-    
-    /*
-    ((SpectralEQ*)mAudioUnit)->mDSP_FFT.CopyInputToRingBuffer(inFramesToProcess, &newList);
-    
-    // TEMP
-    UInt32 currentBlockSize = 1024;
-    
-    // TEMP
-    DSP_FFT::Window currentWindow = DSP_FFT::Window::Blackman;
-    
-    
-    if(((SpectralEQ*)mAudioUnit)->mDSP_FFT.ApplyFFT(currentBlockSize, currentWindow))
-    {
-        ((SpectralEQ*)mAudioUnit)->mInfos.mNumBins = currentBlockSize >> 1;
-        
-        // TEMP
-        UInt32 channelSelect = 1;
-        
-        if(((SpectralEQ*)mAudioUnit)->mDSP_FFT.GetMagnitudes(((SpectralEQ*)mAudioUnit)->mComputedMagnitudes, currentWindow, channelSelect))
-        {
-            ((SpectralEQ*)mAudioUnit)->PropertyChanged(kAudioUnitProperty_SpectrumGraphData, kAudioUnitScope_Global, 0);
-        }
-    }
-     */
-
 }
 
 OSStatus SpectralEQ::Render(AudioUnitRenderActionFlags & ioActionFlags,

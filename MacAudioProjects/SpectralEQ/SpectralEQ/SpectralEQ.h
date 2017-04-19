@@ -68,8 +68,8 @@
 static const float kDefaultValue_ParamOne = 0.5;
 
 static const float kDefaultValue_Param_EQ1_F = 2000;
-static const float kDefaultValue_Param_EQ1_Q = 0;
-static const float kDefaultValue_Param_EQ1_G = 10;
+static const float kDefaultValue_Param_EQ1_Q = 1.0;
+static const float kDefaultValue_Param_EQ1_G = 0;
 
 static CFStringRef kParameterOneName = CFSTR("Parameter One");
 
