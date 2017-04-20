@@ -64,32 +64,103 @@
 
 #pragma mark ____SpectralEQ Parameters
 
+#define EQBANDS 6
+
 // parameters
 static const float kDefaultValue_ParamOne = 0.5;
-
-static const float kDefaultValue_Param_EQ1_F = 2000;
-static const float kDefaultValue_Param_EQ1_Q = 1.0;
-static const float kDefaultValue_Param_EQ1_G = 0;
-
 static CFStringRef kParameterOneName = CFSTR("Parameter One");
 
+// EQ 1
+static const float kDefaultValue_Param_EQ1_F = 3333;
+static const float kDefaultValue_Param_EQ1_Q = 1.0;
+static const float kDefaultValue_Param_EQ1_G = 0;
 static CFStringRef kParameter_EQ1_F_Name = CFSTR("Param_EQ1_F");
 static CFStringRef kParameter_EQ1_Q_Name = CFSTR("Param_EQ1_Q");
 static CFStringRef kParameter_EQ1_G_Name = CFSTR("Param_EQ1_G");
 
+// EQ 2
+static const float kDefaultValue_Param_EQ2_F = 6666;
+static const float kDefaultValue_Param_EQ2_Q = 1.0;
+static const float kDefaultValue_Param_EQ2_G = 0;
+static CFStringRef kParameter_EQ2_F_Name = CFSTR("Param_EQ2_F");
+static CFStringRef kParameter_EQ2_Q_Name = CFSTR("Param_EQ2_Q");
+static CFStringRef kParameter_EQ2_G_Name = CFSTR("Param_EQ2_G");
+
+// EQ 3
+static const float kDefaultValue_Param_EQ3_F = 10000;
+static const float kDefaultValue_Param_EQ3_Q = 1.0;
+static const float kDefaultValue_Param_EQ3_G = 0;
+static CFStringRef kParameter_EQ3_F_Name = CFSTR("Param_EQ3_F");
+static CFStringRef kParameter_EQ3_Q_Name = CFSTR("Param_EQ3_Q");
+static CFStringRef kParameter_EQ3_G_Name = CFSTR("Param_EQ3_G");
+
+// EQ 4
+static const float kDefaultValue_Param_EQ4_F = 13333;
+static const float kDefaultValue_Param_EQ4_Q = 1.0;
+static const float kDefaultValue_Param_EQ4_G = 0;
+static CFStringRef kParameter_EQ4_F_Name = CFSTR("Param_EQ4_F");
+static CFStringRef kParameter_EQ4_Q_Name = CFSTR("Param_EQ4_Q");
+static CFStringRef kParameter_EQ4_G_Name = CFSTR("Param_EQ4_G");
+
+// EQ 5
+static const float kDefaultValue_Param_EQ5_F = 16666;
+static const float kDefaultValue_Param_EQ5_Q = 1.0;
+static const float kDefaultValue_Param_EQ5_G = 0;
+static CFStringRef kParameter_EQ5_F_Name = CFSTR("Param_EQ5_F");
+static CFStringRef kParameter_EQ5_Q_Name = CFSTR("Param_EQ5_Q");
+static CFStringRef kParameter_EQ5_G_Name = CFSTR("Param_EQ5_G");
+
+// EQ 6
+static const float kDefaultValue_Param_EQ6_F = 20000;
+static const float kDefaultValue_Param_EQ6_Q = 1.0;
+static const float kDefaultValue_Param_EQ6_G = 0;
+static CFStringRef kParameter_EQ6_F_Name = CFSTR("Param_EQ6_F");
+static CFStringRef kParameter_EQ6_Q_Name = CFSTR("Param_EQ6_Q");
+static CFStringRef kParameter_EQ6_G_Name = CFSTR("Param_EQ6_G");
+
 enum {
     kParam_One =0,
-    //Add your parameters here...
     kParam_EQ1_F =1,
     kParam_EQ1_Q =2,
     kParam_EQ1_G =3,
-    kNumberOfParameters=4
+    kParam_EQ2_F =4,
+    kParam_EQ2_Q =5,
+    kParam_EQ2_G =6,
+    kParam_EQ3_F =7,
+    kParam_EQ3_Q =8,
+    kParam_EQ3_G =9,
+    kParam_EQ4_F =10,
+    kParam_EQ4_Q =11,
+    kParam_EQ4_G =12,
+    kParam_EQ5_F =13,
+    kParam_EQ5_Q =14,
+    kParam_EQ5_G =15,
+    kParam_EQ6_F =16,
+    kParam_EQ6_Q =17,
+    kParam_EQ6_G =18,
+    kNumberOfParameters=19
 };
 
 #pragma mark ____SpectralEQ
 class SpectralEQ : public AUEffectBase
 {
 private:
+    
+    // Error Checking
+    enum ErrorType
+    {
+        NewGraph,
+        GraphOpen,
+        GraphInitialize,
+        GraphStart,
+        NodeAdded,
+        NodeConnected,
+        NodeInfo,
+        NodeParameter,
+        NodeSetProperty,
+        NodeGetProperty
+    } _ErrorType;
+    
     // FFT
     DSP_FFT mDSP_FFT;
     SpectrumGraphInfo mInfos;
@@ -98,19 +169,22 @@ private:
     // AUGraph
     AUGraph mGraph;
     AUNode outputNode;
-    AUNode eq1_node;
+    AUNode eq_node[EQBANDS];
     AudioComponentDescription mCompDesc;
     AudioStreamBasicDescription mStreamDesc;
     OSStatus mResult;
     AudioTimeStamp timeStamp;
     
     void initializeGraph();
-    
+    void ErrorCheck(ErrorType error);
+    void setStreamDescription(AudioUnit au);
 public:    
     
     AudioUnit output;
-    AudioUnit eq1;    
+    AudioUnit eq_au[EQBANDS];
     const Float32 *mSource;
+    
+    void SetEQParams(int index, AudioUnitParameterValue F, AudioUnitParameterValue Q, AudioUnitParameterValue G);
     
     virtual OSStatus Initialize();
     

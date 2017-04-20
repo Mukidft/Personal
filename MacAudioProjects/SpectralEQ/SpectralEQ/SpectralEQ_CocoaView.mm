@@ -54,7 +54,22 @@ enum {
     kParam_EQ1_F =1,
     kParam_EQ1_Q =2,
     kParam_EQ1_G =3,
-	kNumberOfParameters=4
+    kParam_EQ2_F =4,
+    kParam_EQ2_Q =5,
+    kParam_EQ2_G =6,
+    kParam_EQ3_F =7,
+    kParam_EQ3_Q =8,
+    kParam_EQ3_G =9,
+    kParam_EQ4_F =10,
+    kParam_EQ4_Q =11,
+    kParam_EQ4_G =12,
+    kParam_EQ5_F =13,
+    kParam_EQ5_Q =14,
+    kParam_EQ5_G =15,
+    kParam_EQ6_F =16,
+    kParam_EQ6_Q =17,
+    kParam_EQ6_G =18,
+	kNumberOfParameters=19
 };
 
 #pragma mark ____ LISTENER CALLBACK DISPATCHER ____
@@ -99,20 +114,14 @@ NSString *SpectralEQ_GestureSliderMouseUpNotification = @"CAGestureSliderMouseUp
 	mParameter[0].mScope = kAudioUnitScope_Global;
 	mParameter[0].mElement = 0;
     
-    mParameter[1].mAudioUnit = inAU;
-    mParameter[1].mParameterID = kParam_EQ1_F;
-    mParameter[1].mScope = kAudioUnitScope_Global;
-    mParameter[1].mElement = 0;
-    
-    mParameter[2].mAudioUnit = inAU;
-    mParameter[2].mParameterID = kParam_EQ1_Q;
-    mParameter[2].mScope = kAudioUnitScope_Global;
-    mParameter[2].mElement = 0;
-    
-    mParameter[3].mAudioUnit = inAU;
-    mParameter[3].mParameterID = kParam_EQ1_G;
-    mParameter[3].mScope = kAudioUnitScope_Global;
-    mParameter[3].mElement = 0;
+    // Set EQ params
+    for(int i = 1; i <= 18; i++)
+    {
+        mParameter[i].mAudioUnit = inAU;
+        mParameter[i].mParameterID = i;
+        mParameter[i].mScope = kAudioUnitScope_Global;
+        mParameter[i].mElement = 0;
+    }
 
 	// add new listeners
 	[self addListeners];
@@ -123,6 +132,7 @@ NSString *SpectralEQ_GestureSliderMouseUpNotification = @"CAGestureSliderMouseUp
 }
 
 #pragma mark ____ INTERFACE ACTIONS ____
+
 - (IBAction)iaParam1Changed:(id)sender {
     float floatValue = [sender floatValue];
     
@@ -136,7 +146,8 @@ NSString *SpectralEQ_GestureSliderMouseUpNotification = @"CAGestureSliderMouseUp
     }
 }
 
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// EQ 1 F
 - (IBAction)iaParam_eq1_f_Changed:(id)sender
 {
     float floatValue = [sender floatValue];
@@ -151,6 +162,7 @@ NSString *SpectralEQ_GestureSliderMouseUpNotification = @"CAGestureSliderMouseUp
     }
 }
 
+// EQ 1 Q
 - (IBAction)iaParam_eq1_q_Changed:(id)sender
 {
     float floatValue = [sender floatValue];
@@ -165,6 +177,7 @@ NSString *SpectralEQ_GestureSliderMouseUpNotification = @"CAGestureSliderMouseUp
     }
 }
 
+// EQ 1 G
 - (IBAction)iaParam_eq1_g_Changed:(id)sender
 {
     float floatValue = [sender floatValue];
@@ -178,7 +191,242 @@ NSString *SpectralEQ_GestureSliderMouseUpNotification = @"CAGestureSliderMouseUp
         [uiParam_eq1_g setFloatValue:floatValue];
     }
 }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// EQ 2 F
+- (IBAction)iaParam_eq2_f_Changed:(id)sender
+{
+    float floatValue = [sender floatValue];
+    
+    OSStatus result = AUParameterSet(mParameterListener, sender, &mParameter[4], (Float32)floatValue, 0);
+    NSAssert(result == noErr, @"[SpectralEQ_CocoaView iaParam_eq2_f_Changed:] AUParameterSet()");
+    
+    if (sender == uiParam_eq2_f) {
+        [uiParam_eq2_f_Label setFloatValue:floatValue];
+    } else {
+        [uiParam_eq2_f setFloatValue:floatValue];
+    }
+}
+
+// EQ 2 Q
+- (IBAction)iaParam_eq2_q_Changed:(id)sender
+{
+    float floatValue = [sender floatValue];
+    
+    OSStatus result = AUParameterSet(mParameterListener, sender, &mParameter[5], (Float32)floatValue, 0);
+    NSAssert(result == noErr, @"[SpectralEQ_CocoaView iaParam_eq2_q_Changed:] AUParameterSet()");
+    
+    if (sender == uiParam_eq2_q) {
+        [uiParam_eq2_q_Label setFloatValue:floatValue];
+    } else {
+        [uiParam_eq2_q setFloatValue:floatValue];
+    }
+}
+
+// EQ 2 G
+- (IBAction)iaParam_eq2_g_Changed:(id)sender
+{
+    float floatValue = [sender floatValue];
+    
+    OSStatus result = AUParameterSet(mParameterListener, sender, &mParameter[6], (Float32)floatValue, 0);
+    NSAssert(result == noErr, @"[SpectralEQ_CocoaView iaParam_eq2_g_Changed:] AUParameterSet()");
+    
+    if (sender == uiParam_eq2_g) {
+        [uiParam_eq2_g_Label setFloatValue:floatValue];
+    } else {
+        [uiParam_eq2_g setFloatValue:floatValue];
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// EQ 3 F
+- (IBAction)iaParam_eq3_f_Changed:(id)sender
+{
+    float floatValue = [sender floatValue];
+    
+    OSStatus result = AUParameterSet(mParameterListener, sender, &mParameter[7], (Float32)floatValue, 0);
+    NSAssert(result == noErr, @"[SpectralEQ_CocoaView iaParam_eq3_f_Changed:] AUParameterSet()");
+    
+    if (sender == uiParam_eq3_f) {
+        [uiParam_eq3_f_Label setFloatValue:floatValue];
+    } else {
+        [uiParam_eq3_f setFloatValue:floatValue];
+    }
+}
+
+// EQ 3 Q
+- (IBAction)iaParam_eq3_q_Changed:(id)sender
+{
+    float floatValue = [sender floatValue];
+    
+    OSStatus result = AUParameterSet(mParameterListener, sender, &mParameter[8], (Float32)floatValue, 0);
+    NSAssert(result == noErr, @"[SpectralEQ_CocoaView iaParam_eq3_q_Changed:] AUParameterSet()");
+    
+    if (sender == uiParam_eq3_q) {
+        [uiParam_eq3_q_Label setFloatValue:floatValue];
+    } else {
+        [uiParam_eq3_q setFloatValue:floatValue];
+    }
+}
+
+// EQ 3 G
+- (IBAction)iaParam_eq3_g_Changed:(id)sender
+{
+    float floatValue = [sender floatValue];
+    
+    OSStatus result = AUParameterSet(mParameterListener, sender, &mParameter[9], (Float32)floatValue, 0);
+    NSAssert(result == noErr, @"[SpectralEQ_CocoaView iaParam_eq3_g_Changed:] AUParameterSet()");
+    
+    if (sender == uiParam_eq3_g) {
+        [uiParam_eq3_g_Label setFloatValue:floatValue];
+    } else {
+        [uiParam_eq3_g setFloatValue:floatValue];
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// EQ 4 F
+- (IBAction)iaParam_eq4_f_Changed:(id)sender
+{
+    float floatValue = [sender floatValue];
+    
+    OSStatus result = AUParameterSet(mParameterListener, sender, &mParameter[10], (Float32)floatValue, 0);
+    NSAssert(result == noErr, @"[SpectralEQ_CocoaView iaParam_eq4_f_Changed:] AUParameterSet()");
+    
+    if (sender == uiParam_eq4_f) {
+        [uiParam_eq4_f_Label setFloatValue:floatValue];
+    } else {
+        [uiParam_eq4_f setFloatValue:floatValue];
+    }
+}
+
+// EQ 4 Q
+- (IBAction)iaParam_eq4_q_Changed:(id)sender
+{
+    float floatValue = [sender floatValue];
+    
+    OSStatus result = AUParameterSet(mParameterListener, sender, &mParameter[11], (Float32)floatValue, 0);
+    NSAssert(result == noErr, @"[SpectralEQ_CocoaView iaParam_eq4_q_Changed:] AUParameterSet()");
+    
+    if (sender == uiParam_eq4_q) {
+        [uiParam_eq4_q_Label setFloatValue:floatValue];
+    } else {
+        [uiParam_eq4_q setFloatValue:floatValue];
+    }
+}
+
+// EQ 4 G
+- (IBAction)iaParam_eq4_g_Changed:(id)sender
+{
+    float floatValue = [sender floatValue];
+    
+    OSStatus result = AUParameterSet(mParameterListener, sender, &mParameter[12], (Float32)floatValue, 0);
+    NSAssert(result == noErr, @"[SpectralEQ_CocoaView iaParam_eq4_g_Changed:] AUParameterSet()");
+    
+    if (sender == uiParam_eq4_g) {
+        [uiParam_eq4_g_Label setFloatValue:floatValue];
+    } else {
+        [uiParam_eq4_g setFloatValue:floatValue];
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// EQ 5 F
+- (IBAction)iaParam_eq5_f_Changed:(id)sender
+{
+    float floatValue = [sender floatValue];
+    
+    OSStatus result = AUParameterSet(mParameterListener, sender, &mParameter[13], (Float32)floatValue, 0);
+    NSAssert(result == noErr, @"[SpectralEQ_CocoaView iaParam_eq5_f_Changed:] AUParameterSet()");
+    
+    if (sender == uiParam_eq5_f) {
+        [uiParam_eq5_f_Label setFloatValue:floatValue];
+    } else {
+        [uiParam_eq5_f setFloatValue:floatValue];
+    }
+}
+
+// EQ 5 Q
+- (IBAction)iaParam_eq5_q_Changed:(id)sender
+{
+    float floatValue = [sender floatValue];
+    
+    OSStatus result = AUParameterSet(mParameterListener, sender, &mParameter[14], (Float32)floatValue, 0);
+    NSAssert(result == noErr, @"[SpectralEQ_CocoaView iaParam_eq5_q_Changed:] AUParameterSet()");
+    
+    if (sender == uiParam_eq5_q) {
+        [uiParam_eq5_q_Label setFloatValue:floatValue];
+    } else {
+        [uiParam_eq5_q setFloatValue:floatValue];
+    }
+}
+
+// EQ 5 G
+- (IBAction)iaParam_eq5_g_Changed:(id)sender
+{
+    float floatValue = [sender floatValue];
+    
+    OSStatus result = AUParameterSet(mParameterListener, sender, &mParameter[15], (Float32)floatValue, 0);
+    NSAssert(result == noErr, @"[SpectralEQ_CocoaView iaParam_eq5_g_Changed:] AUParameterSet()");
+    
+    if (sender == uiParam_eq5_g) {
+        [uiParam_eq5_g_Label setFloatValue:floatValue];
+    } else {
+        [uiParam_eq5_g setFloatValue:floatValue];
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// EQ 6 F
+- (IBAction)iaParam_eq6_f_Changed:(id)sender
+{
+    float floatValue = [sender floatValue];
+    
+    OSStatus result = AUParameterSet(mParameterListener, sender, &mParameter[16], (Float32)floatValue, 0);
+    NSAssert(result == noErr, @"[SpectralEQ_CocoaView iaParam_eq6_f_Changed:] AUParameterSet()");
+    
+    if (sender == uiParam_eq6_f) {
+        [uiParam_eq6_f_Label setFloatValue:floatValue];
+    } else {
+        [uiParam_eq6_f setFloatValue:floatValue];
+    }
+}
+
+// EQ 6 Q
+- (IBAction)iaParam_eq6_q_Changed:(id)sender
+{
+    float floatValue = [sender floatValue];
+    
+    OSStatus result = AUParameterSet(mParameterListener, sender, &mParameter[17], (Float32)floatValue, 0);
+    NSAssert(result == noErr, @"[SpectralEQ_CocoaView iaParam_eq6_q_Changed:] AUParameterSet()");
+    
+    if (sender == uiParam_eq6_q) {
+        [uiParam_eq6_q_Label setFloatValue:floatValue];
+    } else {
+        [uiParam_eq6_q setFloatValue:floatValue];
+    }
+}
+
+// EQ 6 G
+- (IBAction)iaParam_eq6_g_Changed:(id)sender
+{
+    float floatValue = [sender floatValue];
+    
+    OSStatus result = AUParameterSet(mParameterListener, sender, &mParameter[18], (Float32)floatValue, 0);
+    NSAssert(result == noErr, @"[SpectralEQ_CocoaView iaParam_eq6_g_Changed:] AUParameterSet()");
+    
+    if (sender == uiParam_eq6_g) {
+        [uiParam_eq6_g_Label setFloatValue:floatValue];
+    } else {
+        [uiParam_eq6_g setFloatValue:floatValue];
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark ____ NOTIFICATIONS ____
 
 // This routine is called when the user has clicked on the slider. We need to send a begin parameter change gesture to alert hosts that the parameter may be changing value
@@ -306,11 +554,15 @@ void EventListenerDispatcher(void *inRefCon, void *inObject, const AudioUnitEven
 - (void)parameterListener:(void *)inObject parameter:(const AudioUnitParameter *)inParameter value:(Float32)inValue {
     //inObject ignored in this case.
     
-	switch (inParameter->mParameterID) {
+	switch (inParameter->mParameterID)
+    {
+        // Output
 		case kParam_One:
-                    [uiParam1Slider setFloatValue:inValue];
-                    [uiParam1TextField setStringValue:[[NSNumber numberWithFloat:inValue] stringValue]];
-                    break;
+            [uiParam1Slider setFloatValue:inValue];
+            [uiParam1TextField setStringValue:[[NSNumber numberWithFloat:inValue] stringValue]];
+            break;
+        
+        // EQ 1
         case kParam_EQ1_F:
             [uiParam_eq1_f setFloatValue:inValue];
             [uiParam_eq1_f_Label setStringValue:[[NSNumber numberWithFloat:inValue] stringValue]];
@@ -322,6 +574,76 @@ void EventListenerDispatcher(void *inRefCon, void *inObject, const AudioUnitEven
         case kParam_EQ1_G:
             [uiParam_eq1_g setFloatValue:inValue];
             [uiParam_eq1_g_Label setStringValue:[[NSNumber numberWithFloat:inValue] stringValue]];
+            break;
+            
+        // EQ 2
+        case kParam_EQ2_F:
+            [uiParam_eq2_f setFloatValue:inValue];
+            [uiParam_eq2_f_Label setStringValue:[[NSNumber numberWithFloat:inValue] stringValue]];
+            break;
+        case kParam_EQ2_Q:
+            [uiParam_eq2_q setFloatValue:inValue];
+            [uiParam_eq2_q_Label setStringValue:[[NSNumber numberWithFloat:inValue] stringValue]];
+            break;
+        case kParam_EQ2_G:
+            [uiParam_eq2_g setFloatValue:inValue];
+            [uiParam_eq2_g_Label setStringValue:[[NSNumber numberWithFloat:inValue] stringValue]];
+            break;
+            
+        // EQ 3
+        case kParam_EQ3_F:
+            [uiParam_eq3_f setFloatValue:inValue];
+            [uiParam_eq3_f_Label setStringValue:[[NSNumber numberWithFloat:inValue] stringValue]];
+            break;
+        case kParam_EQ3_Q:
+            [uiParam_eq3_q setFloatValue:inValue];
+            [uiParam_eq3_q_Label setStringValue:[[NSNumber numberWithFloat:inValue] stringValue]];
+            break;
+        case kParam_EQ3_G:
+            [uiParam_eq3_g setFloatValue:inValue];
+            [uiParam_eq3_g_Label setStringValue:[[NSNumber numberWithFloat:inValue] stringValue]];
+            break;
+            
+        // EQ 4
+        case kParam_EQ4_F:
+            [uiParam_eq4_f setFloatValue:inValue];
+            [uiParam_eq4_f_Label setStringValue:[[NSNumber numberWithFloat:inValue] stringValue]];
+            break;
+        case kParam_EQ4_Q:
+            [uiParam_eq4_q setFloatValue:inValue];
+            [uiParam_eq4_q_Label setStringValue:[[NSNumber numberWithFloat:inValue] stringValue]];
+            break;
+        case kParam_EQ4_G:
+            [uiParam_eq4_g setFloatValue:inValue];
+            [uiParam_eq4_g_Label setStringValue:[[NSNumber numberWithFloat:inValue] stringValue]];
+            break;
+            
+        // EQ 5
+        case kParam_EQ5_F:
+            [uiParam_eq5_f setFloatValue:inValue];
+            [uiParam_eq5_f_Label setStringValue:[[NSNumber numberWithFloat:inValue] stringValue]];
+            break;
+        case kParam_EQ5_Q:
+            [uiParam_eq5_q setFloatValue:inValue];
+            [uiParam_eq5_q_Label setStringValue:[[NSNumber numberWithFloat:inValue] stringValue]];
+            break;
+        case kParam_EQ5_G:
+            [uiParam_eq5_g setFloatValue:inValue];
+            [uiParam_eq5_g_Label setStringValue:[[NSNumber numberWithFloat:inValue] stringValue]];
+            break;
+            
+        // EQ 6
+        case kParam_EQ6_F:
+            [uiParam_eq6_f setFloatValue:inValue];
+            [uiParam_eq6_f_Label setStringValue:[[NSNumber numberWithFloat:inValue] stringValue]];
+            break;
+        case kParam_EQ6_Q:
+            [uiParam_eq6_q setFloatValue:inValue];
+            [uiParam_eq6_q_Label setStringValue:[[NSNumber numberWithFloat:inValue] stringValue]];
+            break;
+        case kParam_EQ6_G:
+            [uiParam_eq6_g setFloatValue:inValue];
+            [uiParam_eq6_g_Label setStringValue:[[NSNumber numberWithFloat:inValue] stringValue]];
             break;
 	}
 }

@@ -82,10 +82,60 @@
     IBOutlet NSTextField * uiParam_eq1_f_Label;
     IBOutlet NSTextField * uiParam_eq1_q_Label;
     IBOutlet NSTextField * uiParam_eq1_g_Label;
+    
+    // EQ2
+    IBOutlet NSSlider * uiParam_eq2_f;
+    IBOutlet NSSlider * uiParam_eq2_q;
+    IBOutlet NSSlider * uiParam_eq2_g;
+    
+    
+    IBOutlet NSTextField * uiParam_eq2_f_Label;
+    IBOutlet NSTextField * uiParam_eq2_q_Label;
+    IBOutlet NSTextField * uiParam_eq2_g_Label;
+    
+    // EQ3
+    IBOutlet NSSlider * uiParam_eq3_f;
+    IBOutlet NSSlider * uiParam_eq3_q;
+    IBOutlet NSSlider * uiParam_eq3_g;
+    
+    
+    IBOutlet NSTextField * uiParam_eq3_f_Label;
+    IBOutlet NSTextField * uiParam_eq3_q_Label;
+    IBOutlet NSTextField * uiParam_eq3_g_Label;
+    
+    // EQ4
+    IBOutlet NSSlider * uiParam_eq4_f;
+    IBOutlet NSSlider * uiParam_eq4_q;
+    IBOutlet NSSlider * uiParam_eq4_g;
+    
+    
+    IBOutlet NSTextField * uiParam_eq4_f_Label;
+    IBOutlet NSTextField * uiParam_eq4_q_Label;
+    IBOutlet NSTextField * uiParam_eq4_g_Label;
+    
+    // EQ5
+    IBOutlet NSSlider * uiParam_eq5_f;
+    IBOutlet NSSlider * uiParam_eq5_q;
+    IBOutlet NSSlider * uiParam_eq5_g;
+    
+    
+    IBOutlet NSTextField * uiParam_eq5_f_Label;
+    IBOutlet NSTextField * uiParam_eq5_q_Label;
+    IBOutlet NSTextField * uiParam_eq5_g_Label;
+    
+    // EQ6
+    IBOutlet NSSlider * uiParam_eq6_f;
+    IBOutlet NSSlider * uiParam_eq6_q;
+    IBOutlet NSSlider * uiParam_eq6_g;
+    
+    
+    IBOutlet NSTextField * uiParam_eq6_f_Label;
+    IBOutlet NSTextField * uiParam_eq6_q_Label;
+    IBOutlet NSTextField * uiParam_eq6_g_Label;
 	
     // Other Members
     AudioUnit 				mAU;
-	AudioUnitParameter		mParameter[4];
+	AudioUnitParameter		mParameter[19];
     AUParameterListenerRef	mParameterListener;
     AUEventListenerRef      mAUEventListener;
 }
@@ -95,9 +145,36 @@
 
 #pragma mark ____ INTERFACE ACTIONS ____
 - (IBAction)iaParam1Changed:(id)sender;
+
+// EQ 1
 - (IBAction)iaParam_eq1_f_Changed:(id)sender;
 - (IBAction)iaParam_eq1_q_Changed:(id)sender;
 - (IBAction)iaParam_eq1_g_Changed:(id)sender;
+
+// EQ 2
+- (IBAction)iaParam_eq2_f_Changed:(id)sender;
+- (IBAction)iaParam_eq2_q_Changed:(id)sender;
+- (IBAction)iaParam_eq2_g_Changed:(id)sender;
+
+// EQ 3
+- (IBAction)iaParam_eq3_f_Changed:(id)sender;
+- (IBAction)iaParam_eq3_q_Changed:(id)sender;
+- (IBAction)iaParam_eq3_g_Changed:(id)sender;
+
+// EQ 4
+- (IBAction)iaParam_eq4_f_Changed:(id)sender;
+- (IBAction)iaParam_eq4_q_Changed:(id)sender;
+- (IBAction)iaParam_eq4_g_Changed:(id)sender;
+
+// EQ 5
+- (IBAction)iaParam_eq5_f_Changed:(id)sender;
+- (IBAction)iaParam_eq5_q_Changed:(id)sender;
+- (IBAction)iaParam_eq5_g_Changed:(id)sender;
+
+// EQ 6
+- (IBAction)iaParam_eq6_f_Changed:(id)sender;
+- (IBAction)iaParam_eq6_q_Changed:(id)sender;
+- (IBAction)iaParam_eq6_g_Changed:(id)sender;
 
 #pragma mark ____ PRIVATE FUNCTIONS
 - (void)synchronizeUIWithParameterValues;
