@@ -25,9 +25,18 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <slider verticalHuggingPriority="750" id="23" customClass="SpectralEQ_GestureSlider">
+                <slider wantsLayer="YES" verticalHuggingPriority="750" id="23" customClass="SpectralEQ_GestureSlider">
                     <rect key="frame" x="609" y="671" width="133" height="26"/>
                     <autoresizingMask key="autoresizingMask"/>
+                    <contentFilters>
+                        <ciFilter name="CIFalseColor">
+                            <configuration>
+                                <ciColor key="inputColor0" red="0.5" green="0.0" blue="0.5" alpha="1"/>
+                                <ciColor key="inputColor1" red="1" green="1" blue="1" alpha="1"/>
+                                <null key="inputImage"/>
+                            </configuration>
+                        </ciFilter>
+                    </contentFilters>
                     <sliderCell key="cell" continuous="YES" alignment="left" maxValue="1" doubleValue="0.5" tickMarkPosition="above" numberOfTickMarks="7" sliderType="linear" id="100023">
                         <font key="font" size="12" name="Helvetica"/>
                     </sliderCell>
@@ -60,14 +69,14 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <box autoresizesSubviews="NO" title="EQ 1" borderType="line" id="rDU-ta-qbl">
+                <box autoresizesSubviews="NO" wantsLayer="YES" title="EQ 1" borderType="line" id="rDU-ta-qbl">
                     <rect key="frame" x="113" y="52" width="101" height="155"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <view key="contentView">
                         <rect key="frame" x="1" y="1" width="99" height="139"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" id="jsX-6V-Svc" userLabel="Knob_Frequency">
+                            <slider wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" id="jsX-6V-Svc" userLabel="Knob_Frequency">
                                 <rect key="frame" x="8" y="100" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <sliderCell key="cell" continuous="YES" alignment="left" minValue="20" maxValue="20000" doubleValue="3333" tickMarkPosition="above" numberOfTickMarks="10" sliderType="circular" id="L7m-j1-1eY"/>
@@ -132,10 +141,19 @@
                             </textField>
                         </subviews>
                     </view>
+                    <contentFilters>
+                        <ciFilter name="CIFalseColor">
+                            <configuration>
+                                <ciColor key="inputColor0" red="0.5" green="0.0" blue="0.5" alpha="1"/>
+                                <ciColor key="inputColor1" red="1" green="1" blue="1" alpha="1"/>
+                                <null key="inputImage"/>
+                            </configuration>
+                        </ciFilter>
+                    </contentFilters>
                     <color key="borderColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="fillColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </box>
-                <box autoresizesSubviews="NO" title="EQ 2" borderType="line" id="IgL-G1-2bt">
+                <box autoresizesSubviews="NO" wantsLayer="YES" title="EQ 2" borderType="line" id="IgL-G1-2bt">
                     <rect key="frame" x="237" y="52" width="101" height="155"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <view key="contentView">
@@ -207,10 +225,19 @@
                             </textField>
                         </subviews>
                     </view>
+                    <contentFilters>
+                        <ciFilter name="CIFalseColor">
+                            <configuration>
+                                <ciColor key="inputColor0" red="0.5" green="0.0" blue="0.5" alpha="1"/>
+                                <ciColor key="inputColor1" red="1" green="1" blue="1" alpha="1"/>
+                                <null key="inputImage"/>
+                            </configuration>
+                        </ciFilter>
+                    </contentFilters>
                     <color key="borderColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="fillColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </box>
-                <box autoresizesSubviews="NO" title="EQ 3" borderType="line" id="VbA-Jb-e6Y">
+                <box autoresizesSubviews="NO" wantsLayer="YES" title="EQ 3" borderType="line" id="VbA-Jb-e6Y">
                     <rect key="frame" x="360" y="52" width="101" height="155"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <view key="contentView">
@@ -282,10 +309,19 @@
                             </textField>
                         </subviews>
                     </view>
+                    <contentFilters>
+                        <ciFilter name="CIFalseColor">
+                            <configuration>
+                                <ciColor key="inputColor0" red="0.5" green="0.0" blue="0.5" alpha="1"/>
+                                <ciColor key="inputColor1" red="1" green="1" blue="1" alpha="1"/>
+                                <null key="inputImage"/>
+                            </configuration>
+                        </ciFilter>
+                    </contentFilters>
                     <color key="borderColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="fillColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </box>
-                <box autoresizesSubviews="NO" title="EQ 4" borderType="line" id="R3P-ct-etH">
+                <box autoresizesSubviews="NO" wantsLayer="YES" title="EQ 4" borderType="line" id="R3P-ct-etH">
                     <rect key="frame" x="486" y="52" width="101" height="155"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <view key="contentView">
@@ -357,10 +393,19 @@
                             </textField>
                         </subviews>
                     </view>
+                    <contentFilters>
+                        <ciFilter name="CIFalseColor">
+                            <configuration>
+                                <ciColor key="inputColor0" red="0.5" green="0.0" blue="0.5" alpha="1"/>
+                                <ciColor key="inputColor1" red="1" green="1" blue="1" alpha="1"/>
+                                <null key="inputImage"/>
+                            </configuration>
+                        </ciFilter>
+                    </contentFilters>
                     <color key="borderColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="fillColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </box>
-                <box autoresizesSubviews="NO" title="EQ 5" borderType="line" id="8TH-hb-mS7">
+                <box autoresizesSubviews="NO" wantsLayer="YES" title="EQ 5" borderType="line" id="8TH-hb-mS7">
                     <rect key="frame" x="608" y="52" width="101" height="155"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <view key="contentView">
@@ -432,10 +477,19 @@
                             </textField>
                         </subviews>
                     </view>
+                    <contentFilters>
+                        <ciFilter name="CIFalseColor">
+                            <configuration>
+                                <ciColor key="inputColor0" red="0.5" green="0.0" blue="0.5" alpha="1"/>
+                                <ciColor key="inputColor1" red="1" green="1" blue="1" alpha="1"/>
+                                <null key="inputImage"/>
+                            </configuration>
+                        </ciFilter>
+                    </contentFilters>
                     <color key="borderColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="fillColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </box>
-                <box autoresizesSubviews="NO" title="EQ 6" borderType="line" id="1Bp-23-bWY">
+                <box autoresizesSubviews="NO" wantsLayer="YES" title="EQ 6" borderType="line" id="1Bp-23-bWY">
                     <rect key="frame" x="734" y="52" width="101" height="155"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <view key="contentView">
@@ -507,6 +561,15 @@
                             </textField>
                         </subviews>
                     </view>
+                    <contentFilters>
+                        <ciFilter name="CIFalseColor">
+                            <configuration>
+                                <ciColor key="inputColor0" red="0.5" green="0.0" blue="0.5" alpha="1"/>
+                                <ciColor key="inputColor1" red="1" green="1" blue="1" alpha="1"/>
+                                <null key="inputImage"/>
+                            </configuration>
+                        </ciFilter>
+                    </contentFilters>
                     <color key="borderColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="fillColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </box>
@@ -549,6 +612,15 @@
                 <segmentedControl wantsLayer="YES" verticalHuggingPriority="750" id="dDV-A8-xl4">
                     <rect key="frame" x="121" y="18" width="84" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <contentFilters>
+                        <ciFilter name="CIFalseColor">
+                            <configuration>
+                                <ciColor key="inputColor0" red="0.5" green="0.0" blue="0.5" alpha="1"/>
+                                <ciColor key="inputColor1" red="1" green="1" blue="1" alpha="1"/>
+                                <null key="inputImage"/>
+                            </configuration>
+                        </ciFilter>
+                    </contentFilters>
                     <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="bFx-27-hvT">
                         <font key="font" metaFont="system"/>
                         <segments>
@@ -563,6 +635,15 @@
                 <segmentedControl wantsLayer="YES" verticalHuggingPriority="750" id="YHy-qJ-ptD">
                     <rect key="frame" x="245" y="18" width="84" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <contentFilters>
+                        <ciFilter name="CIFalseColor">
+                            <configuration>
+                                <ciColor key="inputColor0" red="0.5" green="0.0" blue="0.5" alpha="1"/>
+                                <ciColor key="inputColor1" red="1" green="1" blue="1" alpha="1"/>
+                                <null key="inputImage"/>
+                            </configuration>
+                        </ciFilter>
+                    </contentFilters>
                     <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="bwn-lg-it3">
                         <font key="font" metaFont="system"/>
                         <segments>
@@ -577,6 +658,15 @@
                 <segmentedControl wantsLayer="YES" verticalHuggingPriority="750" id="dfQ-Vf-6g3">
                     <rect key="frame" x="368" y="18" width="84" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <contentFilters>
+                        <ciFilter name="CIFalseColor">
+                            <configuration>
+                                <ciColor key="inputColor0" red="0.5" green="0.0" blue="0.5" alpha="1"/>
+                                <ciColor key="inputColor1" red="1" green="1" blue="1" alpha="1"/>
+                                <null key="inputImage"/>
+                            </configuration>
+                        </ciFilter>
+                    </contentFilters>
                     <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="P0L-oi-cxV">
                         <font key="font" metaFont="system"/>
                         <segments>
@@ -591,6 +681,15 @@
                 <segmentedControl wantsLayer="YES" verticalHuggingPriority="750" id="dlu-8m-m4F">
                     <rect key="frame" x="494" y="18" width="84" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <contentFilters>
+                        <ciFilter name="CIFalseColor">
+                            <configuration>
+                                <ciColor key="inputColor0" red="0.5" green="0.0" blue="0.5" alpha="1"/>
+                                <ciColor key="inputColor1" red="1" green="1" blue="1" alpha="1"/>
+                                <null key="inputImage"/>
+                            </configuration>
+                        </ciFilter>
+                    </contentFilters>
                     <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="5dv-Up-Nfl">
                         <font key="font" metaFont="system"/>
                         <segments>
@@ -605,6 +704,15 @@
                 <segmentedControl wantsLayer="YES" verticalHuggingPriority="750" id="VKr-Nx-3eS">
                     <rect key="frame" x="616" y="18" width="84" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <contentFilters>
+                        <ciFilter name="CIFalseColor">
+                            <configuration>
+                                <ciColor key="inputColor0" red="0.5" green="0.0" blue="0.5" alpha="1"/>
+                                <ciColor key="inputColor1" red="1" green="1" blue="1" alpha="1"/>
+                                <null key="inputImage"/>
+                            </configuration>
+                        </ciFilter>
+                    </contentFilters>
                     <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="ZyL-lM-jQC">
                         <font key="font" metaFont="system"/>
                         <segments>
@@ -619,6 +727,15 @@
                 <segmentedControl wantsLayer="YES" verticalHuggingPriority="750" id="qIe-X8-oIK">
                     <rect key="frame" x="742" y="18" width="84" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <contentFilters>
+                        <ciFilter name="CIFalseColor">
+                            <configuration>
+                                <ciColor key="inputColor0" red="0.5" green="0.0" blue="0.5" alpha="1"/>
+                                <ciColor key="inputColor1" red="1" green="1" blue="1" alpha="1"/>
+                                <null key="inputImage"/>
+                            </configuration>
+                        </ciFilter>
+                    </contentFilters>
                     <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="8ze-ky-VZ0">
                         <font key="font" metaFont="system"/>
                         <segments>
@@ -639,9 +756,18 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <popUpButton verticalHuggingPriority="750" id="jsA-qJ-1wA">
+                <popUpButton wantsLayer="YES" verticalHuggingPriority="750" id="jsA-qJ-1wA">
                     <rect key="frame" x="121" y="668" width="134" height="26"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <contentFilters>
+                        <ciFilter name="CIFalseColor">
+                            <configuration>
+                                <ciColor key="inputColor0" red="0.5" green="0.0" blue="0.5" alpha="1"/>
+                                <ciColor key="inputColor1" red="1" green="1" blue="1" alpha="1"/>
+                                <null key="inputImage"/>
+                            </configuration>
+                        </ciFilter>
+                    </contentFilters>
                     <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ysQ-vW-Vuj">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="menu"/>

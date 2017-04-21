@@ -27,8 +27,8 @@
 {
     [self drawBackground:dirtyRect color: [NSColor colorWithDeviceRed:0.227 green:0.251 blue:0.337 alpha:0.6]];
     [self drawGrid];
-    [self drawWetGraph:[NSColor colorWithDeviceRed:0 green:255 blue:255 alpha:0.3] stroke: [NSColor cyanColor]];
-    [self drawDryGraph:[NSColor colorWithDeviceRed:255 green:255 blue:255 alpha:0.1] stroke: [NSColor orangeColor]];
+    [self drawWetGraph:[NSColor colorWithDeviceRed:0 green:255 blue:255 alpha:0.15] stroke: [NSColor cyanColor]];
+    [self drawDryGraph:[NSColor colorWithDeviceRed:255 green:0 blue:0 alpha:0.1] stroke: [NSColor orangeColor]];
 }
 
 - (void)drawBackground: (NSRect) dirtyRect color: (NSColor*) color;
