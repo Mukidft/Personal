@@ -149,7 +149,7 @@
 	
     // Other Members
     AudioUnit 				mAU;
-	AudioUnitParameter		mParameter[25];
+	AudioUnitParameter		mParameter[26];
     AUParameterListenerRef	mParameterListener;
     AUEventListenerRef      mAUEventListener;
 }

@@ -630,25 +630,6 @@
                         <action selector="iaParam_eq6_bypass:" target="22" id="mmm-H5-HNL"/>
                     </connections>
                 </segmentedControl>
-                <popUpButton verticalHuggingPriority="750" id="lac-RM-zE5">
-                    <rect key="frame" x="120" y="668" width="135" height="26"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <popUpButtonCell key="cell" type="push" title="Blackman" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" inset="2" pullsDown="YES" preferredEdge="maxX" selectedItem="DuJ-YH-UEG" id="rLS-yJ-dcl">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="menu"/>
-                        <menu key="menu" id="R5f-V2-PQZ">
-                            <items>
-                                <menuItem title="Blackman" id="dce-2m-YXn"/>
-                                <menuItem title="Rectangular" id="YCJ-aG-S6l"/>
-                                <menuItem title="Hann" id="jdn-07-KJZ"/>
-                                <menuItem title="Hamming" state="on" id="DuJ-YH-UEG"/>
-                            </items>
-                        </menu>
-                    </popUpButtonCell>
-                    <connections>
-                        <action selector="iaParam_window:" target="22" id="3vA-bC-5uE"/>
-                    </connections>
-                </popUpButton>
                 <textField verticalHuggingPriority="750" id="jJC-uS-BPf">
                     <rect key="frame" x="147" y="646" width="80" height="17"/>
                     <autoresizingMask key="autoresizingMask"/>
@@ -658,12 +639,33 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <popUpButton verticalHuggingPriority="750" id="jsA-qJ-1wA">
+                    <rect key="frame" x="121" y="668" width="134" height="26"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ysQ-vW-Vuj">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="menu"/>
+                        <menu key="menu" id="IjE-mL-MmZ">
+                            <items>
+                                <menuItem title="Rectangular" id="UWH-80-Utx">
+                                    <attributedString key="attributedTitle"/>
+                                </menuItem>
+                                <menuItem title="Hann" id="w42-c8-lJl"/>
+                                <menuItem title="Hamming" id="iHQ-P1-vSH"/>
+                                <menuItem title="Blackman" id="1dR-qG-rpv"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="iaParam_window:" target="22" id="FXY-Ig-mIU"/>
+                    </connections>
+                </popUpButton>
             </subviews>
             <connections>
                 <outlet property="graphView" destination="vUi-Ae-PGe" id="89K-j4-iyY"/>
                 <outlet property="uiParam1Slider" destination="23" id="27"/>
                 <outlet property="uiParam1TextField" destination="dAi-AM-np3" id="ZyV-v6-fOA"/>
-                <outlet property="uiParam_Window" destination="lac-RM-zE5" id="Fji-qA-V8J"/>
+                <outlet property="uiParam_Window" destination="jsA-qJ-1wA" id="1iv-bh-mAQ"/>
                 <outlet property="uiParam_eq1_bypass" destination="dDV-A8-xl4" id="CSa-7h-Enp"/>
                 <outlet property="uiParam_eq1_f" destination="jsX-6V-Svc" id="SpD-C0-hlY"/>
                 <outlet property="uiParam_eq1_f_Label" destination="itY-od-hu3" id="Soc-tW-XVZ"/>

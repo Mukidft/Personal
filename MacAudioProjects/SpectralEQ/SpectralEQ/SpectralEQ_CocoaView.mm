@@ -76,7 +76,8 @@ enum {
     kParam_EQ4_BYPASS = 22,
     kParam_EQ5_BYPASS = 23,
     kParam_EQ6_BYPASS = 24,
-	kNumberOfParameters=25
+    kParam_WINDOW = 25,
+	kNumberOfParameters=26
 };
 
 #pragma mark ____ LISTENER CALLBACK DISPATCHER ____
@@ -515,11 +516,10 @@ NSString *SpectralEQ_GestureSliderMouseUpNotification = @"CAGestureSliderMouseUp
 
 - (IBAction)iaParam_window:(id)sender
 {
-    float floatValue = [sender floatValue];
+    float floatValue = [uiParam_Window indexOfSelectedItem];
     
-    //OSStatus result = AUParameterSet(mParameterListener, sender, &mParameter[25], (Float32)floatValue, 0);
-    //NSAssert(result == noErr, @"[SpectralEQ_CocoaView iaParam_window:] AUParameterSet()");
-    
+    OSStatus result = AUParameterSet(mParameterListener, sender, &mParameter[25], (Float32)floatValue, 0);
+    NSAssert(result == noErr, @"[SpectralEQ_CocoaView iaParam_window:] AUParameterSet()");
     
     if (sender != uiParam_Window) {
     } else {
@@ -768,6 +768,11 @@ void EventListenerDispatcher(void *inRefCon, void *inObject, const AudioUnitEven
             
         case kParam_EQ6_BYPASS:
             [uiParam_eq6_bypass setIntegerValue:inValue];
+            break;
+        
+        // WINDOW
+        case kParam_WINDOW:
+            [uiParam_Window setIntegerValue:inValue];
             break;
 
 	}

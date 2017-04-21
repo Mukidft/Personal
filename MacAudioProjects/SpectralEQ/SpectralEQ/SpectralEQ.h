@@ -137,6 +137,11 @@ static CFStringRef kParameter_EQ6_G_Name = CFSTR("Param_EQ6_G");
 static const float kDefaultValue_Param_EQ6_BYPASS = 1;
 static CFStringRef kParameter_EQ6_BYPASS_Name = CFSTR("Param_EQ6_BYPASS");
 
+// WINDOW
+
+static const float kDefaultValue_Param_WINDOW = 0.5;
+static CFStringRef kParameter_WINDOW_Name = CFSTR("Param_WINDOW");
+
 enum {
     kParam_One =0,
     kParam_EQ1_F =1,
@@ -163,7 +168,8 @@ enum {
     kParam_EQ4_BYPASS = 22,
     kParam_EQ5_BYPASS = 23,
     kParam_EQ6_BYPASS = 24,
-    kNumberOfParameters=25
+    kParam_WINDOW = 25,
+    kNumberOfParameters=26
 };
 
 #pragma mark ____SpectralEQ

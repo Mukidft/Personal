@@ -432,6 +432,15 @@ OSStatus			SpectralEQ::GetParameterInfo(AudioUnitScope		inScope,
                 outParameterInfo.defaultValue = kDefaultValue_Param_EQ6_BYPASS;
                 break;
                 
+            // WINDOW
+            case kParam_WINDOW:
+                AUBase::FillInParameterName (outParameterInfo, kParameter_WINDOW_Name, false);
+                outParameterInfo.unit = kAudioUnitParameterUnit_LinearGain;
+                outParameterInfo.minValue = 0;
+                outParameterInfo.maxValue = 1;
+                outParameterInfo.defaultValue = kDefaultValue_Param_WINDOW;
+                break;
+                
             default:
                 result = kAudioUnitErr_InvalidParameter;
                 break;
@@ -621,6 +630,23 @@ void SpectralEQ::SpectralEQKernel::Process(	const Float32 	*inSourceP,
     UInt32 currentBlockSize = 1024;
     
     DSP_FFT::Window currentWindow = DSP_FFT::Window::Blackman;
+    
+    switch((int)GetParameter(kParam_WINDOW))
+    {
+        case 0:
+            currentWindow = DSP_FFT::Window::Rectangular;
+            break;
+        case 1:
+            currentWindow = DSP_FFT::Window::Hann;
+            break;
+        case 2:
+            currentWindow = DSP_FFT::Window::Hamming;
+            break;
+        case 3:
+            currentWindow = DSP_FFT::Window::Blackman;
+            break;
+            
+    }
     
     
     if(((SpectralEQ*)mAudioUnit)->mDSP_FFT.ApplyFFT(currentBlockSize, currentWindow))
