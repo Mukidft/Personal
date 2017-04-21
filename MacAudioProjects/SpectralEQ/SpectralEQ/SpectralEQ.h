@@ -139,7 +139,7 @@ static CFStringRef kParameter_EQ6_BYPASS_Name = CFSTR("Param_EQ6_BYPASS");
 
 // WINDOW
 
-static const float kDefaultValue_Param_WINDOW = 0.5;
+static const float kDefaultValue_Param_WINDOW = 0;
 static CFStringRef kParameter_WINDOW_Name = CFSTR("Param_WINDOW");
 
 enum {
@@ -210,10 +210,15 @@ public:
     AudioUnit eq_au[EQBANDS];
     const Float32 *mSource;
     
-    // FFT
-    DSP_FFT mDSP_FFT;
-    SpectrumGraphInfo mInfos;
-    CAAutoFree<Float32> mComputedMagnitudes;
+    // FFT WET
+    DSP_FFT mDSP_FFT_Wet;
+    SpectrumGraphInfo mInfos_Wet;
+    CAAutoFree<Float32> mComputedMagnitudes_Wet;
+    
+    // FFT DRY
+    DSP_FFT mDSP_FFT_Dry;
+    SpectrumGraphInfo mInfos_Dry;
+    CAAutoFree<Float32> mComputedMagnitudes_Dry;
     
     void SetEQParams(int index, AudioUnitParameterValue F, AudioUnitParameterValue Q, AudioUnitParameterValue G);
     void SetBypass(int index, int state);

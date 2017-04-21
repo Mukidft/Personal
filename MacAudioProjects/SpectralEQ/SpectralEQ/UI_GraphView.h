@@ -17,12 +17,14 @@
 
 @interface UI_GraphView : NSView
 {
-    NSPoint mBins[M_BINS];
+    NSPoint mBins_Wet[M_BINS];
+    NSPoint mBins_Dry[M_BINS];
 }
 
--(void) plotData:(Float32 *) data givenInfos:(SpectrumGraphInfo) infos;
+- (void) plotData:(Float32 *) WetData WetInfos:(SpectrumGraphInfo) WetInfos DryData: (Float32 *) DryData DryInfos:(SpectrumGraphInfo) DryInfos;
 - (void)drawBackground: (NSRect) dirtyRect color: (NSColor*) color;
-- (void)drawGraph: (NSColor*) fill stroke: (NSColor*) stroke;
+- (void)drawWetGraph: (NSColor*) fill stroke: (NSColor*) stroke;
+- (void)drawDryGraph: (NSColor*) fill stroke: (NSColor*) stroke;
 - (void)drawGrid;
 
 @end

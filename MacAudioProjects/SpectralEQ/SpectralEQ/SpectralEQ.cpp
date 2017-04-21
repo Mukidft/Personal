@@ -71,6 +71,45 @@ OSStatus renderInput(void *inRefCon,
     
     memcpy((float*)ioData->mBuffers[0].mData, This->mSource, ioData->mBuffers[0].mDataByteSize);
     
+    // Compute FFT for the dry signal
+    
+    This->mDSP_FFT_Dry.CopyInputToRingBuffer(inNumberFrames, ioData);
+    
+    UInt32 currentBlockSize = 1024;
+    
+    DSP_FFT::Window currentWindow = DSP_FFT::Window::Blackman;
+    
+    switch((int)This->GetParameter(kParam_WINDOW))
+    {
+        case 0:
+            currentWindow = DSP_FFT::Window::Rectangular;
+            break;
+        case 1:
+            currentWindow = DSP_FFT::Window::Hann;
+            break;
+        case 2:
+            currentWindow = DSP_FFT::Window::Hamming;
+            break;
+        case 3:
+            currentWindow = DSP_FFT::Window::Blackman;
+            break;
+            
+    }
+    
+    
+    if(This->mDSP_FFT_Dry.ApplyFFT(currentBlockSize, currentWindow))
+    {
+        This->mInfos_Dry.mNumBins = currentBlockSize >> 1;
+        
+        UInt32 channelSelect = 1;
+        
+        if(This->mDSP_FFT_Dry.GetMagnitudes(This->mComputedMagnitudes_Dry, currentWindow, channelSelect))
+        {
+            This->PropertyChanged(kAudioUnitProperty_SpectrumGraphData_Dry, kAudioUnitScope_Global, 0);
+        }
+    }
+
+    
     return noErr;
 }
 
@@ -192,6 +231,31 @@ SpectralEQ::SpectralEQ(AudioUnit component)	: AUEffectBase(component)
 	CreateElements();
 	Globals()->UseIndexedParameters(kNumberOfParameters);
 	SetParameter(kParam_One, kDefaultValue_ParamOne );
+    SetParameter(kParam_EQ1_F, kDefaultValue_Param_EQ1_F);
+    SetParameter(kParam_EQ1_Q, kDefaultValue_Param_EQ1_Q);
+    SetParameter(kParam_EQ1_G, kDefaultValue_Param_EQ1_G);
+    SetParameter(kParam_EQ2_F, kDefaultValue_Param_EQ2_F);
+    SetParameter(kParam_EQ2_Q, kDefaultValue_Param_EQ2_Q);
+    SetParameter(kParam_EQ2_G, kDefaultValue_Param_EQ2_G);
+    SetParameter(kParam_EQ3_F, kDefaultValue_Param_EQ3_F);
+    SetParameter(kParam_EQ3_Q, kDefaultValue_Param_EQ3_Q);
+    SetParameter(kParam_EQ3_G, kDefaultValue_Param_EQ3_G);
+    SetParameter(kParam_EQ4_F, kDefaultValue_Param_EQ4_F);
+    SetParameter(kParam_EQ4_Q, kDefaultValue_Param_EQ4_Q);
+    SetParameter(kParam_EQ4_G, kDefaultValue_Param_EQ4_G);
+    SetParameter(kParam_EQ5_F, kDefaultValue_Param_EQ5_F);
+    SetParameter(kParam_EQ5_Q, kDefaultValue_Param_EQ5_Q);
+    SetParameter(kParam_EQ5_G, kDefaultValue_Param_EQ5_G);
+    SetParameter(kParam_EQ6_F, kDefaultValue_Param_EQ6_F);
+    SetParameter(kParam_EQ6_Q, kDefaultValue_Param_EQ6_Q);
+    SetParameter(kParam_EQ6_G, kDefaultValue_Param_EQ6_G);
+    SetParameter(kParam_EQ1_BYPASS, kDefaultValue_Param_EQ1_BYPASS);
+    SetParameter(kParam_EQ2_BYPASS, kDefaultValue_Param_EQ2_BYPASS);
+    SetParameter(kParam_EQ3_BYPASS, kDefaultValue_Param_EQ3_BYPASS);
+    SetParameter(kParam_EQ4_BYPASS, kDefaultValue_Param_EQ4_BYPASS);
+    SetParameter(kParam_EQ5_BYPASS, kDefaultValue_Param_EQ5_BYPASS);
+    SetParameter(kParam_EQ6_BYPASS, kDefaultValue_Param_EQ6_BYPASS);
+    SetParameter(kParam_WINDOW, kDefaultValue_Param_WINDOW);
 	
 }
 
@@ -201,12 +265,19 @@ OSStatus SpectralEQ::Initialize()
     
     if(result == noErr)
     {
-        mDSP_FFT.Allocate(GetNumberOfChannels(), kMaxBlockSize);
-        mComputedMagnitudes.alloc(kMaxBlockSize >> 1);
+        mDSP_FFT_Wet.Allocate(GetNumberOfChannels(), kMaxBlockSize);
+        mComputedMagnitudes_Wet.alloc(kMaxBlockSize >> 1);
         
-        mInfos.mNumBins = 0;
-        mInfos.mNumChannels = GetNumberOfChannels();
-        mInfos.mSamplingRate = GetSampleRate();
+        mInfos_Wet.mNumBins = 0;
+        mInfos_Wet.mNumChannels = GetNumberOfChannels();
+        mInfos_Wet.mSamplingRate = GetSampleRate();
+        
+        mDSP_FFT_Dry.Allocate(GetNumberOfChannels(), kMaxBlockSize);
+        mComputedMagnitudes_Dry.alloc(kMaxBlockSize >> 1);
+        
+        mInfos_Dry.mNumBins = 0;
+        mInfos_Dry.mNumChannels = GetNumberOfChannels();
+        mInfos_Dry.mSamplingRate = GetSampleRate();
     }
     
     initializeGraph();
@@ -473,13 +544,21 @@ OSStatus			SpectralEQ::GetPropertyInfo (AudioUnitPropertyID	inID,
 				outWritable = false;
 				outDataSize = sizeof (AudioUnitCocoaViewInfo);
 				return noErr;
-            case kAudioUnitProperty_SpectrumGraphInfo:
+            case kAudioUnitProperty_SpectrumGraphInfo_Wet:
                 outWritable = false;
                 outDataSize = sizeof(SpectrumGraphInfo);
                 return noErr;
-            case kAudioUnitProperty_SpectrumGraphData:
+            case kAudioUnitProperty_SpectrumGraphData_Wet:
                 outWritable = false;
-                outDataSize = mInfos.mNumBins * sizeof(Float32);
+                outDataSize = mInfos_Wet.mNumBins * sizeof(Float32);
+                return noErr;
+            case kAudioUnitProperty_SpectrumGraphInfo_Dry:
+                outWritable = false;
+                outDataSize = sizeof(SpectrumGraphInfo);
+                return noErr;
+            case kAudioUnitProperty_SpectrumGraphData_Dry:
+                outWritable = false;
+                outDataSize = mInfos_Dry.mNumBins * sizeof(Float32);
                 return noErr;
 					
 		}
@@ -523,24 +602,45 @@ OSStatus			SpectralEQ::GetProperty(	AudioUnitPropertyID inID,
 				return noErr;
             }
             // This property gives infos about the computed magnitudes
-            case kAudioUnitProperty_SpectrumGraphInfo:
+            case kAudioUnitProperty_SpectrumGraphInfo_Wet:
             {
                 SpectrumGraphInfo* g = (SpectrumGraphInfo*) outData;
                 
-                g->mNumBins = mInfos.mNumBins;
-                g->mSamplingRate = mInfos.mSamplingRate;
-                g->mNumChannels = mInfos.mNumChannels;
+                g->mNumBins = mInfos_Wet.mNumBins;
+                g->mSamplingRate = mInfos_Wet.mSamplingRate;
+                g->mNumChannels = mInfos_Wet.mNumChannels;
                 
                 return noErr;
             }
                 // This property sends magnitudes data as Float32
-            case kAudioUnitProperty_SpectrumGraphData:
+            case kAudioUnitProperty_SpectrumGraphData_Wet:
             {
                 Float32* mData = (Float32*) outData;
                 
-                if(mInfos.mNumBins > 0)
+                if(mInfos_Wet.mNumBins > 0)
                 {
-                    memcpy(mData, mComputedMagnitudes(), mInfos.mNumBins * sizeof(Float32));
+                    memcpy(mData, mComputedMagnitudes_Wet(), mInfos_Wet.mNumBins * sizeof(Float32));
+                }
+            }
+                // This property gives infos about the computed magnitudes
+            case kAudioUnitProperty_SpectrumGraphInfo_Dry:
+            {
+                SpectrumGraphInfo* g = (SpectrumGraphInfo*) outData;
+                
+                g->mNumBins = mInfos_Dry.mNumBins;
+                g->mSamplingRate = mInfos_Dry.mSamplingRate;
+                g->mNumChannels = mInfos_Dry.mNumChannels;
+                
+                return noErr;
+            }
+                // This property sends magnitudes data as Float32
+            case kAudioUnitProperty_SpectrumGraphData_Dry:
+            {
+                Float32* mData = (Float32*) outData;
+                
+                if(mInfos_Dry.mNumBins > 0)
+                {
+                    memcpy(mData, mComputedMagnitudes_Dry(), mInfos_Dry.mNumBins * sizeof(Float32));
                 }
             }
 		}
@@ -625,7 +725,9 @@ void SpectralEQ::SpectralEQKernel::Process(	const Float32 	*inSourceP,
 		destP += inNumChannels;
 	}
     
-    ((SpectralEQ*)mAudioUnit)->mDSP_FFT.CopyInputToRingBuffer(inFramesToProcess, &newList);
+    // Compute FFT for the wet signal
+    
+    ((SpectralEQ*)mAudioUnit)->mDSP_FFT_Wet.CopyInputToRingBuffer(inFramesToProcess, &newList);
     
     UInt32 currentBlockSize = 1024;
     
@@ -649,15 +751,15 @@ void SpectralEQ::SpectralEQKernel::Process(	const Float32 	*inSourceP,
     }
     
     
-    if(((SpectralEQ*)mAudioUnit)->mDSP_FFT.ApplyFFT(currentBlockSize, currentWindow))
+    if(((SpectralEQ*)mAudioUnit)->mDSP_FFT_Wet.ApplyFFT(currentBlockSize, currentWindow))
     {
-        ((SpectralEQ*)mAudioUnit)->mInfos.mNumBins = currentBlockSize >> 1;
+        ((SpectralEQ*)mAudioUnit)->mInfos_Wet.mNumBins = currentBlockSize >> 1;
         
         UInt32 channelSelect = 1;
         
-        if(((SpectralEQ*)mAudioUnit)->mDSP_FFT.GetMagnitudes(((SpectralEQ*)mAudioUnit)->mComputedMagnitudes, currentWindow, channelSelect))
+        if(((SpectralEQ*)mAudioUnit)->mDSP_FFT_Wet.GetMagnitudes(((SpectralEQ*)mAudioUnit)->mComputedMagnitudes_Wet, currentWindow, channelSelect))
         {
-            ((SpectralEQ*)mAudioUnit)->PropertyChanged(kAudioUnitProperty_SpectrumGraphData, kAudioUnitScope_Global, 0);
+            ((SpectralEQ*)mAudioUnit)->PropertyChanged(kAudioUnitProperty_SpectrumGraphData_Wet, kAudioUnitScope_Global, 0);
         }
     }
 }

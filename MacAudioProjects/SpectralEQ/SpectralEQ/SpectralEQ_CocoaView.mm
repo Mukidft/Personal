@@ -585,7 +585,12 @@ void EventListenerDispatcher(void *inRefCon, void *inObject, const AudioUnitEven
     {
         if(inEvent->mEventType == kAudioUnitEvent_PropertyChange)
         {
-            if(inEvent->mArgument.mProperty.mPropertyID == kAudioUnitProperty_SpectrumGraphData)
+            if(inEvent->mArgument.mProperty.mPropertyID == kAudioUnitProperty_SpectrumGraphData_Wet)
+            {
+                [self performSelector:@selector(drawSpectrumGraph:) withObject:self afterDelay:0];
+            }
+            
+            if(inEvent->mArgument.mProperty.mPropertyID == kAudioUnitProperty_SpectrumGraphData_Dry)
             {
                 [self performSelector:@selector(drawSpectrumGraph:) withObject:self afterDelay:0];
             }
@@ -602,10 +607,18 @@ void EventListenerDispatcher(void *inRefCon, void *inObject, const AudioUnitEven
         AudioUnitEvent auEvent;
         auEvent.mEventType = kAudioUnitEvent_PropertyChange;
         auEvent.mArgument.mProperty.mAudioUnit = mAU;
-        auEvent.mArgument.mProperty.mPropertyID = kAudioUnitProperty_SpectrumGraphData;
+        auEvent.mArgument.mProperty.mPropertyID = kAudioUnitProperty_SpectrumGraphData_Wet;
         auEvent.mArgument.mProperty.mScope = kAudioUnitScope_Global;
         auEvent.mArgument.mProperty.mElement = 0;
         verify_noerr(AUEventListenerAddEventType(mAUEventListener, self, &auEvent));
+        
+        AudioUnitEvent auEvent2;
+        auEvent2.mEventType = kAudioUnitEvent_PropertyChange;
+        auEvent2.mArgument.mProperty.mAudioUnit = mAU;
+        auEvent2.mArgument.mProperty.mPropertyID = kAudioUnitProperty_SpectrumGraphData_Dry;
+        auEvent2.mArgument.mProperty.mScope = kAudioUnitScope_Global;
+        auEvent2.mArgument.mProperty.mElement = 0;
+        verify_noerr(AUEventListenerAddEventType(mAUEventListener, self, &auEvent2));
     }
 }
 
@@ -781,34 +794,59 @@ void EventListenerDispatcher(void *inRefCon, void *inObject, const AudioUnitEven
 
 -(void)drawSpectrumGraph:(id)sender
 {
-    struct SpectrumGraphInfo graphInfo;
-    graphInfo.mNumBins = 0;
+    struct SpectrumGraphInfo graphInfo_Wet;
+    graphInfo_Wet.mNumBins = 0;
     
-    UInt32 sizeOfResult = sizeof(graphInfo);
+    UInt32 sizeOfResult_Wet = sizeof(graphInfo_Wet);
     
-    ComponentResult result = AudioUnitGetProperty(mAU,
-                                                  kAudioUnitProperty_SpectrumGraphInfo,
+    ComponentResult result_Wet = AudioUnitGetProperty(mAU,
+                                                  kAudioUnitProperty_SpectrumGraphInfo_Wet,
                                                   kAudioUnitScope_Global,
                                                   0,
-                                                  &graphInfo,
-                                                  &sizeOfResult);
+                                                  &graphInfo_Wet,
+                                                  &sizeOfResult_Wet);
     
-    if(result == noErr && graphInfo.mNumBins > 0)
+    struct SpectrumGraphInfo graphInfo_Dry;
+    graphInfo_Dry.mNumBins = 0;
+    
+    UInt32 sizeOfResult_Dry = sizeof(graphInfo_Dry);
+    
+    ComponentResult result_Dry = AudioUnitGetProperty(mAU,
+                                                  kAudioUnitProperty_SpectrumGraphInfo_Dry,
+                                                  kAudioUnitScope_Global,
+                                                  0,
+                                                  &graphInfo_Dry,
+                                                  &sizeOfResult_Dry);
+    
+    if(result_Wet == noErr && graphInfo_Wet.mNumBins > 0)
     {
-        size_t mBins = graphInfo.mNumBins;
-        sizeOfResult = graphInfo.mNumBins * sizeof(Float32);
+        size_t mBins_Wet = graphInfo_Wet.mNumBins;
+        sizeOfResult_Wet = graphInfo_Wet.mNumBins * sizeof(Float32);
         
-        Float32 graphData[mBins];
-        memset(graphData, 0, sizeOfResult);
+        Float32 graphData_Wet[mBins_Wet];
+        memset(graphData_Wet, 0, sizeOfResult_Wet);
         
-        result = AudioUnitGetProperty(mAU,
-                                      kAudioUnitProperty_SpectrumGraphData,
+        result_Wet = AudioUnitGetProperty(mAU,
+                                      kAudioUnitProperty_SpectrumGraphData_Wet,
                                       kAudioUnitScope_Global,
                                       0,
-                                      graphData,
-                                      &sizeOfResult);
+                                      graphData_Wet,
+                                      &sizeOfResult_Wet);
         
-        [graphView plotData: graphData givenInfos: graphInfo];
+        size_t mBins_Dry = graphInfo_Dry.mNumBins;
+        sizeOfResult_Dry = graphInfo_Dry.mNumBins * sizeof(Float32);
+        
+        Float32 graphData_Dry[mBins_Dry];
+        memset(graphData_Dry, 0, sizeOfResult_Dry);
+        
+        result_Dry = AudioUnitGetProperty(mAU,
+                                          kAudioUnitProperty_SpectrumGraphData_Dry,
+                                          kAudioUnitScope_Global,
+                                          0,
+                                          graphData_Dry,
+                                          &sizeOfResult_Dry);
+        
+        [graphView plotData:graphData_Wet WetInfos:graphInfo_Wet DryData:graphData_Dry DryInfos:graphInfo_Dry];
     }
 }
 

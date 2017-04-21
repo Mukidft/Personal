@@ -19,8 +19,10 @@ enum
 #pragma mark ___SimpleSpectrum Properties
 enum
 {
-    kAudioUnitProperty_SpectrumGraphInfo = 65536,
-    kAudioUnitProperty_SpectrumGraphData = 65537
+    kAudioUnitProperty_SpectrumGraphInfo_Wet = 65536,
+    kAudioUnitProperty_SpectrumGraphData_Wet = 65537,
+    kAudioUnitProperty_SpectrumGraphInfo_Dry = 65538,
+    kAudioUnitProperty_SpectrumGraphData_Dry = 65539,
 };
 
 typedef struct SpectrumGraphInfo
