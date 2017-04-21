@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <textField verticalHuggingPriority="750" id="24">
-                    <rect key="frame" x="680" y="648" width="80" height="17"/>
+                    <rect key="frame" x="635" y="648" width="80" height="17"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Output" id="100024">
                         <font key="font" metaFont="smallSystem"/>
@@ -26,9 +26,9 @@
                     </textFieldCell>
                 </textField>
                 <slider verticalHuggingPriority="750" id="23" customClass="SpectralEQ_GestureSlider">
-                    <rect key="frame" x="654" y="671" width="133" height="26"/>
+                    <rect key="frame" x="609" y="671" width="133" height="26"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <sliderCell key="cell" continuous="YES" alignment="left" maxValue="1" doubleValue="0.5" tickMarkPosition="above" numberOfTickMarks="1" sliderType="linear" id="100023">
+                    <sliderCell key="cell" continuous="YES" alignment="left" maxValue="1" doubleValue="0.5" tickMarkPosition="above" numberOfTickMarks="7" sliderType="linear" id="100023">
                         <font key="font" size="12" name="Helvetica"/>
                     </sliderCell>
                     <connections>
@@ -49,9 +49,12 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="dAi-AM-np3">
-                    <rect key="frame" x="801" y="673" width="20" height="17"/>
+                    <rect key="frame" x="756" y="673" width="52" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0.1" id="nPC-xg-9a7">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" continuous="YES" sendsActionOnEndEditing="YES" id="nPC-xg-9a7">
+                        <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="percent" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" id="wiN-U9-Pcb">
+                            <integer key="multiplier" value="100"/>
+                        </numberFormatter>
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -88,35 +91,44 @@
                                     <action selector="iaParam_eq1_g_Changed:" target="22" id="ja9-AK-dy8"/>
                                 </connections>
                             </slider>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="U3e-MR-fVM">
-                                <rect key="frame" x="45" y="109" width="70" height="17"/>
+                            <textField verticalHuggingPriority="750" id="itY-od-hu3">
+                                <rect key="frame" x="44" y="105" width="48" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Label" id="PCu-R4-DXm">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="qkd-9q-5eg"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="xDy-zy-ycK">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="RyG-SQ-5u1"/>
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="iaParam_eq1_f_Changed:" target="22" id="ldf-Sy-zCv"/>
+                                </connections>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="E80-Hy-vkA">
-                                <rect key="frame" x="45" y="63" width="38" height="17"/>
+                            <textField verticalHuggingPriority="750" id="EwK-6O-vj8">
+                                <rect key="frame" x="44" y="59" width="48" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="yzz-CE-AbU">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="1yi-Hb-3ED"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="rFH-ET-E2y">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="YNZ-Ei-8jg"/>
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="iaParam_eq1_q_Changed:" target="22" id="ber-3A-2YX"/>
+                                </connections>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="0aM-MN-H1L">
-                                <rect key="frame" x="45" y="18" width="38" height="17"/>
+                            <textField verticalHuggingPriority="750" id="ECM-mJ-exL">
+                                <rect key="frame" x="44" y="14" width="48" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="NRz-sa-6od">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="eIn-kR-GUR"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="dF1-HD-Sye">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="nTO-Ks-lpV"/>
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="iaParam_eq1_g_Changed:" target="22" id="b2s-Nn-moe"/>
+                                </connections>
                             </textField>
                         </subviews>
                     </view>
@@ -154,35 +166,44 @@
                                     <action selector="iaParam_eq2_g_Changed:" target="22" id="DpJ-tS-UZx"/>
                                 </connections>
                             </slider>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="UMl-Hu-Ud3">
-                                <rect key="frame" x="45" y="109" width="70" height="17"/>
+                            <textField verticalHuggingPriority="750" id="jgw-c7-2JI">
+                                <rect key="frame" x="44" y="105" width="48" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Label" id="0eL-9R-ik2">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="mN1-Jw-Oj5"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Xcm-sA-EvF">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="0Bq-zQ-WCs"/>
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="iaParam_eq2_f_Changed:" target="22" id="234-Ss-lXw"/>
+                                </connections>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="B3A-5u-yXy">
-                                <rect key="frame" x="45" y="63" width="38" height="17"/>
+                            <textField verticalHuggingPriority="750" id="L3K-1j-wps">
+                                <rect key="frame" x="44" y="59" width="48" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="ur9-p5-uZw">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="bcG-Rf-8fw"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="CBH-Ep-OEs">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="1ap-xx-e9i"/>
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="iaParam_eq2_q_Changed:" target="22" id="k5X-ko-fte"/>
+                                </connections>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="vTN-pW-YNc">
-                                <rect key="frame" x="45" y="18" width="38" height="17"/>
+                            <textField verticalHuggingPriority="750" id="zPV-EJ-Vio">
+                                <rect key="frame" x="44" y="14" width="48" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="Xwh-8i-8eI">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="b0M-gj-cUN"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="IW4-LK-tRm">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="Ckm-we-6rS"/>
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="iaParam_eq2_g_Changed:" target="22" id="Q5F-lD-o4Z"/>
+                                </connections>
                             </textField>
                         </subviews>
                     </view>
@@ -220,35 +241,44 @@
                                     <action selector="iaParam_eq3_g_Changed:" target="22" id="QN5-MQ-o2I"/>
                                 </connections>
                             </slider>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="qVc-FV-rqa">
-                                <rect key="frame" x="45" y="109" width="70" height="17"/>
+                            <textField verticalHuggingPriority="750" id="gwz-5m-CwR">
+                                <rect key="frame" x="45" y="59" width="48" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Label" id="CKA-lF-n6o">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="BGt-H1-4Lo"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Dtc-LP-KtZ">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="va5-6P-Dcb"/>
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="iaParam_eq3_q_Changed:" target="22" id="8HD-5l-niy"/>
+                                </connections>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="iG6-Ec-dYB">
-                                <rect key="frame" x="45" y="63" width="38" height="17"/>
+                            <textField verticalHuggingPriority="750" id="gUC-j8-7xe">
+                                <rect key="frame" x="45" y="105" width="48" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="8FI-4t-PGC">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="TlI-br-NJi"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Isb-tn-sPY">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="KRr-Cn-avx"/>
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="iaParam_eq3_f_Changed:" target="22" id="Wpv-06-lb3"/>
+                                </connections>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="LkM-ZF-n03">
-                                <rect key="frame" x="45" y="18" width="38" height="17"/>
+                            <textField verticalHuggingPriority="750" id="yYC-G6-DoQ">
+                                <rect key="frame" x="45" y="14" width="48" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="8Ph-hZ-chx">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="ZTY-ef-ftU"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="4oh-Ag-ADR">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="tPv-ur-Kzn"/>
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="iaParam_eq3_g_Changed:" target="22" id="83I-Uh-s7C"/>
+                                </connections>
                             </textField>
                         </subviews>
                     </view>
@@ -286,35 +316,44 @@
                                     <action selector="iaParam_eq4_g_Changed:" target="22" id="hga-eG-QUd"/>
                                 </connections>
                             </slider>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="GZH-hY-cCg">
-                                <rect key="frame" x="45" y="109" width="70" height="17"/>
+                            <textField verticalHuggingPriority="750" id="7Rr-qd-Mzd">
+                                <rect key="frame" x="43" y="59" width="48" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Label" id="Erg-4n-dOp">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="poX-yq-4S5"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="671-Pl-ijE">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="ysk-bC-Rs2"/>
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="iaParam_eq4_q_Changed:" target="22" id="SJJ-Oz-Mlw"/>
+                                </connections>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="2DI-FI-wMO">
-                                <rect key="frame" x="45" y="63" width="38" height="17"/>
+                            <textField verticalHuggingPriority="750" id="URN-BS-AH6">
+                                <rect key="frame" x="43" y="105" width="48" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="RK2-7P-pzf">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="KgK-Yr-vxR"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Vex-d7-Kwl">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="dgt-1h-YH2"/>
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="iaParam_eq4_f_Changed:" target="22" id="QpP-7e-PX2"/>
+                                </connections>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="u60-eu-ZlY">
-                                <rect key="frame" x="45" y="18" width="38" height="17"/>
+                            <textField verticalHuggingPriority="750" id="fTG-cR-JH3">
+                                <rect key="frame" x="43" y="14" width="48" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="oQL-0I-CQ4">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="NTy-zY-mBk"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="ofb-Vs-QyW">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="REm-ky-vyg"/>
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="iaParam_eq4_g_Changed:" target="22" id="T1e-lX-FpX"/>
+                                </connections>
                             </textField>
                         </subviews>
                     </view>
@@ -352,35 +391,44 @@
                                     <action selector="iaParam_eq5_g_Changed:" target="22" id="v8L-dw-G28"/>
                                 </connections>
                             </slider>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="cLP-rF-gTh">
-                                <rect key="frame" x="45" y="109" width="70" height="17"/>
+                            <textField verticalHuggingPriority="750" id="AUm-RF-RzS">
+                                <rect key="frame" x="44" y="59" width="48" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Label" id="LZD-fv-jaj">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="bMZ-nv-kBY"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="S6d-AG-i4s">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="7mo-u9-UUk"/>
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="iaParam_eq5_q_Changed:" target="22" id="dn8-vJ-5Vv"/>
+                                </connections>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Kjl-bO-Flh">
-                                <rect key="frame" x="45" y="63" width="38" height="17"/>
+                            <textField verticalHuggingPriority="750" id="Wgy-Fe-ru4">
+                                <rect key="frame" x="44" y="105" width="48" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="iVc-eB-a2n">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="0YN-O4-FGJ"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="6DY-V6-hIY">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="pSk-Fr-u3F"/>
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="iaParam_eq5_f_Changed:" target="22" id="ear-JN-n8r"/>
+                                </connections>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="uCX-KU-adk">
-                                <rect key="frame" x="45" y="18" width="38" height="17"/>
+                            <textField verticalHuggingPriority="750" id="Ufb-WB-PZa">
+                                <rect key="frame" x="44" y="14" width="48" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="CYz-uy-86w">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="ayb-oL-FNM"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="oY7-9l-7IZ">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="b7p-27-7bH"/>
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="iaParam_eq5_g_Changed:" target="22" id="3HR-aE-vjR"/>
+                                </connections>
                             </textField>
                         </subviews>
                     </view>
@@ -418,35 +466,44 @@
                                     <action selector="iaParam_eq6_g_Changed:" target="22" id="9vg-vV-osl"/>
                                 </connections>
                             </slider>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="EgC-yQ-eKM">
-                                <rect key="frame" x="45" y="109" width="70" height="17"/>
+                            <textField verticalHuggingPriority="750" id="19o-ps-MZP">
+                                <rect key="frame" x="45" y="59" width="48" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Label" id="yFP-63-0RU">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="vy8-E4-nTt"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="6Kb-J0-7ab">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="SL2-6C-M5i"/>
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="iaParam_eq6_q_Changed:" target="22" id="5RV-fv-TCR"/>
+                                </connections>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="THQ-e8-7BQ">
-                                <rect key="frame" x="45" y="63" width="38" height="17"/>
+                            <textField verticalHuggingPriority="750" id="ibg-0D-O2m">
+                                <rect key="frame" x="45" y="105" width="48" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="kNB-yw-0D6">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="hyz-TQ-Lxk"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Aao-zR-BES">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="lWt-G6-gJE"/>
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="iaParam_eq6_f_Changed:" target="22" id="XoF-zF-ido"/>
+                                </connections>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="lXQ-EC-TF0">
-                                <rect key="frame" x="45" y="18" width="38" height="17"/>
+                            <textField verticalHuggingPriority="750" id="az5-tf-FE5">
+                                <rect key="frame" x="45" y="14" width="48" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="OU5-hX-nR2">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="Tzh-aH-WXZ"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="E14-ww-Muw">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="HM9-Ue-PVe"/>
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="iaParam_eq6_g_Changed:" target="22" id="mhr-8a-Zsr"/>
+                                </connections>
                             </textField>
                         </subviews>
                     </view>
@@ -480,7 +537,16 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </textFieldCell>
                 </textField>
-                <segmentedControl verticalHuggingPriority="750" id="dDV-A8-xl4">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="yhn-ch-KHW" userLabel="Label_Gain">
+                    <rect key="frame" x="13" y="22" width="91" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="RENDER" id="VYH-FK-oVS">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" white="0.3527832031" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </textFieldCell>
+                </textField>
+                <segmentedControl wantsLayer="YES" verticalHuggingPriority="750" id="dDV-A8-xl4">
                     <rect key="frame" x="121" y="18" width="84" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="bFx-27-hvT">
@@ -490,48 +556,156 @@
                             <segment label="Off" selected="YES" tag="1"/>
                         </segments>
                     </segmentedCell>
+                    <connections>
+                        <action selector="iaParam_eq1_bypass:" target="22" id="054-6q-OiY"/>
+                    </connections>
                 </segmentedControl>
+                <segmentedControl wantsLayer="YES" verticalHuggingPriority="750" id="YHy-qJ-ptD">
+                    <rect key="frame" x="245" y="18" width="84" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="bwn-lg-it3">
+                        <font key="font" metaFont="system"/>
+                        <segments>
+                            <segment label="On"/>
+                            <segment label="Off" selected="YES" tag="1"/>
+                        </segments>
+                    </segmentedCell>
+                    <connections>
+                        <action selector="iaParam_eq2_bypass:" target="22" id="6Mu-5Y-eU3"/>
+                    </connections>
+                </segmentedControl>
+                <segmentedControl wantsLayer="YES" verticalHuggingPriority="750" id="dfQ-Vf-6g3">
+                    <rect key="frame" x="368" y="18" width="84" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="P0L-oi-cxV">
+                        <font key="font" metaFont="system"/>
+                        <segments>
+                            <segment label="On"/>
+                            <segment label="Off" selected="YES" tag="1"/>
+                        </segments>
+                    </segmentedCell>
+                    <connections>
+                        <action selector="iaParam_eq3_bypass:" target="22" id="8cB-x3-cs5"/>
+                    </connections>
+                </segmentedControl>
+                <segmentedControl wantsLayer="YES" verticalHuggingPriority="750" id="dlu-8m-m4F">
+                    <rect key="frame" x="494" y="18" width="84" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="5dv-Up-Nfl">
+                        <font key="font" metaFont="system"/>
+                        <segments>
+                            <segment label="On"/>
+                            <segment label="Off" selected="YES" tag="1"/>
+                        </segments>
+                    </segmentedCell>
+                    <connections>
+                        <action selector="iaParam_eq4_bypass:" target="22" id="bFo-Uo-du5"/>
+                    </connections>
+                </segmentedControl>
+                <segmentedControl wantsLayer="YES" verticalHuggingPriority="750" id="VKr-Nx-3eS">
+                    <rect key="frame" x="616" y="18" width="84" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="ZyL-lM-jQC">
+                        <font key="font" metaFont="system"/>
+                        <segments>
+                            <segment label="On"/>
+                            <segment label="Off" selected="YES" tag="1"/>
+                        </segments>
+                    </segmentedCell>
+                    <connections>
+                        <action selector="iaParam_eq5_bypass:" target="22" id="U0m-QR-SDD"/>
+                    </connections>
+                </segmentedControl>
+                <segmentedControl wantsLayer="YES" verticalHuggingPriority="750" id="qIe-X8-oIK">
+                    <rect key="frame" x="742" y="18" width="84" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="8ze-ky-VZ0">
+                        <font key="font" metaFont="system"/>
+                        <segments>
+                            <segment label="On"/>
+                            <segment label="Off" selected="YES" tag="1"/>
+                        </segments>
+                    </segmentedCell>
+                    <connections>
+                        <action selector="iaParam_eq6_bypass:" target="22" id="mmm-H5-HNL"/>
+                    </connections>
+                </segmentedControl>
+                <popUpButton verticalHuggingPriority="750" id="lac-RM-zE5">
+                    <rect key="frame" x="120" y="668" width="135" height="26"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="push" title="Blackman" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" inset="2" pullsDown="YES" preferredEdge="maxX" selectedItem="DuJ-YH-UEG" id="rLS-yJ-dcl">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="menu"/>
+                        <menu key="menu" id="R5f-V2-PQZ">
+                            <items>
+                                <menuItem title="Blackman" id="dce-2m-YXn"/>
+                                <menuItem title="Rectangular" id="YCJ-aG-S6l"/>
+                                <menuItem title="Hann" id="jdn-07-KJZ"/>
+                                <menuItem title="Hamming" state="on" id="DuJ-YH-UEG"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="iaParam_window:" target="22" id="3vA-bC-5uE"/>
+                    </connections>
+                </popUpButton>
+                <textField verticalHuggingPriority="750" id="jJC-uS-BPf">
+                    <rect key="frame" x="147" y="646" width="80" height="17"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Window" id="yrj-eu-mAM">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
             <connections>
                 <outlet property="graphView" destination="vUi-Ae-PGe" id="89K-j4-iyY"/>
                 <outlet property="uiParam1Slider" destination="23" id="27"/>
-                <outlet property="uiParam1TextField" destination="24" id="Xu9-uC-I7w"/>
+                <outlet property="uiParam1TextField" destination="dAi-AM-np3" id="ZyV-v6-fOA"/>
+                <outlet property="uiParam_Window" destination="lac-RM-zE5" id="Fji-qA-V8J"/>
+                <outlet property="uiParam_eq1_bypass" destination="dDV-A8-xl4" id="CSa-7h-Enp"/>
                 <outlet property="uiParam_eq1_f" destination="jsX-6V-Svc" id="SpD-C0-hlY"/>
-                <outlet property="uiParam_eq1_f_Label" destination="U3e-MR-fVM" id="nB1-qC-c6a"/>
+                <outlet property="uiParam_eq1_f_Label" destination="itY-od-hu3" id="Soc-tW-XVZ"/>
                 <outlet property="uiParam_eq1_g" destination="fgr-ag-fhB" id="EE2-eh-tVB"/>
-                <outlet property="uiParam_eq1_g_Label" destination="0aM-MN-H1L" id="Qa5-ik-7oc"/>
+                <outlet property="uiParam_eq1_g_Label" destination="ECM-mJ-exL" id="dBP-YS-XZq"/>
                 <outlet property="uiParam_eq1_q" destination="v1I-VL-PNM" id="0FD-0c-rHz"/>
-                <outlet property="uiParam_eq1_q_Label" destination="E80-Hy-vkA" id="8rG-d0-jfx"/>
+                <outlet property="uiParam_eq1_q_Label" destination="EwK-6O-vj8" id="atq-6j-J7F"/>
+                <outlet property="uiParam_eq2_bypass" destination="YHy-qJ-ptD" id="jIu-Sx-cZT"/>
                 <outlet property="uiParam_eq2_f" destination="kJX-D9-dRf" id="s3p-fB-yDA"/>
-                <outlet property="uiParam_eq2_f_Label" destination="UMl-Hu-Ud3" id="fwZ-vn-i5Z"/>
+                <outlet property="uiParam_eq2_f_Label" destination="jgw-c7-2JI" id="Pcu-jU-wFo"/>
                 <outlet property="uiParam_eq2_g" destination="rKK-Lj-fOe" id="rAo-Pd-0ck"/>
-                <outlet property="uiParam_eq2_g_Label" destination="vTN-pW-YNc" id="IrD-Oi-4IC"/>
+                <outlet property="uiParam_eq2_g_Label" destination="zPV-EJ-Vio" id="O7j-co-g7w"/>
                 <outlet property="uiParam_eq2_q" destination="pVy-N1-7IS" id="kjk-kc-DhE"/>
-                <outlet property="uiParam_eq2_q_Label" destination="B3A-5u-yXy" id="70t-If-Qo5"/>
+                <outlet property="uiParam_eq2_q_Label" destination="L3K-1j-wps" id="Ev3-R5-t8D"/>
+                <outlet property="uiParam_eq3_bypass" destination="dfQ-Vf-6g3" id="vJD-CH-L1D"/>
                 <outlet property="uiParam_eq3_f" destination="SJC-0K-Okj" id="AUL-NA-Yqv"/>
-                <outlet property="uiParam_eq3_f_Label" destination="qVc-FV-rqa" id="cPf-lW-RDs"/>
+                <outlet property="uiParam_eq3_f_Label" destination="gUC-j8-7xe" id="mNB-wW-QxK"/>
                 <outlet property="uiParam_eq3_g" destination="1fu-U0-27l" id="A1u-Hv-Krz"/>
-                <outlet property="uiParam_eq3_g_Label" destination="LkM-ZF-n03" id="Eau-PW-Ggp"/>
+                <outlet property="uiParam_eq3_g_Label" destination="yYC-G6-DoQ" id="Q3x-cB-73Y"/>
                 <outlet property="uiParam_eq3_q" destination="vqe-v2-gfM" id="5Hu-UE-rlZ"/>
-                <outlet property="uiParam_eq3_q_Label" destination="iG6-Ec-dYB" id="sxi-by-ew9"/>
+                <outlet property="uiParam_eq3_q_Label" destination="gwz-5m-CwR" id="9f9-3L-ONE"/>
+                <outlet property="uiParam_eq4_bypass" destination="dlu-8m-m4F" id="rH7-Q4-CeE"/>
                 <outlet property="uiParam_eq4_f" destination="Qpt-sa-SRu" id="d3r-G8-nqO"/>
-                <outlet property="uiParam_eq4_f_Label" destination="GZH-hY-cCg" id="caH-1Q-lAF"/>
+                <outlet property="uiParam_eq4_f_Label" destination="URN-BS-AH6" id="M0n-GD-cbF"/>
                 <outlet property="uiParam_eq4_g" destination="lqn-9S-Nmp" id="QNs-7q-ZCc"/>
-                <outlet property="uiParam_eq4_g_Label" destination="u60-eu-ZlY" id="Ah7-BU-RZA"/>
+                <outlet property="uiParam_eq4_g_Label" destination="fTG-cR-JH3" id="w36-Ju-omb"/>
                 <outlet property="uiParam_eq4_q" destination="Eaf-IN-Xkl" id="1Ko-Yr-Ltr"/>
-                <outlet property="uiParam_eq4_q_Label" destination="2DI-FI-wMO" id="gW1-NY-2Ue"/>
+                <outlet property="uiParam_eq4_q_Label" destination="7Rr-qd-Mzd" id="b5k-xk-7L4"/>
+                <outlet property="uiParam_eq5_bypass" destination="VKr-Nx-3eS" id="0lS-xF-hka"/>
                 <outlet property="uiParam_eq5_f" destination="EZn-dL-u6L" id="unR-Zr-hTW"/>
-                <outlet property="uiParam_eq5_f_Label" destination="cLP-rF-gTh" id="HuQ-Ta-7o9"/>
+                <outlet property="uiParam_eq5_f_Label" destination="Wgy-Fe-ru4" id="uTK-t3-8JR"/>
                 <outlet property="uiParam_eq5_g" destination="np3-HC-wFH" id="eIK-mT-ew4"/>
-                <outlet property="uiParam_eq5_g_Label" destination="uCX-KU-adk" id="Zuc-CW-VFD"/>
+                <outlet property="uiParam_eq5_g_Label" destination="Ufb-WB-PZa" id="Etw-AP-7Bt"/>
                 <outlet property="uiParam_eq5_q" destination="jGP-hf-MDY" id="GL3-3x-CmE"/>
-                <outlet property="uiParam_eq5_q_Label" destination="Kjl-bO-Flh" id="IKv-Qs-xFK"/>
+                <outlet property="uiParam_eq5_q_Label" destination="AUm-RF-RzS" id="11k-va-PLr"/>
+                <outlet property="uiParam_eq6_bypass" destination="qIe-X8-oIK" id="p0u-GH-ajQ"/>
                 <outlet property="uiParam_eq6_f" destination="9ew-cx-90N" id="5k2-CX-BjP"/>
-                <outlet property="uiParam_eq6_f_Label" destination="EgC-yQ-eKM" id="dc3-uw-Ly8"/>
+                <outlet property="uiParam_eq6_f_Label" destination="ibg-0D-O2m" id="dIo-5Q-Rfo"/>
                 <outlet property="uiParam_eq6_g" destination="pUi-g4-Khc" id="kWy-yT-Few"/>
-                <outlet property="uiParam_eq6_g_Label" destination="lXQ-EC-TF0" id="dRf-GI-ojK"/>
+                <outlet property="uiParam_eq6_g_Label" destination="az5-tf-FE5" id="ylU-Wn-cAw"/>
                 <outlet property="uiParam_eq6_q" destination="Ker-KW-9Lx" id="HtD-Mt-CIw"/>
-                <outlet property="uiParam_eq6_q_Label" destination="THQ-e8-7BQ" id="vbj-UW-xqe"/>
+                <outlet property="uiParam_eq6_q_Label" destination="19o-ps-MZP" id="WkD-tH-PWc"/>
             </connections>
             <point key="canvasLocation" x="818.5" y="702.5"/>
         </customView>

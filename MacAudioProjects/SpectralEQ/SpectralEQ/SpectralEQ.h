@@ -78,6 +78,10 @@ static CFStringRef kParameter_EQ1_F_Name = CFSTR("Param_EQ1_F");
 static CFStringRef kParameter_EQ1_Q_Name = CFSTR("Param_EQ1_Q");
 static CFStringRef kParameter_EQ1_G_Name = CFSTR("Param_EQ1_G");
 
+
+static const float kDefaultValue_Param_EQ1_BYPASS = 1;
+static CFStringRef kParameter_EQ1_BYPASS_Name = CFSTR("Param_EQ1_BYPASS");
+
 // EQ 2
 static const float kDefaultValue_Param_EQ2_F = 6666;
 static const float kDefaultValue_Param_EQ2_Q = 1.0;
@@ -85,6 +89,9 @@ static const float kDefaultValue_Param_EQ2_G = 0;
 static CFStringRef kParameter_EQ2_F_Name = CFSTR("Param_EQ2_F");
 static CFStringRef kParameter_EQ2_Q_Name = CFSTR("Param_EQ2_Q");
 static CFStringRef kParameter_EQ2_G_Name = CFSTR("Param_EQ2_G");
+
+static const float kDefaultValue_Param_EQ2_BYPASS = 1;
+static CFStringRef kParameter_EQ2_BYPASS_Name = CFSTR("Param_EQ2_BYPASS");
 
 // EQ 3
 static const float kDefaultValue_Param_EQ3_F = 10000;
@@ -94,6 +101,9 @@ static CFStringRef kParameter_EQ3_F_Name = CFSTR("Param_EQ3_F");
 static CFStringRef kParameter_EQ3_Q_Name = CFSTR("Param_EQ3_Q");
 static CFStringRef kParameter_EQ3_G_Name = CFSTR("Param_EQ3_G");
 
+static const float kDefaultValue_Param_EQ3_BYPASS = 1;
+static CFStringRef kParameter_EQ3_BYPASS_Name = CFSTR("Param_EQ3_BYPASS");
+
 // EQ 4
 static const float kDefaultValue_Param_EQ4_F = 13333;
 static const float kDefaultValue_Param_EQ4_Q = 1.0;
@@ -101,6 +111,9 @@ static const float kDefaultValue_Param_EQ4_G = 0;
 static CFStringRef kParameter_EQ4_F_Name = CFSTR("Param_EQ4_F");
 static CFStringRef kParameter_EQ4_Q_Name = CFSTR("Param_EQ4_Q");
 static CFStringRef kParameter_EQ4_G_Name = CFSTR("Param_EQ4_G");
+
+static const float kDefaultValue_Param_EQ4_BYPASS = 1;
+static CFStringRef kParameter_EQ4_BYPASS_Name = CFSTR("Param_EQ4_BYPASS");
 
 // EQ 5
 static const float kDefaultValue_Param_EQ5_F = 16666;
@@ -110,6 +123,9 @@ static CFStringRef kParameter_EQ5_F_Name = CFSTR("Param_EQ5_F");
 static CFStringRef kParameter_EQ5_Q_Name = CFSTR("Param_EQ5_Q");
 static CFStringRef kParameter_EQ5_G_Name = CFSTR("Param_EQ5_G");
 
+static const float kDefaultValue_Param_EQ5_BYPASS = 1;
+static CFStringRef kParameter_EQ5_BYPASS_Name = CFSTR("Param_EQ5_BYPASS");
+
 // EQ 6
 static const float kDefaultValue_Param_EQ6_F = 20000;
 static const float kDefaultValue_Param_EQ6_Q = 1.0;
@@ -117,6 +133,9 @@ static const float kDefaultValue_Param_EQ6_G = 0;
 static CFStringRef kParameter_EQ6_F_Name = CFSTR("Param_EQ6_F");
 static CFStringRef kParameter_EQ6_Q_Name = CFSTR("Param_EQ6_Q");
 static CFStringRef kParameter_EQ6_G_Name = CFSTR("Param_EQ6_G");
+
+static const float kDefaultValue_Param_EQ6_BYPASS = 1;
+static CFStringRef kParameter_EQ6_BYPASS_Name = CFSTR("Param_EQ6_BYPASS");
 
 enum {
     kParam_One =0,
@@ -138,7 +157,13 @@ enum {
     kParam_EQ6_F =16,
     kParam_EQ6_Q =17,
     kParam_EQ6_G =18,
-    kNumberOfParameters=19
+    kParam_EQ1_BYPASS = 19,
+    kParam_EQ2_BYPASS = 20,
+    kParam_EQ3_BYPASS = 21,
+    kParam_EQ4_BYPASS = 22,
+    kParam_EQ5_BYPASS = 23,
+    kParam_EQ6_BYPASS = 24,
+    kNumberOfParameters=25
 };
 
 #pragma mark ____SpectralEQ
@@ -161,11 +186,6 @@ private:
         NodeGetProperty
     } _ErrorType;
     
-    // FFT
-    DSP_FFT mDSP_FFT;
-    SpectrumGraphInfo mInfos;
-    CAAutoFree<Float32> mComputedMagnitudes;
-    
     // AUGraph
     AUGraph mGraph;
     AUNode outputNode;
@@ -184,7 +204,13 @@ public:
     AudioUnit eq_au[EQBANDS];
     const Float32 *mSource;
     
+    // FFT
+    DSP_FFT mDSP_FFT;
+    SpectrumGraphInfo mInfos;
+    CAAutoFree<Float32> mComputedMagnitudes;
+    
     void SetEQParams(int index, AudioUnitParameterValue F, AudioUnitParameterValue Q, AudioUnitParameterValue G);
+    void SetBypass(int index, int state);
     
     virtual OSStatus Initialize();
     

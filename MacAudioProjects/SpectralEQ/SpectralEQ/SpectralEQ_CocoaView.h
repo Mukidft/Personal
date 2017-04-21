@@ -83,6 +83,8 @@
     IBOutlet NSTextField * uiParam_eq1_q_Label;
     IBOutlet NSTextField * uiParam_eq1_g_Label;
     
+    IBOutlet NSSegmentedControl * uiParam_eq1_bypass;
+    
     // EQ2
     IBOutlet NSSlider * uiParam_eq2_f;
     IBOutlet NSSlider * uiParam_eq2_q;
@@ -92,6 +94,8 @@
     IBOutlet NSTextField * uiParam_eq2_f_Label;
     IBOutlet NSTextField * uiParam_eq2_q_Label;
     IBOutlet NSTextField * uiParam_eq2_g_Label;
+    
+    IBOutlet NSSegmentedControl * uiParam_eq2_bypass;
     
     // EQ3
     IBOutlet NSSlider * uiParam_eq3_f;
@@ -103,6 +107,8 @@
     IBOutlet NSTextField * uiParam_eq3_q_Label;
     IBOutlet NSTextField * uiParam_eq3_g_Label;
     
+    IBOutlet NSSegmentedControl * uiParam_eq3_bypass;
+    
     // EQ4
     IBOutlet NSSlider * uiParam_eq4_f;
     IBOutlet NSSlider * uiParam_eq4_q;
@@ -112,6 +118,8 @@
     IBOutlet NSTextField * uiParam_eq4_f_Label;
     IBOutlet NSTextField * uiParam_eq4_q_Label;
     IBOutlet NSTextField * uiParam_eq4_g_Label;
+    
+    IBOutlet NSSegmentedControl * uiParam_eq4_bypass;
     
     // EQ5
     IBOutlet NSSlider * uiParam_eq5_f;
@@ -123,6 +131,8 @@
     IBOutlet NSTextField * uiParam_eq5_q_Label;
     IBOutlet NSTextField * uiParam_eq5_g_Label;
     
+    IBOutlet NSSegmentedControl * uiParam_eq5_bypass;
+    
     // EQ6
     IBOutlet NSSlider * uiParam_eq6_f;
     IBOutlet NSSlider * uiParam_eq6_q;
@@ -132,10 +142,14 @@
     IBOutlet NSTextField * uiParam_eq6_f_Label;
     IBOutlet NSTextField * uiParam_eq6_q_Label;
     IBOutlet NSTextField * uiParam_eq6_g_Label;
+    
+    IBOutlet NSSegmentedControl * uiParam_eq6_bypass;
+    
+    IBOutlet NSPopUpButton * uiParam_Window;
 	
     // Other Members
     AudioUnit 				mAU;
-	AudioUnitParameter		mParameter[19];
+	AudioUnitParameter		mParameter[25];
     AUParameterListenerRef	mParameterListener;
     AUEventListenerRef      mAUEventListener;
 }
@@ -151,30 +165,44 @@
 - (IBAction)iaParam_eq1_q_Changed:(id)sender;
 - (IBAction)iaParam_eq1_g_Changed:(id)sender;
 
+- (IBAction)iaParam_eq1_bypass:(id)sender;
+
 // EQ 2
 - (IBAction)iaParam_eq2_f_Changed:(id)sender;
 - (IBAction)iaParam_eq2_q_Changed:(id)sender;
 - (IBAction)iaParam_eq2_g_Changed:(id)sender;
+
+- (IBAction)iaParam_eq2_bypass:(id)sender;
 
 // EQ 3
 - (IBAction)iaParam_eq3_f_Changed:(id)sender;
 - (IBAction)iaParam_eq3_q_Changed:(id)sender;
 - (IBAction)iaParam_eq3_g_Changed:(id)sender;
 
+- (IBAction)iaParam_eq3_bypass:(id)sender;
+
 // EQ 4
 - (IBAction)iaParam_eq4_f_Changed:(id)sender;
 - (IBAction)iaParam_eq4_q_Changed:(id)sender;
 - (IBAction)iaParam_eq4_g_Changed:(id)sender;
+
+- (IBAction)iaParam_eq4_bypass:(id)sender;
 
 // EQ 5
 - (IBAction)iaParam_eq5_f_Changed:(id)sender;
 - (IBAction)iaParam_eq5_q_Changed:(id)sender;
 - (IBAction)iaParam_eq5_g_Changed:(id)sender;
 
+- (IBAction)iaParam_eq5_bypass:(id)sender;
+
 // EQ 6
 - (IBAction)iaParam_eq6_f_Changed:(id)sender;
 - (IBAction)iaParam_eq6_q_Changed:(id)sender;
 - (IBAction)iaParam_eq6_g_Changed:(id)sender;
+
+- (IBAction)iaParam_eq6_bypass:(id)sender;
+
+- (IBAction)iaParam_window:(id)sender;
 
 #pragma mark ____ PRIVATE FUNCTIONS
 - (void)synchronizeUIWithParameterValues;

@@ -388,6 +388,50 @@ OSStatus			SpectralEQ::GetParameterInfo(AudioUnitScope		inScope,
                 outParameterInfo.defaultValue = kDefaultValue_Param_EQ6_G;
                 break;
                 
+                // BYPASS
+            case kParam_EQ1_BYPASS:
+                AUBase::FillInParameterName (outParameterInfo, kParameter_EQ1_BYPASS_Name, false);
+                outParameterInfo.unit = kAudioUnitParameterUnit_LinearGain;
+                outParameterInfo.minValue = 0;
+                outParameterInfo.maxValue = 1;
+                outParameterInfo.defaultValue = kDefaultValue_Param_EQ1_BYPASS;
+                break;
+            case kParam_EQ2_BYPASS:
+                AUBase::FillInParameterName (outParameterInfo, kParameter_EQ2_BYPASS_Name, false);
+                outParameterInfo.unit = kAudioUnitParameterUnit_LinearGain;
+                outParameterInfo.minValue = 0;
+                outParameterInfo.maxValue = 1;
+                outParameterInfo.defaultValue = kDefaultValue_Param_EQ2_BYPASS;
+                break;
+            case kParam_EQ3_BYPASS:
+                AUBase::FillInParameterName (outParameterInfo, kParameter_EQ3_BYPASS_Name, false);
+                outParameterInfo.unit = kAudioUnitParameterUnit_LinearGain;
+                outParameterInfo.minValue = 0;
+                outParameterInfo.maxValue = 1;
+                outParameterInfo.defaultValue = kDefaultValue_Param_EQ3_BYPASS;
+                break;
+            case kParam_EQ4_BYPASS:
+                AUBase::FillInParameterName (outParameterInfo, kParameter_EQ4_BYPASS_Name, false);
+                outParameterInfo.unit = kAudioUnitParameterUnit_LinearGain;
+                outParameterInfo.minValue = 0;
+                outParameterInfo.maxValue = 1;
+                outParameterInfo.defaultValue = kDefaultValue_Param_EQ4_BYPASS;
+                break;
+            case kParam_EQ5_BYPASS:
+                AUBase::FillInParameterName (outParameterInfo, kParameter_EQ5_BYPASS_Name, false);
+                outParameterInfo.unit = kAudioUnitParameterUnit_LinearGain;
+                outParameterInfo.minValue = 0;
+                outParameterInfo.maxValue = 1;
+                outParameterInfo.defaultValue = kDefaultValue_Param_EQ5_BYPASS;
+                break;
+            case kParam_EQ6_BYPASS:
+                AUBase::FillInParameterName (outParameterInfo, kParameter_EQ6_BYPASS_Name, false);
+                outParameterInfo.unit = kAudioUnitParameterUnit_LinearGain;
+                outParameterInfo.minValue = 0;
+                outParameterInfo.maxValue = 1;
+                outParameterInfo.defaultValue = kDefaultValue_Param_EQ6_BYPASS;
+                break;
+                
             default:
                 result = kAudioUnitErr_InvalidParameter;
                 break;
@@ -541,12 +585,20 @@ void SpectralEQ::SpectralEQKernel::Process(	const Float32 	*inSourceP,
 	Float32 *destP = inDestP;
     Float32 gain = GetParameter( kParam_One );
     
-    ((SpectralEQ*)mAudioUnit)->SetEQParams(0, GetParameter(kParam_EQ1_F), kParam_EQ1_Q, kParam_EQ1_G);
-    ((SpectralEQ*)mAudioUnit)->SetEQParams(1, GetParameter(kParam_EQ2_F), kParam_EQ2_Q, kParam_EQ2_G);
-    ((SpectralEQ*)mAudioUnit)->SetEQParams(2, GetParameter(kParam_EQ3_F), kParam_EQ3_Q, kParam_EQ3_G);
-    ((SpectralEQ*)mAudioUnit)->SetEQParams(3, GetParameter(kParam_EQ4_F), kParam_EQ4_Q, kParam_EQ4_G);
-    ((SpectralEQ*)mAudioUnit)->SetEQParams(4, GetParameter(kParam_EQ5_F), kParam_EQ5_Q, kParam_EQ5_G);
-    ((SpectralEQ*)mAudioUnit)->SetEQParams(5, GetParameter(kParam_EQ6_F), kParam_EQ6_Q, kParam_EQ6_G);
+    ((SpectralEQ*)mAudioUnit)->SetEQParams(0, GetParameter(kParam_EQ1_F), GetParameter(kParam_EQ1_Q), GetParameter(kParam_EQ1_G));
+    ((SpectralEQ*)mAudioUnit)->SetEQParams(1, GetParameter(kParam_EQ2_F), GetParameter(kParam_EQ2_Q), GetParameter(kParam_EQ2_G));
+    ((SpectralEQ*)mAudioUnit)->SetEQParams(2, GetParameter(kParam_EQ3_F), GetParameter(kParam_EQ3_Q), GetParameter(kParam_EQ3_G));
+    ((SpectralEQ*)mAudioUnit)->SetEQParams(3, GetParameter(kParam_EQ4_F), GetParameter(kParam_EQ4_Q), GetParameter(kParam_EQ4_G));
+    ((SpectralEQ*)mAudioUnit)->SetEQParams(4, GetParameter(kParam_EQ5_F), GetParameter(kParam_EQ5_Q), GetParameter(kParam_EQ5_G));
+    ((SpectralEQ*)mAudioUnit)->SetEQParams(5, GetParameter(kParam_EQ6_F), GetParameter(kParam_EQ6_Q), GetParameter(kParam_EQ6_G));
+    
+    ((SpectralEQ*)mAudioUnit)->SetBypass(0, GetParameter(kParam_EQ1_BYPASS));
+    ((SpectralEQ*)mAudioUnit)->SetBypass(1, GetParameter(kParam_EQ2_BYPASS));
+    ((SpectralEQ*)mAudioUnit)->SetBypass(2, GetParameter(kParam_EQ3_BYPASS));
+    ((SpectralEQ*)mAudioUnit)->SetBypass(3, GetParameter(kParam_EQ4_BYPASS));
+    ((SpectralEQ*)mAudioUnit)->SetBypass(4, GetParameter(kParam_EQ5_BYPASS));
+    ((SpectralEQ*)mAudioUnit)->SetBypass(5, GetParameter(kParam_EQ6_BYPASS));
+    
     
 	while (nSampleFrames-- > 0) {
 		Float32 inputSample = *sourceP;
@@ -563,6 +615,25 @@ void SpectralEQ::SpectralEQKernel::Process(	const Float32 	*inSourceP,
 		*destP = outputSample;
 		destP += inNumChannels;
 	}
+    
+    ((SpectralEQ*)mAudioUnit)->mDSP_FFT.CopyInputToRingBuffer(inFramesToProcess, &newList);
+    
+    UInt32 currentBlockSize = 1024;
+    
+    DSP_FFT::Window currentWindow = DSP_FFT::Window::Blackman;
+    
+    
+    if(((SpectralEQ*)mAudioUnit)->mDSP_FFT.ApplyFFT(currentBlockSize, currentWindow))
+    {
+        ((SpectralEQ*)mAudioUnit)->mInfos.mNumBins = currentBlockSize >> 1;
+        
+        UInt32 channelSelect = 1;
+        
+        if(((SpectralEQ*)mAudioUnit)->mDSP_FFT.GetMagnitudes(((SpectralEQ*)mAudioUnit)->mComputedMagnitudes, currentWindow, channelSelect))
+        {
+            ((SpectralEQ*)mAudioUnit)->PropertyChanged(kAudioUnitProperty_SpectrumGraphData, kAudioUnitScope_Global, 0);
+        }
+    }
 }
 
 
@@ -578,6 +649,13 @@ void SpectralEQ::SetEQParams(int index, AudioUnitParameterValue F, AudioUnitPara
     ErrorCheck(NodeParameter);
 }
 
+void SpectralEQ::SetBypass(int index, int state)
+{
+    UInt32 bypassed = state;
+    mResult = AudioUnitSetProperty(eq_au[index], kAudioUnitProperty_BypassEffect, kAudioUnitScope_Global, 0, &bypassed, sizeof(bypassed));
+    ErrorCheck(NodeSetProperty);
+}
+
 OSStatus SpectralEQ::Render(AudioUnitRenderActionFlags & ioActionFlags,
                            const AudioTimeStamp & inTimeStamp,
                            UInt32 inFramesToProcess )
@@ -589,39 +667,10 @@ OSStatus SpectralEQ::Render(AudioUnitRenderActionFlags & ioActionFlags,
     UInt32 actionFlags = 0;
     OSStatus err = PullInput(0, actionFlags, inTimeStamp, inFramesToProcess);
     
-    //Float32 gain = GetParameter(kParam_One);
-    
     if(err)
         return err;
     
     GetOutput(0)->PrepareBuffer(inFramesToProcess);
-    
-    AudioBufferList& inputBuffer = GetInput(0)->GetBufferList();
-    
-    //std::cout << *(float *)inputBuffer.mBuffers[0].mData << std::endl;
-    
-    mDSP_FFT.CopyInputToRingBuffer(inFramesToProcess, &inputBuffer);
-    
-    // TEMP
-    UInt32 currentBlockSize = 1024;
-    
-    // TEMP
-    DSP_FFT::Window currentWindow = DSP_FFT::Window::Blackman;
-    
-    
-    if(mDSP_FFT.ApplyFFT(currentBlockSize, currentWindow))
-    {
-        mInfos.mNumBins = currentBlockSize >> 1;
-        
-        // TEMP
-        UInt32 channelSelect = 1;
-        
-        if(mDSP_FFT.GetMagnitudes(mComputedMagnitudes, currentWindow, channelSelect))
-        {
-            PropertyChanged(kAudioUnitProperty_SpectrumGraphData, kAudioUnitScope_Global, 0);
-        }
-    }
-     
     
     return AUEffectBase::Render(ioActionFlags, inTimeStamp, inFramesToProcess);
 }

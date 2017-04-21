@@ -48,6 +48,7 @@
 */
 
 #import "SpectralEQ_CocoaView.h"
+#include <iostream>
 
 enum {
     kParam_One =0,
@@ -69,7 +70,13 @@ enum {
     kParam_EQ6_F =16,
     kParam_EQ6_Q =17,
     kParam_EQ6_G =18,
-	kNumberOfParameters=19
+    kParam_EQ1_BYPASS = 19,
+    kParam_EQ2_BYPASS = 20,
+    kParam_EQ3_BYPASS = 21,
+    kParam_EQ4_BYPASS = 22,
+    kParam_EQ5_BYPASS = 23,
+    kParam_EQ6_BYPASS = 24,
+	kNumberOfParameters=25
 };
 
 #pragma mark ____ LISTENER CALLBACK DISPATCHER ____
@@ -115,7 +122,7 @@ NSString *SpectralEQ_GestureSliderMouseUpNotification = @"CAGestureSliderMouseUp
 	mParameter[0].mElement = 0;
     
     // Set EQ params
-    for(int i = 1; i <= 18; i++)
+    for(int i = 1; i <= 25; i++)
     {
         mParameter[i].mAudioUnit = inAU;
         mParameter[i].mParameterID = i;
@@ -426,6 +433,99 @@ NSString *SpectralEQ_GestureSliderMouseUpNotification = @"CAGestureSliderMouseUp
         [uiParam_eq6_g setFloatValue:floatValue];
     }
 }
+
+// BYPASS
+- (IBAction)iaParam_eq1_bypass:(id)sender
+{
+    float floatValue = [sender floatValue];
+    
+    OSStatus result = AUParameterSet(mParameterListener, sender, &mParameter[19], (Float32)floatValue, 0);
+    NSAssert(result == noErr, @"[SpectralEQ_CocoaView iaParam_eq1_bypass:] AUParameterSet()");
+    
+    if (sender != uiParam_eq1_bypass) {
+    } else {
+        [uiParam_eq1_bypass setFloatValue:floatValue];
+    }
+}
+
+- (IBAction)iaParam_eq2_bypass:(id)sender
+{
+    float floatValue = [sender floatValue];
+    
+    OSStatus result = AUParameterSet(mParameterListener, sender, &mParameter[20], (Float32)floatValue, 0);
+    NSAssert(result == noErr, @"[SpectralEQ_CocoaView iaParam_eq2_bypass:] AUParameterSet()");
+    
+    if (sender != uiParam_eq2_bypass) {
+    } else {
+        [uiParam_eq2_bypass setFloatValue:floatValue];
+    }
+}
+
+- (IBAction)iaParam_eq3_bypass:(id)sender
+{
+    float floatValue = [sender floatValue];
+    
+    OSStatus result = AUParameterSet(mParameterListener, sender, &mParameter[21], (Float32)floatValue, 0);
+    NSAssert(result == noErr, @"[SpectralEQ_CocoaView iaParam_eq3_bypass:] AUParameterSet()");
+    
+    if (sender != uiParam_eq3_bypass) {
+    } else {
+        [uiParam_eq3_bypass setFloatValue:floatValue];
+    }
+}
+
+- (IBAction)iaParam_eq4_bypass:(id)sender
+{
+    float floatValue = [sender floatValue];
+    
+    OSStatus result = AUParameterSet(mParameterListener, sender, &mParameter[22], (Float32)floatValue, 0);
+    NSAssert(result == noErr, @"[SpectralEQ_CocoaView iaParam_eq4_bypass:] AUParameterSet()");
+    
+    if (sender != uiParam_eq4_bypass) {
+    } else {
+        [uiParam_eq4_bypass setFloatValue:floatValue];
+    }
+}
+
+- (IBAction)iaParam_eq5_bypass:(id)sender
+{
+    float floatValue = [sender floatValue];
+    
+    OSStatus result = AUParameterSet(mParameterListener, sender, &mParameter[23], (Float32)floatValue, 0);
+    NSAssert(result == noErr, @"[SpectralEQ_CocoaView iaParam_eq5_bypass:] AUParameterSet()");
+    
+    if (sender != uiParam_eq5_bypass) {
+    } else {
+        [uiParam_eq5_bypass setFloatValue:floatValue];
+    }
+}
+
+- (IBAction)iaParam_eq6_bypass:(id)sender
+{
+    float floatValue = [sender floatValue];
+    
+    OSStatus result = AUParameterSet(mParameterListener, sender, &mParameter[24], (Float32)floatValue, 0);
+    NSAssert(result == noErr, @"[SpectralEQ_CocoaView iaParam_eq6_bypass:] AUParameterSet()");
+    
+    if (sender != uiParam_eq6_bypass) {
+    } else {
+        [uiParam_eq6_bypass setFloatValue:floatValue];
+    }
+}
+
+- (IBAction)iaParam_window:(id)sender
+{
+    float floatValue = [sender floatValue];
+    
+    //OSStatus result = AUParameterSet(mParameterListener, sender, &mParameter[25], (Float32)floatValue, 0);
+    //NSAssert(result == noErr, @"[SpectralEQ_CocoaView iaParam_window:] AUParameterSet()");
+    
+    
+    if (sender != uiParam_Window) {
+    } else {
+        [uiParam_Window setFloatValue:floatValue];
+    }
+}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark ____ NOTIFICATIONS ____
 
@@ -645,6 +745,31 @@ void EventListenerDispatcher(void *inRefCon, void *inObject, const AudioUnitEven
             [uiParam_eq6_g setFloatValue:inValue];
             [uiParam_eq6_g_Label setStringValue:[[NSNumber numberWithFloat:inValue] stringValue]];
             break;
+            
+        // BYPASS
+        case kParam_EQ1_BYPASS:
+            [uiParam_eq1_bypass setIntegerValue:inValue];
+            break;
+        case kParam_EQ2_BYPASS:
+            [uiParam_eq2_bypass setIntegerValue:inValue];
+            break;
+            
+        case kParam_EQ3_BYPASS:
+            [uiParam_eq3_bypass setIntegerValue:inValue];
+            break;
+            
+        case kParam_EQ4_BYPASS:
+            [uiParam_eq4_bypass setIntegerValue:inValue];
+            break;
+            
+        case kParam_EQ5_BYPASS:
+            [uiParam_eq5_bypass setIntegerValue:inValue];
+            break;
+            
+        case kParam_EQ6_BYPASS:
+            [uiParam_eq6_bypass setIntegerValue:inValue];
+            break;
+
 	}
 }
 
